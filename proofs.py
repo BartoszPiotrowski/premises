@@ -1,6 +1,6 @@
 from utils import remove_supersets
 
-class Proofs():
+class Proofs:
     def __init__(self):
         self.proofs = {}
 
@@ -39,20 +39,6 @@ class Proofs():
     def avg_num_of_proofs(self):
         return self.num_of_all_proofs() / len(self)
 
-class Rankings():
-    def __init__(self):
-        self.rankings = {}
-
-    def __len__(self):
-        return len(self.rankings)
-
-    def __getitem__(self, theorem):
-        return self.rankings[theorem]
-
-    def add(self, theorem, ranking):
-        self.rankings[theorem] = ranking
-
-
 if __name__ == "__main__":
     prfs = Proofs()
     prfs.add("t1", ["p3", "p2"])
@@ -63,3 +49,4 @@ if __name__ == "__main__":
     print(prfs.num_of_all_proofs())
     print(prfs.nums_of_proofs())
     print(prfs["t1"])
+
