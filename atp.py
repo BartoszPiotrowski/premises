@@ -2,16 +2,16 @@ import subprocess, shlex, os, sys
 from joblib import Parallel, delayed
 
 
-def problem_file(theorem, list_of_premises, statements_dict, directory):
+def problem_file(theorem, list_of_premises, statements, directory):
     if not os.path.exists(directory):
         os.makedirs(directory)
     input_filename = os.path.join(directory, theorem + "__" +
                          str(len(list_of_premises)) + "_premises" + ".E_input")
     with open(input_filename, "w") as problem:
-        print(statements_dict[theorem].replace("axiom,", "conjecture,"),
+        print(statements[theorem].replace("axiom,", "conjecture,"),
               file=problem)
         for p in list_of_premises:
-            print(statements_dict[p], file=problem)
+            print(statements[p], file=problem)
     return input_filename
 
 def problem_file_rerun(output_filename, directory):
@@ -45,11 +45,11 @@ def used_premises(filename):
     return tuple(l.split(", ")[0].replace("fof(", "")
                     for l in lines if "axiom" in l and "file" in l)
 
-def proof(theorem, list_of_premises, statements_dict, directory, cpu_time,
+def proof(theorem, list_of_premises, statements, directory, cpu_time,
                         rerun=True, cpu_time_rerun=1):
     assert not theorem in set(list_of_premises)
     input_filename = problem_file(theorem, list_of_premises,
-                                          statements_dict, directory)
+                                          statements, directory)
     output_filename = input_filename.replace("input", "output")
     run_E_prover(input_filename, output_filename, cpu_time)
     premises = used_premises(output_filename)
@@ -74,30 +74,30 @@ def proof(theorem, list_of_premises, statements_dict, directory, cpu_time,
                 theorem, len(list_of_premises)))
         return False
 
-def proof_from_ranking(theorem, ranking_of_premises, statements_dict,
+def proof_from_ranking(theorem, ranking_of_premises, statements,
                    directory, n_premises, cpu_time, rerun, cpu_time_rerun):
-    proofs = [proof(theorem, ranking_of_premises[:i], statements_dict,
+    proofs = [proof(theorem, ranking_of_premises[:i], statements,
               directory, cpu_time, rerun, cpu_time_rerun) for i in n_premises]
     return [set(prf) for prf in (set(proofs) - {False})]
 
 # wrapper for proof_from_ranking() -- useful for doing parallelization
-def prf(theorem, ranking_of_premises, statements_dict,
+def prf(theorem, ranking_of_premises, statements,
         directory, n_premises, cpu_time, rerun, cpu_time_rerun):
     return (theorem, proof_from_ranking(theorem, ranking_of_premises,
-      statements_dict, directory, n_premises, cpu_time, rerun, cpu_time_rerun))
+      statements, directory, n_premises, cpu_time, rerun, cpu_time_rerun))
 
-def atp_evaluation(rankings_dict, statements_dict,
+def atp_evaluation(rankings, statements,
                    directory, logfile="", n_jobs=-1, cpu_time=10,
                    n_premises=[1, 2, 4, 8, 16, 32, 64, 128, 256, 512],
                     rerun=True, cpu_time_rerun=1):
     n_premises = [i for i in n_premises if i <=
-                len(rankings_dict[list(rankings_dict)[0]])]
+                len(rankings[list(rankings)[0]])]
     with Parallel(n_jobs=n_jobs) as parallel:
         dprf = delayed(prf)
         proven = parallel(
-            dprf(thm, rankings_dict[thm], statements_dict,
+            dprf(thm, rankings[thm], statements,
                  directory, n_premises, cpu_time, rerun, cpu_time_rerun)
-           for thm in rankings_dict)
+           for thm in rankings)
     if logfile:
         proven_n = sum([bool(i[1]) for i in proven])
         proven_avg = proven_n / len(proven)

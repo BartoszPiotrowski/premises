@@ -2,9 +2,8 @@ import xgboost as xgb
 import numpy as np
 from time import time
 from joblib import Parallel, delayed
-from .utils import pairs_to_array
 
-train(labels, array, weights=None, model="xgboost", params={}, n_jobs=-1):
+def train(labels, array, weights=None, model="xgboost", params={}, n_jobs=-1):
     if model == "xgboost":
         num_boost_round = params["num_boost_round"] \
                 if "num_boost_round" in params else 100

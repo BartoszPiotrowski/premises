@@ -1,5 +1,5 @@
 from joblib import Parallel, delayed
-from data_trans import pairs_to_array
+from .data_trans import pairs_to_array
 
 class Rankings:
     def __init__(self, theorems, theorems_features, chronology,
@@ -11,8 +11,8 @@ class Rankings:
         with Parallel(n_jobs=n_jobs, backend='loky') as parallel:
             drfm = delayed(rfm)
             rankings = parallel(drfm(theorem, theorems_features,
-                  available_premises=set(chronology[:chronology.index(theorem)])
-                                 model, params_data_trans)
+                                set(chronology[:chronology.index(theorem)]),
+                                model, params_data_trans)
                 for theorem in theorems)
         self.rankings = dict(rankings)
 

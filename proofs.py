@@ -1,4 +1,4 @@
-from utils import remove_supersets
+from .utils import remove_supersets
 
 class Proofs:
     def __init__(self):

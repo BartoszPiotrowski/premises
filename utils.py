@@ -1,6 +1,6 @@
 
 def remove_supersets(list_of_sets):
-    """Removes proper supersets from list of sets"""
+    """Removes proper supersets from the list of sets"""
     list_of_sets_clean = []
     l = len(list_of_sets)
     for i1 in range(l):
@@ -10,4 +10,3 @@ def remove_supersets(list_of_sets):
         else:
             list_of_sets_clean.append(list_of_sets[i1])
     return list_of_sets_clean
-
