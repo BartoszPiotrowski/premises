@@ -87,7 +87,7 @@ def prf(theorem, ranking_of_premises, statements_dict,
       statements_dict, directory, n_premises, cpu_time, rerun, cpu_time_rerun))
 
 def atp_evaluation(rankings_dict, statements_dict,
-                   directory, logfile="", n_jobs=4, cpu_time=10,
+                   directory, logfile="", n_jobs=-1, cpu_time=10,
                    n_premises=[1, 2, 4, 8, 16, 32, 64, 128, 256, 512],
                     rerun=True, cpu_time_rerun=1):
     n_premises = [i for i in n_premises if i <=
