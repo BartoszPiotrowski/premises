@@ -12,12 +12,12 @@ def remove_supersets(list_of_sets):
     return list_of_sets_clean
 
 def read_dict(filename, type_of_names=str, type_of_values=str, sep=':',
-             sep_in_list=', ', to_strip=' "'):
+             type_of_values_in_list=str, sep_in_list=', ', to_strip=' "'):
     with open(filename) as file:
         slines = [l.split(sep) for l in file.read().splitlines()]
     names = [type_of_names(l[0]) for l in slines]
     values_raw = [l[1] for l in slines]
-    if type_of_values in {int, str, float}
+    if type_of_values in {int, str, float}:
         values = [type_of_values(v.strip(to_strip)) for v in values_raw]
     elif type_of_values == list:
         values = []
@@ -31,3 +31,7 @@ def read_dict(filename, type_of_names=str, type_of_values=str, sep=':',
         print("Error: cannot read the file to dict.")
         return
     return dict(zip(names, values))
+
+def lines_from_txt(filename):
+    with open(filename, encoding ='utf-8') as f:
+        return f.read().splitlines()

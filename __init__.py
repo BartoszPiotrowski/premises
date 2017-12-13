@@ -1,6 +1,7 @@
 from .training import train
-from .rankings import Rankings
 from .atp import atp_evaluation
-from .proofs import Proofs
+from .data_structures import Features, Proofs, Rankings, Chronology, Statements
+from .data_transformation import proofs_to_train
 
-__all__ = ['Rankings', 'Proofs', 'train', 'atp_evaluation']
+__all__ = ['Rankings', 'Proofs', 'Chronology', 'Features', 'Statements',
+           'proofs_to_train', 'train', 'atp_evaluation']
