@@ -1,6 +1,7 @@
 from .utils import read_dict, remove_supersets, lines_from_txt
 from .data_transformation import pairs_to_array
 from joblib import Parallel, delayed
+from xgboost import DMatrix
 
 class Features:
     def __init__(self, from_dict={}, from_file=''):
@@ -14,6 +15,9 @@ class Features:
 
     def __getitem__(self, theorem):
         return self.features[theorem]
+
+    def __contains__(self, theorem):
+        return theorem in self.features
 
     def add(self, theorem, features):
         self.features[theorem] = features
@@ -39,6 +43,9 @@ class Statements:
     def __getitem__(self, theorem):
         return self.statements[theorem]
 
+    def __contains__(self, theorem):
+        return theorem in self.statements
+
     def add(self, theorem, statements):
         self.statements[theorem] = statements
 
@@ -57,6 +64,9 @@ class Chronology:
 
     def __getitem__(self, index):
         return self.chronology[index]
+
+    def __contains__(self, theorem):
+        return theorem in set(self.chronology)
 
     def index(self, theorem):
         if theorem in set(self.chronology):
@@ -89,6 +99,9 @@ class Proofs:
     def __iter__(self):
         return self.proofs.__iter__()
 
+    def __contains__(self, theorem):
+        return theorem in self.proofs
+
     def add(self, theorem, proof):
         proof = set(proof)
         if not theorem in self.proofs:
@@ -120,33 +133,38 @@ class Proofs:
 
 class Rankings:
     def __init__(self, theorems, model, params, n_jobs=-1):
-        """params must contain list_of_features"""
+        assert 'features' in params
+        assert 'features_ordered' in params
+        assert 'chronology' in params
         # be careful: backend 'loky' is needed to not colide with model
         # 'loky' is available only in the newest dev release of joblib
         # (only on github so far)
         with Parallel(n_jobs=n_jobs, backend='loky') as parallel:
-            drfm = delayed(rfm)
+            drfm = delayed(self.rfm)
             rankings = parallel(drfm(theorem, model, params)
                 for theorem in theorems)
         self.rankings = dict(rankings)
 
-    def rfm(theorem, model, params):
+    def rfm(self, theorem, model, params):
         """wrapper for ranking_from_model() needed for parallelization"""
-        return (theorem, ranking_from_model(theorem, model, params))
+        return (theorem, self.ranking_from_model(theorem, model, params))
 
-    def ranking_from_model(theorem, model, params):
+    def ranking_from_model(self, theorem, model, params):
         features = params['features']
         chronology = params['chronology']
         available_premises = chronology.available_premises(theorem)
         pairs = [(features[theorem], features[premise])
                  for premise in available_premises]
-        scores = score_pairs(pairs, model, params)
+        scores = self.score_pairs(pairs, model, params)
         premises_scores = list(zip(available_premises, scores))
         premises_scores.sort(key = lambda x: x[1], reverse = True)
         return premises_scores
 
-    def score_pairs(pairs, model, params):
+    def score_pairs(self, pairs, model, params):
         array = pairs_to_array(pairs, params)
+        print(type(model))
+        if isinstance(model, xgboost.Booster):
+            array = DMatrix(array)
         return model.predict(array) #TODO remember -- DMatrix...
 
     def __len__(self):
@@ -157,8 +175,6 @@ class Rankings:
 
     def add(self, theorem, ranking):
         self.rankings[theorem] = ranking
-
-
 
 
 if __name__ == "__main__":

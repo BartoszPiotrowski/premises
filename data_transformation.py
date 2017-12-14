@@ -57,6 +57,9 @@ def proofs_to_train_one_theorem(thm, proofs, params):
     return labels, array
 
 def proofs_to_train(proofs, params, n_jobs=-1):
+    assert 'features' in params
+    assert 'features_ordered' in params
+    assert 'chronology' in params
     with Parallel(n_jobs=n_jobs) as parallel:
         d_proofs_to_train_one_theorem = delayed(proofs_to_train_one_theorem)
         labels_and_arrays = parallel(
