@@ -1,3 +1,5 @@
+import os
+
 
 def remove_supersets(list_of_sets):
     '''Removes proper supersets from the list of sets'''
@@ -32,6 +34,10 @@ def read_dict(filename, type_of_names=str, type_of_values=str, sep=':',
         return
     return dict(zip(names, values))
 
-def lines_from_txt(filename):
+def read_lines(filename):
     with open(filename, encoding ='utf-8') as f:
         return f.read().splitlines()
+
+def mkdir_if_not_exists(dirpath):
+    if not os.path.exists(dirpath):
+        os.makedirs(dirpath)

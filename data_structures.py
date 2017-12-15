@@ -1,4 +1,4 @@
-from .utils import read_dict, remove_supersets, lines_from_txt
+from .utils import read_dict, remove_supersets, read_lines
 from .data_transformation import pairs_to_array
 from joblib import Parallel, delayed
 import xgboost
@@ -28,7 +28,7 @@ class Features:
 class Statements:
     def __init__(self, from_dict=None, from_file=''):
         if from_file:
-            lines = lines_from_txt(from_file)
+            lines = read_lines(from_file)
             names = [l.split(',')[0].replace('fof(', '').replace(' ', '')
                         for l in lines]
             self.statements = dict(zip(names, lines))
@@ -53,7 +53,7 @@ class Statements:
 class Chronology:
     def __init__(self, from_list=None, from_file=''):
         if from_file:
-            self.chronology = lines_from_txt(from_file)
+            self.chronology = read_lines(from_file)
         elif from_list:
             self.chronology = from_list
         else:
@@ -136,14 +136,21 @@ class Rankings:
         assert 'features' in params
         assert 'features_ordered' in params
         assert 'chronology' in params
+
         # be careful: backend 'loky' is needed to not colide with model
         # 'loky' is available only in the newest dev release of joblib
         # (only on github so far)
         with Parallel(n_jobs=n_jobs, backend='loky') as parallel:
             drfm = delayed(self.rfm)
-            rankings = parallel(drfm(theorem, model, params)
-                for theorem in theorems)
-        self.rankings = dict(rankings)
+            rankings_with_scores = parallel(drfm(theorem, model, params)
+                                            for theorem in theorems)
+        self.rankings_with_scores = dict(rankings_with_scores)
+        self.rankings = self._rankings_only_names(self.rankings_with_scores)
+
+    def _rankings_only_names(self, rankings_with_scores):
+        return {thm: [rankings_with_scores[thm][i][0]
+                          for i in range(len(rankings_with_scores[thm]))]
+                             for thm in rankings_with_scores}
 
     def rfm(self, theorem, model, params):
         """wrapper for ranking_from_model() needed for parallelization"""
@@ -172,6 +179,12 @@ class Rankings:
 
     def __getitem__(self, theorem):
         return self.rankings[theorem]
+
+    def __iter__(self):
+        return self.rankings.__iter__()
+
+    def __contains__(self, theorem):
+        return theorem in self.rankings
 
     def add(self, theorem, ranking):
         self.rankings[theorem] = ranking
