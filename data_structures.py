@@ -2,6 +2,7 @@ from .utils import read_dict, remove_supersets, read_lines
 from .data_transformation import pairs_to_array
 from joblib import Parallel, delayed
 import xgboost
+from time import time
 
 class Features:
     def __init__(self, from_dict={}, from_file=''):
@@ -169,7 +170,6 @@ class Rankings:
 
     def score_pairs(self, pairs, model, params):
         array = pairs_to_array(pairs, params)
-        print(type(model))
         if isinstance(model, xgboost.Booster):
             array = xgboost.DMatrix(array)
         return model.predict(array)

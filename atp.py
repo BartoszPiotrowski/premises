@@ -1,7 +1,7 @@
 import os, sys, subprocess, shlex, tempfile, shutil
 from joblib import Parallel, delayed
 from .utils import mkdir_if_not_exists, read_lines
-from .proofs import Proofs
+from .data_structures import Proofs
 
 
 # TODO remeber to give proper instalation instructions

@@ -2,22 +2,31 @@ from xgboost import DMatrix
 from joblib import Parallel, delayed
 from random import sample
 import numpy as np
+from time import time
 
 
 def bin_vector(features_ordered, list_of_features):
 #   return [int(i in list_of_features) for i in features_ordered]
+# is it OK to have bools instead of ints?
     return [i in list_of_features for i in features_ordered]
 
 def bin_trans_comb(thm_features, prm_features, features_ordered):
-    vector = []
-    for f in features_ordered:
-        if f in thm_features or f in prm_features:
-            if f in thm_features and f in prm_features:
-                vector.append(1)
-            else:
-                vector.append(-1)
-        else:
-            vector.append(0)
+  #  vector = []
+  #  for f in features_ordered:
+  #      T = f in thm_features
+  #      P = f in prm_features
+  #      if T or P:
+  #          if T and P:
+  #              vector.append(1)
+  #          else:
+  #              vector.append(-1)
+  #      else:
+  #          vector.append(0)
+  #  t0 = time()
+    vector = [0 if not (f in thm_features or f in prm_features) else \
+              (1 if f in thm_features and f in prm_features else -1)
+                      for f in features_ordered]
+  #  t1 = time(); print("1", t1 - t0)
     return vector
 
 # TODO add other posibilities of transforming pair to vector

@@ -1,3 +1,4 @@
+- in atp rerun as long as fixpoint is achieved
 - logfile
 - verbose
 - private methods
