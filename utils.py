@@ -41,3 +41,12 @@ def read_lines(filename):
 def mkdir_if_not_exists(dirpath):
     if not os.path.exists(dirpath):
         os.makedirs(dirpath)
+
+def printline(message, filename='', verbose=True, time=True):
+    if verbose:
+        print(message)
+    if filename:
+        with open(filename, 'a') as f:
+            if time:
+                message = "[{}] {}".format(strftime("%Y-%m-%d %H:%M:%S"), message)
+            print(message, file=f)

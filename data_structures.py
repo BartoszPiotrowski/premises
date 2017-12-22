@@ -1,15 +1,19 @@
-from .utils import read_dict, remove_supersets, read_lines
+from .utils import read_dict, remove_supersets, read_lines, printline
 from .data_transformation import pairs_to_array
 from joblib import Parallel, delayed
 import xgboost
 from time import time
 
 class Features:
-    def __init__(self, from_dict={}, from_file=''):
+    def __init__(self, from_dict={}, from_file='', verbose=True, logfile=''):
         if from_file:
             self.features = read_dict(from_file, type_of_values=list)
         else:
             self.features = from_dict
+        if verbose or logfile:
+            message = "{} different features loaded for {} theorems.".format(
+                    len(self), len(self.all_features()))
+            printline(message, logfile, verbose)
 
     def __len__(self):
         return len(self.features)
@@ -27,7 +31,7 @@ class Features:
         return list(set().union(*self.features.values()))
 
 class Statements:
-    def __init__(self, from_dict=None, from_file=''):
+    def __init__(self, from_dict=None, from_file='', verbose=True, logfile=''):
         if from_file:
             lines = read_lines(from_file)
             names = [l.split(',')[0].replace('fof(', '').replace(' ', '')
@@ -37,6 +41,9 @@ class Statements:
             self.statements = from_dict
         else:
             print("Error: no dict or file name provided to initialize from.")
+        if verbose or logfile:
+            message = "{} statements loaded.".format(len(self))
+            printline(message, logfile, verbose)
 
     def __len__(self):
         return len(self.statements)
@@ -52,13 +59,17 @@ class Statements:
 
 
 class Chronology:
-    def __init__(self, from_list=None, from_file=''):
+    def __init__(self, from_list=None, from_file='', verbose=True, logfile=''):
         if from_file:
             self.chronology = read_lines(from_file)
         elif from_list:
             self.chronology = from_list
         else:
             print("Error: no list or file name provided to initialize from.")
+        if verbose or logfile:
+            message = "Chronological order with {} theorems loaded.".format(
+                len(self))
+            printline(message, logfile, verbose)
 
     def __len__(self):
         return len(self.chronology)
@@ -84,12 +95,16 @@ class Chronology:
                                 theorem))
 
 class Proofs:
-    def __init__(self, from_dict={}, from_file=''):
+    def __init__(self, from_dict={}, from_file='', verbose=True, logfile=''):
         if from_file:
             prfs = read_dict(from_file, type_of_values=list, sep_in_list=' ')
             self.proofs = {thm: [set(prfs[thm])] for thm in prfs}
         else:
             self.proofs = from_dict
+        if verbose or logfile:
+            message = "Proofs for {} theorems loaded.".format(
+                len(self))
+            printline(message, logfile, verbose)
 
     def __len__(self):
         return len(self.proofs)
@@ -118,7 +133,7 @@ class Proofs:
                 self.proofs[theorem].append(proof)
             self.proofs[theorem] = remove_supersets(self.proofs[theorem])
 
-    def update(self, new_proofs):
+    def update(self, new_proofs, verbose=True, logfile=''):
         for thm in new_proofs:
             for prf in new_proofs[thm]:
                 self.add(thm, prf)
@@ -132,12 +147,37 @@ class Proofs:
     def avg_num_of_proofs(self):
         return self.num_of_all_proofs() / len(self)
 
+    def avg_length_of_proof(self):
+        lengths = [len(p) for t in self.proofs for p in t]
+        return lengths / len(lengths)
+
+    def stats(self):
+        return {'num_of_thms': len(self),
+                'num_of_proofs': self.num_of_all_proofs(),
+                'avg_num_of_proofs': self.avg_num_of_proofs(),
+                'avg_len_of_proof': self.avg_num_of_proofs()}
+
+    def print_stats(logfile=''):
+        printline("Number of all theorems with proofs: {}".format(len(self)),
+                  logfile)
+        printline("Number of all proofs: {}".format(self.num_of_all_proofs),
+                  logfile)
+        printline("Average number of proofs per theorem: {}".format(
+                  self.avg_num_of_proofs), logfile)
+        printline("Average length of a proof: {}".format(
+                  self.avg_length_of_proof), logfile)
+
 class Rankings:
-    def __init__(self, theorems, model, params, n_jobs=-1):
+    def __init__(self, theorems, model, params, verbose=True, logfile='',
+                 n_jobs=-1):
         assert 'features' in params
         assert 'features_ordered' in params
         assert 'chronology' in params
 
+        if verbose or logfile:
+            message = "Creating rankings of premises for {} theorems...".format(
+                len(theorems))
+            printline(message, logfile, verbose)
         # be careful: backend 'loky' is needed to not colide with model
         # 'loky' is available only in the newest dev release of joblib
         # (only on github so far)
@@ -147,6 +187,9 @@ class Rankings:
                                             for theorem in theorems)
         self.rankings_with_scores = dict(rankings_with_scores)
         self.rankings = self._rankings_only_names(self.rankings_with_scores)
+        if verbose or logfile:
+            message = "Rankings created."
+            printline(message, logfile, verbose)
 
     def _rankings_only_names(self, rankings_with_scores):
         return {thm: [rankings_with_scores[thm][i][0]
