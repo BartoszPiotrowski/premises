@@ -1,6 +1,12 @@
-- in atp rerun as long as fixpoint is achieved
+- sparse
+- run on Mizar40
+- random negatives
+- print ranking
+- negative mining
+- create rankings faster
+- in chronology/statements/... you have not only theorems but also definitions...
 - logfile
 - verbose
+- in atp rerun as long as fixpoint is achieved
 - private methods
-- Proofs: upper limit for number of theorems
 - Proofs/atp_eval: handling clouse loop numbers
