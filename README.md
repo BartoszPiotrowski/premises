@@ -1,2 +1,2 @@
-# premiski
+# premises
 Python package for ML premise selection and ATP evaluation 
