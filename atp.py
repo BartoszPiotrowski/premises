@@ -77,8 +77,7 @@ def proof(theorem, ranking, statements, dirpath, params):
                 theorem, len(premises)))
         return premises
     else:
-        if verbose:
-            print("Proof of theorem {} NOT found with {} premises".format(
+        print("Proof of theorem {} NOT found with {} premises".format(
                     theorem, len(ranking)))
         return False
 
@@ -93,8 +92,8 @@ def proof_from_ranking(theorem, ranking, statements, dirpath, params):
 # wrapper for proof_from_ranking() -- useful for doing parallelization
 def pfr(t, r, s, d, p): return (t, proof_from_ranking(t, r, s, d, p))
 
-def atp_evaluation(rankings=None, statements=None, dirpath='', verbose=True,
-                   logfile='', params={}, n_jobs=-1):
+def atp_evaluation(rankings=None, statements=None, params={}, dirpath='',
+                   verbose=True, logfile='', n_jobs=-1):
     if verbose or logfile:
         message = "ATP evaluation started..."
         printline(message, logfile, verbose)
