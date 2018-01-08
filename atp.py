@@ -61,19 +61,21 @@ def proof(theorem, ranking, statements, dirpath, params):
     premises = used_premises(output_filename)
     lines = readlines(output_filename)
     if "# Proof found!" in lines and "# SZS status Theorem" in lines:
-        if rerun: # we will rerun twice!
-            input_filename = problem_file_rerun(output_filename, dirpath)
-            output_filename = input_filename.replace("input", "output")
-            run_E_prover(input_filename, output_filename, cpu_time_rerun)
-            input_filename = problem_file_rerun(output_filename, dirpath)
-            output_filename = input_filename.replace("input", "output")
-            run_E_prover(input_filename, output_filename, cpu_time_rerun)
-            premises_rerun = used_premises(output_filename)
-            if "Proof found!\n# SZS status Theorem" in \
-               readlines(output_filename):
-                premises = premises_rerun
-            else:
-                "Failed to find a proof after reruning twice."
+        if minimize: # we will rerun until achieving fixpoint
+            # TODO test it!
+            stop = False
+            while not stop:
+                input_filename = problem_file_rerun(output_filename, dirpath)
+                output_filename = input_filename.replace("input", "output")
+                run_E_prover(input_filename, output_filename, cpu_time)
+                premises_rerun = used_premises(output_filename)
+                lines = readlines(output_filename)
+                proof = "# Proof found!" in lines and \
+                        "# SZS status Theorem" in lines
+                if premises_rerun == premises or not proof:
+                    stop = True
+                else:
+                    premises = premises_rerun
         print("Proof of theorem {} FOUND with {} premises".format(
                 theorem, len(premises)))
         return premises
