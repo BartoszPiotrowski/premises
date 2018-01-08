@@ -3,6 +3,7 @@ from joblib import Parallel, delayed
 from random import sample
 import numpy as np
 from time import time
+from .utils import printline
 
 
 def bin_vector(features_ordered, list_of_features):
@@ -65,10 +66,12 @@ def proofs_to_train_one_theorem(thm, proofs, params):
     assert len(labels) == array.shape[0]
     return labels, array
 
-def proofs_to_train(proofs, params, n_jobs=-1):
+def proofs_to_train(proofs, params, n_jobs=-1, verbose=True, logfile=''):
     assert 'features' in params
     assert 'features_ordered' in params
     assert 'chronology' in params
+    if verbose or logfile:
+        printline("Transforming proofs into training data...", logfile, verbose)
     with Parallel(n_jobs=n_jobs) as parallel:
         d_proofs_to_train_one_theorem = delayed(proofs_to_train_one_theorem)
         labels_and_arrays = parallel(
@@ -78,4 +81,6 @@ def proofs_to_train(proofs, params, n_jobs=-1):
     arrays = [p[1] for p in labels_and_arrays]
     array = np.concatenate(arrays)
     assert len(labels) == array.shape[0]
+    if verbose or logfile:
+        printline("Transformation finished.", logfile, verbose)
     return labels, array

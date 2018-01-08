@@ -1,6 +1,6 @@
 import os, sys, subprocess, shlex, tempfile, shutil
 from joblib import Parallel, delayed
-from .utils import mkdir_if_not_exists, read_lines
+from .utils import mkdir_if_not_exists, read_lines, printline
 from .data_structures import Proofs
 
 
@@ -96,8 +96,11 @@ def proof_from_ranking(theorem, ranking, statements, dirpath, params):
 # wrapper for proof_from_ranking() -- useful for doing parallelization
 def pfr(t, r, s, d, p): return (t, proof_from_ranking(t, r, s, d, p))
 
-def atp_evaluation(rankings, statements, dirpath='', logfile='', params={},
-                   n_jobs=-1):
+def atp_evaluation(rankings=None, statements=None, dirpath='', verbose=True,
+                   logfile='', params={}, n_jobs=-1):
+    if verbose or logfile:
+        message = "ATP evaluation started..."
+        printline(message, logfile, verbose)
     if dirpath:
         mkdir_if_not_exists(dirpath)
         dir_atp = dirpath
@@ -111,9 +114,9 @@ def atp_evaluation(rankings, statements, dirpath='', logfile='', params={},
         proven_n = sum([bool(i[1]) for i in proven])
         proven_avg = proven_n / len(proven)
         printline("    Number of proved theorems: {}".format(proven_n),
-                  logfile, time=True)
-        printline("    Part of proved theorems: {:.3f}".format(proven_avg),
-                  logfile, time=True)
+                  logfile, verbose)
+        printline("    Percentage of proved theorems: {:.2%}".format(proven_avg),
+                  logfile, verbose)
     if not dirpath:
         shutil.rmtree(dir_atp)
     return Proofs(from_dict = dict(proven))

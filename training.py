@@ -2,12 +2,20 @@ import xgboost as xgb
 import numpy as np
 from time import time
 from joblib import Parallel, delayed
+from .utils import printline
 
-def train(labels, array, weights=None, model="xgboost", params={}, n_jobs=-1):
+def train(labels, array, weights=None, model="xgboost", params={}, n_jobs=-1,
+         verbose=True, logfile=''):
     assert isinstance(labels, list)
     assert isinstance(array, np.ndarray)
+    if verbose or logfile:
+        printline("Training of {} model started...".format(model),
+                  logfile, verbose)
     if model == "xgboost":
-        return train_xgboost(labels, array, weights, params, n_jobs)
+        trained_model = train_xgboost(labels, array, weights, params, n_jobs)
+    if verbose or logfile:
+        printline("Training finished.", logfile, verbose)
+    return trained_model
 
 def train_xgboost(labels, array, weights, params, n_jobs):
     num_boost_round = params["num_boost_round"] \

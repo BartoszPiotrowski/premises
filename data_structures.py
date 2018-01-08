@@ -11,8 +11,8 @@ class Features:
         else:
             self.features = from_dict
         if verbose or logfile:
-            message = "{} different features loaded for {} theorems.".format(
-                    len(self), len(self.all_features()))
+            message = "Features of {} theorems and definitions loaded.".format(
+                       len(self))
             printline(message, logfile, verbose)
 
     def __len__(self):
@@ -42,7 +42,8 @@ class Statements:
         else:
             print("Error: no dict or file name provided to initialize from.")
         if verbose or logfile:
-            message = "{} statements loaded.".format(len(self))
+            message = "Statements of {} theorems and definitions loaded.".format(
+                len(self))
             printline(message, logfile, verbose)
 
     def __len__(self):
@@ -67,8 +68,8 @@ class Chronology:
         else:
             print("Error: no list or file name provided to initialize from.")
         if verbose or logfile:
-            message = "Chronological order with {} theorems loaded.".format(
-                len(self))
+            message = ("Chronological order of {} theorems "
+                       "and definitions loaded.").format( len(self))
             printline(message, logfile, verbose)
 
     def __len__(self):
@@ -102,7 +103,7 @@ class Proofs:
         else:
             self.proofs = from_dict
         if verbose or logfile:
-            message = "Proofs for {} theorems loaded.".format(
+            message = "Proofs of {} theorems loaded.".format(
                 len(self))
             printline(message, logfile, verbose)
 
@@ -175,8 +176,8 @@ class Rankings:
         assert 'chronology' in params
 
         if verbose or logfile:
-            message = "Creating rankings of premises for {} theorems...".format(
-                len(theorems))
+            message = ("Creating rankings of premises from the trained model "
+                       "for {} theorems...").format(len(theorems))
             printline(message, logfile, verbose)
         # be careful: backend 'loky' is needed to not colide with model
         # 'loky' is available only in the newest dev release of joblib

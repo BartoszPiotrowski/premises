@@ -1,4 +1,5 @@
 import os
+from time import strftime
 
 
 def remove_supersets(list_of_sets):
@@ -42,11 +43,11 @@ def mkdir_if_not_exists(dirpath):
     if not os.path.exists(dirpath):
         os.makedirs(dirpath)
 
-def printline(message, filename='', verbose=True, time=True):
+def printline(message, logfile='', verbose=True, time=True):
     if verbose:
         print(message)
-    if filename:
-        with open(filename, 'a') as f:
+    if logfile:
+        with open(logfile, 'a') as f:
             if time:
                 message = "[{}] {}".format(strftime("%Y-%m-%d %H:%M:%S"), message)
             print(message, file=f)
