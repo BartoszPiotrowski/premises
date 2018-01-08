@@ -59,7 +59,8 @@ def proof(theorem, ranking, statements, dirpath, params):
     output_filename = input_filename.replace('input', 'output')
     run_E_prover(input_filename, output_filename, cpu_time)
     premises = used_premises(output_filename)
-    if "Proof found!\n# SZS status Theorem" in readlines(output_filename):
+    lines = readlines(output_filename)
+    if "# Proof found!" in lines and "# SZS status Theorem" in lines:
         if rerun: # we will rerun twice!
             input_filename = problem_file_rerun(output_filename, dirpath)
             output_filename = input_filename.replace("input", "output")
