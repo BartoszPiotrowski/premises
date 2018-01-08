@@ -1,6 +1,6 @@
 import os, sys, subprocess, shlex, tempfile, shutil
 from joblib import Parallel, delayed
-from .utils import mkdir_if_not_exists, read_lines, printline
+from .utils import mkdir_if_not_exists, readlines, printline
 from .data_structures import Proofs
 
 
@@ -21,7 +21,7 @@ def problem_file(theorem, list_of_premises, statements, dirpath):
     return input_filename
 
 def problem_file_rerun(output_filename, dirpath):
-    lines = read_lines(output_filename)
+    lines = readlines(output_filename)
     input_filename = output_filename.replace('.E_output', '__rerun.E_input')
     with open(input_filename, 'w') as problem:
         for l in lines:
@@ -47,23 +47,19 @@ def run_E_prover(input_filename, output_filename, cpu_time=10):
     output.close()
 
 def used_premises(filename):
-    lines = read_lines(filename)
+    lines = readlines(filename)
     return tuple(l.split(', ')[0].replace('fof(', '')
                     for l in lines if 'axiom' in l and 'file' in l)
 
 def proof(theorem, ranking, statements, dirpath, params):
     cpu_time = params['cpu_time'] if 'cpu_time' in params else 10
-    rerun = params['rerun'] if 'rerun' in params else True
-    cpu_time_rerun = params['cpu_time_rerun'] if 'cpu_time_rerun' in params else 1
-    # TODO rerun = 3, 4, 5, ...
-    # TODO maybe remove cpu_time_rerun
+    minimize = params['minimize'] if 'minimize' in params else True
     assert not theorem in set(ranking)
-    input_filename = problem_file(theorem, ranking,
-                                          statements, dirpath)
+    input_filename = problem_file(theorem, ranking, statements, dirpath)
     output_filename = input_filename.replace('input', 'output')
     run_E_prover(input_filename, output_filename, cpu_time)
     premises = used_premises(output_filename)
-    if "Proof found!\n# SZS status Theorem" in read_lines(output_filename):
+    if "Proof found!\n# SZS status Theorem" in readlines(output_filename):
         if rerun: # we will rerun twice!
             input_filename = problem_file_rerun(output_filename, dirpath)
             output_filename = input_filename.replace("input", "output")
@@ -73,7 +69,7 @@ def proof(theorem, ranking, statements, dirpath, params):
             run_E_prover(input_filename, output_filename, cpu_time_rerun)
             premises_rerun = used_premises(output_filename)
             if "Proof found!\n# SZS status Theorem" in \
-               read_lines(output_filename):
+               readlines(output_filename):
                 premises = premises_rerun
             else:
                 "Failed to find a proof after reruning twice."
@@ -81,8 +77,9 @@ def proof(theorem, ranking, statements, dirpath, params):
                 theorem, len(premises)))
         return premises
     else:
-        print("Proof of theorem {} NOT found with {} premises".format(
-                theorem, len(ranking)))
+        if verbose:
+            print("Proof of theorem {} NOT found with {} premises".format(
+                    theorem, len(ranking)))
         return False
 
 def proof_from_ranking(theorem, ranking, statements, dirpath, params):

@@ -35,7 +35,7 @@ def read_dict(filename, type_of_names=str, type_of_values=str, sep=':',
         return
     return dict(zip(names, values))
 
-def read_lines(filename):
+def readlines(filename):
     with open(filename, encoding ='utf-8') as f:
         return f.read().splitlines()
 
