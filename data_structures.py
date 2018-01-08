@@ -1,4 +1,4 @@
-from .utils import read_dict, remove_supersets, read_lines, printline
+from .utils import read_dict, remove_supersets, readlines, printline
 from .data_transformation import pairs_to_array
 from joblib import Parallel, delayed
 import xgboost
@@ -33,7 +33,7 @@ class Features:
 class Statements:
     def __init__(self, from_dict=None, from_file='', verbose=True, logfile=''):
         if from_file:
-            lines = read_lines(from_file)
+            lines = readlines(from_file)
             names = [l.split(',')[0].replace('fof(', '').replace(' ', '')
                         for l in lines]
             self.statements = dict(zip(names, lines))
@@ -62,7 +62,7 @@ class Statements:
 class Chronology:
     def __init__(self, from_list=None, from_file='', verbose=True, logfile=''):
         if from_file:
-            self.chronology = read_lines(from_file)
+            self.chronology = readlines(from_file)
         elif from_list:
             self.chronology = from_list
         else:
