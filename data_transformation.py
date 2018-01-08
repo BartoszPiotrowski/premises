@@ -58,7 +58,7 @@ def proofs_to_train_one_theorem(thm, proofs, params):
            pairs_to_array([(features[thm], features[prm])
                                for prm in positive_premises], params))
     negative_premises = set(sample(not_positive_premises,
-                                   ratio_neg_pos * len(positive_premises)))
+       min(len(not_positive_premises), ratio_neg_pos * len(positive_premises))))
     pairs_pos = [(features[thm], features[prm]) for prm in positive_premises]
     pairs_neg = [(features[thm], features[prm]) for prm in negative_premises]
     labels = [1] * len(pairs_pos) + [0] * len(pairs_neg)
