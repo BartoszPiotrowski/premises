@@ -1,5 +1,6 @@
 import os
 from time import strftime
+from random import shuffle
 
 
 def remove_supersets(list_of_sets):
@@ -51,3 +52,7 @@ def printline(message, logfile='', verbose=True, time=True):
             if time:
                 message = "[{}] {}".format(strftime("%Y-%m-%d %H:%M:%S"), message)
             print(message, file=f)
+
+def shuffled(l):
+    shuffle(l)
+    return l

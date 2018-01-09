@@ -1,4 +1,4 @@
-from .utils import read_dict, remove_supersets, readlines, printline
+from .utils import read_dict, remove_supersets, readlines, printline, shuffled
 from .data_transformation import pairs_to_array
 from joblib import Parallel, delayed
 import xgboost
@@ -101,7 +101,7 @@ class Proofs:
             prfs = read_dict(from_file, type_of_values=list, sep_in_list=' ')
             self.proofs = {thm: [set(prfs[thm])] for thm in prfs}
         else:
-            self.proofs = from_dict
+            self.update(from_dict)
         if verbose or logfile:
             message = "Proofs of {} theorems loaded.".format(
                 len(self))
@@ -168,26 +168,38 @@ class Proofs:
         printline("Average length of a proof: {}".format(
                   self.avg_length_of_proof), logfile)
 
+
 class Rankings:
-    def __init__(self, theorems, model, params, verbose=True, logfile='',
-                 n_jobs=-1):
-        assert 'features' in params
-        assert 'features_ordered' in params
+    def __init__(self, theorems, model=None, params=None, verbose=True,
+                 logfile='', n_jobs=-1):
         assert 'chronology' in params
 
-        if verbose or logfile:
-            message = ("Creating rankings of premises from the trained model "
-                       "for {} theorems...").format(len(theorems))
-            printline(message, logfile, verbose)
-        # be careful: backend 'loky' is needed to not colide with model
-        # 'loky' is available only in the newest dev release of joblib
-        # (only on github so far)
-        with Parallel(n_jobs=n_jobs, backend='loky') as parallel:
-            drfm = delayed(self.rfm)
-            rankings_with_scores = parallel(drfm(theorem, model, params)
-                                            for theorem in theorems)
-        self.rankings_with_scores = dict(rankings_with_scores)
-        self.rankings = self._rankings_only_names(self.rankings_with_scores)
+        if model:
+            assert 'features' in params
+            assert 'features_ordered' in params
+            if verbose or logfile:
+                message = ("Creating rankings of premises from the trained model "
+                           "for {} theorems...").format(len(theorems))
+                printline(message, logfile, verbose)
+            # be careful: backend 'loky' is needed to not colide with model
+            # 'loky' is available only in the newest dev release of joblib
+            # (only on github so far)
+            with Parallel(n_jobs=n_jobs, backend='loky') as parallel:
+                drfm = delayed(self.rfm)
+                rankings_with_scores = parallel(drfm(theorem, model, params)
+                                                for theorem in theorems)
+            self.rankings_with_scores = dict(rankings_with_scores)
+            self.rankings = self._rankings_only_names(self.rankings_with_scores)
+        else:
+            if verbose or logfile:
+                message = ("Creating random rankings of premises "
+                           "for {} theorems...").format(len(theorems))
+                printline(message, logfile, verbose)
+            chronology = params['chronology']
+            random_rankings = {thm: shuffled(chronology.available_premises(thm))
+                               for thm in theorems}
+            self.rankings = random_rankings
+
         if verbose or logfile:
             message = "Rankings created."
             printline(message, logfile, verbose)
