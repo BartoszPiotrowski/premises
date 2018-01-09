@@ -72,7 +72,7 @@ def proof(theorem, ranking, statements, dirpath, params):
                 lines = readlines(output_filename)
                 proof = "# Proof found!" in lines and \
                         "# SZS status Theorem" in lines
-                if premises_rerun == premises or not proof:
+                if set(premises_rerun) == set(premises) or not proof:
                     stop = True
                 else:
                     premises = premises_rerun
