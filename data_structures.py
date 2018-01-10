@@ -101,6 +101,7 @@ class Proofs:
             prfs = read_dict(from_file, type_of_values=list, sep_in_list=' ')
             self.proofs = {thm: [set(prfs[thm])] for thm in prfs}
         else:
+            self.proofs = {}
             self.update(from_dict)
         if verbose or logfile:
             message = "Proofs of {} theorems loaded.".format(
