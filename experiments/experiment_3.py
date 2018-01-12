@@ -1,15 +1,13 @@
-PACKAGE_DIR = '/home/bartosz'
+import sys
+from os.path import join
+from random import sample
+sys.path.append('../..')
+import premises as prs
+
 DATA_DIR = 'data/MPTP2078'
 ATP_DIR = 'atp'
 LOG_FILE = __file__.replace('.py', '.log')
 N_JOBS = 35
-
-
-import sys
-from os.path import join
-from random import sample
-sys.path.append(PACKAGE_DIR)
-import premises as prs
 
 statements = prs.Statements(from_file=join(DATA_DIR, 'statements'),
                             logfile=LOG_FILE)
