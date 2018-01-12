@@ -1,14 +1,13 @@
-PACKAGE_DIR = '/home/bartosz/PhD'
+import sys
+from os.path import join
+from random import sample
+sys.path.append('..')
+import premises as prs
+
 DATA_DIR = 'data/debug_data'
 ATP_DIR = 'atp'
 LOG_FILE = 'tests/test_basic.log'
 N_JOBS = 4
-
-import sys
-from os.path import join
-from random import sample
-sys.path.append(PACKAGE_DIR)
-import premises as prs
 
 statements = prs.Statements(from_file=join(DATA_DIR, 'statements'),
                             logfile=LOG_FILE)

@@ -1,6 +1,5 @@
 import sys
 from os.path import join
-sys.path.append('../..')
 sys.path.append('..')
 import premises as prs
 
