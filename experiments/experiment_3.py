@@ -1,7 +1,7 @@
 import sys
 from os.path import join
-from random import sample
 sys.path.append('../..')
+sys.path.append('..')
 import premises as prs
 
 DATA_DIR = 'data/MPTP2078'
@@ -14,9 +14,7 @@ statements = prs.Statements(from_file=join(DATA_DIR, 'statements'),
 features = prs.Features(from_file=join(DATA_DIR, 'features'), logfile=LOG_FILE)
 chronology = prs.Chronology(from_file=join(DATA_DIR, 'chronology'),
                             logfile=LOG_FILE)
-# TODO separate theorems and definitions
-theorems = sample(prs.utils.readlines(join(DATA_DIR, 'theorems')), 5)
-print(theorems)
+theorems = prs.utils.readlines(join(DATA_DIR, 'theorems'))
 params_data_trans = {'features': features,
          'features_ordered': features.all_features(),
          'chronology': chronology,
