@@ -1,14 +1,14 @@
 # premises
 Python package for doing Machine Learning experiments for Premise Selection task.
 
-The goal adressed by the package is to provide a Python framework facilitating experiments with binary classification ML models for Premise Selection. This include easy ATP evaluation of these experiments and handling multiple proofs of one theorem -- this situation is naturally occuring when proving with ATPs and it needs to be taken into account when creating training data for ML models.
+The goal adressed by the package is to provide a Python framework facilitating experiments with binary classification ML models for Premise Selection. This include simple ATP evaluation of these experiments with [E prover](http://wwwlehre.dhbw-stuttgart.de/~sschulz/E/E.html) and handling multiple proofs of one theorem -- this situation is naturally occuring when proving with ATPs and it needs to be taken into account when creating training data for ML models.
 
 The experiments made with the package are continuation of the work exemplified by papers like:
 * [Premise Selection for Mathematics by Corpus Analysis and Kernel Methods](https://link.springer.com/article/10.1007/s10817-013-9286-5)
 * [DeepMath - Deep Sequence Models for Premise Selection](https://arxiv.org/abs/1606.04442)
 * [Premise Selection for Theorem Proving by Deep Graph Embedding](http://papers.nips.cc/paper/6871-premise-selection-for-theorem-proving-by-deep-graph-embedding)
 
-Provides ATP evaluation with [E prover](http://wwwlehre.dhbw-stuttgart.de/~sschulz/E/E.html). Contains bunch of example experiments on data originating from [Mizar Mathematical Library](http://mizar.org/library/).
+The package contains bunch of example experiments on corpus originating from [Mizar Mathematical Library](http://mizar.org/library/).
 
 ## Requirements
 1. Python 3
