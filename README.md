@@ -12,7 +12,7 @@ The package contains bunch of example experiments on corpus originating from [Mi
 
 ## Requirements
 1. Python 3
-2. `xgboost` Python package. Can be installed by running
+2. `xgboost` Python package. Can be installed by running:
 ``` 
 pip3 install xgboost
 ```
