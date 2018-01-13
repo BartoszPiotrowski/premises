@@ -42,5 +42,5 @@ while True:
     params_atp_eval = {}
     proofs = prs.atp_evaluation(rankings, statements, params_atp_eval,
                              dirpath=ATP_DIR, n_jobs=N_JOBS, logfile=LOG_FILE)
-    proofs.print_stats(LOG_FILE)
+    proofs.print_stats(logfile=LOG_FILE)
     i = i + 1
