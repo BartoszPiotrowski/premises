@@ -26,7 +26,9 @@ rankings_random = prs.Rankings(theorems, model=None, params=params_data_trans,
 proofs = prs.atp_evaluation(rankings_random, statements, dirpath=ATP_DIR,
                                  n_jobs=N_JOBS, logfile=LOG_FILE)
 
+i = 1
 while True:
+    prs.utils.printline("ITERATION: {}".format(i), LOG_FILE)
     train_labels, train_array = prs.proofs_to_train(proofs, params_data_trans,
                                            n_jobs=N_JOBS, logfile=LOG_FILE)
 
@@ -40,3 +42,5 @@ while True:
     params_atp_eval = {}
     proofs = prs.atp_evaluation(rankings, statements, params_atp_eval,
                              dirpath=ATP_DIR, n_jobs=N_JOBS, logfile=LOG_FILE)
+    proofs.print_stats(LOG_FILE)
+    i = i + 1
