@@ -140,6 +140,9 @@ class Proofs:
             for prf in new_proofs[thm]:
                 self.add(thm, prf)
 
+    def union_of_proofs(self, theorem):
+        return set().union(*self.proofs[theorem])
+
     def nums_of_proofs(self):
         return [len(self[t]) for t in self.proofs]
 
@@ -258,16 +261,4 @@ class Rankings:
 
     def add(self, theorem, ranking):
         self.rankings[theorem] = ranking
-
-
-if __name__ == "__main__":
-    prfs = Proofs()
-    prfs.add("t1", ["p3", "p2"])
-    prfs.add("t1", ["p5", "p2"])
-    prfs.add("t2", ["p1"])
-    prfs.add("t1", ["p4"])
-    prfs.add("t1", ["p2"])
-    print(prfs.num_of_all_proofs())
-    print(prfs.nums_of_proofs())
-    print(prfs["t1"])
 

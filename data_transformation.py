@@ -42,22 +42,29 @@ def pairs_to_array(pairs, params):
         return sps.coo_matrix(np.array(bin_vectors_trans))
     return np.array(bin_vectors_trans)
 
-def proofs_to_train_one_theorem(thm, proofs, params):
-    features = params['features']
-    features_ordered = params['features_ordered']
-    chronology = params['chronology']
-    ratio_neg_pos = params['ratio_neg_pos'] if 'ratio_neg_pos' in params else 4
-    sparse = params['sparse'] if 'sparse' in params else False
+def proofs_to_train_one_theorem(thm, atp_useful, params_data_trans,
+                                params_negative_mining):
+    features = params_data_trans['features']
+    features_ordered = params_data_trans['features_ordered']
+    chronology = params_data_trans['chronology']
+    ratio_neg_pos = params_data_trans['ratio_neg_pos'] \
+        if 'ratio_neg_pos' in params else 4
+    sparse = params_data_trans['sparse'] if 'sparse' in params_data_trans \
+        else False
     available_premises = chronology.available_premises(thm)
     # TODO here parameter about comb/concat/...
-    not_positive_premises = set(available_premises) - set().union(*proofs)
+    not_positive_premises = set(available_premises) - atp_useful
     # TODO something more clever; differentiate importance of positives
-    positive_premises = set().union(*proofs)
+    positive_premises = atp_useful
     if not len(not_positive_premises) > 1:
         return ([1] * len(positive_premises),
            pairs_to_array([(features[thm], features[prm])
                                for prm in positive_premises], params))
-    negative_premises = set(sample(not_positive_premises,
+    negative_premises_misclassified = misclassified_negatives(
+            params_negative_mining['rankings'][thm], atp_useful) \
+            if params_negative_mining else set()
+    negative_premises = \
+           negative_premises_misclassified | set(sample(not_positive_premises,
        min(len(not_positive_premises), ratio_neg_pos * len(positive_premises))))
     pairs_pos = [(features[thm], features[prm]) for prm in positive_premises]
     pairs_neg = [(features[thm], features[prm]) for prm in negative_premises]
@@ -66,17 +73,19 @@ def proofs_to_train_one_theorem(thm, proofs, params):
     assert len(labels) == array.shape[0]
     return labels, array
 
-def proofs_to_train(proofs, params, n_jobs=-1, verbose=True, logfile=''):
-    assert 'features' in params
-    assert 'features_ordered' in params
-    assert 'chronology' in params
+def proofs_to_train(proofs, params_data_trans, params_negative_mining={},
+                    n_jobs=-1, verbose=True, logfile=''):
+    assert 'features' in params_data_trans
+    assert 'features_ordered' in params_data_trans
+    assert 'chronology' in params_data_trans
     if verbose or logfile:
         printline("Transforming proofs into training data...", logfile, verbose)
     with Parallel(n_jobs=n_jobs) as parallel:
         d_proofs_to_train_one_theorem = delayed(proofs_to_train_one_theorem)
         labels_and_arrays = parallel(
-            d_proofs_to_train_one_theorem(thm, proofs[thm], params)
-                                     for thm in proofs)
+            d_proofs_to_train_one_theorem(thm, proofs.union_of_proofs[thm],
+                                      params_data_trans, params_negative_mining)
+                                         for thm in proofs)
     labels = [i for p in labels_and_arrays for i in p[0]]
     arrays = [p[1] for p in labels_and_arrays]
     array = np.concatenate(arrays)
@@ -84,3 +93,12 @@ def proofs_to_train(proofs, params, n_jobs=-1, verbose=True, logfile=''):
     if verbose or logfile:
         printline("Transformation finished.", logfile, verbose)
     return labels, array
+
+# returns the most misclassified negatives
+def misclassified_negatives(ranking, atp_useful, num_neg=2):
+    n_pos = len(atp_useful)
+    n_neg = int(n_pos * num_neg)
+    mis_negs = [ranking[i] for i in range(min(n_neg, len(ranking)))
+                if not ranking[i] in set(atp_useful)]
+    return mis_negs
+
