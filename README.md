@@ -21,6 +21,7 @@ pip3 install xgboost
 pip3 install http://github.com/joblib/joblib/archive/master.zip
 ```
 (Version `joblib-0.11` does not provide `loky` backend which works properly with `xgboost`.)
+
 4. E prover. Can be installed by running:
 ```
 wget http://wwwlehre.dhbw-stuttgart.de/~sschulz/WORK/E_DOWNLOAD/V_2.0/E.tgz
