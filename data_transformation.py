@@ -42,7 +42,7 @@ def pairs_to_array(pairs, params):
         return sps.coo_matrix(np.array(bin_vectors_trans))
     return np.array(bin_vectors_trans)
 
-def proofs_to_train_one_theorem(thm, atp_useful, params_data_trans,
+def proofs_to_train_one_theorem(thm, thm_proofs, params_data_trans,
                                 params_negative_mining):
     features = params_data_trans['features']
     features_ordered = params_data_trans['features_ordered']
@@ -52,6 +52,7 @@ def proofs_to_train_one_theorem(thm, atp_useful, params_data_trans,
     sparse = params_data_trans['sparse'] if 'sparse' in params_data_trans \
         else False
     available_premises = chronology.available_premises(thm)
+    atp_useful = set().union(*thm_proofs)
     # TODO here parameter about comb/concat/...
     not_positive_premises = set(available_premises) - atp_useful
     # TODO something more clever; differentiate importance of positives
@@ -69,7 +70,7 @@ def proofs_to_train_one_theorem(thm, atp_useful, params_data_trans,
     pairs_pos = [(features[thm], features[prm]) for prm in positive_premises]
     pairs_neg = [(features[thm], features[prm]) for prm in negative_premises]
     labels = [1] * len(pairs_pos) + [0] * len(pairs_neg)
-    array = pairs_to_array(pairs_pos + pairs_neg, params)
+    array = pairs_to_array(pairs_pos + pairs_neg, params_data_trans)
     assert len(labels) == array.shape[0]
     return labels, array
 
@@ -83,7 +84,7 @@ def proofs_to_train(proofs, params_data_trans, params_negative_mining={},
     with Parallel(n_jobs=n_jobs) as parallel:
         d_proofs_to_train_one_theorem = delayed(proofs_to_train_one_theorem)
         labels_and_arrays = parallel(
-            d_proofs_to_train_one_theorem(thm, proofs.union_of_proofs[thm],
+            d_proofs_to_train_one_theorem(thm, proofs[thm],
                                       params_data_trans, params_negative_mining)
                                          for thm in proofs)
     labels = [i for p in labels_and_arrays for i in p[0]]
