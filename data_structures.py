@@ -18,6 +18,9 @@ class Features:
     def __len__(self):
         return len(self.features)
 
+    def __iter__(self):
+        return self.features.__iter__()
+
     def __getitem__(self, theorem):
         return self.features[theorem]
 
@@ -29,6 +32,21 @@ class Features:
 
     def all_features(self):
         return list(set().union(*self.features.values()))
+
+    def dict_features_theorems(self):
+        dict_features_theorems = {}
+        for thm in self:
+            for f in self[thm]:
+                try: dict_features_theorems[f].add(thm)
+                except: dict_features_theorems[f] = {thm}
+        return dict_features_theorems
+
+    def dict_features_numbers(self):
+        dft = self.dict_features_theorems()
+        return {f:len(dft[f]) for f in dft}
+
+    def subset(self, thms):
+        return Features(from_dict={thm: self[thm] for thm in thms})
 
 class Statements:
     def __init__(self, from_dict=None, from_file='', verbose=True, logfile=''):
@@ -48,6 +66,9 @@ class Statements:
 
     def __len__(self):
         return len(self.statements)
+
+    def __iter__(self):
+        return self.statements.__iter__()
 
     def __getitem__(self, theorem):
         return self.statements[theorem]
@@ -142,6 +163,26 @@ class Proofs:
     def union_of_proofs(self, theorem):
         return set().union(*self.proofs[theorem])
 
+    def unions_of_proofs(self):
+        return {thm: self.union_of_proofs(thm) for thm in self}
+
+    def with_trivial(self, theorems_properties=None):
+        with_trivial = {thm: self[thm] + [{thm}] for thm in self}
+        if theorems_properties:
+            only_trivial = {thm_prt: [{thm_prt}]
+                            for thm_prt in set(theorems_properties) - set(self)}
+        else:
+            only_trivial = {}
+        return {**with_trivial, **only_trivial}
+
+    def dict_premises_theorems(self):
+        dict_premises_theorems = {}
+        for thm in self:
+            for prm in self[thm]:
+                try: dict_premises_theorems[prm].add(thm)
+                except: dict_premises_theorems[prm] = {thm}
+        return dict_premises_theorems
+
     def nums_of_proofs(self):
         return [len(self[t]) for t in self]
 
@@ -186,11 +227,13 @@ class Proofs:
 
 
 class Rankings:
-    def __init__(self, theorems, model=None, params=None, verbose=True,
-                 logfile='', n_jobs=-1):
-        assert 'chronology' in params
-
-        if model:
+    def __init__(self, theorems=None, model=None, params=None, from_dict=None,
+                 verbose=True, logfile='', n_jobs=-1):
+        if from_dict:
+            self.rankings_with_scores = from_dict
+            self.rankings = self._rankings_only_names(self.rankings_with_scores)
+        elif model:
+            assert 'chronology' in params
             assert 'features' in params
             assert 'features_ordered' in params
             if verbose or logfile:

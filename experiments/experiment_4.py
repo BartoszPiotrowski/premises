@@ -4,9 +4,9 @@ from random import sample
 sys.path.append('..')
 import premises as prs
 
-DATA_DIR = 'data/debug_data'
+DATA_DIR = 'data/MPTP2078'
 ATP_DIR = 'atp'
-LOG_FILE = __file__.replace('.py', '.log')
+LOG_FILE = 'tests/test_basic.log'
 N_JOBS = -1
 
 statements = prs.Statements(from_file=join(DATA_DIR, 'statements'),
@@ -23,13 +23,7 @@ params_data_trans = {'features': features,
                      'features_ordered': features.all_features(),
                      'chronology': chronology,
                      'sparse': False}
-train_labels, train_array = prs.proofs_to_train(proofs_train, params_data_trans,
-                                               n_jobs=N_JOBS, logfile=LOG_FILE)
-params_train = {}
-model = prs.train(train_labels, train_array, params=params_train,
-                    n_jobs=N_JOBS, logfile=LOG_FILE)
-rankings_train = prs.Rankings(test_theorems, model, params_data_trans,
-                     n_jobs=N_JOBS, logfile=LOG_FILE)
+rankings_train = prs.knn(test_theorems, proofs_train, params_data_trans)
 params_atp_eval = {}
 proofs_test = prs.atp_evaluation(rankings_train, statements, params_atp_eval,
                                  dirpath=ATP_DIR, n_jobs=N_JOBS, logfile=LOG_FILE)
