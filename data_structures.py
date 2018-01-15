@@ -162,7 +162,7 @@ class Proofs:
 
     def avg_length_of_proof(self):
         lengths = [len(p) for t in self.proofs for p in t]
-        return lengths / len(lengths)
+        return sum(lengths) / len(lengths)
 
     def stats(self):
         return {'num_of_thms': len(self),
@@ -175,13 +175,13 @@ class Proofs:
                   logfile)
         printline("Number of all proofs: {}".format(self.num_of_all_proofs()),
                   logfile)
-        printline("Average number of proofs per theorem: {}".format(
+        printline("Average number of proofs per theorem: {:.3f}".format(
                   self.avg_num_of_proofs()), logfile)
         ns = self.hist_nums_of_proofs()
         for n in ns:
             printline("Number of theorems with exactly {} proof(s): {}".format(
                 n, ns[n]), logfile)
-        printline("Average length of a proof: {}".format(
+        printline("Average length of a proof: {:.3f}".format(
                   self.avg_length_of_proof()), logfile)
 
 
