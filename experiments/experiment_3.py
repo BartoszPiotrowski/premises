@@ -4,9 +4,10 @@ sys.path.append('..')
 import premises as prs
 
 DATA_DIR = 'data/debug_data'
+#DATA_DIR = 'data/MPTP2078'
 ATP_DIR = 'atp'
 LOG_FILE = __file__.replace('.py', '.log')
-N_JOBS = 35
+N_JOBS = -1 # all cores
 
 statements = prs.Statements(from_file=join(DATA_DIR, 'statements'),
                             logfile=LOG_FILE)
