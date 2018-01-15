@@ -171,7 +171,7 @@ class Proofs:
                 'avg_num_of_proofs': self.avg_num_of_proofs(),
                 'avg_len_of_proof': self.avg_num_of_proofs()}
 
-    def print_stats(logfile=''):
+    def print_stats(self, logfile=''):
         printline("Number of all theorems with proofs: {}".format(len(self)),
                   logfile)
         printline("Number of all proofs: {}".format(self.num_of_all_proofs),
