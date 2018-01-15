@@ -48,7 +48,7 @@ def proofs_to_train_one_theorem(thm, atp_useful, params_data_trans,
     features_ordered = params_data_trans['features_ordered']
     chronology = params_data_trans['chronology']
     ratio_neg_pos = params_data_trans['ratio_neg_pos'] \
-        if 'ratio_neg_pos' in params else 4
+        if 'ratio_neg_pos' in params_data_trans else 4
     sparse = params_data_trans['sparse'] if 'sparse' in params_data_trans \
         else False
     available_premises = chronology.available_premises(thm)
