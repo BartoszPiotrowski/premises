@@ -104,8 +104,7 @@ class Proofs:
             self.proofs = {}
             self.update(from_dict)
         if verbose or logfile:
-            message = "Proofs of {} theorems loaded.".format(
-                len(self))
+            message = "Proofs of {} theorems loaded.".format(len(self))
             printline(message, logfile, verbose)
 
     def __len__(self):
@@ -144,7 +143,7 @@ class Proofs:
         return set().union(*self.proofs[theorem])
 
     def nums_of_proofs(self):
-        return [len(self[t]) for t in self.proofs]
+        return [len(self[t]) for t in self]
 
     def hist_nums_of_proofs(self):
         d = {}
@@ -174,16 +173,16 @@ class Proofs:
     def print_stats(self, logfile=''):
         printline("Number of all theorems with proofs: {}".format(len(self)),
                   logfile)
-        printline("Number of all proofs: {}".format(self.num_of_all_proofs),
+        printline("Number of all proofs: {}".format(self.num_of_all_proofs()),
                   logfile)
         printline("Average number of proofs per theorem: {}".format(
-                  self.avg_num_of_proofs), logfile)
+                  self.avg_num_of_proofs()), logfile)
         ns = self.hist_nums_of_proofs()
         for n in ns:
             printline("Number of theorems with exactly {} proof(s): {}".format(
                 n, ns[n]), logfile)
         printline("Average length of a proof: {}".format(
-                  self.avg_length_of_proof), logfile)
+                  self.avg_length_of_proof()), logfile)
 
 
 class Rankings:
