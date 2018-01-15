@@ -31,7 +31,9 @@ cd E
 make
 ```
 After installation there is also needed to set `EPROVER` environment variable to make known for our package where E prover is. Assuming you are still in `E` directory run:
+
 ```export EPROVER=`realpath PROVER/eprover` ```
+
 To make this variable permanent -- put the line above to your `.bashrc` or `.zshrc` changing `` `realpath PROVER/eprover` ``
 to `'path/to/E/PROVER/eprover'`.
 
