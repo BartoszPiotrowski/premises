@@ -1,6 +1,11 @@
 # big mizar40 data
 mizar40/
 
+# E input/output
+*.E_input
+*.E_output
+
+
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
