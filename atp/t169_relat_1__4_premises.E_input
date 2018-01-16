@@ -1,0 +1,5 @@
+fof(t169_relat_1, conjecture,  (! [A] :  (v1_relat_1(A) => k10_relat_1(A, k2_relat_1(A))=k1_relat_1(A)) ) ).
+fof(t29_setfam_1, axiom,  (! [A] : r1_setfam_1(A, k2_setfam_1(A, A))) ).
+fof(fc7_relat_1, axiom,  (! [A, B, C, D] : v1_relat_1(k2_tarski(k4_tarski(A, B), k4_tarski(C, D)))) ).
+fof(t38_subset_1, axiom,  (! [A] :  (! [B] :  (m1_subset_1(B, k1_zfmisc_1(A)) =>  (r1_tarski(B, k3_subset_1(A, B)) <=> B=k1_subset_1(A)) ) ) ) ).
+fof(t119_zfmisc_1, axiom,  (! [A] :  (! [B] :  (! [C] :  (! [D] :  ( (r1_tarski(A, B) & r1_tarski(C, D))  => r1_tarski(k2_zfmisc_1(A, C), k2_zfmisc_1(B, D))) ) ) ) ) ).

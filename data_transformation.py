@@ -2,6 +2,7 @@ from xgboost import DMatrix
 from joblib import Parallel, delayed
 from random import sample
 import numpy as np
+import scipy.sparse as sps
 from time import time
 from .utils import printline
 
@@ -78,6 +79,8 @@ def proofs_to_train(proofs, params_data_trans, params_negative_mining={},
     assert 'features' in params_data_trans
     assert 'features_ordered' in params_data_trans
     assert 'chronology' in params_data_trans
+    sparse = params_data_trans['sparse'] if 'sparse' in params_data_trans \
+                                        else False
     if verbose or logfile:
         printline("Transforming proofs into training data...", logfile, verbose)
     with Parallel(n_jobs=n_jobs) as parallel:
@@ -88,7 +91,10 @@ def proofs_to_train(proofs, params_data_trans, params_negative_mining={},
                                          for thm in proofs)
     labels = [i for p in labels_and_arrays for i in p[0]]
     arrays = [p[1] for p in labels_and_arrays]
-    array = np.concatenate(arrays)
+    if sparse:
+        array = sps.vstack(arrays)
+    else:
+        array = np.concatenate(arrays)
     assert len(labels) == array.shape[0]
     if verbose or logfile:
         printline("Transformation finished.", logfile, verbose)

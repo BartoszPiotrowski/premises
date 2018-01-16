@@ -1,0 +1,2 @@
+fof(t21_compts_1, conjecture,  (! [A] :  ( ( ~ (v2_struct_0(A))  &  (v2_pre_topc(A) & l1_pre_topc(A)) )  =>  ( (v8_pre_topc(A) & v1_compts_1(A))  => v9_pre_topc(A)) ) ) ).
+fof(t24_mcart_1, axiom,  (! [A] :  (! [B] :  ~ ( ( ~ (A=k1_xboole_0)  &  ( ~ (B=k1_xboole_0)  &  ~ ( (! [C] :  (m1_subset_1(C, k2_zfmisc_1(A, B)) => C=k4_tarski(k1_mcart_1(C), k2_mcart_1(C))) ) ) ) ) ) ) ) ).

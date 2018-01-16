@@ -1,0 +1,7 @@
+[2018-01-16 22:56:03] Statements of 4564 theorems and definitions loaded.
+[2018-01-16 22:56:03] Features of 4564 theorems and definitions loaded.
+[2018-01-16 22:56:03] Chronological order of 4564 theorems and definitions loaded.
+[2018-01-16 22:56:03] Proofs of 70 theorems loaded.
+[2018-01-16 22:56:03] Transforming proofs into training data...
+[2018-01-16 22:56:11] Transformation finished.
+[2018-01-16 22:56:11] Training of xgboost model started...

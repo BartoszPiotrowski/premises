@@ -1,0 +1,3 @@
+fof(t48_wellord1, conjecture,  (! [A] :  (v1_relat_1(A) => r4_wellord1(A, A)) ) ).
+fof(t204_relat_1, axiom,  (! [A] :  (! [B] :  (! [C] :  (v1_relat_1(C) =>  (r2_hidden(k4_tarski(A, B), C) <=> r2_hidden(B, k11_relat_1(C, A))) ) ) ) ) ).
+fof(d1_relat_2, axiom,  (! [A] :  (v1_relat_1(A) =>  (! [B] :  (r1_relat_2(A, B) <=>  (! [C] :  (r2_hidden(C, B) => r2_hidden(k4_tarski(C, C), A)) ) ) ) ) ) ).

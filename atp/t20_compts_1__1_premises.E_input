@@ -1,0 +1,2 @@
+fof(t20_compts_1, conjecture,  (! [A] :  ( (v2_pre_topc(A) & l1_pre_topc(A))  =>  (! [B] :  (m1_subset_1(B, k1_zfmisc_1(u1_struct_0(A))) =>  (! [C] :  (m1_subset_1(C, k1_zfmisc_1(u1_struct_0(A))) =>  ( (v8_pre_topc(A) &  (v2_compts_1(B, A) & v2_compts_1(C, A)) )  => v2_compts_1(k9_subset_1(u1_struct_0(A), B, C), A)) ) ) ) ) ) ) ).
+fof(t191_relat_1, axiom,  (! [A] :  (! [B] :  (v1_relat_1(B) => k1_relat_1(k7_relat_1(B, k6_subset_1(k1_relat_1(B), A)))=k6_subset_1(k1_relat_1(B), A)) ) ) ).

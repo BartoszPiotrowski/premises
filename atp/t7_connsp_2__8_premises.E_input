@@ -1,0 +1,9 @@
+fof(t7_connsp_2, conjecture,  (! [A] :  ( ( ~ (v2_struct_0(A))  &  (v2_pre_topc(A) & l1_pre_topc(A)) )  =>  (! [B] :  (m1_subset_1(B, u1_struct_0(A)) =>  (! [C] :  (m1_subset_1(C, k1_zfmisc_1(u1_struct_0(A))) =>  ~ ( (m1_connsp_2(C, A, B) &  (! [D] :  ( ( ~ (v1_xboole_0(D))  & m1_subset_1(D, k1_zfmisc_1(u1_struct_0(A))))  =>  ~ ( (m1_connsp_2(D, A, B) &  (v3_pre_topc(D, A) & r1_tarski(D, C)) ) ) ) ) ) ) ) ) ) ) ) ) ).
+fof(dt_k8_enumset1, axiom, $true).
+fof(t61_xboole_1, axiom,  (! [A] :  ( ~ (A=k1_xboole_0)  => r2_xboole_0(k1_xboole_0, A)) ) ).
+fof(t53_setfam_1, axiom,  (! [A] :  (! [B] :  (m1_subset_1(B, k1_zfmisc_1(k1_zfmisc_1(A))) =>  (! [C] :  (m1_subset_1(C, k1_zfmisc_1(k1_zfmisc_1(A))) =>  (k7_setfam_1(A, B)=k7_setfam_1(A, C) => B=C) ) ) ) ) ) ).
+fof(fc2_orders_1, axiom,  (! [A] :  ( (v1_xboole_0(A) & v1_relat_1(A))  => v1_xboole_0(k3_relat_1(A))) ) ).
+fof(dt_k5_partfun1, axiom, $true).
+fof(t37_funct_1, axiom,  (! [A] :  (! [B] :  ( (v1_relat_1(B) & v1_funct_1(B))  => k1_relat_1(k5_relat_1(k6_relat_1(A), B))=k3_xboole_0(k1_relat_1(B), A)) ) ) ).
+fof(t28_funct_2, axiom,  (! [A] :  (! [B] :  (! [C] :  (! [D] :  ( (v1_funct_1(D) &  (v1_funct_2(D, A, B) & m1_subset_1(D, k1_zfmisc_1(k2_zfmisc_1(A, B)))) )  =>  (! [E] :  ( (v1_funct_1(E) &  (v1_funct_2(E, B, C) & m1_subset_1(E, k1_zfmisc_1(k2_zfmisc_1(B, C)))) )  =>  ( (k2_relset_1(A, C, k1_partfun1(A, B, B, C, D, E))=C & v2_funct_1(E))  =>  (C=k1_xboole_0 | k2_relset_1(A, B, D)=B) ) ) ) ) ) ) ) ) ).
+fof(fc18_membered, axiom,  (! [A, B] :  ( (v7_ordinal1(A) & v7_ordinal1(B))  => v6_membered(k2_tarski(A, B))) ) ).

@@ -1,0 +1,80 @@
+# No SInE strategy applied
+# Auto-Mode selected heuristic G_E___107_C41_F1_PI_AE_Q4_CS_SP_PS_S0Y
+# and selection function SelectMaxLComplexAvoidPosPred.
+#
+# Preprocessing time       : 0.067 s
+# Presaturation interreduction done
+
+# Proof found!
+# SZS status Theorem
+# SZS output start CNFRefutation
+fof(t66_relat_1, conjecture, (k4_relat_1(k1_xboole_0)=k1_xboole_0), file('atp/t66_relat_1__512_premises.E_input', t66_relat_1)).
+fof(t6_boole, axiom, (![X1]:(v1_xboole_0(X1)=>X1=k1_xboole_0)), file('atp/t66_relat_1__512_premises.E_input', t6_boole)).
+fof(fc14_relat_1, axiom, (![X1]:(v1_xboole_0(X1)=>(v1_xboole_0(k4_relat_1(X1))&v1_relat_1(k4_relat_1(X1))))), file('atp/t66_relat_1__512_premises.E_input', fc14_relat_1)).
+fof(fc1_xboole_0, axiom, (v1_xboole_0(k1_xboole_0)), file('atp/t66_relat_1__512_premises.E_input', fc1_xboole_0)).
+fof(c_0_4, negated_conjecture, (~(k4_relat_1(k1_xboole_0)=k1_xboole_0)), inference(assume_negation,[status(cth)],[t66_relat_1])).
+fof(c_0_5, plain, (![X2]:(~v1_xboole_0(X2)|X2=k1_xboole_0)), inference(variable_rename,[status(thm)],[inference(fof_nnf,[status(thm)],[t6_boole])])).
+fof(c_0_6, plain, (![X2]:((v1_xboole_0(k4_relat_1(X2))|~v1_xboole_0(X2))&(v1_relat_1(k4_relat_1(X2))|~v1_xboole_0(X2)))), inference(distribute,[status(thm)],[inference(variable_rename,[status(thm)],[inference(fof_nnf,[status(thm)],[fc14_relat_1])])])).
+fof(c_0_7, negated_conjecture, (k4_relat_1(k1_xboole_0)!=k1_xboole_0), inference(fof_simplification,[status(thm)],[c_0_4])).
+cnf(c_0_8,plain,(X1=k1_xboole_0|~v1_xboole_0(X1)), inference(split_conjunct,[status(thm)],[c_0_5])).
+cnf(c_0_9,plain,(v1_xboole_0(k4_relat_1(X1))|~v1_xboole_0(X1)), inference(split_conjunct,[status(thm)],[c_0_6])).
+cnf(c_0_10,negated_conjecture,(k4_relat_1(k1_xboole_0)!=k1_xboole_0), inference(split_conjunct,[status(thm)],[c_0_7])).
+cnf(c_0_11,plain,(k4_relat_1(X1)=k1_xboole_0|~v1_xboole_0(X1)), inference(spm,[status(thm)],[c_0_8, c_0_9])).
+cnf(c_0_12,plain,(v1_xboole_0(k1_xboole_0)), inference(split_conjunct,[status(thm)],[fc1_xboole_0])).
+cnf(c_0_13,negated_conjecture,($false), inference(cn,[status(thm)],[inference(rw,[status(thm)],[inference(spm,[status(thm)],[c_0_10, c_0_11]), c_0_12])]), ['proof']).
+# SZS output end CNFRefutation
+# Proof object total steps             : 14
+# Proof object clause steps            : 6
+# Proof object formula steps           : 8
+# Proof object conjectures             : 5
+# Proof object clause conjectures      : 2
+# Proof object formula conjectures     : 3
+# Proof object initial clauses used    : 4
+# Proof object initial formulas used   : 4
+# Proof object generating inferences   : 2
+# Proof object simplifying inferences  : 2
+# Training examples: 0 positive, 0 negative
+# Parsed axioms                        : 513
+# Removed by relevancy pruning/SinE    : 0
+# Initial clauses                      : 818
+# Removed in clause preprocessing      : 56
+# Initial clauses in saturation        : 762
+# Processed clauses                    : 1508
+# ...of these trivial                  : 12
+# ...subsumed                          : 81
+# ...remaining for further processing  : 1415
+# Other redundant clauses eliminated   : 261
+# Clauses deleted for lack of memory   : 0
+# Backward-subsumed                    : 0
+# Backward-rewritten                   : 20
+# Generated clauses                    : 70191
+# ...of the previous two non-trivial   : 62798
+# Contextual simplify-reflections      : 8
+# Paramodulations                      : 69863
+# Factorizations                       : 13
+# Equation resolutions                 : 316
+# Current number of processed clauses  : 683
+#    Positive orientable unit clauses  : 101
+#    Positive unorientable unit clauses: 36
+#    Negative unit clauses             : 17
+#    Non-unit-clauses                  : 529
+# Current number of unprocessed clauses: 62460
+# ...number of literals in the above   : 207687
+# Current number of archived formulas  : 0
+# Current number of archived clauses   : 705
+# Clause-clause subsumption calls (NU) : 130560
+# Rec. Clause-clause subsumption calls : 44083
+# Non-unit clause-clause subsumptions  : 73
+# Unit Clause-clause subsumption calls : 8059
+# Rewrite failures with RHS unbound    : 0
+# BW rewrite match attempts            : 5842
+# BW rewrite match successes           : 3421
+# Condensation attempts                : 0
+# Condensation successes               : 0
+# Termbank termtop insertions          : 2132496
+
+# -------------------------------------------------
+# User time                : 1.627 s
+# System time              : 0.043 s
+# Total time               : 1.670 s
+# Maximum resident set size: 65492 pages

@@ -1,0 +1,12 @@
+fof(t65_enumset1, axiom, (![X1]:![X2]:![X3]:![X4]:![X5]:![X6]:![X7]:![X8]:k6_enumset1(X1,X2,X3,X4,X5,X6,X7,X8)=k2_xboole_0(k2_enumset1(X1,X2,X3,X4),k2_enumset1(X5,X6,X7,X8))), file('atp/t12_zfmisc_1__128_premises.E_input', t65_enumset1)).
+fof(t72_enumset1, axiom, (![X1]:![X2]:![X3]:![X4]:k3_enumset1(X1,X1,X2,X3,X4)=k2_enumset1(X1,X2,X3,X4)), file('atp/t12_zfmisc_1__128_premises.E_input', t72_enumset1)).
+fof(t12_zfmisc_1, conjecture, (![X1]:![X2]:r1_tarski(k1_tarski(X1),k2_tarski(X1,X2))), file('atp/t12_zfmisc_1__128_premises.E_input', t12_zfmisc_1)).
+fof(t50_enumset1, axiom, (![X1]:![X2]:![X3]:![X4]:![X5]:k3_enumset1(X1,X2,X3,X4,X5)=k2_xboole_0(k2_enumset1(X1,X2,X3,X4),k1_tarski(X5))), file('atp/t12_zfmisc_1__128_premises.E_input', t50_enumset1)).
+fof(t76_enumset1, axiom, (![X1]:k1_enumset1(X1,X1,X1)=k1_tarski(X1)), file('atp/t12_zfmisc_1__128_premises.E_input', t76_enumset1)).
+fof(t84_enumset1, axiom, (![X1]:![X2]:![X3]:k4_enumset1(X1,X1,X1,X1,X2,X3)=k1_enumset1(X1,X2,X3)), file('atp/t12_zfmisc_1__128_premises.E_input', t84_enumset1)).
+fof(t74_enumset1, axiom, (![X1]:![X2]:![X3]:![X4]:![X5]:![X6]:k5_enumset1(X1,X1,X2,X3,X4,X5,X6)=k4_enumset1(X1,X2,X3,X4,X5,X6)), file('atp/t12_zfmisc_1__128_premises.E_input', t74_enumset1)).
+fof(t75_enumset1, axiom, (![X1]:![X2]:![X3]:![X4]:![X5]:![X6]:![X7]:k6_enumset1(X1,X1,X2,X3,X4,X5,X6,X7)=k5_enumset1(X1,X2,X3,X4,X5,X6,X7)), file('atp/t12_zfmisc_1__128_premises.E_input', t75_enumset1)).
+fof(t90_enumset1, axiom, (![X1]:![X2]:![X3]:![X4]:k6_enumset1(X1,X1,X1,X1,X1,X2,X3,X4)=k2_enumset1(X1,X2,X3,X4)), file('atp/t12_zfmisc_1__128_premises.E_input', t90_enumset1)).
+fof(t77_enumset1, axiom, (![X1]:![X2]:k2_enumset1(X1,X1,X1,X2)=k2_tarski(X1,X2)), file('atp/t12_zfmisc_1__128_premises.E_input', t77_enumset1)).
+fof(idempotence_k2_xboole_0, axiom, (![X1]:![X2]:k2_xboole_0(X1,X1)=X1), file('atp/t12_zfmisc_1__128_premises.E_input', idempotence_k2_xboole_0)).
+fof(t7_xboole_1, axiom, (![X1]:![X2]:r1_tarski(X1,k2_xboole_0(X1,X2))), file('atp/t12_zfmisc_1__128_premises.E_input', t7_xboole_1)).

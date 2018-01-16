@@ -1,0 +1,33 @@
+fof(t4_connsp_2, conjecture,  (! [A] :  ( ( ~ (v2_struct_0(A))  &  (v2_pre_topc(A) & l1_pre_topc(A)) )  =>  (! [B] :  (m1_subset_1(B, u1_struct_0(A)) =>  (! [C] :  (m1_subset_1(C, k1_zfmisc_1(u1_struct_0(A))) =>  (! [D] :  (m1_subset_1(D, k1_zfmisc_1(u1_struct_0(A))) =>  ( (m1_connsp_2(C, A, B) & m1_connsp_2(D, A, B))  <=> m1_connsp_2(k9_subset_1(u1_struct_0(A), C, D), A, B)) ) ) ) ) ) ) ) ) ).
+fof(t132_enumset1, axiom,  (! [A] :  (! [B] :  (! [C] :  (! [D] :  (! [E] :  (! [F] :  (! [G] :  (! [H] :  (! [I] : k7_enumset1(A, B, C, D, E, F, G, H, I)=k2_xboole_0(k4_enumset1(A, B, C, D, E, F), k1_enumset1(G, H, I))) ) ) ) ) ) ) ) ) ).
+fof(t193_relat_1, axiom,  (! [A] :  (! [B] : r1_tarski(k1_relat_1(k2_zfmisc_1(A, B)), A)) ) ).
+fof(dt_k2_xboole_0, axiom, $true).
+fof(fc6_struct_0, axiom,  (! [A] :  ( ( ~ (v7_struct_0(A))  & l1_struct_0(A))  =>  ~ (v1_zfmisc_1(u1_struct_0(A))) ) ) ).
+fof(t87_orders_2, axiom,  (! [A] :  ( ( ~ (v2_struct_0(A))  &  (v3_orders_2(A) &  (v4_orders_2(A) &  (v5_orders_2(A) & l1_orders_2(A)) ) ) )  =>  (! [B] :  (m1_orders_1(B, k1_orders_1(u1_struct_0(A))) =>  ~ (k3_tarski(k4_orders_2(A, B))=k1_xboole_0) ) ) ) ) ).
+fof(fc19_finset_1, axiom,  (! [A] :  ( (v1_relat_1(A) & v1_finset_1(A))  => v1_finset_1(k1_relat_1(A))) ) ).
+fof(dt_k4_finseq_1, axiom,  (! [A] :  ( (v1_relat_1(A) &  (v1_funct_1(A) & v1_finseq_1(A)) )  => m1_subset_1(k4_finseq_1(A), k1_zfmisc_1(k5_numbers))) ) ).
+fof(t104_tops_1, axiom,  (! [A] :  (l1_pre_topc(A) =>  (! [B] :  (m1_subset_1(B, k1_zfmisc_1(u1_struct_0(A))) =>  (v6_tops_1(B, A) =>  (k2_tops_1(A, B)=k2_tops_1(A, k2_pre_topc(A, B)) & k2_tops_1(A, k2_pre_topc(A, B))=k7_subset_1(u1_struct_0(A), k2_pre_topc(A, B), B)) ) ) ) ) ) ).
+fof(fc9_funct_2, axiom,  (! [A, B] :  ( (v1_funct_1(B) &  (v1_funct_2(B, A, A) & m1_subset_1(B, k1_zfmisc_1(k2_zfmisc_1(A, A)))) )  =>  (v1_funct_1(k3_partfun1(B, A, A)) & v1_partfun1(k3_partfun1(B, A, A), A)) ) ) ).
+fof(t46_funct_2, axiom,  (! [A] :  (! [B] :  (! [C] :  (! [D] :  ( (v1_funct_1(D) &  (v1_funct_2(D, A, B) & m1_subset_1(D, k1_zfmisc_1(k2_zfmisc_1(A, B)))) )  =>  ( ~ (B=k1_xboole_0)  =>  (! [E] :  (r2_hidden(E, k8_relset_1(A, B, D, C)) <=>  (r2_hidden(E, A) & r2_hidden(k1_funct_1(D, E), C)) ) ) ) ) ) ) ) ) ).
+fof(fc3_membered, axiom, v3_membered(k1_numbers)).
+fof(t91_xboole_1, axiom,  (! [A] :  (! [B] :  (! [C] : k5_xboole_0(k5_xboole_0(A, B), C)=k5_xboole_0(A, k5_xboole_0(B, C))) ) ) ).
+fof(l13_xboole_0, axiom,  (! [A] :  (v1_xboole_0(A) => A=k1_xboole_0) ) ).
+fof(t166_funct_2, axiom,  (! [A] :  (! [B] :  (! [C] :  ( (v1_funct_1(C) & m1_subset_1(C, k1_zfmisc_1(k2_zfmisc_1(A, B))))  =>  (! [D] :  ( (v1_funct_1(D) & m1_subset_1(D, k1_zfmisc_1(k2_zfmisc_1(A, B))))  =>  ( (r1_tarski(k1_relset_1(A, B, D), k1_relset_1(A, B, C)) & r1_tarski(k5_partfun1(A, B, C), k5_partfun1(A, B, D)))  => r1_relset_1(A, B, D, C)) ) ) ) ) ) ) ).
+fof(t87_xboole_1, axiom,  (! [A] :  (! [B] :  (! [C] :  (r1_xboole_0(A, B) => k2_xboole_0(k4_xboole_0(C, A), B)=k4_xboole_0(k2_xboole_0(C, B), A)) ) ) ) ).
+fof(fc12_membered, axiom,  (! [A] :  (v7_ordinal1(A) => v6_membered(k1_tarski(A))) ) ).
+fof(t19_relset_1, axiom,  (! [A] :  (! [B] :  (! [C] :  (m1_subset_1(C, k1_zfmisc_1(k2_zfmisc_1(A, B))) => r1_tarski(k3_relat_1(C), k2_xboole_0(A, B))) ) ) ) ).
+fof(t38_funct_1, axiom,  (! [A] :  (! [B] :  (! [C] :  ( (v1_relat_1(C) & v1_funct_1(C))  =>  (r2_hidden(A, k3_xboole_0(k1_relat_1(C), B)) => k1_funct_1(C, A)=k1_funct_1(k5_relat_1(k6_relat_1(B), C), A)) ) ) ) ) ).
+fof(fc4_pre_topc, axiom,  (! [A] :  ( (v2_pre_topc(A) & l1_pre_topc(A))  => v4_pre_topc(k2_struct_0(A), A)) ) ).
+fof(t22_wellord1, axiom,  (! [A] :  (! [B] :  (v1_relat_1(B) =>  (v1_relat_2(B) => v1_relat_2(k2_wellord1(B, A))) ) ) ) ).
+fof(t47_relat_1, axiom,  (! [A] :  (v1_relat_1(A) =>  (! [B] :  (v1_relat_1(B) =>  (r1_tarski(k1_relat_1(A), k2_relat_1(B)) => k2_relat_1(k5_relat_1(B, A))=k2_relat_1(A)) ) ) ) ) ).
+fof(t111_tops_1, axiom,  (! [A] :  (l1_pre_topc(A) =>  (! [B] :  (m1_subset_1(B, k1_zfmisc_1(u1_struct_0(A))) =>  (v4_tops_1(B, A) =>  (v4_tops_1(k1_tops_1(A, B), A) & v4_tops_1(k2_pre_topc(A, B), A)) ) ) ) ) ) ).
+fof(d3_lattices, axiom,  (! [A] :  ( ( ~ (v2_struct_0(A))  & l2_lattices(A))  =>  (! [B] :  (m1_subset_1(B, u1_struct_0(A)) =>  (! [C] :  (m1_subset_1(C, u1_struct_0(A)) =>  (r1_lattices(A, B, C) <=> k1_lattices(A, B, C)=C) ) ) ) ) ) ) ).
+fof(t103_relat_1, axiom,  (! [A] :  (! [B] :  (! [C] :  (v1_relat_1(C) =>  (r1_tarski(A, B) => k7_relat_1(k7_relat_1(C, B), A)=k7_relat_1(C, A)) ) ) ) ) ).
+fof(d4_ordinal1, axiom,  (! [A] :  (v3_ordinal1(A) <=>  (v1_ordinal1(A) & v2_ordinal1(A)) ) ) ).
+fof(d13_orders_1, axiom,  (! [A] :  (v1_relat_1(A) =>  (! [B] :  (r8_orders_1(A, B) <=>  (r2_hidden(B, k3_relat_1(A)) &  (! [C] :  (r2_hidden(C, k3_relat_1(A)) =>  (C=B | r2_hidden(k4_tarski(C, B), A)) ) ) ) ) ) ) ) ).
+fof(t34_relset_1, axiom,  (! [A] :  (! [B] :  (! [C] :  (! [D] :  (m1_subset_1(D, k1_zfmisc_1(k2_zfmisc_1(B, A))) =>  (r1_tarski(B, C) => r2_relset_1(B, A, k5_relset_1(B, A, D, C), D)) ) ) ) ) ) ).
+fof(t36_tops_1, axiom,  (! [A] :  ( (v2_pre_topc(A) & l1_pre_topc(A))  =>  (! [B] :  (m1_subset_1(B, k1_zfmisc_1(u1_struct_0(A))) =>  (! [C] :  (m1_subset_1(C, k1_zfmisc_1(u1_struct_0(A))) =>  ( (v4_pre_topc(B, A) & v4_pre_topc(C, A))  => v4_pre_topc(k4_subset_1(u1_struct_0(A), B, C), A)) ) ) ) ) ) ) ).
+fof(dt_k2_zfmisc_1, axiom, $true).
+fof(fc16_membered, axiom,  (! [A, B] :  ( (v1_rat_1(A) & v1_rat_1(B))  => v4_membered(k2_tarski(A, B))) ) ).
+fof(t110_enumset1, axiom,  (! [A] :  (! [B] :  (! [C] :  (! [D] : k2_enumset1(A, B, C, D)=k2_enumset1(B, C, A, D)) ) ) ) ).
+fof(t9_funct_2, axiom,  (! [A] :  (! [B] :  (! [C] :  (! [D] :  ( (v1_funct_1(D) &  (v1_funct_2(D, A, B) & m1_subset_1(D, k1_zfmisc_1(k2_zfmisc_1(A, B)))) )  =>  (r1_tarski(B, C) =>  ( (B=k1_xboole_0 &  ~ (A=k1_xboole_0) )  |  (v1_funct_1(D) &  (v1_funct_2(D, A, C) & m1_subset_1(D, k1_zfmisc_1(k2_zfmisc_1(A, C)))) ) ) ) ) ) ) ) ) ).

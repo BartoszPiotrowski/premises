@@ -1,0 +1,5 @@
+fof(t27_compts_1, conjecture,  (! [A] :  ( (v2_pre_topc(A) & l1_pre_topc(A))  =>  (v1_finset_1(u1_struct_0(A)) => v1_compts_1(A)) ) ) ).
+fof(t72_mcart_1, axiom,  (! [A] :  (! [B] :  (! [C] :  (! [D] :  ~ ( (r2_hidden(A, k3_zfmisc_1(B, C, D)) &  (! [E] :  (! [F] :  (! [G] :  ~ ( (r2_hidden(E, B) &  (r2_hidden(F, C) &  (r2_hidden(G, D) & A=k3_mcart_1(E, F, G)) ) ) ) ) ) ) ) ) ) ) ) ) ).
+fof(t101_xboole_1, axiom,  (! [A] :  (! [B] : k5_xboole_0(A, B)=k4_xboole_0(k2_xboole_0(A, B), k3_xboole_0(A, B))) ) ).
+fof(projectivity_k1_tops_1, axiom,  (! [A, B] :  ( (l1_pre_topc(A) & m1_subset_1(B, k1_zfmisc_1(u1_struct_0(A))))  => k1_tops_1(A, k1_tops_1(A, B))=k1_tops_1(A, B)) ) ).
+fof(cc3_pre_topc, axiom,  (! [A] :  (l1_pre_topc(A) =>  (v11_pre_topc(A) =>  (v7_pre_topc(A) & v9_pre_topc(A)) ) ) ) ).

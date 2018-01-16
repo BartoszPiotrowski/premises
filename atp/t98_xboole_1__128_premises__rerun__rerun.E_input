@@ -1,0 +1,15 @@
+fof(t46_xboole_1, axiom, (![X1]:![X2]:k4_xboole_0(X1,k2_xboole_0(X1,X2))=k1_xboole_0), file('atp/t98_xboole_1__128_premises__rerun.E_input', t46_xboole_1)).
+fof(t94_xboole_1, axiom, (![X1]:![X2]:k2_xboole_0(X1,X2)=k5_xboole_0(k5_xboole_0(X1,X2),k3_xboole_0(X1,X2))), file('atp/t98_xboole_1__128_premises__rerun.E_input', t94_xboole_1)).
+fof(t53_xboole_1, axiom, (![X1]:![X2]:![X3]:k4_xboole_0(X1,k2_xboole_0(X2,X3))=k3_xboole_0(k4_xboole_0(X1,X2),k4_xboole_0(X1,X3))), file('atp/t98_xboole_1__128_premises__rerun.E_input', t53_xboole_1)).
+fof(t91_xboole_1, axiom, (![X1]:![X2]:![X3]:k5_xboole_0(k5_xboole_0(X1,X2),X3)=k5_xboole_0(X1,k5_xboole_0(X2,X3))), file('atp/t98_xboole_1__128_premises__rerun.E_input', t91_xboole_1)).
+fof(t51_xboole_1, axiom, (![X1]:![X2]:k2_xboole_0(k3_xboole_0(X1,X2),k4_xboole_0(X1,X2))=X1), file('atp/t98_xboole_1__128_premises__rerun.E_input', t51_xboole_1)).
+fof(t54_xboole_1, axiom, (![X1]:![X2]:![X3]:k4_xboole_0(X1,k3_xboole_0(X2,X3))=k2_xboole_0(k4_xboole_0(X1,X2),k4_xboole_0(X1,X3))), file('atp/t98_xboole_1__128_premises__rerun.E_input', t54_xboole_1)).
+fof(t16_xboole_1, axiom, (![X1]:![X2]:![X3]:k3_xboole_0(k3_xboole_0(X1,X2),X3)=k3_xboole_0(X1,k3_xboole_0(X2,X3))), file('atp/t98_xboole_1__128_premises__rerun.E_input', t16_xboole_1)).
+fof(t49_xboole_1, axiom, (![X1]:![X2]:![X3]:k3_xboole_0(X1,k4_xboole_0(X2,X3))=k4_xboole_0(k3_xboole_0(X1,X2),X3)), file('atp/t98_xboole_1__128_premises__rerun.E_input', t49_xboole_1)).
+fof(commutativity_k3_xboole_0, axiom, (![X1]:![X2]:k3_xboole_0(X1,X2)=k3_xboole_0(X2,X1)), file('atp/t98_xboole_1__128_premises__rerun.E_input', commutativity_k3_xboole_0)).
+fof(idempotence_k3_xboole_0, axiom, (![X1]:![X2]:k3_xboole_0(X1,X1)=X1), file('atp/t98_xboole_1__128_premises__rerun.E_input', idempotence_k3_xboole_0)).
+fof(t98_xboole_1, conjecture, (![X1]:![X2]:k2_xboole_0(X1,X2)=k5_xboole_0(X1,k4_xboole_0(X2,X1))), file('atp/t98_xboole_1__128_premises__rerun.E_input', t98_xboole_1)).
+fof(commutativity_k5_xboole_0, axiom, (![X1]:![X2]:k5_xboole_0(X1,X2)=k5_xboole_0(X2,X1)), file('atp/t98_xboole_1__128_premises__rerun.E_input', commutativity_k5_xboole_0)).
+fof(t5_boole, axiom, (![X1]:k5_xboole_0(X1,k1_xboole_0)=X1), file('atp/t98_xboole_1__128_premises__rerun.E_input', t5_boole)).
+fof(t2_boole, axiom, (![X1]:k3_xboole_0(X1,k1_xboole_0)=k1_xboole_0), file('atp/t98_xboole_1__128_premises__rerun.E_input', t2_boole)).
+fof(t92_xboole_1, axiom, (![X1]:k5_xboole_0(X1,X1)=k1_xboole_0), file('atp/t98_xboole_1__128_premises__rerun.E_input', t92_xboole_1)).

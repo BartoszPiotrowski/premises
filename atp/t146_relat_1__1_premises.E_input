@@ -1,0 +1,2 @@
+fof(t146_relat_1, conjecture,  (! [A] :  (v1_relat_1(A) => k9_relat_1(A, k1_relat_1(A))=k2_relat_1(A)) ) ).
+fof(t80_relat_1, axiom,  (! [A] :  (v1_relat_1(A) => k5_relat_1(A, k6_relat_1(k2_relat_1(A)))=A) ) ).

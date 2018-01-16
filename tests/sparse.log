@@ -1,0 +1,28 @@
+[2018-01-16 22:54:19] Statements of 4564 theorems and definitions loaded.
+[2018-01-16 22:54:20] Features of 4564 theorems and definitions loaded.
+[2018-01-16 22:54:20] Chronological order of 4564 theorems and definitions loaded.
+[2018-01-16 22:54:20] Proofs of 70 theorems loaded.
+[2018-01-16 22:54:20] Transforming proofs into training data...
+[2018-01-16 23:02:46] Statements of 4564 theorems and definitions loaded.
+[2018-01-16 23:02:46] Features of 4564 theorems and definitions loaded.
+[2018-01-16 23:02:46] Chronological order of 4564 theorems and definitions loaded.
+[2018-01-16 23:02:46] Proofs of 70 theorems loaded.
+[2018-01-16 23:02:46] Transforming proofs into training data...
+[2018-01-16 23:02:51] Transformation finished.
+[2018-01-16 23:08:27] Statements of 4564 theorems and definitions loaded.
+[2018-01-16 23:08:27] Features of 4564 theorems and definitions loaded.
+[2018-01-16 23:08:27] Chronological order of 4564 theorems and definitions loaded.
+[2018-01-16 23:08:27] Proofs of 70 theorems loaded.
+[2018-01-16 23:08:27] Transforming proofs into training data...
+[2018-01-16 23:08:33] Transformation finished.
+[2018-01-16 23:08:55] Statements of 4564 theorems and definitions loaded.
+[2018-01-16 23:08:55] Features of 4564 theorems and definitions loaded.
+[2018-01-16 23:08:55] Chronological order of 4564 theorems and definitions loaded.
+[2018-01-16 23:08:55] Proofs of 70 theorems loaded.
+[2018-01-16 23:08:55] Transforming proofs into training data...
+[2018-01-16 23:09:01] Transformation finished.
+[2018-01-16 23:09:01] Training of xgboost model started...
+[2018-01-16 23:09:01] Training finished.
+[2018-01-16 23:09:01] Creating rankings of premises from the trained model for 30 theorems...
+[2018-01-16 23:10:18] Rankings created.
+[2018-01-16 23:10:18] ATP evaluation started...

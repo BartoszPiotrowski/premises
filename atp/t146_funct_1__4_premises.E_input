@@ -1,0 +1,5 @@
+fof(t146_funct_1, conjecture,  (! [A] :  (! [B] :  (v1_relat_1(B) =>  (r1_tarski(A, k1_relat_1(B)) => r1_tarski(A, k10_relat_1(B, k9_relat_1(B, A)))) ) ) ) ).
+fof(t2_xboole_1, axiom,  (! [A] : r1_tarski(k1_xboole_0, A)) ).
+fof(fc21_relat_1, axiom,  (! [A] :  ( (v1_zfmisc_1(A) & v1_relat_1(A))  => v1_zfmisc_1(k2_relat_1(A))) ) ).
+fof(t151_relat_1, axiom,  (! [A] :  (! [B] :  (v1_relat_1(B) =>  (k9_relat_1(B, A)=k1_xboole_0 <=> r1_xboole_0(k1_relat_1(B), A)) ) ) ) ).
+fof(t27_funct_1, axiom,  (! [A] :  ( (v1_relat_1(A) & v1_funct_1(A))  =>  (! [B] :  ( (v1_relat_1(B) & v1_funct_1(B))  =>  (k1_relat_1(k5_relat_1(B, A))=k1_relat_1(B) => r1_tarski(k2_relat_1(B), k1_relat_1(A))) ) ) ) ) ).
