@@ -5,7 +5,7 @@ sys.path.append('..')
 import premises as prs
 
 N_JOBS = 20
-DATA_DIR = 'data/deepmath'
+DATA_DIR = 'data/mizar40'
 ATP_DIR = 'atp'
 LOG_FILE = __file__.replace('.py', '.log')
 
