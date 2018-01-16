@@ -1,9 +1,0 @@
-fof(t98_xboole_1, conjecture,  (! [A] :  (! [B] : k2_xboole_0(A, B)=k5_xboole_0(A, k4_xboole_0(B, A))) ) ).
-fof(t12_xboole_1, axiom,  (! [A] :  (! [B] :  (r1_tarski(A, B) => k2_xboole_0(A, B)=B) ) ) ).
-fof(t66_xboole_1, axiom,  (! [A] :  ( ~ ( ( ~ (r1_xboole_0(A, A))  & A=k1_xboole_0) )  &  ~ ( ( ~ (A=k1_xboole_0)  & r1_xboole_0(A, A)) ) ) ) ).
-fof(d3_xboole_0, axiom,  (! [A] :  (! [B] :  (! [C] :  (C=k2_xboole_0(A, B) <=>  (! [D] :  (r2_hidden(D, C) <=>  (r2_hidden(D, A) | r2_hidden(D, B)) ) ) ) ) ) ) ).
-fof(d5_xboole_0, axiom,  (! [A] :  (! [B] :  (! [C] :  (C=k4_xboole_0(A, B) <=>  (! [D] :  (r2_hidden(D, C) <=>  (r2_hidden(D, A) &  ~ (r2_hidden(D, B)) ) ) ) ) ) ) ) ).
-fof(t39_xboole_1, axiom,  (! [A] :  (! [B] : k2_xboole_0(A, k4_xboole_0(B, A))=k2_xboole_0(A, B)) ) ).
-fof(t2_xboole_0, axiom,  (! [A] :  (! [B] :  (! [C] :  ( (! [D] :  ( ~ (r2_hidden(D, A))  <=>  (r2_hidden(D, B) <=> r2_hidden(D, C)) ) )  => A=k5_xboole_0(B, C)) ) ) ) ).
-fof(commutativity_k5_xboole_0, axiom,  (! [A, B] : k5_xboole_0(A, B)=k5_xboole_0(B, A)) ).
-fof(t92_xboole_1, axiom,  (! [A] : k5_xboole_0(A, A)=k1_xboole_0) ).

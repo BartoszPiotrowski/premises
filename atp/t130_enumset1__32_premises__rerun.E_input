@@ -1,8 +1,0 @@
-fof(l53_enumset1, axiom, (![X1]:![X2]:![X3]:![X4]:k2_enumset1(X1,X2,X3,X4)=k2_xboole_0(k2_tarski(X1,X2),k2_tarski(X3,X4))), file('atp/t130_enumset1__32_premises.E_input', l53_enumset1)).
-fof(t41_enumset1, axiom, (![X1]:![X2]:k2_tarski(X1,X2)=k2_xboole_0(k1_tarski(X1),k1_tarski(X2))), file('atp/t130_enumset1__32_premises.E_input', t41_enumset1)).
-fof(t130_enumset1, conjecture, (![X1]:![X2]:![X3]:![X4]:![X5]:![X6]:![X7]:![X8]:![X9]:k7_enumset1(X1,X2,X3,X4,X5,X6,X7,X8,X9)=k2_xboole_0(k2_enumset1(X1,X2,X3,X4),k3_enumset1(X5,X6,X7,X8,X9))), file('atp/t130_enumset1__32_premises.E_input', t130_enumset1)).
-fof(t47_enumset1, axiom, (![X1]:![X2]:![X3]:![X4]:![X5]:k3_enumset1(X1,X2,X3,X4,X5)=k2_xboole_0(k1_tarski(X1),k2_enumset1(X2,X3,X4,X5))), file('atp/t130_enumset1__32_premises.E_input', t47_enumset1)).
-fof(t127_enumset1, axiom, (![X1]:![X2]:![X3]:![X4]:![X5]:![X6]:![X7]:![X8]:![X9]:k7_enumset1(X1,X2,X3,X4,X5,X6,X7,X8,X9)=k2_xboole_0(k1_tarski(X1),k6_enumset1(X2,X3,X4,X5,X6,X7,X8,X9))), file('atp/t130_enumset1__32_premises.E_input', t127_enumset1)).
-fof(t62_enumset1, axiom, (![X1]:![X2]:![X3]:![X4]:![X5]:![X6]:![X7]:![X8]:k6_enumset1(X1,X2,X3,X4,X5,X6,X7,X8)=k2_xboole_0(k1_tarski(X1),k5_enumset1(X2,X3,X4,X5,X6,X7,X8))), file('atp/t130_enumset1__32_premises.E_input', t62_enumset1)).
-fof(t57_enumset1, axiom, (![X1]:![X2]:![X3]:![X4]:![X5]:![X6]:![X7]:k5_enumset1(X1,X2,X3,X4,X5,X6,X7)=k2_xboole_0(k2_tarski(X1,X2),k3_enumset1(X3,X4,X5,X6,X7))), file('atp/t130_enumset1__32_premises.E_input', t57_enumset1)).
-fof(t4_xboole_1, axiom, (![X1]:![X2]:![X3]:k2_xboole_0(k2_xboole_0(X1,X2),X3)=k2_xboole_0(X1,k2_xboole_0(X2,X3))), file('atp/t130_enumset1__32_premises.E_input', t4_xboole_1)).

@@ -1,2 +1,0 @@
-fof(t100_enumset1, conjecture,  (! [A] :  (! [B] :  (! [C] : k1_enumset1(A, B, C)=k1_enumset1(B, C, A)) ) ) ).
-fof(dt_k5_xboole_0, axiom, $true).

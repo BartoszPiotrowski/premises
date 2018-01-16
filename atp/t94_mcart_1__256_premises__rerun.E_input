@@ -1,2 +1,0 @@
-fof(t94_mcart_1, conjecture, (![X1]:![X2]:(v1_relat_1(X2)=>![X3]:((r2_hidden(X3,X2)&(r2_hidden(X1,X2)&(k1_mcart_1(X3)=k1_mcart_1(X1)&k2_mcart_1(X3)=k2_mcart_1(X1))))=>X3=X1))), file('atp/t94_mcart_1__256_premises.E_input', t94_mcart_1)).
-fof(t23_mcart_1, axiom, (![X1]:![X2]:(v1_relat_1(X2)=>(r2_hidden(X1,X2)=>X1=k4_tarski(k1_mcart_1(X1),k2_mcart_1(X1))))), file('atp/t94_mcart_1__256_premises.E_input', t23_mcart_1)).

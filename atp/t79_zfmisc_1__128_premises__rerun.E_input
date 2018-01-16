@@ -1,5 +1,0 @@
-fof(d1_zfmisc_1, axiom, (![X1]:![X2]:(X2=k1_zfmisc_1(X1)<=>![X3]:(r2_hidden(X3,X2)<=>r1_tarski(X3,X1)))), file('atp/t79_zfmisc_1__128_premises.E_input', d1_zfmisc_1)).
-fof(t11_xboole_1, axiom, (![X1]:![X2]:![X3]:(r1_tarski(k2_xboole_0(X1,X2),X3)=>r1_tarski(X1,X3))), file('atp/t79_zfmisc_1__128_premises.E_input', t11_xboole_1)).
-fof(t12_xboole_1, axiom, (![X1]:![X2]:(r1_tarski(X1,X2)=>k2_xboole_0(X1,X2)=X2)), file('atp/t79_zfmisc_1__128_premises.E_input', t12_xboole_1)).
-fof(t79_zfmisc_1, conjecture, (![X1]:![X2]:(r1_tarski(X1,X2)=>r1_tarski(k1_zfmisc_1(X1),k1_zfmisc_1(X2)))), file('atp/t79_zfmisc_1__128_premises.E_input', t79_zfmisc_1)).
-fof(d3_tarski, axiom, (![X1]:![X2]:(r1_tarski(X1,X2)<=>![X3]:(r2_hidden(X3,X1)=>r2_hidden(X3,X2)))), file('atp/t79_zfmisc_1__128_premises.E_input', d3_tarski)).

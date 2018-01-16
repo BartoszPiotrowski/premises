@@ -1,2 +1,0 @@
-fof(d4_struct_0, conjecture,  (! [A] :  (l1_struct_0(A) => k3_struct_0(A)=k6_partfun1(u1_struct_0(A))) ) ).
-fof(redefinition_k5_numbers, axiom, k5_numbers=k4_ordinal1).

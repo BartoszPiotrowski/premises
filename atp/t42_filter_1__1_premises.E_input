@@ -1,2 +1,0 @@
-fof(t42_filter_1, conjecture,  (! [A] :  ( ( ~ (v2_struct_0(A))  &  (v10_lattices(A) & l3_lattices(A)) )  =>  (! [B] :  ( ( ~ (v2_struct_0(B))  &  (v10_lattices(B) & l3_lattices(B)) )  =>  ( (v15_lattices(A) & v15_lattices(B))  <=> v15_lattices(k7_filter_1(A, B))) ) ) ) ) ).
-fof(fc13_tops_1, axiom,  (! [A, B] :  ( (l1_pre_topc(A) &  (v2_tops_1(B, A) & m1_subset_1(B, k1_zfmisc_1(u1_struct_0(A)))) )  => v1_xboole_0(k1_tops_1(A, B))) ) ).

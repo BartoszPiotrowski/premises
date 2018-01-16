@@ -1,2 +1,0 @@
-fof(t27_compts_1, conjecture,  (! [A] :  ( (v2_pre_topc(A) & l1_pre_topc(A))  =>  (v1_finset_1(u1_struct_0(A)) => v1_compts_1(A)) ) ) ).
-fof(t72_mcart_1, axiom,  (! [A] :  (! [B] :  (! [C] :  (! [D] :  ~ ( (r2_hidden(A, k3_zfmisc_1(B, C, D)) &  (! [E] :  (! [F] :  (! [G] :  ~ ( (r2_hidden(E, B) &  (r2_hidden(F, C) &  (r2_hidden(G, D) & A=k3_mcart_1(E, F, G)) ) ) ) ) ) ) ) ) ) ) ) ) ).

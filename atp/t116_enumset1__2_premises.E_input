@@ -1,3 +1,0 @@
-fof(t116_enumset1, conjecture,  (! [A] :  (! [B] :  (! [C] :  (! [D] : k2_enumset1(A, B, C, D)=k2_enumset1(C, B, A, D)) ) ) ) ).
-fof(t10_xboole_1, axiom,  (! [A] :  (! [B] :  (! [C] :  (r1_tarski(A, B) => r1_tarski(A, k2_xboole_0(C, B))) ) ) ) ).
-fof(t87_enumset1, axiom,  (! [A] : k3_enumset1(A, A, A, A, A)=k1_tarski(A)) ).

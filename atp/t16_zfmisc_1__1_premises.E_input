@@ -1,2 +1,0 @@
-fof(t16_zfmisc_1, conjecture,  (! [A] :  (! [B] :  ~ ( (r1_xboole_0(k1_tarski(A), k1_tarski(B)) & A=B) ) ) ) ).
-fof(t89_enumset1, axiom,  (! [A] :  (! [B] :  (! [C] : k5_enumset1(A, A, A, A, A, B, C)=k1_enumset1(A, B, C)) ) ) ).

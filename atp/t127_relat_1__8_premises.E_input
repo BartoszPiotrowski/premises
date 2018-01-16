@@ -1,9 +1,0 @@
-fof(t127_relat_1, conjecture,  (! [A] :  (! [B] :  (! [C] :  (v1_relat_1(C) => k8_relat_1(A, k8_relat_1(B, C))=k8_relat_1(k3_xboole_0(A, B), C)) ) ) ) ).
-fof(t119_relat_1, axiom,  (! [A] :  (! [B] :  (v1_relat_1(B) => k2_relat_1(k8_relat_1(A, B))=k3_xboole_0(k2_relat_1(B), A)) ) ) ).
-fof(t45_enumset1, axiom,  (! [A] :  (! [B] :  (! [C] :  (! [D] : k2_enumset1(A, B, C, D)=k2_xboole_0(k2_tarski(A, B), k2_tarski(C, D))) ) ) ) ).
-fof(t61_xboole_1, axiom,  (! [A] :  ( ~ (A=k1_xboole_0)  => r2_xboole_0(k1_xboole_0, A)) ) ).
-fof(t3_subset, axiom,  (! [A] :  (! [B] :  (m1_subset_1(A, k1_zfmisc_1(B)) <=> r1_tarski(A, B)) ) ) ).
-fof(t54_enumset1, axiom,  (! [A] :  (! [B] :  (! [C] :  (! [D] :  (! [E] :  (! [F] : k4_enumset1(A, B, C, D, E, F)=k2_xboole_0(k2_enumset1(A, B, C, D), k2_tarski(E, F))) ) ) ) ) ) ).
-fof(t137_zfmisc_1, axiom,  (! [A] :  (! [B] :  (! [C] :  (! [D] :  (! [E] :  ( (r2_hidden(A, k2_zfmisc_1(B, C)) & r2_hidden(A, k2_zfmisc_1(D, E)))  => r2_hidden(A, k2_zfmisc_1(k3_xboole_0(B, D), k3_xboole_0(C, E)))) ) ) ) ) ) ).
-fof(t41_zfmisc_1, axiom,  (! [A] :  (! [B] :  ~ ( ( ~ (A=k1_tarski(B))  &  ( ~ (A=k1_xboole_0)  &  (! [C] :  ~ ( (r2_hidden(C, A) &  ~ (C=B) ) ) ) ) ) ) ) ) ).
-fof(l168_zfmisc_1, axiom,  (! [A] :  (! [B] :  (! [C] :  ~ ( ( ~ (r2_hidden(A, C))  &  ( ~ (r2_hidden(B, C))  &  ~ (r1_xboole_0(k2_tarski(A, B), C)) ) ) ) ) ) ) ).

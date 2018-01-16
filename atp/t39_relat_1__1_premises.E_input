@@ -1,2 +1,0 @@
-fof(t39_relat_1, conjecture,  (! [A] :  (v1_relat_1(A) =>  (! [B] :  (v1_relat_1(B) => k4_relat_1(k3_xboole_0(A, B))=k3_xboole_0(k4_relat_1(A), k4_relat_1(B))) ) ) ) ).
-fof(t2_zfmisc_1, axiom, k3_tarski(k1_xboole_0)=k1_xboole_0).

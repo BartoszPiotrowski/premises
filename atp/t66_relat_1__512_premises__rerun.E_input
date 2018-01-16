@@ -1,4 +1,0 @@
-fof(t66_relat_1, conjecture, (k4_relat_1(k1_xboole_0)=k1_xboole_0), file('atp/t66_relat_1__512_premises.E_input', t66_relat_1)).
-fof(t6_boole, axiom, (![X1]:(v1_xboole_0(X1)=>X1=k1_xboole_0)), file('atp/t66_relat_1__512_premises.E_input', t6_boole)).
-fof(fc14_relat_1, axiom, (![X1]:(v1_xboole_0(X1)=>(v1_xboole_0(k4_relat_1(X1))&v1_relat_1(k4_relat_1(X1))))), file('atp/t66_relat_1__512_premises.E_input', fc14_relat_1)).
-fof(fc1_xboole_0, axiom, (v1_xboole_0(k1_xboole_0)), file('atp/t66_relat_1__512_premises.E_input', fc1_xboole_0)).

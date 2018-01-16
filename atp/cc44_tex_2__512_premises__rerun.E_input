@@ -1,2 +1,0 @@
-fof(cc44_tex_2, conjecture, (![X1]:((~(v2_struct_0(X1))&(v2_pre_topc(X1)&(v2_tdlat_3(X1)&l1_pre_topc(X1))))=>![X2]:(m1_pre_topc(X2,X1)=>((~(v2_struct_0(X2))&~(v4_tex_2(X2,X1)))=>(~(v2_struct_0(X2))&~(v7_struct_0(X2))))))), file('atp/cc44_tex_2__512_premises.E_input', cc44_tex_2)).
-fof(cc43_tex_2, axiom, (![X1]:((~(v2_struct_0(X1))&(v2_pre_topc(X1)&(v2_tdlat_3(X1)&l1_pre_topc(X1))))=>![X2]:(m1_pre_topc(X2,X1)=>((~(v2_struct_0(X2))&v7_struct_0(X2))=>(~(v2_struct_0(X2))&v4_tex_2(X2,X1)))))), file('atp/cc44_tex_2__512_premises.E_input', cc43_tex_2)).

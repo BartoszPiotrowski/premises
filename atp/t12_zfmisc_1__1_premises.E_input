@@ -1,2 +1,0 @@
-fof(t12_zfmisc_1, conjecture,  (! [A] :  (! [B] : r1_tarski(k1_tarski(A), k2_tarski(A, B))) ) ).
-fof(t65_xboole_1, axiom,  (! [A] : r1_xboole_0(A, k1_xboole_0)) ).

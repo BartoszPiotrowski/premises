@@ -1,5 +1,0 @@
-fof(t121_zfmisc_1, conjecture, (![X1]:![X2]:![X3]:![X4]:k2_zfmisc_1(k2_xboole_0(X1,X2),k2_xboole_0(X3,X4))=k2_xboole_0(k2_xboole_0(k2_xboole_0(k2_zfmisc_1(X1,X3),k2_zfmisc_1(X1,X4)),k2_zfmisc_1(X2,X3)),k2_zfmisc_1(X2,X4))), file('atp/t121_zfmisc_1__64_premises__rerun.E_input', t121_zfmisc_1)).
-fof(l51_zfmisc_1, axiom, (![X1]:![X2]:k3_tarski(k2_tarski(X1,X2))=k2_xboole_0(X1,X2)), file('atp/t121_zfmisc_1__64_premises__rerun.E_input', l51_zfmisc_1)).
-fof(t120_zfmisc_1, axiom, (![X1]:![X2]:![X3]:(k2_zfmisc_1(k2_xboole_0(X1,X2),X3)=k2_xboole_0(k2_zfmisc_1(X1,X3),k2_zfmisc_1(X2,X3))&k2_zfmisc_1(X3,k2_xboole_0(X1,X2))=k2_xboole_0(k2_zfmisc_1(X3,X1),k2_zfmisc_1(X3,X2)))), file('atp/t121_zfmisc_1__64_premises__rerun.E_input', t120_zfmisc_1)).
-fof(t4_xboole_1, axiom, (![X1]:![X2]:![X3]:k2_xboole_0(k2_xboole_0(X1,X2),X3)=k2_xboole_0(X1,k2_xboole_0(X2,X3))), file('atp/t121_zfmisc_1__64_premises__rerun.E_input', t4_xboole_1)).
-fof(commutativity_k2_xboole_0, axiom, (![X1]:![X2]:k2_xboole_0(X1,X2)=k2_xboole_0(X2,X1)), file('atp/t121_zfmisc_1__64_premises__rerun.E_input', commutativity_k2_xboole_0)).

@@ -1,5 +1,0 @@
-fof(t36_connsp_2, conjecture,  (! [A] :  ( ( ~ (v2_struct_0(A))  &  (v2_pre_topc(A) & l1_pre_topc(A)) )  =>  (! [B] :  (m1_subset_1(B, k1_zfmisc_1(u1_struct_0(A))) =>  (! [C] :  (m2_connsp_2(C, A, B) => r1_tarski(B, C)) ) ) ) ) ) ).
-fof(t96_orders_1, axiom,  (! [A] :  (! [B] :  (! [C] :  (v1_relat_1(C) =>  ( (r7_relat_2(C, A) & r1_tarski(B, A))  => r7_relat_2(C, B)) ) ) ) ) ).
-fof(d6_ordinal1, axiom,  (! [A] :  (v4_ordinal1(A) <=> A=k3_tarski(A)) ) ).
-fof(t43_connsp_1, axiom,  (! [A] :  ( ( ~ (v2_struct_0(A))  &  (v2_pre_topc(A) & l1_pre_topc(A)) )  =>  (! [B] :  (m1_subset_1(B, k1_zfmisc_1(u1_struct_0(A))) =>  (v3_connsp_1(B, A) <=>  (? [C] :  (m1_subset_1(C, u1_struct_0(A)) & B=k1_connsp_1(A, C)) ) ) ) ) ) ) ).
-fof(fc7_funct_2, axiom,  (! [A, B, C] :  ( ( (v1_funct_1(B) &  (v1_funct_2(B, A, A) &  (v3_funct_2(B, A, A) & m1_subset_1(B, k1_zfmisc_1(k2_zfmisc_1(A, A)))) ) )  &  (v1_funct_1(C) &  (v1_funct_2(C, A, A) &  (v3_funct_2(C, A, A) & m1_subset_1(C, k1_zfmisc_1(k2_zfmisc_1(A, A)))) ) ) )  =>  (v1_funct_1(k5_relat_1(B, C)) &  (v1_funct_2(k5_relat_1(B, C), A, A) & v3_funct_2(k5_relat_1(B, C), A, A)) ) ) ) ).

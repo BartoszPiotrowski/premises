@@ -1,2 +1,0 @@
-fof(t172_relat_1, conjecture,  (! [A] : k10_relat_1(k1_xboole_0, A)=k1_xboole_0) ).
-fof(t91_xboole_1, axiom,  (! [A] :  (! [B] :  (! [C] : k5_xboole_0(k5_xboole_0(A, B), C)=k5_xboole_0(A, k5_xboole_0(B, C))) ) ) ).

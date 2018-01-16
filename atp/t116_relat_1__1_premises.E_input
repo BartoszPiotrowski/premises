@@ -1,2 +1,0 @@
-fof(t116_relat_1, conjecture,  (! [A] :  (! [B] :  (v1_relat_1(B) => r1_tarski(k2_relat_1(k8_relat_1(A, B)), A)) ) ) ).
-fof(t44_setfam_1, axiom,  (! [A] :  (! [B] :  (m1_subset_1(B, k1_zfmisc_1(k1_zfmisc_1(A))) =>  (! [C] :  (m1_subset_1(C, k1_zfmisc_1(k1_zfmisc_1(A))) =>  ( (! [D] :  (m1_subset_1(D, k1_zfmisc_1(A)) =>  (r2_hidden(D, B) <=> r2_hidden(D, C)) ) )  => B=C) ) ) ) ) ) ).

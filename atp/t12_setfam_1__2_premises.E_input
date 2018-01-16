@@ -1,3 +1,0 @@
-fof(t12_setfam_1, conjecture,  (! [A] :  (! [B] : k1_setfam_1(k2_tarski(A, B))=k3_xboole_0(A, B)) ) ).
-fof(t53_zfmisc_1, axiom,  (! [A] :  (! [B] :  (! [C] :  ( (r2_hidden(A, B) & r2_hidden(C, B))  => k3_xboole_0(k2_tarski(A, C), B)=k2_tarski(A, C)) ) ) ) ).
-fof(t63_zfmisc_1, axiom,  (! [A] :  (! [B] :  (! [C] :  (k3_xboole_0(k2_tarski(A, B), C)=k2_tarski(A, B) => r2_hidden(A, C)) ) ) ) ).

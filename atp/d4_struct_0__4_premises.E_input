@@ -1,5 +1,0 @@
-fof(d4_struct_0, conjecture,  (! [A] :  (l1_struct_0(A) => k3_struct_0(A)=k6_partfun1(u1_struct_0(A))) ) ).
-fof(redefinition_k5_numbers, axiom, k5_numbers=k4_ordinal1).
-fof(t48_yellow_0, axiom,  (! [A] :  ( ( ~ (v2_struct_0(A))  & l1_orders_2(A))  =>  (! [B] :  (! [C] :  ( ( (! [D] :  (m1_subset_1(D, u1_struct_0(A)) =>  (r1_lattice3(A, B, D) <=> r1_lattice3(A, C, D)) ) )  & r2_yellow_0(A, B))  => r2_yellow_0(A, C)) ) ) ) ) ).
-fof(t132_zfmisc_1, axiom,  (! [A] :  (! [B] :  (! [C] :  (k2_zfmisc_1(k2_tarski(A, B), C)=k2_xboole_0(k2_zfmisc_1(k1_tarski(A), C), k2_zfmisc_1(k1_tarski(B), C)) & k2_zfmisc_1(C, k2_tarski(A, B))=k2_xboole_0(k2_zfmisc_1(C, k1_tarski(A)), k2_zfmisc_1(C, k1_tarski(B)))) ) ) ) ).
-fof(cc1_lattices, axiom,  (! [A] :  (l3_lattices(A) =>  ( ( ~ (v2_struct_0(A))  & v10_lattices(A))  =>  ( ~ (v2_struct_0(A))  &  (v4_lattices(A) &  (v5_lattices(A) &  (v6_lattices(A) &  (v7_lattices(A) &  (v8_lattices(A) & v9_lattices(A)) ) ) ) ) ) ) ) ) ).

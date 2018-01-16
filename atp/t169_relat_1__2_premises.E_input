@@ -1,3 +1,0 @@
-fof(t169_relat_1, conjecture,  (! [A] :  (v1_relat_1(A) => k10_relat_1(A, k2_relat_1(A))=k1_relat_1(A)) ) ).
-fof(t29_setfam_1, axiom,  (! [A] : r1_setfam_1(A, k2_setfam_1(A, A))) ).
-fof(fc7_relat_1, axiom,  (! [A, B, C, D] : v1_relat_1(k2_tarski(k4_tarski(A, B), k4_tarski(C, D)))) ).

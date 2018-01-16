@@ -1,2 +1,0 @@
-fof(t41_enumset1, conjecture,  (! [A] :  (! [B] : k2_tarski(A, B)=k2_xboole_0(k1_tarski(A), k1_tarski(B))) ) ).
-fof(t55_xboole_1, axiom,  (! [A] :  (! [B] : k4_xboole_0(k2_xboole_0(A, B), k3_xboole_0(A, B))=k2_xboole_0(k4_xboole_0(A, B), k4_xboole_0(B, A))) ) ).
