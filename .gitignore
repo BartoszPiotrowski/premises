@@ -5,6 +5,9 @@ mizar40/
 *.E_input
 *.E_output
 
+# temporary
+tmp/
+
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
