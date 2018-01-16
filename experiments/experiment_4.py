@@ -26,4 +26,4 @@ rankings_train = prs.knn(test_theorems, proofs_train, params_data_trans)
 params_atp_eval = {}
 proofs_test = prs.atp_evaluation(rankings_train, statements, params_atp_eval,
                                  dirpath=ATP_DIR, n_jobs=N_JOBS, logfile=LOG_FILE)
-proofs.print_stats(logfile=LOG_FILE)
+proofs_test.print_stats(logfile=LOG_FILE)

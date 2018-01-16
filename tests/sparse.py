@@ -4,10 +4,10 @@ from random import sample
 sys.path.append('..')
 import premises as prs
 
+N_JOBS = -1
 DATA_DIR = 'data/debug_data'
 ATP_DIR = 'atp'
-LOG_FILE = 'tests/sparse.log'
-N_JOBS = -1
+LOG_FILE = __file__.replace('.py', '.log')
 
 statements = prs.Statements(from_file=join(DATA_DIR, 'statements'),
                             logfile=LOG_FILE)
@@ -33,3 +33,4 @@ rankings_train = prs.Rankings(test_theorems, model, params_data_trans,
 params_atp_eval = {}
 proofs_test = prs.atp_evaluation(rankings_train, statements, params_atp_eval,
                                  dirpath=ATP_DIR, n_jobs=N_JOBS, logfile=LOG_FILE)
+proofs_test.print_stats(logfile=LOG_FILE)
