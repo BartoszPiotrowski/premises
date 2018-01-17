@@ -203,7 +203,7 @@ class Proofs:
         return self.num_of_all_proofs() / len(self)
 
     def avg_length_of_proof(self):
-        lengths = [len(p) for self.proofs[t] in self.proofs for p in t]
+        lengths = [len(p) for t in self.proofs for p in self.proofs[t]]
         return sum(lengths) / len(lengths)
 
     def stats(self):
@@ -223,8 +223,8 @@ class Proofs:
                 n, ns[n]), logfile)
         printline("Average number of proofs per theorem: {:.3f}".format(
                   self.avg_num_of_proofs()), logfile)
-        printline("Average number of premises used in a proof: {:.3f}".format(
-                  self.avg_length_of_proof()), logfile)
+        #printline("Average number of premises used in a proof: {:.3f}".format(
+        #          self.avg_length_of_proof()), logfile)
 
 
 class Rankings:
