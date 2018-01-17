@@ -52,29 +52,39 @@ def pairs_to_array(pairs, params):
         return sps.coo_matrix(np.array(bin_vectors_trans))
     return np.array(bin_vectors_trans)
 
-def proofs_to_train_one_theorem(thm, atp_useful, params_data_trans,
-                                params_negative_mining):
+def proofs_to_train_one_theorem(thm, atp_useful, params_data_trans):
     features = params_data_trans['features']
     chronology = params_data_trans['chronology']
-    ratio_neg_pos = params_data_trans['ratio_neg_pos'] \
-        if 'ratio_neg_pos' in params_data_trans else 4
     sparse = params_data_trans['sparse']
     available_premises = chronology.available_premises(thm)
-    not_positive_premises = set(available_premises) - atp_useful
+    ratio_neg_pos = params_data_trans['ratio_neg_pos'] \
+        if 'ratio_neg_pos' in params_data_trans else 5
+    rankings_for_neg_mining = params_data_trans['rankings_for_negative_mining'] \
+        if 'rankings_for_negative_mining' in params_data_trans else None
+    level_of_neg_mining = params_data_trans['level_of_neg_mining'] \
+        if 'level_of_neg_mining' in params_data_trans else 2
+    not_pos_premises = set(available_premises) - set(atp_useful)
     # TODO something more clever; differentiate importance of positives
-    positive_premises = atp_useful
-    if not len(not_positive_premises) > 1:
-        return ([1] * len(positive_premises),
+    pos_premises = atp_useful
+    if not len(not_pos_premises) > 1:
+        return ([1] * len(pos_premises),
            pairs_to_array([(features[thm], features[prm])
-                           for prm in positive_premises], params_data_trans))
-    negative_premises_misclassified = misclassified_negatives(
-            params_negative_mining['rankings'][thm], atp_useful) \
-            if params_negative_mining else set()
-    negative_premises = \
-        set(negative_premises_misclassified) | set(sample(not_positive_premises,
-       min(len(not_positive_premises), ratio_neg_pos * len(positive_premises))))
-    pairs_pos = [(features[thm], features[prm]) for prm in positive_premises]
-    pairs_neg = [(features[thm], features[prm]) for prm in negative_premises]
+                           for prm in pos_premises], params_data_trans))
+    if rankings_for_neg_mining:
+        neg_premises_misclass = misclassified_negatives(
+            rankings_for_neg_mining[thm], atp_useful, level_of_neg_mining)
+        #TODO add parameter for neg min
+        neg_premises_not_misclass = not_pos_premises - neg_premises_misclass
+        num_neg_premises_not_misclass = \
+            min(len(neg_premises_not_misclass), ratio_neg_pos * len(pos_premises))
+        neg_premises_not_misclass_sample = \
+         set(sample(neg_premises_not_misclass, num_neg_premises_not_misclass))
+        neg_premises = neg_premises_misclass | neg_premises_not_misclass_sample
+    else:
+        num_neg = min(len(not_pos_premises), ratio_neg_pos * len(pos_premises))
+        neg_premises = set(sample(not_pos_premises, num_neg))
+    pairs_pos = [(features[thm], features[prm]) for prm in pos_premises]
+    pairs_neg = [(features[thm], features[prm]) for prm in neg_premises]
     labels = [1] * len(pairs_pos) + [0] * len(pairs_neg)
     array = pairs_to_array(pairs_pos + pairs_neg, params_data_trans)
     assert len(labels) == array.shape[0]
@@ -112,10 +122,13 @@ def proofs_to_train(proofs, params_data_trans, params_negative_mining={},
     return labels, array
 
 # returns the most misclassified negatives
-def misclassified_negatives(ranking, atp_useful, num_neg=2):
-    n_pos = len(atp_useful)
-    n_neg = int(n_pos * num_neg)
-    mis_negs = [ranking[i] for i in range(min(n_neg, len(ranking)))
-                if not ranking[i] in set(atp_useful)]
-    return mis_negs
+def misclassified_negatives(ranking, atp_useful, level_of_neg_mining=2):
+    if isinstance(level_of_neg_mining, int):
+        n_pos = len(atp_useful)
+        n_neg = int(n_pos * level_of_neg_mining)
+        mis_negs = [ranking[i] for i in range(min(n_neg, len(ranking)))
+                    if not ranking[i] in set(atp_useful)]
+    elif level_of_neg_mining == 'all':
+        mis_negs =
+    return set(mis_negs)
 

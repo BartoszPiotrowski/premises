@@ -1,0 +1,68 @@
+[2018-01-17 15:23:28] Statements of 4564 theorems and definitions loaded.
+[2018-01-17 15:23:28] Features of 4564 theorems and definitions loaded.
+[2018-01-17 15:23:28] Chronological order of 4564 theorems and definitions loaded.
+[2018-01-17 15:23:28] Proofs of 70 theorems loaded.
+[2018-01-17 15:23:28] Transforming proofs into training data...
+[2018-01-17 15:23:28]     merge_mode: concat
+[2018-01-17 15:23:28]     sparse: False
+[2018-01-17 15:23:34] Transformation finished.
+[2018-01-17 15:23:34] Training of xgboost model started...
+[2018-01-17 15:23:41] Training finished.
+[2018-01-17 15:23:41] Creating rankings of premises from the trained model for 30 theorems...
+[2018-01-17 15:25:07] Rankings created.
+[2018-01-17 15:25:07] Transforming proofs into training data...
+[2018-01-17 15:25:07]     merge_mode: concat
+[2018-01-17 15:25:07]     sparse: False
+[2018-01-17 15:33:10] Statements of 4564 theorems and definitions loaded.
+[2018-01-17 15:33:10] Features of 4564 theorems and definitions loaded.
+[2018-01-17 15:33:10] Chronological order of 4564 theorems and definitions loaded.
+[2018-01-17 15:33:10] Proofs of 70 theorems loaded.
+[2018-01-17 15:33:10] Transforming proofs into training data...
+[2018-01-17 15:33:10]     merge_mode: concat
+[2018-01-17 15:33:10]     sparse: False
+[2018-01-17 15:33:16] Transformation finished.
+[2018-01-17 15:33:16] Training of xgboost model started...
+[2018-01-17 15:33:23] Training finished.
+[2018-01-17 15:33:50] Statements of 4564 theorems and definitions loaded.
+[2018-01-17 15:33:50] Features of 4564 theorems and definitions loaded.
+[2018-01-17 15:33:50] Chronological order of 4564 theorems and definitions loaded.
+[2018-01-17 15:33:50] Proofs of 70 theorems loaded.
+[2018-01-17 15:33:50] Transforming proofs into training data...
+[2018-01-17 15:33:50]     merge_mode: concat
+[2018-01-17 15:33:50]     sparse: False
+[2018-01-17 15:33:56] Transformation finished.
+[2018-01-17 15:33:56] Training of xgboost model started...
+[2018-01-17 15:34:03] Training finished.
+[2018-01-17 15:34:03] Creating rankings of premises from the trained model for 70 theorems...
+[2018-01-17 15:38:24] Rankings created.
+[2018-01-17 15:38:24] Transforming proofs into training data...
+[2018-01-17 15:38:24]     merge_mode: concat
+[2018-01-17 15:38:24]     sparse: False
+[2018-01-17 15:40:23] Statements of 4564 theorems and definitions loaded.
+[2018-01-17 15:40:23] Features of 4564 theorems and definitions loaded.
+[2018-01-17 15:40:23] Chronological order of 4564 theorems and definitions loaded.
+[2018-01-17 15:40:23] Proofs of 70 theorems loaded.
+[2018-01-17 15:40:23] Transforming proofs into training data...
+[2018-01-17 15:40:23]     merge_mode: concat
+[2018-01-17 15:40:23]     sparse: False
+[2018-01-17 15:40:29] Transformation finished.
+[2018-01-17 15:40:29] Training of xgboost model started...
+[2018-01-17 15:40:37] Training finished.
+[2018-01-17 15:40:37] Creating rankings of premises from the trained model for 30 theorems...
+[2018-01-17 15:41:54] Rankings created.
+[2018-01-17 15:41:54] ATP evaluation started...
+[2018-01-17 15:50:37]     Number of proved theorems: 10
+[2018-01-17 15:50:37]     Percentage of proved theorems: 33.33%
+[2018-01-17 15:50:37] Creating rankings of premises from the trained model for 70 theorems...
+[2018-01-17 15:54:52] Rankings created.
+[2018-01-17 15:54:52] Transforming proofs into training data...
+[2018-01-17 15:54:52]     merge_mode: concat
+[2018-01-17 15:54:52]     sparse: False
+[2018-01-17 15:55:17] Transformation finished.
+[2018-01-17 15:55:17] Training of xgboost model started...
+[2018-01-17 15:55:30] Training finished.
+[2018-01-17 15:55:30] Creating rankings of premises from the trained model for 30 theorems...
+[2018-01-17 15:56:56] Rankings created.
+[2018-01-17 15:56:56] ATP evaluation started...
+[2018-01-17 16:04:16]     Number of proved theorems: 12
+[2018-01-17 16:04:16]     Percentage of proved theorems: 40.00%
