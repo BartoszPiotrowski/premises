@@ -7,7 +7,7 @@ from time import time
 from .utils import printline
 
 
-def bin_vector(order_of_features, list_of_features):
+def bin_vector(list_of_features, order_of_features):
 #   return [int(i in list_of_features) for i in order_of_features]
 # is it OK to have bools instead of ints?
     return [i in list_of_features for i in order_of_features]
@@ -31,13 +31,22 @@ def bin_trans_comb(thm_features, prm_features, order_of_features):
   #  t1 = time(); print("1", t1 - t0)
     return vector
 
-# TODO add other posibilities of transforming pair to vector
+def bin_trans_concat(thm_features, prm_features, order_of_features):
+    vector_thm = bin_vector(thm_features, order_of_features)
+    vector_prm = bin_vector(prm_features, order_of_features)
+    return vector_thm + vector_prm
+
 # pair means here (thm features, prm features)
 def pairs_to_array(pairs, params):
     order_of_features = params['features'].order_of_features
     sparse = params['sparse'] if 'sparse' in params else False
-    bin_vectors_trans = [bin_trans_comb(thm_f, prm_f, order_of_features)
-                            for thm_f, prm_f in pairs]
+    merge_mode = params['merge_mode'] if 'merge_mode' in params else 'comb'
+    if merge_mode == 'comb':
+        bin_vectors_trans = [bin_trans_comb(thm_f, prm_f, order_of_features)
+                                for thm_f, prm_f in pairs]
+    if merge_mode == 'concat':
+        bin_vectors_trans = [bin_trans_concat(thm_f, prm_f, order_of_features)
+                                for thm_f, prm_f in pairs]
     if sparse:
         # TODO to test; DONE, but very slow... TODO make it faster
         return sps.coo_matrix(np.array(bin_vectors_trans))
@@ -49,8 +58,7 @@ def proofs_to_train_one_theorem(thm, atp_useful, params_data_trans,
     chronology = params_data_trans['chronology']
     ratio_neg_pos = params_data_trans['ratio_neg_pos'] \
         if 'ratio_neg_pos' in params_data_trans else 4
-    sparse = params_data_trans['sparse'] if 'sparse' in params_data_trans \
-        else False
+    sparse = params_data_trans['sparse']
     available_premises = chronology.available_premises(thm)
     # TODO here parameter about comb/concat/...
     not_positive_premises = set(available_premises) - atp_useful
@@ -77,10 +85,16 @@ def proofs_to_train(proofs, params_data_trans, params_negative_mining={},
                     n_jobs=-1, verbose=True, logfile=''):
     assert 'features' in params_data_trans
     assert 'chronology' in params_data_trans
-    sparse = params_data_trans['sparse'] if 'sparse' in params_data_trans \
-                                        else False
+    if not 'sparse' in params_data_trans:
+        params_data_trans['sparse'] = False
+    if not 'merge_mode' in params_data_trans:
+        params_data_trans['merge_mode'] = 'comb'
     if verbose or logfile:
         printline("Transforming proofs into training data...", logfile, verbose)
+        printline("    merge_mode: {}".format(params_data_trans['merge_mode']),
+                  logfile, verbose)
+        printline("    sparse: {}".format(params_data_trans['sparse']),
+                  logfile, verbose)
     with Parallel(n_jobs=n_jobs) as parallel:
         d_proofs_to_train_one_theorem = delayed(proofs_to_train_one_theorem)
         labels_and_arrays = parallel(
@@ -89,7 +103,7 @@ def proofs_to_train(proofs, params_data_trans, params_negative_mining={},
                                          for thm in proofs)
     labels = [i for p in labels_and_arrays for i in p[0]]
     arrays = [p[1] for p in labels_and_arrays]
-    if sparse:
+    if params_data_trans['sparse']:
         array = sps.vstack(arrays)
     else:
         array = np.concatenate(arrays)
