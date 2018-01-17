@@ -3,6 +3,7 @@ from joblib import Parallel, delayed
 from random import sample
 import numpy as np
 import scipy.sparse as sps
+import gensim as gs
 from time import time
 from .utils import printline
 
@@ -61,8 +62,8 @@ def proofs_to_train_one_theorem(thm, atp_useful, params):
         if 'ratio_neg_pos' in params else 5
     rankings_for_neg_mining = params['rankings_for_negative_mining'] \
         if 'rankings_for_negative_mining' in params else None
-    level_of_neg_mining = params['level_of_neg_mining'] \
-        if 'level_of_neg_mining' in params else 2
+    level_of_neg_mining = params['level_of_negative_mining'] \
+        if 'level_of_negative_mining' in params else 2
     not_pos_premises = set(available_premises) - set(atp_useful)
     # TODO something more clever; differentiate importance of positives
     pos_premises = atp_useful
@@ -97,12 +98,15 @@ def proofs_to_train(proofs, params, n_jobs=-1, verbose=True, logfile=''):
     if not 'merge_mode' in params:
         params['merge_mode'] = 'comb'
     if 'rankings_for_negative_mining' in params:
-        assert set(params['rankings_for_negative_mining']) => set(proofs)
+        assert set(params['rankings_for_negative_mining']) >= set(proofs)
     if verbose or logfile:
         printline("Transforming proofs into training data...", logfile, verbose)
-        printline("    merge_mode: {}".format(params['merge_mode']),
+        printline("    Sparse matrix: {}".format(params['sparse']),
                   logfile, verbose)
-        printline("    sparse: {}".format(params['sparse']),
+        printline("    Negative mining: {}".format(
+                'rankings_for_negatve_mining' in params), logfile, verbose)
+        printline(("    Mode of combining theorems and premises to "
+                   "examples: merge_mode={}".format(params['merge_mode'])),
                   logfile, verbose)
     with Parallel(n_jobs=n_jobs) as parallel:
         d_proofs_to_train_one_theorem = delayed(proofs_to_train_one_theorem)
