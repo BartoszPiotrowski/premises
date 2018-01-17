@@ -73,7 +73,6 @@ def proofs_to_train_one_theorem(thm, atp_useful, params_data_trans):
     if rankings_for_neg_mining:
         neg_premises_misclass = misclassified_negatives(
             rankings_for_neg_mining[thm], atp_useful, level_of_neg_mining)
-        #TODO add parameter for neg min
         neg_premises_not_misclass = not_pos_premises - neg_premises_misclass
         num_neg_premises_not_misclass = \
             min(len(neg_premises_not_misclass), ratio_neg_pos * len(pos_premises))
@@ -90,8 +89,8 @@ def proofs_to_train_one_theorem(thm, atp_useful, params_data_trans):
     assert len(labels) == array.shape[0]
     return labels, array
 
-def proofs_to_train(proofs, params_data_trans, params_negative_mining={},
-                    n_jobs=-1, verbose=True, logfile=''):
+def proofs_to_train(proofs, params_data_trans, n_jobs=-1,
+                    verbose=True, logfile=''):
     assert 'features' in params_data_trans
     assert 'chronology' in params_data_trans
     if not 'sparse' in params_data_trans:
@@ -108,8 +107,7 @@ def proofs_to_train(proofs, params_data_trans, params_negative_mining={},
         d_proofs_to_train_one_theorem = delayed(proofs_to_train_one_theorem)
         labels_and_arrays = parallel(
             d_proofs_to_train_one_theorem(thm, proofs.union_of_proofs(thm),
-                                      params_data_trans, params_negative_mining)
-                                         for thm in proofs)
+                                      params_data_trans) for thm in proofs)
     labels = [i for p in labels_and_arrays for i in p[0]]
     arrays = [p[1] for p in labels_and_arrays]
     if params_data_trans['sparse']:
@@ -129,6 +127,11 @@ def misclassified_negatives(ranking, atp_useful, level_of_neg_mining=2):
         mis_negs = [ranking[i] for i in range(min(n_neg, len(ranking)))
                     if not ranking[i] in set(atp_useful)]
     elif level_of_neg_mining == 'all':
-        mis_negs =
+        max_pos = max([i if prm in atp_useful else 0
+                    for i, prm in enumerate(ranking)])
+        mis_negs = [ranking[i] for i in range(min(max_pos, len(ranking)))
+                    if not ranking[i] in set(atp_useful)]
+    else:
+        print("Error: no such level of negative mining.")
     return set(mis_negs)
 

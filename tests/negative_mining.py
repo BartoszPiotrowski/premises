@@ -29,16 +29,11 @@ train_labels, train_array = prs.proofs_to_train(proofs_train, params_data_trans,
 params_train = {'booster': 'gblinear'}
 model = prs.train(train_labels, train_array, params=params_train,
                     n_jobs=N_JOBS, logfile=LOG_FILE)
-rankings_test = prs.Rankings(test_theorems, model, params_data_trans,
-                     n_jobs=N_JOBS, logfile=LOG_FILE)
-params_atp_eval = {}
-proofs_test = prs.atp_evaluation(rankings_test, statements, params_atp_eval,
-                                 dirpath=ATP_DIR, n_jobs=N_JOBS, logfile=LOG_FILE)
 rankings_train = prs.Rankings(train_theorems, model, params_data_trans,
                      n_jobs=N_JOBS, logfile=LOG_FILE)
-params_negative_mining = {'rankings': rankings_train}
+params_data_trans['rankings_for_negative_mining'] = rankings_train
 train_labels, train_array = prs.proofs_to_train(proofs_train, params_data_trans,
-                       params_negative_mining, n_jobs=N_JOBS, logfile=LOG_FILE)
+                       n_jobs=N_JOBS, logfile=LOG_FILE)
 model = prs.train(train_labels, train_array, params=params_train,
                     n_jobs=N_JOBS, logfile=LOG_FILE)
 rankings_test = prs.Rankings(test_theorems, model, params_data_trans,

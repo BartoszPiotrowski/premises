@@ -66,3 +66,12 @@
 [2018-01-17 15:56:56] ATP evaluation started...
 [2018-01-17 16:04:16]     Number of proved theorems: 12
 [2018-01-17 16:04:16]     Percentage of proved theorems: 40.00%
+[2018-01-17 17:51:39] Statements of 4564 theorems and definitions loaded.
+[2018-01-17 17:51:39] Features of 4564 theorems and definitions loaded.
+[2018-01-17 17:51:39] Chronological order of 4564 theorems and definitions loaded.
+[2018-01-17 17:51:39] Proofs of 70 theorems loaded.
+[2018-01-17 17:51:39] Transforming proofs into training data...
+[2018-01-17 17:51:39]     merge_mode: concat
+[2018-01-17 17:51:39]     sparse: False
+[2018-01-17 17:51:46] Transformation finished.
+[2018-01-17 17:51:46] Training of xgboost model started...
