@@ -52,24 +52,24 @@ def pairs_to_array(pairs, params):
         return sps.coo_matrix(np.array(bin_vectors_trans))
     return np.array(bin_vectors_trans)
 
-def proofs_to_train_one_theorem(thm, atp_useful, params_data_trans):
-    features = params_data_trans['features']
-    chronology = params_data_trans['chronology']
-    sparse = params_data_trans['sparse']
+def proofs_to_train_one_theorem(thm, atp_useful, params):
+    features = params['features']
+    chronology = params['chronology']
+    sparse = params['sparse']
     available_premises = chronology.available_premises(thm)
-    ratio_neg_pos = params_data_trans['ratio_neg_pos'] \
-        if 'ratio_neg_pos' in params_data_trans else 5
-    rankings_for_neg_mining = params_data_trans['rankings_for_negative_mining'] \
-        if 'rankings_for_negative_mining' in params_data_trans else None
-    level_of_neg_mining = params_data_trans['level_of_neg_mining'] \
-        if 'level_of_neg_mining' in params_data_trans else 2
+    ratio_neg_pos = params['ratio_neg_pos'] \
+        if 'ratio_neg_pos' in params else 5
+    rankings_for_neg_mining = params['rankings_for_negative_mining'] \
+        if 'rankings_for_negative_mining' in params else None
+    level_of_neg_mining = params['level_of_neg_mining'] \
+        if 'level_of_neg_mining' in params else 2
     not_pos_premises = set(available_premises) - set(atp_useful)
     # TODO something more clever; differentiate importance of positives
     pos_premises = atp_useful
     if not len(not_pos_premises) > 1:
         return ([1] * len(pos_premises),
            pairs_to_array([(features[thm], features[prm])
-                           for prm in pos_premises], params_data_trans))
+                           for prm in pos_premises], params))
     if rankings_for_neg_mining:
         neg_premises_misclass = misclassified_negatives(
             rankings_for_neg_mining[thm], atp_useful, level_of_neg_mining)
@@ -85,32 +85,33 @@ def proofs_to_train_one_theorem(thm, atp_useful, params_data_trans):
     pairs_pos = [(features[thm], features[prm]) for prm in pos_premises]
     pairs_neg = [(features[thm], features[prm]) for prm in neg_premises]
     labels = [1] * len(pairs_pos) + [0] * len(pairs_neg)
-    array = pairs_to_array(pairs_pos + pairs_neg, params_data_trans)
+    array = pairs_to_array(pairs_pos + pairs_neg, params)
     assert len(labels) == array.shape[0]
     return labels, array
 
-def proofs_to_train(proofs, params_data_trans, n_jobs=-1,
-                    verbose=True, logfile=''):
-    assert 'features' in params_data_trans
-    assert 'chronology' in params_data_trans
-    if not 'sparse' in params_data_trans:
-        params_data_trans['sparse'] = False
-    if not 'merge_mode' in params_data_trans:
-        params_data_trans['merge_mode'] = 'comb'
+def proofs_to_train(proofs, params, n_jobs=-1, verbose=True, logfile=''):
+    assert 'features' in params
+    assert 'chronology' in params
+    if not 'sparse' in params:
+        params['sparse'] = False
+    if not 'merge_mode' in params:
+        params['merge_mode'] = 'comb'
+    if 'rankings_for_negative_mining' in params:
+        assert set(params['rankings_for_negative_mining']) => set(proofs)
     if verbose or logfile:
         printline("Transforming proofs into training data...", logfile, verbose)
-        printline("    merge_mode: {}".format(params_data_trans['merge_mode']),
+        printline("    merge_mode: {}".format(params['merge_mode']),
                   logfile, verbose)
-        printline("    sparse: {}".format(params_data_trans['sparse']),
+        printline("    sparse: {}".format(params['sparse']),
                   logfile, verbose)
     with Parallel(n_jobs=n_jobs) as parallel:
         d_proofs_to_train_one_theorem = delayed(proofs_to_train_one_theorem)
         labels_and_arrays = parallel(
             d_proofs_to_train_one_theorem(thm, proofs.union_of_proofs(thm),
-                                      params_data_trans) for thm in proofs)
+                                      params) for thm in proofs)
     labels = [i for p in labels_and_arrays for i in p[0]]
     arrays = [p[1] for p in labels_and_arrays]
-    if params_data_trans['sparse']:
+    if params['sparse']:
         array = sps.vstack(arrays)
     else:
         array = np.concatenate(arrays)
