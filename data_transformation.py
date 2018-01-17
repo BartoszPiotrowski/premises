@@ -3,7 +3,7 @@ from joblib import Parallel, delayed
 from random import sample
 import numpy as np
 import scipy.sparse as sps
-import gensim as gs
+#import gensim as gs
 from time import time
 from .utils import printline
 
