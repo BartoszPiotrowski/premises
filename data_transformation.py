@@ -7,14 +7,14 @@ from time import time
 from .utils import printline
 
 
-def bin_vector(features_ordered, list_of_features):
-#   return [int(i in list_of_features) for i in features_ordered]
+def bin_vector(order_of_features, list_of_features):
+#   return [int(i in list_of_features) for i in order_of_features]
 # is it OK to have bools instead of ints?
-    return [i in list_of_features for i in features_ordered]
+    return [i in list_of_features for i in order_of_features]
 
-def bin_trans_comb(thm_features, prm_features, features_ordered):
+def bin_trans_comb(thm_features, prm_features, order_of_features):
   #  vector = []
-  #  for f in features_ordered:
+  #  for f in order_of_features:
   #      T = f in thm_features
   #      P = f in prm_features
   #      if T or P:
@@ -27,26 +27,25 @@ def bin_trans_comb(thm_features, prm_features, features_ordered):
   #  t0 = time()
     vector = [0 if not (f in thm_features or f in prm_features) else \
               (1 if f in thm_features and f in prm_features else -1)
-                      for f in features_ordered]
+                      for f in order_of_features]
   #  t1 = time(); print("1", t1 - t0)
     return vector
 
 # TODO add other posibilities of transforming pair to vector
 # pair means here (thm features, prm features)
 def pairs_to_array(pairs, params):
-    features_ordered = params['features_ordered']
+    order_of_features = params['features'].order_of_features
     sparse = params['sparse'] if 'sparse' in params else False
-    bin_vectors_trans = [bin_trans_comb(thm_f, prm_f, features_ordered)
+    bin_vectors_trans = [bin_trans_comb(thm_f, prm_f, order_of_features)
                             for thm_f, prm_f in pairs]
     if sparse:
-        # TODO to test
+        # TODO to test; DONE, but very slow... TODO make it faster
         return sps.coo_matrix(np.array(bin_vectors_trans))
     return np.array(bin_vectors_trans)
 
 def proofs_to_train_one_theorem(thm, atp_useful, params_data_trans,
                                 params_negative_mining):
     features = params_data_trans['features']
-    features_ordered = params_data_trans['features_ordered']
     chronology = params_data_trans['chronology']
     ratio_neg_pos = params_data_trans['ratio_neg_pos'] \
         if 'ratio_neg_pos' in params_data_trans else 4
@@ -60,7 +59,7 @@ def proofs_to_train_one_theorem(thm, atp_useful, params_data_trans,
     if not len(not_positive_premises) > 1:
         return ([1] * len(positive_premises),
            pairs_to_array([(features[thm], features[prm])
-                               for prm in positive_premises], params))
+                           for prm in positive_premises], params_data_trans))
     negative_premises_misclassified = misclassified_negatives(
             params_negative_mining['rankings'][thm], atp_useful) \
             if params_negative_mining else set()
@@ -77,7 +76,6 @@ def proofs_to_train_one_theorem(thm, atp_useful, params_data_trans,
 def proofs_to_train(proofs, params_data_trans, params_negative_mining={},
                     n_jobs=-1, verbose=True, logfile=''):
     assert 'features' in params_data_trans
-    assert 'features_ordered' in params_data_trans
     assert 'chronology' in params_data_trans
     sparse = params_data_trans['sparse'] if 'sparse' in params_data_trans \
                                         else False

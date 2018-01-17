@@ -10,6 +10,7 @@ class Features:
             self.features = read_dict(from_file, type_of_values=list)
         else:
             self.features = from_dict
+        self.order_of_features = self.all_features()
         if verbose or logfile:
             message = "Features of {} theorems and definitions loaded.".format(
                        len(self))
@@ -235,7 +236,6 @@ class Rankings:
         elif model:
             assert 'chronology' in params
             assert 'features' in params
-            assert 'features_ordered' in params
             if verbose or logfile:
                 message = ("Creating rankings of premises from the trained model "
                            "for {} theorems...").format(len(theorems))
