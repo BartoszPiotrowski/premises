@@ -60,7 +60,6 @@ def proofs_to_train_one_theorem(thm, atp_useful, params_data_trans,
         if 'ratio_neg_pos' in params_data_trans else 4
     sparse = params_data_trans['sparse']
     available_premises = chronology.available_premises(thm)
-    # TODO here parameter about comb/concat/...
     not_positive_premises = set(available_premises) - atp_useful
     # TODO something more clever; differentiate importance of positives
     positive_premises = atp_useful
@@ -72,7 +71,7 @@ def proofs_to_train_one_theorem(thm, atp_useful, params_data_trans,
             params_negative_mining['rankings'][thm], atp_useful) \
             if params_negative_mining else set()
     negative_premises = \
-           negative_premises_misclassified | set(sample(not_positive_premises,
+        set(negative_premises_misclassified) | set(sample(not_positive_premises,
        min(len(not_positive_premises), ratio_neg_pos * len(positive_premises))))
     pairs_pos = [(features[thm], features[prm]) for prm in positive_premises]
     pairs_neg = [(features[thm], features[prm]) for prm in negative_premises]
