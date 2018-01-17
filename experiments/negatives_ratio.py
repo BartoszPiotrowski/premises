@@ -30,6 +30,7 @@ for l in ratios:
     params_data_trans['ratio_neg_pos'] = l
     train_labels, train_array = prs.proofs_to_train(proofs_train,
                 params_data_trans, n_jobs=N_JOBS, logfile=LOG_FILE)
+    params_train = {}
     model = prs.train(train_labels, train_array, params=params_train,
                         n_jobs=N_JOBS, logfile=LOG_FILE)
     rankings_test = prs.Rankings(test_theorems, model, params_data_trans,

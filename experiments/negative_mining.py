@@ -25,6 +25,7 @@ params_data_trans = {'features': features,
                      'sparse': False}
 train_labels, train_array = prs.proofs_to_train(proofs_train, params_data_trans,
                                                n_jobs=N_JOBS, logfile=LOG_FILE)
+params_train = {}
 model = prs.train(train_labels, train_array, params=params_train,
                     n_jobs=N_JOBS, logfile=LOG_FILE)
 rankings_train = prs.Rankings(train_theorems, model, params_data_trans,
