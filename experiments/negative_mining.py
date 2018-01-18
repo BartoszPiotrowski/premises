@@ -18,6 +18,7 @@ proofs_train = prs.Proofs(from_file=join(DATA_DIR, 'atpproved.train'),
                           logfile=LOG_FILE)
 proofs_test = prs.Proofs(from_file=join(DATA_DIR, 'atpproved.test'),
                           verbose=False)
+proofs_train.print_stats(logfile=LOG_FILE)
 train_theorems = set(proofs_train)
 test_theorems = set(proofs_test)
 params_data_trans = {'features': features,
@@ -30,9 +31,13 @@ model = prs.train(train_labels, train_array, params=params_train,
                     n_jobs=N_JOBS, logfile=LOG_FILE)
 rankings_train = prs.Rankings(train_theorems, model, params_data_trans,
                      n_jobs=N_JOBS, logfile=LOG_FILE)
+params_atp_eval = {}
+proofs_train_2 = prs.atp_evaluation(rankings_train, statements, params_atp_eval,
+                         dirpath=ATP_DIR, n_jobs=N_JOBS, logfile=LOG_FILE)
+proofs_train.update(proofs_train_2)
+proofs_train.print_stats(logfile=LOG_FILE)
 params_data_trans['rankings_for_negative_mining'] = rankings_train
-
-levels = [1, 2, 3, 'all']
+levels = [1, 2, 3, 'random', 'all']
 for l in levels:
     prs.utils.printline("Level of negative mining: {}".format(l),
                         logfile=LOG_FILE)
