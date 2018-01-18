@@ -49,7 +49,6 @@ def pairs_to_array(pairs, params):
         bin_vectors_trans = [bin_trans_concat(thm_f, prm_f, order_of_features)
                                 for thm_f, prm_f in pairs]
     if sparse:
-        # TODO to test; DONE, but very slow... TODO make it faster
         return sps.coo_matrix(np.array(bin_vectors_trans))
     return np.array(bin_vectors_trans)
 
