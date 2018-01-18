@@ -3,8 +3,7 @@ from os.path import join
 sys.path.append('..')
 import premises as prs
 
-DATA_DIR = 'data/debug_data'
-#DATA_DIR = 'data/MPTP2078'
+DATA_DIR = 'data/MPTP2078'
 ATP_DIR = 'atp'
 LOG_FILE = __file__.replace('.py', '.log')
 N_JOBS = -1 # all cores
@@ -27,21 +26,17 @@ rankings_random = prs.Rankings(theorems, model=None, params=params_data_trans,
 proofs = prs.atp_evaluation(rankings_random, statements, dirpath=ATP_DIR,
                                  n_jobs=N_JOBS, logfile=LOG_FILE)
 
-i = 1
-while True:
+for i in range(50):
     prs.utils.printline("ITERATION: {}".format(i), LOG_FILE)
     train_labels, train_array = prs.proofs_to_train(proofs, params_data_trans,
                                            n_jobs=N_JOBS, logfile=LOG_FILE)
-
     params_train = {}
     model = prs.train(train_labels, train_array, params=params_train,
                         n_jobs=N_JOBS, logfile=LOG_FILE)
 
     rankings = prs.Rankings(theorems, model, params_data_trans,
                          n_jobs=N_JOBS, logfile=LOG_FILE)
-
     params_atp_eval = {}
     proofs = prs.atp_evaluation(rankings, statements, params_atp_eval,
                              dirpath=ATP_DIR, n_jobs=N_JOBS, logfile=LOG_FILE)
     proofs.print_stats(logfile=LOG_FILE)
-    i = i + 1
