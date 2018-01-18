@@ -4,8 +4,8 @@ from random import sample
 sys.path.append('..')
 import premises as prs
 
-N_JOBS = -1
-DATA_DIR = 'data/debug_data'
+N_JOBS = 15
+DATA_DIR = 'data/mizar40'
 ATP_DIR = 'atp'
 LOG_FILE = __file__.replace('.py', '.log')
 
