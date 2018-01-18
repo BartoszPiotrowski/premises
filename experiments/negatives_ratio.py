@@ -4,7 +4,7 @@ from random import sample
 sys.path.append('..')
 import premises as prs
 
-N_JOBS = -1
+N_JOBS = 25
 DATA_DIR = 'data/MPTP2078'
 ATP_DIR = 'atp'
 LOG_FILE = __file__.replace('.py', '.log')
