@@ -1,0 +1,76 @@
+[2018-01-18 00:23:20] Statements of 4564 theorems and definitions loaded.
+[2018-01-18 00:23:20] Features of 4564 theorems and definitions loaded.
+[2018-01-18 00:23:20] Chronological order of 4564 theorems and definitions loaded.
+[2018-01-18 00:23:20] Proofs of 1000 theorems loaded.
+[2018-01-18 00:23:20] Neighbours: 10
+[2018-01-18 00:23:36] ATP evaluation started...
+[2018-01-18 00:31:44]     Number of proved theorems: 230
+[2018-01-18 00:31:44]     Percentage of proved theorems: 67.25%
+[2018-01-18 00:31:44] Number of all theorems with proof(s): 230
+[2018-01-18 00:31:44] Number of all proofs: 354
+[2018-01-18 00:31:44] Number of theorems with exactly 1 proof(s): 141
+[2018-01-18 00:31:44] Number of theorems with exactly 2 proof(s): 62
+[2018-01-18 00:31:44] Number of theorems with exactly 3 proof(s): 20
+[2018-01-18 00:31:44] Number of theorems with exactly 4 proof(s): 6
+[2018-01-18 00:31:44] Number of theorems with exactly 5 proof(s): 1
+[2018-01-18 00:31:44] Average number of proofs per theorem: 1.539
+[2018-01-18 00:31:44] Neighbours: 20
+[2018-01-18 00:32:04] ATP evaluation started...
+[2018-01-18 00:39:15]     Number of proved theorems: 235
+[2018-01-18 00:39:15]     Percentage of proved theorems: 68.71%
+[2018-01-18 00:39:15] Number of all theorems with proof(s): 235
+[2018-01-18 00:39:15] Number of all proofs: 368
+[2018-01-18 00:39:15] Number of theorems with exactly 1 proof(s): 138
+[2018-01-18 00:39:15] Number of theorems with exactly 2 proof(s): 68
+[2018-01-18 00:39:15] Number of theorems with exactly 3 proof(s): 23
+[2018-01-18 00:39:15] Number of theorems with exactly 4 proof(s): 5
+[2018-01-18 00:39:15] Number of theorems with exactly 5 proof(s): 1
+[2018-01-18 00:39:15] Average number of proofs per theorem: 1.566
+[2018-01-18 00:39:15] Neighbours: 50
+[2018-01-18 00:39:35] ATP evaluation started...
+[2018-01-18 00:46:43]     Number of proved theorems: 233
+[2018-01-18 00:46:43]     Percentage of proved theorems: 68.13%
+[2018-01-18 00:46:43] Number of all theorems with proof(s): 233
+[2018-01-18 00:46:43] Number of all proofs: 373
+[2018-01-18 00:46:43] Number of theorems with exactly 1 proof(s): 132
+[2018-01-18 00:46:43] Number of theorems with exactly 2 proof(s): 71
+[2018-01-18 00:46:43] Number of theorems with exactly 3 proof(s): 22
+[2018-01-18 00:46:43] Number of theorems with exactly 4 proof(s): 7
+[2018-01-18 00:46:43] Number of theorems with exactly 5 proof(s): 1
+[2018-01-18 00:46:43] Average number of proofs per theorem: 1.601
+[2018-01-18 00:46:43] Neighbours: 100
+[2018-01-18 00:47:13] ATP evaluation started...
+[2018-01-18 00:54:19]     Number of proved theorems: 232
+[2018-01-18 00:54:19]     Percentage of proved theorems: 67.84%
+[2018-01-18 00:54:19] Number of all theorems with proof(s): 232
+[2018-01-18 00:54:19] Number of all proofs: 361
+[2018-01-18 00:54:19] Number of theorems with exactly 1 proof(s): 140
+[2018-01-18 00:54:19] Number of theorems with exactly 2 proof(s): 63
+[2018-01-18 00:54:19] Number of theorems with exactly 3 proof(s): 22
+[2018-01-18 00:54:19] Number of theorems with exactly 4 proof(s): 6
+[2018-01-18 00:54:19] Number of theorems with exactly 5 proof(s): 1
+[2018-01-18 00:54:19] Average number of proofs per theorem: 1.556
+[2018-01-18 00:54:19] Neighbours: 200
+[2018-01-18 00:54:39] ATP evaluation started...
+[2018-01-18 01:02:03]     Number of proved theorems: 233
+[2018-01-18 01:02:03]     Percentage of proved theorems: 68.13%
+[2018-01-18 01:02:03] Number of all theorems with proof(s): 233
+[2018-01-18 01:02:03] Number of all proofs: 368
+[2018-01-18 01:02:03] Number of theorems with exactly 1 proof(s): 137
+[2018-01-18 01:02:03] Number of theorems with exactly 2 proof(s): 64
+[2018-01-18 01:02:03] Number of theorems with exactly 3 proof(s): 26
+[2018-01-18 01:02:03] Number of theorems with exactly 4 proof(s): 5
+[2018-01-18 01:02:03] Number of theorems with exactly 5 proof(s): 1
+[2018-01-18 01:02:03] Average number of proofs per theorem: 1.579
+[2018-01-18 01:02:03] Neighbours: 500
+[2018-01-18 01:02:23] ATP evaluation started...
+[2018-01-18 01:09:21]     Number of proved theorems: 231
+[2018-01-18 01:09:21]     Percentage of proved theorems: 67.54%
+[2018-01-18 01:09:21] Number of all theorems with proof(s): 231
+[2018-01-18 01:09:21] Number of all proofs: 364
+[2018-01-18 01:09:21] Number of theorems with exactly 1 proof(s): 136
+[2018-01-18 01:09:21] Number of theorems with exactly 2 proof(s): 66
+[2018-01-18 01:09:21] Number of theorems with exactly 3 proof(s): 21
+[2018-01-18 01:09:21] Number of theorems with exactly 4 proof(s): 7
+[2018-01-18 01:09:21] Number of theorems with exactly 5 proof(s): 1
+[2018-01-18 01:09:21] Average number of proofs per theorem: 1.576
