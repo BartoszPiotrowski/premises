@@ -40,7 +40,7 @@ def bin_trans_concat(thm_features, prm_features, order_of_features):
 # pair means here (thm features, prm features)
 def pairs_to_array(pairs, params):
     order_of_features = params['features'].order_of_features
-    sparse = params['sparse'] if 'sparse' in params else False
+    sparse = params['sparse'] if 'sparse' in params else True
     merge_mode = params['merge_mode'] if 'merge_mode' in params else 'comb'
     if merge_mode == 'comb':
         bin_vectors_trans = [bin_trans_comb(thm_f, prm_f, order_of_features)
@@ -93,15 +93,13 @@ def proofs_to_train(proofs, params, n_jobs=-1, verbose=True, logfile=''):
     assert 'features' in params
     assert 'chronology' in params
     if not 'sparse' in params:
-        params['sparse'] = False
+        params['sparse'] = True
     if not 'merge_mode' in params:
         params['merge_mode'] = 'comb'
     if 'rankings_for_negative_mining' in params:
         assert set(params['rankings_for_negative_mining']) >= set(proofs)
     if verbose or logfile:
         printline("Transforming proofs into training data...", logfile, verbose)
-        printline("    Sparse matrix: {}".format(params['sparse']),
-                  logfile, verbose)
         printline("    Negative mining: {}".format(
                 'rankings_for_negatve_mining' in params), logfile, verbose)
         printline(("    Mode of combining theorems and premises to "
