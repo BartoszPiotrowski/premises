@@ -1,0 +1,40 @@
+[2018-01-18 00:23:12] Statements of 4564 theorems and definitions loaded.
+[2018-01-18 00:23:12] Features of 4564 theorems and definitions loaded.
+[2018-01-18 00:23:12] Chronological order of 4564 theorems and definitions loaded.
+[2018-01-18 00:23:12] Proofs of 1000 theorems loaded.
+[2018-01-18 00:23:12] Transforming proofs into training data...
+[2018-01-18 00:23:12]     Sparse matrix: False
+[2018-01-18 00:23:12]     Negative mining: False
+[2018-01-18 00:23:12]     Mode of combining theorems and premises to examples: merge_mode=concat
+[2018-01-18 00:23:51] Transformation finished.
+[2018-01-18 00:23:51] BOOSTER GBLINEAR
+[2018-01-18 00:23:51] Training of xgboost model started...
+[2018-01-18 00:24:51] Training finished.
+[2018-01-18 00:24:51] Creating rankings of premises from the trained model for 342 theorems...
+[2018-01-18 00:30:39] Rankings created.
+[2018-01-18 00:30:39] ATP evaluation started...
+[2018-01-18 00:42:38]     Number of proved theorems: 159
+[2018-01-18 00:42:38]     Percentage of proved theorems: 46.49%
+[2018-01-18 00:42:38] Number of all theorems with proof(s): 159
+[2018-01-18 00:42:38] Number of all proofs: 256
+[2018-01-18 00:42:38] Number of theorems with exactly 1 proof(s): 97
+[2018-01-18 00:42:38] Number of theorems with exactly 2 proof(s): 39
+[2018-01-18 00:42:38] Number of theorems with exactly 3 proof(s): 11
+[2018-01-18 00:42:38] Number of theorems with exactly 4 proof(s): 12
+[2018-01-18 00:42:38] Average number of proofs per theorem: 1.610
+[2018-01-18 00:42:38] BOOSTER GBTREE
+[2018-01-18 00:42:38] Training of xgboost model started...
+[2018-01-18 00:47:12] Training finished.
+[2018-01-18 00:47:12] Creating rankings of premises from the trained model for 342 theorems...
+[2018-01-18 00:54:24] Rankings created.
+[2018-01-18 00:54:24] ATP evaluation started...
+[2018-01-18 01:04:17]     Number of proved theorems: 248
+[2018-01-18 01:04:17]     Percentage of proved theorems: 72.51%
+[2018-01-18 01:04:17] Number of all theorems with proof(s): 248
+[2018-01-18 01:04:17] Number of all proofs: 436
+[2018-01-18 01:04:17] Number of theorems with exactly 1 proof(s): 136
+[2018-01-18 01:04:17] Number of theorems with exactly 2 proof(s): 54
+[2018-01-18 01:04:17] Number of theorems with exactly 3 proof(s): 41
+[2018-01-18 01:04:17] Number of theorems with exactly 4 proof(s): 16
+[2018-01-18 01:04:17] Number of theorems with exactly 5 proof(s): 1
+[2018-01-18 01:04:17] Average number of proofs per theorem: 1.758
