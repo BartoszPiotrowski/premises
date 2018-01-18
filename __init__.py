@@ -1,5 +1,5 @@
-from .training import train
-from .training_knn import knn
+from .training_binary import train
+from .training_multilabel import knn
 from .atp import atp_evaluation
 from .data_structures import Features, Proofs, Rankings, Chronology, Statements
 from .data_transformation import proofs_to_train
