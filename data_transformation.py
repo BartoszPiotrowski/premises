@@ -136,6 +136,12 @@ def misclassified_negatives(ranking, atp_useful, level_of_neg_mining=2):
                     for i, prm in enumerate(ranking)])
         mis_negs = [ranking[i] for i in range(min(max_pos, len(ranking)))
                     if not ranking[i] in set(atp_useful)]
+    elif level_of_neg_mining == 'random':
+        max_pos = max([i if prm in atp_useful else 0
+                    for i, prm in enumerate(ranking)])
+        mis_negs_all = [ranking[i] for i in range(min(max_pos, len(ranking)))
+                    if not ranking[i] in set(atp_useful)]
+        mis_negs = sample(mis_negs_all, len(mis_negs_all) // 2)
     else:
         print("Error: no such level of negative mining.")
     return set(mis_negs)
