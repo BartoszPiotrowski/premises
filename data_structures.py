@@ -276,19 +276,14 @@ class Rankings:
         return (theorem, self.ranking_from_model(theorem, model, params))
 
     def ranking_from_model(self, theorem, model, params):
-        time0 = time()
         features = params['features']
         chronology = params['chronology']
         available_premises = chronology.available_premises(theorem)
-        time1 = time(); print("1", time1-time0)
         pairs = [(features[theorem], features[premise])
                  for premise in available_premises]
-        time2 = time(); print("2", (time2-time1)/len(pairs))
         scores = self.score_pairs(pairs, model, params)
-        time3 = time(); print("3", (time3-time2)/len(pairs))
         premises_scores = list(zip(available_premises, scores))
         premises_scores.sort(key = lambda x: x[1], reverse = True)
-        time4 = time(); print("4", (time4-time3)/len(pairs))
         return premises_scores
 
     def score_pairs(self, pairs, model, params):

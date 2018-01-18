@@ -48,10 +48,14 @@ def pairs_to_array(pairs, params):
     if merge_mode == 'concat':
         bin_vectors_trans = [bin_trans_concat(thm_f, prm_f, order_of_features)
                                 for thm_f, prm_f in pairs]
+    time0 = time()
     if sparse:
-        # TODO to test; DONE, but very slow... TODO make it faster
-        return sps.coo_matrix(np.array(bin_vectors_trans))
-    return np.array(bin_vectors_trans)
+        r = sps.coo_matrix(np.array(bin_vectors_trans))
+        print((time()-time0)/len(pairs))
+        return r
+    r = np.array(bin_vectors_trans)
+    print((time()-time0)/len(pairs))
+    return r
 
 def proofs_to_train_one_theorem(thm, atp_useful, params):
     features = params['features']
