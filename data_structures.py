@@ -7,9 +7,12 @@ from time import time
 class Features:
     def __init__(self, from_dict={}, from_file='', verbose=True, logfile=''):
         if from_file:
-            self.features = read_dict(from_file, type_of_values=list)
+            f_dict = read_dict(from_file, type_of_values=list)
+        elif from_dict:
+            f_dict = from_dict
         else:
-            self.features = from_dict
+            print("Error: provide file or dictionary with features.")
+        self.features = {f: set(f_dict[f]) for f in f_dict}
         self.order_of_features = self.all_features()
         if verbose or logfile:
             message = "Features of {} theorems and definitions loaded.".format(
@@ -273,14 +276,19 @@ class Rankings:
         return (theorem, self.ranking_from_model(theorem, model, params))
 
     def ranking_from_model(self, theorem, model, params):
+        time0 = time()
         features = params['features']
         chronology = params['chronology']
         available_premises = chronology.available_premises(theorem)
+        time1 = time(); print("1", time1-time0)
         pairs = [(features[theorem], features[premise])
                  for premise in available_premises]
+        time2 = time(); print("2", (time2-time1)/len(pairs))
         scores = self.score_pairs(pairs, model, params)
+        time3 = time(); print("3", (time3-time2)/len(pairs))
         premises_scores = list(zip(available_premises, scores))
         premises_scores.sort(key = lambda x: x[1], reverse = True)
+        time4 = time(); print("4", (time4-time3)/len(pairs))
         return premises_scores
 
     def score_pairs(self, pairs, model, params):
