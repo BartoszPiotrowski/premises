@@ -26,7 +26,7 @@ rankings_random = prs.Rankings(theorems, model=None, params=params_data_trans,
 proofs = prs.atp_evaluation(rankings_random, statements, dirpath=ATP_DIR,
                                  n_jobs=N_JOBS, logfile=LOG_FILE)
 
-for i in range(50):
+for i in range(20):
     prs.utils.printline("ITERATION: {}".format(i), LOG_FILE)
     train_labels, train_array = prs.proofs_to_train(proofs, params_data_trans,
                                            n_jobs=N_JOBS, logfile=LOG_FILE)
