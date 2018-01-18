@@ -7,10 +7,14 @@ from time import time
 class Features:
     def __init__(self, from_dict={}, from_file='', verbose=True, logfile=''):
         if from_file:
-            self.features = read_dict(from_file, type_of_values=list)
+            f_dict = read_dict(from_file, type_of_values=list)
+        elif from_dict:
+            f_dict = from_dict
         else:
-            self.features = from_dict
+            print("Error: provide file or dictionary with features.")
+        self.features = {f: set(f_dict[f]) for f in f_dict}
         self.order_of_features = self.all_features()
+
         if verbose or logfile:
             message = "Features of {} theorems and definitions loaded.".format(
                        len(self))
