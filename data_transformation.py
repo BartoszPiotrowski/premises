@@ -66,10 +66,13 @@ def proofs_to_train_one_theorem(thm, atp_useful, params):
     not_pos_premises = set(available_premises) - set(atp_useful)
     # TODO something more clever; differentiate importance of positives
     pos_premises = atp_useful
-    if not len(not_pos_premises) > 1:
-        return ([1] * len(pos_premises),
-           pairs_to_array([(features[thm], features[prm])
-                           for prm in pos_premises], params))
+    assert len(pos_premises) > 0
+    if len(not_pos_premises) == 0:
+        labels = [1] * len(pos_premises)
+        array = pairs_to_array([(features[thm], features[prm])
+                               for prm in pos_premises], params)
+        assert len(labels) == array.shape[0]
+        return labels, array
     if rankings_for_neg_mining:
         neg_premises_misclass = misclassified_negatives(
             rankings_for_neg_mining[thm], atp_useful, level_of_neg_mining)
@@ -90,6 +93,7 @@ def proofs_to_train_one_theorem(thm, atp_useful, params):
     return labels, array
 
 def proofs_to_train(proofs, params, n_jobs=-1, verbose=True, logfile=''):
+    assert len(proofs) > 0
     assert 'features' in params
     assert 'chronology' in params
     if not 'sparse' in params:
