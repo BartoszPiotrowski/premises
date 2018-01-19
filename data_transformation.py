@@ -10,11 +10,20 @@ from .utils import printline
 
 # pair means here (thm features, prm features)
 def pairs_to_array(pairs, params):
-  num_of_features = params['features'].num_of_features
-  list_of_pairs = [list(thm_f) + list(prm_f) for thm_f, prm_f in pairs]
-  hasher = FeatureHasher(n_features=num_of_features, input_type='string')
-  csc_array = hasher.transform(list_of_pairs)
-  return csc_array
+    num_of_features = params['features'].num_of_features
+    merge_mode = params['merge_mode']
+    if merge_mode == 'comb':
+        list_of_pairs = [list(thm_f) + list(prm_f) for thm_f, prm_f in pairs]
+    else:
+        num_of_features = 2 * num_of_features
+        list_of_pairs = []
+        for thm_f, prm_f in pairs:
+            thm_f_appended = ['T' + f for f in thm_f]
+            prm_f_appended = ['T' + f for f in prm_f]
+            list_of_pairs.append(thm_f_appended + prm_f_appended)
+    hasher = FeatureHasher(n_features=num_of_features, input_type='string')
+    csc_array = hasher.transform(list_of_pairs)
+    return csc_array
 
 def proofs_to_train_one_theorem(thm, atp_useful, params):
     features = params['features']
