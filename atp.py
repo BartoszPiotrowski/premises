@@ -4,7 +4,6 @@ from .utils import mkdir_if_not_exists, readlines, printline
 from .data_structures import Proofs
 
 
-# TODO remeber to give proper instalation instructions
 PATH_TO_EPROVER = os.environ['EPROVER']
 
 # TODO do scrutiny if 'conjecture' being few lines lower is handled OK
@@ -62,7 +61,6 @@ def proof(theorem, ranking, statements, dirpath, params):
     lines = readlines(output_filename)
     if "# Proof found!" in lines and "# SZS status Theorem" in lines:
         if minimize: # we will rerun until achieving fixpoint
-            # TODO test it!
             stop = False
             while not stop:
                 input_filename = problem_file_rerun(output_filename, dirpath)
@@ -76,24 +74,24 @@ def proof(theorem, ranking, statements, dirpath, params):
                     stop = True
                 else:
                     premises = premises_rerun
-        print("Proof of theorem {} FOUND with {} premises".format(
+        print("Proof of theorem {} (with {} premise(s)) FOUND.".format(
                 theorem, len(premises)))
         return premises
     else:
-        print("Proof of theorem {} NOT found with {} premises".format(
+        print("Proof of theorem {} (attempt with {} premises) NOT found.".format(
                     theorem, len(ranking)))
         return False
 
-def proof_from_ranking(theorem, ranking, statements, dirpath, params):
+def proofs_from_ranking(theorem, ranking, statements, dirpath, params):
     n_premises = params['n_premises'] if 'n_premises' in params else \
         [i for i in [1, 2, 4, 8, 16, 32, 64, 128, 256, 512] if i <= len(ranking)]
-    # TODO what if len(ranking) == 0 ?
+    assert len(ranking) > 0
     proofs = [proof(theorem, ranking[:i], statements, dirpath, params)
               for i in n_premises]
     return [set(prf) for prf in (set(proofs) - {False})]
 
-# wrapper for proof_from_ranking() -- useful for doing parallelization
-def pfr(t, r, s, d, p): return (t, proof_from_ranking(t, r, s, d, p))
+# wrapper for proofs_from_ranking() -- useful for doing parallelization
+def pfr(t, r, s, d, p): return (t, proofs_from_ranking(t, r, s, d, p))
 
 def atp_evaluation(rankings=None, statements=None, params={}, dirpath='',
                    verbose=True, logfile='', n_jobs=-1):

@@ -124,11 +124,29 @@ class Chronology:
 class Proofs:
     def __init__(self, from_dict={}, from_file='', verbose=True, logfile=''):
         if from_file:
-            prfs = read_dict(from_file, type_of_values=list, sep_in_list=' ')
-            self.proofs = {thm: [set(prfs[thm])] for thm in prfs}
+            '''
+            The file with 'proofs' is supposed to contain a list of theorems'
+            names, each theorem associated a list of premises' names used in its
+            proof -- in the following form:
+            thm1: prm1 prm2 prm3
+            thm2: prm4 prm5
+            .
+            .
+            .
+            '''
+            prfs_dict = read_dict(from_file, type_of_values=list, sep_in_list=' ')
+            prfs_dict = {thm: [set(prfs_dict[thm])] for thm in prfs_dict}
+        elif from_dict:
+            '''
+            The dict with 'proofs' should have theorems' names as keys and each
+            value should be a list containing sets of premises' names used in
+            different proofs of the given theorem.
+            '''
+            prfs_dict = from_dict
         else:
-            self.proofs = {}
-            self.update(from_dict)
+            print("Error: provide file or dictionary with proofs.")
+        self.proofs = {}
+        self.update(prfs_dict)
         if verbose or logfile:
             message = "Proofs of {} theorems loaded.".format(len(self))
             printline(message, logfile, verbose)
@@ -162,8 +180,11 @@ class Proofs:
 
     def update(self, new_proofs, verbose=True, logfile=''):
         for thm in new_proofs:
-            for prf in new_proofs[thm]:
-                self.add(thm, prf)
+            assert isinstance(new_proofs[thm], list)
+            if len(new_proofs[thm]) > 0:
+                for prf in new_proofs[thm]:
+                    if len(prf) > 0:
+                        self.add(thm, prf)
 
     def union_of_proofs(self, theorem):
         return set().union(*self.proofs[theorem])
