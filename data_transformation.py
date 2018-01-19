@@ -3,6 +3,7 @@ from joblib import Parallel, delayed
 from random import sample
 import numpy as np
 import scipy.sparse as sps
+from sklearn.feature_extraction import FeatureHasher
 #import gensim as gs
 from time import time
 from .utils import printline
@@ -39,18 +40,12 @@ def bin_trans_concat(thm_features, prm_features, order_of_features):
 
 # pair means here (thm features, prm features)
 def pairs_to_array(pairs, params):
-    order_of_features = params['features'].order_of_features
-    sparse = params['sparse'] if 'sparse' in params else True
-    merge_mode = params['merge_mode'] if 'merge_mode' in params else 'comb'
-    if merge_mode == 'comb':
-        bin_vectors_trans = [bin_trans_comb(thm_f, prm_f, order_of_features)
-                                for thm_f, prm_f in pairs]
-    if merge_mode == 'concat':
-        bin_vectors_trans = [bin_trans_concat(thm_f, prm_f, order_of_features)
-                                for thm_f, prm_f in pairs]
-    if sparse:
-        return sps.coo_matrix(np.array(bin_vectors_trans))
-    return np.array(bin_vectors_trans)
+#    order_of_features = params['features'].order_of_features
+  num_of_features = params['features'].num_of_features
+  list_of_pairs = [list(thm_f) + list(prm_f) for thm_f, prm_f in pairs]
+  hasher = FeatureHasher(n_features=num_of_features, input_type='string')
+  csc_array = hasher.transform(list_of_pairs)
+  return csc_array
 
 def proofs_to_train_one_theorem(thm, atp_useful, params):
     features = params['features']

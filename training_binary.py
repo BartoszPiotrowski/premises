@@ -8,7 +8,6 @@ from .utils import printline
 def train(labels, array, weights=None, model="xgboost", params={}, n_jobs=-1,
          verbose=True, logfile=''):
     assert isinstance(labels, list)
-    assert isinstance(array, np.ndarray) or isinstance(array, sps.coo.coo_matrix)
     if verbose or logfile:
         printline("Training of {} model started...".format(model),
                   logfile, verbose)

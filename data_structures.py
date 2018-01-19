@@ -14,6 +14,7 @@ class Features:
             print("Error: provide file or dictionary with features.")
         self.features = {f: set(f_dict[f]) for f in f_dict}
         self.order_of_features = self.all_features()
+        self.num_of_features = len(self.order_of_features)
 
         if verbose or logfile:
             message = "Features of {} theorems and definitions loaded.".format(
