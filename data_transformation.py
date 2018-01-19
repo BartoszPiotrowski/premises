@@ -66,6 +66,9 @@ def proofs_to_train_one_theorem(thm, atp_useful, params):
     not_pos_premises = set(available_premises) - set(atp_useful)
     # TODO something more clever; differentiate importance of positives
     pos_premises = atp_useful
+    if len(pos_premises) == 0:
+        print(thm)
+        print(atp_useful)
     assert len(pos_premises) > 0
     if len(not_pos_premises) == 0:
         labels = [1] * len(pos_premises)
