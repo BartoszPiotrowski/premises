@@ -1,4 +1,5 @@
-from .utils import read_dict, remove_supersets, readlines, printline, shuffled
+from .utils import read_dict, remove_supersets, readlines, printline
+from .utils import shuffled, partition
 from .data_transformation import pairs_to_array
 from joblib import Parallel, delayed
 import xgboost
@@ -117,7 +118,7 @@ class Chronology:
                                 theorem))
 
     def available_premises(self, theorem):
-        if theorem in set(self.chronology):
+        if theorem in self.chronology:
             return self.chronology[:self.index(theorem)]
         else:
             print("Error: theorem {} not contained in chronology list.".format(
@@ -278,13 +279,15 @@ class Rankings:
                 message = ("Creating rankings of premises from the trained model "
                            "for {} theorems...").format(len(theorems))
                 printline(message, logfile, verbose)
+            split_theorems = partition(list(theorems), max(4, n_jobs))
             # be careful: backend 'loky' is needed to not colide with model
             # 'loky' is available only in the newest dev release of joblib
             # (only on github so far)
             with Parallel(n_jobs=n_jobs, backend='loky') as parallel:
-                drfm = delayed(self.rfm)
-                rankings_with_scores = parallel(drfm(theorem, model, params)
-                                                for theorem in theorems)
+                drfm = delayed(self.rankings_from_model)
+                lists_of_rankings = parallel(drfm(thms, model, params)
+                                                for thms in split_theorems)
+            rankings_with_scores = [t for l in lists_of_rankings for t in l]
             self.rankings_with_scores = dict(rankings_with_scores)
             self.rankings = self._rankings_only_names(self.rankings_with_scores)
         else:
@@ -306,9 +309,9 @@ class Rankings:
                           for i in range(len(rankings_with_scores[thm]))]
                              for thm in rankings_with_scores}
 
-    def rfm(self, theorem, model, params):
-        """wrapper for ranking_from_model() needed for parallelization"""
-        return (theorem, self.ranking_from_model(theorem, model, params))
+    def rankings_from_model(self, theorems, model, params):
+        return [(thm, self.ranking_from_model(thm, model, params))
+                           for thm in theorems]
 
     def ranking_from_model(self, theorem, model, params):
         time0=time()
