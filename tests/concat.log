@@ -1,0 +1,24 @@
+[2018-01-19 20:12:04] Statements of 4564 theorems and definitions loaded.
+[2018-01-19 20:12:04] Features of 4564 theorems and definitions loaded.
+[2018-01-19 20:12:04] Chronological order of 4564 theorems and definitions loaded.
+[2018-01-19 20:12:04] Proofs of 1000 theorems loaded.
+[2018-01-19 20:12:04] Transforming proofs into training data...
+[2018-01-19 20:12:04]     Negative mining: False
+[2018-01-19 20:12:04]     Mode of combining theorems and premises to examples: merge_mode=concat
+[2018-01-19 20:12:44] Transformation finished.
+[2018-01-19 20:12:44] Training of xgboost model started...
+[2018-01-19 20:24:32] Training finished.
+[2018-01-19 20:24:32] Creating rankings of premises from the trained model for 342 theorems...
+[2018-01-19 20:25:02] Rankings created.
+[2018-01-19 20:25:02] ATP evaluation started...
+[2018-01-19 20:46:36]     Number of proved theorems: 269
+[2018-01-19 20:46:36]     Percentage of proved theorems: 78.65%
+[2018-01-19 20:46:36] Number of all theorems with proof(s): 269
+[2018-01-19 20:46:36] Number of all proofs: 522
+[2018-01-19 20:46:36] Number of theorems with exactly 1 proof(s): 121
+[2018-01-19 20:46:36] Number of theorems with exactly 2 proof(s): 77
+[2018-01-19 20:46:36] Number of theorems with exactly 3 proof(s): 45
+[2018-01-19 20:46:36] Number of theorems with exactly 4 proof(s): 20
+[2018-01-19 20:46:36] Number of theorems with exactly 5 proof(s): 4
+[2018-01-19 20:46:36] Number of theorems with exactly 6 proof(s): 2
+[2018-01-19 20:46:36] Average number of proofs per theorem: 1.941
