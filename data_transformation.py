@@ -6,7 +6,7 @@ import scipy.sparse as sps
 from sklearn.feature_extraction import FeatureHasher
 #import gensim as gs
 from time import time
-from .utils import printline
+from .utils import printline, partition
 
 # pair means here (thm features, prm features)
 def pairs_to_array(pairs, params):
@@ -25,10 +25,19 @@ def pairs_to_array(pairs, params):
     csc_array = hasher.transform(list_of_pairs)
     return csc_array
 
-def proofs_to_train_one_theorem(thm, atp_useful, params):
+def proofs_to_train_n_thms(thms, proofs, params):
+    labels, pairs = [], []
+    for thm in thms:
+        atp_useful = proofs.union_of_proofs(thm)
+        labels_thm, pairs_thm = thm_to_labels_and_pairs(thm, atp_useful, params)
+        labels.extend(labels_thm)
+        pairs.extend(pairs_thm)
+    array = pairs_to_array(pairs, params)
+    return labels, array
+
+def thm_to_labels_and_pairs(thm, atp_useful, params):
     features = params['features']
     chronology = params['chronology']
-    sparse = params['sparse']
     available_premises = chronology.available_premises(thm)
     ratio_neg_pos = params['ratio_neg_pos'] \
         if 'ratio_neg_pos' in params else 5
@@ -41,10 +50,8 @@ def proofs_to_train_one_theorem(thm, atp_useful, params):
     pos_premises = atp_useful
     if len(not_pos_premises) == 0:
         labels = [1] * len(pos_premises)
-        array = pairs_to_array([(features[thm], features[prm])
-                               for prm in pos_premises], params)
-        assert len(labels) == array.shape[0]
-        return labels, array
+        pairs = [(features[thm], features[prm]) for prm in pos_premises]
+        return labels, pairs
     if rankings_for_neg_mining:
         neg_premises_misclass = misclassified_negatives(
             rankings_for_neg_mining[thm], atp_useful, level_of_neg_mining)
@@ -60,38 +67,34 @@ def proofs_to_train_one_theorem(thm, atp_useful, params):
     pairs_pos = [(features[thm], features[prm]) for prm in pos_premises]
     pairs_neg = [(features[thm], features[prm]) for prm in neg_premises]
     labels = [1] * len(pairs_pos) + [0] * len(pairs_neg)
-    array = pairs_to_array(pairs_pos + pairs_neg, params)
-    assert len(labels) == array.shape[0]
-    return labels, array
+    pairs = pairs_pos + pairs_neg
+    return labels, pairs
 
 def proofs_to_train(proofs, params, n_jobs=-1, verbose=True, logfile=''):
     assert len(proofs) > 0
     assert 'features' in params
     assert 'chronology' in params
-    if not 'sparse' in params:
-        params['sparse'] = True
     if not 'merge_mode' in params:
-        params['merge_mode'] = 'comb'
+        params['merge_mode'] = 'concat'
     if 'rankings_for_negative_mining' in params:
         assert set(params['rankings_for_negative_mining']) >= set(proofs)
     if verbose or logfile:
         printline("Transforming proofs into training data...", logfile, verbose)
         printline("    Negative mining: {}".format(
                 'rankings_for_negatve_mining' in params), logfile, verbose)
-        printline(("    Mode of combining theorems and premises to "
+        printline(("    Mode of combining thms and premises to "
                    "examples: merge_mode={}".format(params['merge_mode'])),
                   logfile, verbose)
+    all_proved_thms = list(proofs)
+    thms_splited = partition(all_proved_thms, n_jobs)
     with Parallel(n_jobs=n_jobs) as parallel:
-        d_proofs_to_train_one_theorem = delayed(proofs_to_train_one_theorem)
+        d_proofs_to_train_n_thms = delayed(proofs_to_train_n_thms)
         labels_and_arrays = parallel(
-            d_proofs_to_train_one_theorem(thm, proofs.union_of_proofs(thm),
-                                      params) for thm in proofs)
+            d_proofs_to_train_n_thms(thms, proofs, params)
+                        for thms in thms_splited)
     labels = [i for p in labels_and_arrays for i in p[0]]
     arrays = [p[1] for p in labels_and_arrays]
-    if params['sparse']:
-        array = sps.vstack(arrays)
-    else:
-        array = np.concatenate(arrays)
+    array = sps.vstack(arrays)
     assert len(labels) == array.shape[0]
     if verbose or logfile:
         printline("Transformation finished.", logfile, verbose)
