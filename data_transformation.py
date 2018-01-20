@@ -94,7 +94,7 @@ def proofs_to_train(proofs, params, n_jobs=-1, verbose=True, logfile=''):
         if not 'level_of_negative_mining' in params:
             params['level_of_negative_mining'] = 2
         if not 'part_for_negative_mining' in params:
-            params['part_for_negative_mining'] = 0.2
+            params['part_for_negative_mining'] = 0.5
         params['thms_for_negative_mining'] = sample(set(proofs),
                     int(len(proofs) * params['part_for_negative_mining']))
     # printing informations

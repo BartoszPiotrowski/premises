@@ -19,7 +19,7 @@ class Features:
         self.num_of_features = len(self.order_of_features)
 
         if verbose or logfile:
-            message = "Features of {} theorems and definitions loaded.".format(
+            message = "Features of {} thms and definitions loaded.".format(
                        len(self))
             printline(message, logfile, verbose)
 
@@ -29,28 +29,28 @@ class Features:
     def __iter__(self):
         return self.features.__iter__()
 
-    def __getitem__(self, theorem):
-        return self.features[theorem]
+    def __getitem__(self, thm):
+        return self.features[thm]
 
-    def __contains__(self, theorem):
-        return theorem in self.features
+    def __contains__(self, thm):
+        return thm in self.features
 
-    def add(self, theorem, features):
-        self.features[theorem] = features
+    def add(self, thm, features):
+        self.features[thm] = features
 
     def all_features(self):
         return list(set().union(*self.features.values()))
 
-    def dict_features_theorems(self):
-        dict_features_theorems = {}
+    def dict_features_thms(self):
+        dict_features_thms = {}
         for thm in self:
             for f in self[thm]:
-                try: dict_features_theorems[f].add(thm)
-                except: dict_features_theorems[f] = {thm}
-        return dict_features_theorems
+                try: dict_features_thms[f].add(thm)
+                except: dict_features_thms[f] = {thm}
+        return dict_features_thms
 
     def dict_features_numbers(self):
-        dft = self.dict_features_theorems()
+        dft = self.dict_features_thms()
         return {f:len(dft[f]) for f in dft}
 
     def subset(self, thms):
@@ -68,7 +68,7 @@ class Statements:
         else:
             print("Error: no dict or file name provided to initialize from.")
         if verbose or logfile:
-            message = "Statements of {} theorems and definitions loaded.".format(
+            message = "Statements of {} thms and definitions loaded.".format(
                 len(self))
             printline(message, logfile, verbose)
 
@@ -78,14 +78,14 @@ class Statements:
     def __iter__(self):
         return self.statements.__iter__()
 
-    def __getitem__(self, theorem):
-        return self.statements[theorem]
+    def __getitem__(self, thm):
+        return self.statements[thm]
 
-    def __contains__(self, theorem):
-        return theorem in self.statements
+    def __contains__(self, thm):
+        return thm in self.statements
 
-    def add(self, theorem, statements):
-        self.statements[theorem] = statements
+    def add(self, thm, statements):
+        self.statements[thm] = statements
 
 
 class Chronology:
@@ -97,7 +97,7 @@ class Chronology:
         else:
             print("Error: no list or file name provided to initialize from.")
         if verbose or logfile:
-            message = ("Chronological order of {} theorems "
+            message = ("Chronological order of {} thms "
                        "and definitions loaded.").format( len(self))
             printline(message, logfile, verbose)
 
@@ -107,22 +107,22 @@ class Chronology:
     def __getitem__(self, index):
         return self.chronology[index]
 
-    def __contains__(self, theorem):
-        return theorem in set(self.chronology)
+    def __contains__(self, thm):
+        return thm in set(self.chronology)
 
-    def index(self, theorem):
-        if theorem in set(self.chronology):
-            return self.chronology.index(theorem)
+    def index(self, thm):
+        if thm in set(self.chronology):
+            return self.chronology.index(thm)
         else:
             print("Error: theorem {} not contained in chronology list.".format(
-                                theorem))
+                                thm))
 
-    def available_premises(self, theorem):
-        if theorem in self.chronology:
-            return self.chronology[:self.index(theorem)]
+    def available_premises(self, thm):
+        if thm in self.chronology:
+            return self.chronology[:self.index(thm)]
         else:
             print("Error: theorem {} not contained in chronology list.".format(
-                                theorem))
+                                thm))
 
 class Proofs:
     def __init__(self, from_dict={}, from_file='', verbose=True, logfile=''):
@@ -151,35 +151,35 @@ class Proofs:
         self.proofs = {}
         self.update(prfs_dict)
         if verbose or logfile:
-            message = "Proofs of {} theorems loaded.".format(len(self))
+            message = "Proofs of {} thms loaded.".format(len(self))
             printline(message, logfile, verbose)
 
     def __len__(self):
         return len(self.proofs)
 
-    def __getitem__(self, theorem):
-        return self.proofs[theorem]
+    def __getitem__(self, thm):
+        return self.proofs[thm]
 
     def __iter__(self):
         return self.proofs.__iter__()
 
-    def __contains__(self, theorem):
-        return theorem in self.proofs
+    def __contains__(self, thm):
+        return thm in self.proofs
 
-    def add(self, theorem, proof):
+    def add(self, thm, proof):
         proof = set(proof)
-        if not theorem in self.proofs:
-            self.proofs[theorem] = [proof]
+        if not thm in self.proofs:
+            self.proofs[thm] = [proof]
         else:
-            for prf in self.proofs[theorem]:
+            for prf in self.proofs[thm]:
                 if proof >= prf:
                     break
                 if proof < prf:
                     prf &= proof
                     break
             else:
-                self.proofs[theorem].append(proof)
-            self.proofs[theorem] = remove_supersets(self.proofs[theorem])
+                self.proofs[thm].append(proof)
+            self.proofs[thm] = remove_supersets(self.proofs[thm])
 
     def update(self, new_proofs, verbose=True, logfile=''):
         for thm in new_proofs:
@@ -189,8 +189,8 @@ class Proofs:
                     if len(prf) > 0:
                         self.add(thm, prf)
 
-    def subset(self, theorems):
-        prfs_dict = {thm: self[thm] for thm in theorems}
+    def subset(self, thms):
+        prfs_dict = {thm: self[thm] for thm in thms}
         return Proofs(from_dict=prfs_dict)
 
     def random_subset(self, n):
@@ -200,28 +200,28 @@ class Proofs:
         thms_sample = sample(set(self), n)
         return self.subset(thms_sample)
 
-    def union_of_proofs(self, theorem):
-        return set().union(*self.proofs[theorem])
+    def union_of_proofs(self, thm):
+        return set().union(*self.proofs[thm])
 
     def unions_of_proofs(self):
         return {thm: self.union_of_proofs(thm) for thm in self}
 
-    def with_trivial(self, theorems_properties=None):
+    def with_trivial(self, thms_properties=None):
         with_trivial = {thm: self[thm] + [{thm}] for thm in self}
-        if theorems_properties:
+        if thms_properties:
             only_trivial = {thm_prt: [{thm_prt}]
-                            for thm_prt in set(theorems_properties) - set(self)}
+                            for thm_prt in set(thms_properties) - set(self)}
         else:
             only_trivial = {}
         return {**with_trivial, **only_trivial}
 
-    def dict_premises_theorems(self):
-        dict_premises_theorems = {}
+    def dict_premises_thms(self):
+        dict_premises_thms = {}
         for thm in self:
             for prm in self[thm]:
-                try: dict_premises_theorems[prm].add(thm)
-                except: dict_premises_theorems[prm] = {thm}
-        return dict_premises_theorems
+                try: dict_premises_thms[prm].add(thm)
+                except: dict_premises_thms[prm] = {thm}
+        return dict_premises_thms
 
     def nums_of_proofs(self):
         return [len(self[t]) for t in self]
@@ -267,7 +267,7 @@ class Proofs:
 
 
 class Rankings:
-    def __init__(self, theorems=None, model=None, params=None, from_dict=None,
+    def __init__(self, thms=None, model=None, params=None, from_dict=None,
                  verbose=True, logfile='', n_jobs=-1):
         if from_dict:
             self.rankings_with_scores = from_dict
@@ -277,27 +277,25 @@ class Rankings:
             assert 'features' in params
             if verbose or logfile:
                 message = ("Creating rankings of premises from the trained model "
-                           "for {} theorems...").format(len(theorems))
+                           "for {} theorems...").format(len(thms))
                 printline(message, logfile, verbose)
-            split_theorems = partition(list(theorems), max(4, n_jobs))
             # be careful: backend 'loky' is needed to not colide with model
             # 'loky' is available only in the newest dev release of joblib
             # (only on github so far)
             with Parallel(n_jobs=n_jobs, backend='loky') as parallel:
-                drfm = delayed(self.rankings_from_model)
-                lists_of_rankings = parallel(drfm(thms, model, params)
-                                                for thms in split_theorems)
-            rankings_with_scores = [t for l in lists_of_rankings for t in l]
+                drfm = delayed(self.ranking_from_model)
+                rankings_with_scores = parallel(drfm(thm, model, params)
+                                                for thm in thms)
             self.rankings_with_scores = dict(rankings_with_scores)
             self.rankings = self._rankings_only_names(self.rankings_with_scores)
         else:
             if verbose or logfile:
                 message = ("Creating random rankings of premises "
-                           "for {} theorems...").format(len(theorems))
+                           "for {} theorems...").format(len(thms))
                 printline(message, logfile, verbose)
             chronology = params['chronology']
             random_rankings = {thm: shuffled(chronology.available_premises(thm))
-                               for thm in theorems}
+                               for thm in thms}
             self.rankings = random_rankings
 
         if verbose or logfile:
@@ -309,22 +307,16 @@ class Rankings:
                           for i in range(len(rankings_with_scores[thm]))]
                              for thm in rankings_with_scores}
 
-    def rankings_from_model(self, theorems, model, params):
-        return [(thm, self.ranking_from_model(thm, model, params))
-                           for thm in theorems]
-
-    def ranking_from_model(self, theorem, model, params):
-        time0=time()
+    def ranking_from_model(self, thm, model, params):
         features = params['features']
         chronology = params['chronology']
-        available_premises = chronology.available_premises(theorem)
-        pairs = [(features[theorem], features[premise])
+        available_premises = chronology.available_premises(thm)
+        pairs = [(features[thm], features[premise])
                  for premise in available_premises]
         scores = self.score_pairs(pairs, model, params)
         premises_scores = list(zip(available_premises, scores))
         premises_scores.sort(key = lambda x: x[1], reverse = True)
-        print(theorem, time()-time0)
-        return premises_scores
+        return (thm, premises_scores)
 
     def score_pairs(self, pairs, model, params):
         array = pairs_to_array(pairs, params)
@@ -335,15 +327,15 @@ class Rankings:
     def __len__(self):
         return len(self.rankings)
 
-    def __getitem__(self, theorem):
-        return self.rankings[theorem]
+    def __getitem__(self, thm):
+        return self.rankings[thm]
 
     def __iter__(self):
         return self.rankings.__iter__()
 
-    def __contains__(self, theorem):
-        return theorem in self.rankings
+    def __contains__(self, thm):
+        return thm in self.rankings
 
-    def add(self, theorem, ranking):
-        self.rankings[theorem] = ranking
+    def add(self, thm, ranking):
+        self.rankings[thm] = ranking
 
