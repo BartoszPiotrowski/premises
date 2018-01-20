@@ -56,3 +56,7 @@ def printline(message, logfile='', verbose=True, time=True):
 def shuffled(l):
     shuffle(l)
     return l
+
+def partition(lst, n):
+    division = len(lst) / n
+    return [lst[round(division * i):round(division * (i + 1))] for i in range(n)]
