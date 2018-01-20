@@ -87,7 +87,6 @@ def proofs_to_train(proofs, params, n_jobs=-1, verbose=True, logfile=''):
                   logfile, verbose)
     all_proved_thms = list(proofs)
     thms_splited = partition(all_proved_thms, n_jobs)
-    print(thms_splited)
     with Parallel(n_jobs=n_jobs) as parallel:
         d_proofs_to_train_n_thms = delayed(proofs_to_train_n_thms)
         labels_and_arrays = parallel(
@@ -95,7 +94,6 @@ def proofs_to_train(proofs, params, n_jobs=-1, verbose=True, logfile=''):
                         for thms in thms_splited)
     labels = [i for p in labels_and_arrays for i in p[0]]
     arrays = [p[1] for p in labels_and_arrays]
-    print(arrays)
     array = sps.vstack(arrays)
     assert len(labels) == array.shape[0]
     if verbose or logfile:
