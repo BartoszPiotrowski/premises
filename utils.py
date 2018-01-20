@@ -58,5 +58,7 @@ def shuffled(l):
     return l
 
 def partition(lst, n):
+    if n > len(lst):
+        n = len(lst)
     division = len(lst) / n
     return [lst[round(division * i):round(division * (i + 1))] for i in range(n)]
