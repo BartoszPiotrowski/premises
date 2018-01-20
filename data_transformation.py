@@ -86,7 +86,7 @@ def proofs_to_train(proofs, params, n_jobs=-1, verbose=True, logfile=''):
                    "examples: merge_mode={}".format(params['merge_mode'])),
                   logfile, verbose)
     all_proved_thms = list(proofs)
-    thms_splited = partition(all_proved_thms, n_jobs)
+    thms_splited = partition(all_proved_thms, max(n_jobs, 4))
     with Parallel(n_jobs=n_jobs) as parallel:
         d_proofs_to_train_n_thms = delayed(proofs_to_train_n_thms)
         labels_and_arrays = parallel(

@@ -2,6 +2,7 @@ from .utils import read_dict, remove_supersets, readlines, printline, shuffled
 from .data_transformation import pairs_to_array
 from joblib import Parallel, delayed
 import xgboost
+from random import sample
 from time import time
 
 class Features:
@@ -187,6 +188,17 @@ class Proofs:
                     if len(prf) > 0:
                         self.add(thm, prf)
 
+    def subset(self, theorems):
+        prfs_dict = {thm: self[thm] for thm in theorems}
+        return Proofs(from_dict=prfs_dict)
+
+    def random_subset(self, n):
+        assert n > 0
+        if n < 1:
+            n = int(n * len(self))
+        thms_sample = sample(set(self), n)
+        return self.subset(thms_sample)
+
     def union_of_proofs(self, theorem):
         return set().union(*self.proofs[theorem])
 
@@ -299,6 +311,7 @@ class Rankings:
         return (theorem, self.ranking_from_model(theorem, model, params))
 
     def ranking_from_model(self, theorem, model, params):
+        time0=time()
         features = params['features']
         chronology = params['chronology']
         available_premises = chronology.available_premises(theorem)
@@ -307,6 +320,7 @@ class Rankings:
         scores = self.score_pairs(pairs, model, params)
         premises_scores = list(zip(available_premises, scores))
         premises_scores.sort(key = lambda x: x[1], reverse = True)
+        print(theorem, time()-time0)
         return premises_scores
 
     def score_pairs(self, pairs, model, params):
