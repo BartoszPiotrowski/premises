@@ -26,8 +26,8 @@ def train_xgboost(labels, array, weights, params, n_jobs):
     assert booster in {'gbtree', 'gblinear', 'dart'}
     # 'gblinear' and 'dart' also available;
     # 'gblinear' makes xgboost like lasso
-    xgb_pretrained_model = params['xgb_pretrained_model'] \
-            if 'xgb_pretrained_model' in params else None
+    pretrained_model = params['pretrained_model'] \
+            if 'pretrained_model' in params else None
     dtrain = xgb.DMatrix(array, label=labels, weight=weights)
     params_booster = {'eta': eta,
                       'max_depth': max_depth,
@@ -35,4 +35,4 @@ def train_xgboost(labels, array, weights, params, n_jobs):
                       'booster': booster,
                       'n_jobs': n_jobs}
     return xgb.train(params_booster, dtrain, num_boost_round=num_boost_round,
-                     xgb_model=xgb_pretrained_model)
+                     xgb_model=pretrained_model)

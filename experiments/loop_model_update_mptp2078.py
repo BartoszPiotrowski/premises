@@ -1,19 +1,20 @@
+
 import sys
 from os.path import join
 sys.path.append('..')
 import premises as prs
 
-N_JOBS = 10
 DATA_DIR = 'data/MPTP2078'
 ATP_DIR = 'atp'
 LOG_FILE = __file__.replace('.py', '.log')
+N_JOBS = 10
 
 statements = prs.Statements(from_file=join(DATA_DIR, 'statements'),
                             logfile=LOG_FILE)
 features = prs.Features(from_file=join(DATA_DIR, 'features'), logfile=LOG_FILE)
 chronology = prs.Chronology(from_file=join(DATA_DIR, 'chronology'),
                             logfile=LOG_FILE)
-theorems = prs.utils.readlines(join(DATA_DIR, 'theorems'))
+theorems = prs.utils.readlines(join(DATA_DIR, 'theorems_atpproved'))
 params_data_trans = {'features': features,
                      'chronology': chronology}
 
@@ -31,11 +32,10 @@ for i in range(20):
     params_train = {}
     model = prs.train(train_labels, train_array, params=params_train,
                         n_jobs=N_JOBS, logfile=LOG_FILE)
-
+    params_train['pretrained_model'] = model
     rankings = prs.Rankings(theorems, model, params_data_trans,
                          n_jobs=N_JOBS, logfile=LOG_FILE)
     params_atp_eval = {}
     proofs.update(prs.atp_evaluation(rankings, statements, params_atp_eval,
-                             dirpath=ATP_DIR, n_jobs=N_JOBS, logfile=LOG_FILE))
+                         dirpath=ATP_DIR, n_jobs=N_JOBS, logfile=LOG_FILE))
     proofs.print_stats(logfile=LOG_FILE)
-    params_data_trans['rankings_for_negative_mining'] = rankings
