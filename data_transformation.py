@@ -77,7 +77,7 @@ def proofs_to_train(proofs, params, n_jobs=-1, verbose=True, logfile=''):
     if not 'merge_mode' in params:
         params['merge_mode'] = 'concat'
     if not 'ratio_neg_pos' in params:
-        params['ratio_neg_pos'] = 5
+        params['ratio_neg_pos'] = 16
     if not 'num_of_features' in params:
         params['num_of_features'] = 1
     assert params['num_of_features'] > 0
