@@ -1,0 +1,33 @@
+[2018-01-21 17:25:19] Statements of 146700 thms and definitions loaded.
+[2018-01-21 17:25:27] Features of 146700 thms and definitions loaded.
+[2018-01-21 17:25:27] Chronological order of 146700 thms and definitions loaded.
+[2018-01-21 17:25:28] Proofs of 29271 thms loaded.
+[2018-01-21 17:25:28] Transforming proofs of 29271 theorems to training data...
+[2018-01-21 17:25:28]     Number of features used: 45170 / 451706
+[2018-01-21 17:25:28]     Mode of combining theorems and premises to examples: merge_mode=concat
+[2018-01-21 17:25:28]     Negatives to positive ratio: 16
+[2018-01-21 17:25:28]     No negative mining.
+[2018-01-21 17:52:21] Transformation finished.
+[2018-01-21 17:52:21] Training of xgboost model started...
+[2018-01-21 19:23:14] Training finished.
+[2018-01-21 19:23:14] Creating rankings of premises from the trained model for 3253 theorems...
+[2018-01-22 11:15:33] Rankings created.
+[2018-01-22 11:15:33] ATP evaluation started...
+[2018-01-22 12:26:12]     Number of proved theorems: 1343
+[2018-01-22 12:26:12]     Percentage of proved theorems: 41.28%
+[2018-01-22 12:26:12] Number of all theorems with proof(s): 1343
+[2018-01-22 12:26:12] Number of all proofs: 1929
+[2018-01-22 12:26:12] Number of theorems with exactly 1 proof(s): 941
+[2018-01-22 12:26:12] Number of theorems with exactly 2 proof(s): 269
+[2018-01-22 12:26:12] Number of theorems with exactly 3 proof(s): 90
+[2018-01-22 12:26:12] Number of theorems with exactly 4 proof(s): 36
+[2018-01-22 12:26:12] Number of theorems with exactly 5 proof(s): 6
+[2018-01-22 12:26:12] Number of theorems with exactly 6 proof(s): 1
+[2018-01-22 12:26:12] Average number of proofs per theorem: 1.436
+[2018-01-22 12:26:12] Transforming proofs of 29271 theorems to training data...
+[2018-01-22 12:26:12]     Number of features used: 4517 / 451706
+[2018-01-22 12:26:12]     Mode of combining theorems and premises to examples: merge_mode=concat
+[2018-01-22 12:26:12]     Negatives to positive ratio: 16
+[2018-01-22 12:26:12]     No negative mining.
+[2018-01-22 12:49:00] Transformation finished.
+[2018-01-22 12:49:00] Training of xgboost model started...
