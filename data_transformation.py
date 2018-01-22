@@ -30,21 +30,24 @@ def pairs_to_array(pairs, params):
 def proofs_to_train_n_thms(thms, proofs, params):
     labels, pairs = [], []
     for thm in thms:
-        atp_useful = proofs.union_of_proofs(thm)
-        labels_thm, pairs_thm = thm_to_labels_and_pairs(thm, atp_useful, params)
+        labels_thm, pairs_thm = thm_to_labels_and_pairs(thm, proofs, params)
         labels.extend(labels_thm)
         pairs.extend(pairs_thm)
     array = pairs_to_array(pairs, params)
     return labels, array
 
-def thm_to_labels_and_pairs(thm, atp_useful, params):
+def thm_to_labels_and_pairs(thm, proofs, params):
     features = params['features']
     chronology = params['chronology']
     ratio_neg_pos = params['ratio_neg_pos']
+    only_short_proofs = params['only_short_proofs']
     available_premises = chronology.available_premises(thm)
-    not_pos_premises = set(available_premises) - set(atp_useful)
-    # TODO something more clever; differentiate importance of positives
-    pos_premises = atp_useful
+    if only_short_proofs:
+        pos_premises = proofs.union_of_short_proofs(thm)
+    else:
+        pos_premises = proofs.union_of_proofs(thm)
+    not_pos_premises = set(available_premises) - proofs.union_of_proofs(thm)
+    assert not pos_premises & not_pos_premises
     if len(not_pos_premises) == 0:
         labels = [1] * len(pos_premises)
         pairs = [(features[thm], features[prm]) for prm in pos_premises]
@@ -78,6 +81,8 @@ def proofs_to_train(proofs, params, n_jobs=-1, verbose=True, logfile=''):
         params['merge_mode'] = 'concat'
     if not 'ratio_neg_pos' in params:
         params['ratio_neg_pos'] = 16
+    if not 'only_short_proofs' in params:
+        params['only_short_proofs'] = True
     if not 'num_of_features' in params:
         params['num_of_features'] = 1
     assert params['num_of_features'] > 0

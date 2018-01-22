@@ -250,6 +250,10 @@ class Proofs:
         lengths = [len(p) for t in self.proofs for p in self.proofs[t]]
         return sum(lengths) / len(lengths)
 
+    def thms_with_max_number_of_proofs(self):
+        return [thm for thm in self.proofs \
+                if len(self[thm]) == max(self.nums_of_proofs())]
+
     def stats(self):
         return {'num_of_thms': len(self),
                 'num_of_proofs': self.num_of_all_proofs(),
@@ -267,9 +271,15 @@ class Proofs:
                 n, ns[n]), logfile)
         printline("Average number of proofs per theorem: {:.3f}".format(
                   self.avg_num_of_proofs()), logfile)
-        #printline("Average number of premises used in a proof: {:.3f}".format(
-        #          self.avg_length_of_proof()), logfile)
-
+        printline("Average number of premises used in a proof: {:.3f}".format(
+                  self.avg_length_of_proof()), logfile)
+        printline("Theorems with maximal number of proofs found: {}".format(
+                   self.thms_with_max_number_of_proofs()), logfile)
+        thm_max = self.thms_with_max_number_of_proofs()[0]
+        printline("Distribution of lengths of proofs for theorem {}: {}".format(
+                         thm_max, [len(p) for p in self[thm_max]]), logfile)
+        for p in self[thm_max]:
+            print(p)
 
 class Rankings:
     def __init__(self, thms=None, model=None, params=None, from_dict=None,
