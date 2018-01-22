@@ -19,7 +19,7 @@ def pairs_to_array(pairs, params):
         list_of_pairs = []
         for thm_f, prm_f in pairs:
             thm_f_appended = ['T' + f for f in thm_f]
-            prm_f_appended = ['T' + f for f in prm_f]
+            prm_f_appended = ['P' + f for f in prm_f]
             list_of_pairs.append(thm_f_appended + prm_f_appended)
     else:
         print("Error: unknown merge mode.")
