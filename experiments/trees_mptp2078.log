@@ -1,13 +1,43 @@
-[2018-01-21 14:37:08] Statements of 4564 thms and definitions loaded.
-[2018-01-21 14:37:08] Features of 4564 thms and definitions loaded.
-[2018-01-21 14:37:08] Chronological order of 4564 thms and definitions loaded.
-[2018-01-21 14:37:08] Proofs of 1000 thms loaded.
-[2018-01-21 14:37:08] Transforming proofs of 1000 theorems to training data...
-[2018-01-21 14:37:08]     Number of features used: 10241 / 10241
-[2018-01-21 14:37:08]     Mode of combining theorems and premises to examples: merge_mode=concat
-[2018-01-21 14:37:08]     Negatives to positive ratio: 5
-[2018-01-21 14:37:08]     No negative mining.
-[2018-01-21 14:37:10] Transformation finished.
+[2018-01-22 13:16:09] Statements of 4564 thms and definitions loaded.
+[2018-01-22 13:16:09] Features of 4564 thms and definitions loaded.
+[2018-01-22 13:16:09] Chronological order of 4564 thms and definitions loaded.
+[2018-01-22 13:16:09] Proofs of 1000 thms loaded.
+[2018-01-22 13:16:09] Transforming proofs of 1000 theorems to training data...
+[2018-01-22 13:16:09]     Number of features used: 10241 / 10241
+[2018-01-22 13:16:09]     Mode of combining theorems and premises to examples: merge_mode=concat
+[2018-01-22 13:16:09]     Negatives to positive ratio: 5
+[2018-01-22 13:16:09]     No negative mining.
+[2018-01-22 13:16:12] Transformation finished.
+[2018-01-22 13:16:12] NUMBER OF TREES 1
+[2018-01-22 13:16:12] Training of xgboost model started...
+[2018-01-22 13:16:17] Training finished.
+[2018-01-22 13:16:17] Creating rankings of premises from the trained model for 342 theorems...
+[2018-01-22 13:16:57] Rankings created.
+[2018-01-22 13:16:57] ATP evaluation started...
+[2018-01-22 13:48:59]     Number of proved theorems: 170
+[2018-01-22 13:48:59]     Percentage of proved theorems: 49.71%
+[2018-01-22 13:48:59] Number of all theorems with proof(s): 170
+[2018-01-22 13:48:59] Number of all proofs: 236
+[2018-01-22 13:48:59] Number of theorems with exactly 1 proof(s): 123
+[2018-01-22 13:48:59] Number of theorems with exactly 2 proof(s): 29
+[2018-01-22 13:48:59] Number of theorems with exactly 3 proof(s): 17
+[2018-01-22 13:48:59] Number of theorems with exactly 4 proof(s): 1
+[2018-01-22 13:48:59] Average number of proofs per theorem: 1.388
+[2018-01-22 13:48:59] NUMBER OF TREES 2
+[2018-01-22 13:48:59] Training of xgboost model started...
+[2018-01-22 13:49:10] Training finished.
+[2018-01-22 13:49:10] Creating rankings of premises from the trained model for 342 theorems...
+[2018-01-22 13:49:53] Rankings created.
+[2018-01-22 13:49:53] ATP evaluation started...
+[2018-01-22 14:21:58]     Number of proved theorems: 171
+[2018-01-22 14:21:58]     Percentage of proved theorems: 50.00%
+[2018-01-22 14:21:58] Number of all theorems with proof(s): 171
+[2018-01-22 14:21:58] Number of all proofs: 237
+[2018-01-22 14:21:58] Number of theorems with exactly 1 proof(s): 124
+[2018-01-22 14:21:58] Number of theorems with exactly 2 proof(s): 29
+[2018-01-22 14:21:58] Number of theorems with exactly 3 proof(s): 17
+[2018-01-22 14:21:58] Number of theorems with exactly 4 proof(s): 1
+[2018-01-22 14:21:58] Average number of proofs per theorem: 1.386
 [2018-01-21 14:37:10] NUMBER OF TREES 4
 [2018-01-21 14:37:10] Training of xgboost model started...
 [2018-01-21 14:37:18] Training finished.
@@ -217,19 +247,3 @@
 [2018-01-21 18:50:34] Number of theorems with exactly 4 proof(s): 22
 [2018-01-21 18:50:34] Number of theorems with exactly 5 proof(s): 8
 [2018-01-21 18:50:34] Average number of proofs per theorem: 1.919
-[2018-01-22 13:16:09] Statements of 4564 thms and definitions loaded.
-[2018-01-22 13:16:09] Features of 4564 thms and definitions loaded.
-[2018-01-22 13:16:09] Chronological order of 4564 thms and definitions loaded.
-[2018-01-22 13:16:09] Proofs of 1000 thms loaded.
-[2018-01-22 13:16:09] Transforming proofs of 1000 theorems to training data...
-[2018-01-22 13:16:09]     Number of features used: 10241 / 10241
-[2018-01-22 13:16:09]     Mode of combining theorems and premises to examples: merge_mode=concat
-[2018-01-22 13:16:09]     Negatives to positive ratio: 5
-[2018-01-22 13:16:09]     No negative mining.
-[2018-01-22 13:16:12] Transformation finished.
-[2018-01-22 13:16:12] NUMBER OF TREES 1
-[2018-01-22 13:16:12] Training of xgboost model started...
-[2018-01-22 13:16:17] Training finished.
-[2018-01-22 13:16:17] Creating rankings of premises from the trained model for 342 theorems...
-[2018-01-22 13:16:57] Rankings created.
-[2018-01-22 13:16:57] ATP evaluation started...
