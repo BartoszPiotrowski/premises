@@ -11,10 +11,11 @@ The experiments made with the package are continuation of the work exemplified b
 The package contains bunch of example experiments on corpus originating from [Mizar Mathematical Library](http://mizar.org/library/).
 
 ## Requirements
-1. Python 3
-2. `xgboost` Python package. Can be installed by running:
+1. Python 3 (version >= 3.5)
+2. `xgboost` and `sklearn` Python packages. Can be installed by running:
 ``` 
 pip3 install xgboost
+pip3 install sklearn
 ```
 3. The newest version of `joblib` parallelization package (`joblib-0.11.1.dev0`) so far available only on GitHub. Can be installed by running:
 ```
