@@ -19,8 +19,8 @@ def train(labels, array, weights=None, model="xgboost", params={}, n_jobs=-1,
 
 def train_xgboost(labels, array, weights, params, n_jobs):
     num_boost_round = params['num_boost_round'] \
-            if 'num_boost_round' in params else 1000
-    eta = params['eta'] if 'eta' in params else 0.05
+            if 'num_boost_round' in params else 5000
+    eta = params['eta'] if 'eta' in params else 0.1
     max_depth = params['max_depth'] if 'max_depth' in params else 10
     booster = params['booster'] if 'booster' in params else 'gbtree'
     assert booster in {'gbtree', 'gblinear', 'dart'}
