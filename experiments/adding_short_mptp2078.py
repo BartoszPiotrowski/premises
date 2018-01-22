@@ -24,8 +24,7 @@ for i in range(10):
     prs.utils.printline("ADDING PROOFS ROUND: {}".format(i + 1), logfile=LOG_FILE)
     params_data_trans = {'features': features,
                          'chronology': chronology,
-                         'only_short_proofs': False}
-
+                         'only_short_proofs': True}
     train_labels, train_array = prs.proofs_to_train(proofs_train,
                     params_data_trans, n_jobs=N_JOBS, logfile=LOG_FILE)
     params_train = {}
