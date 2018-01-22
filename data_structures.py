@@ -139,15 +139,13 @@ class Proofs:
             '''
             prfs_dict = read_dict(from_file, type_of_values=list, sep_in_list=' ')
             prfs_dict = {thm: [set(prfs_dict[thm])] for thm in prfs_dict}
-        elif from_dict:
+        else:
             '''
             The dict with 'proofs' should have theorems' names as keys and each
             value should be a list containing sets of premises' names used in
             different proofs of the given theorem.
             '''
             prfs_dict = from_dict
-        else:
-            print("Error: provide file or dictionary with proofs.")
         self.proofs = {}
         self.update(prfs_dict)
         if verbose or logfile:
