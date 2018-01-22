@@ -203,6 +203,11 @@ class Proofs:
     def union_of_proofs(self, thm):
         return set().union(*self.proofs[thm])
 
+    def union_of_short_proofs(self, thm):
+        min_length = min([len(p) for p in self[thm]])
+        short_proofs = [p for p in self[thm] if len(p) <= min_length + 1]
+        return set().union(*short_proofs)
+
     def unions_of_proofs(self):
         return {thm: self.union_of_proofs(thm) for thm in self}
 
