@@ -15,8 +15,6 @@ The package contains bunch of example experiments on corpus originating from [Mi
 2. `xgboost` and `sklearn` Python packages. Can be installed by running:
 ``` 
 pip3 install xgboost
-```
-``` 
 pip3 install sklearn
 ```
 3. The newest version of `joblib` parallelization package (`joblib-0.11.1.dev0`) so far available only on GitHub. Can be installed by running:
