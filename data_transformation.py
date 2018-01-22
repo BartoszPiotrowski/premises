@@ -42,11 +42,11 @@ def thm_to_labels_and_pairs(thm, proofs, params):
     ratio_neg_pos = params['ratio_neg_pos']
     only_short_proofs = params['only_short_proofs']
     available_premises = chronology.available_premises(thm)
-    if only_short_proofs:
-        pos_premises = proofs.union_of_short_proofs(thm)
-    else:
-        pos_premises = proofs.union_of_proofs(thm)
-    not_pos_premises = set(available_premises) - proofs.union_of_proofs(thm)
+    pos_premises_all = proofs.union_of_proofs(thm)
+    pos_premises = proofs.union_of_short_proofs(thm)
+    if not only_short_proofs:
+        pos_premises = pos_premises_all
+    not_pos_premises = set(available_premises) - pos_premises_all
     assert not pos_premises & not_pos_premises
     if len(not_pos_premises) == 0:
         labels = [1] * len(pos_premises)
@@ -56,7 +56,7 @@ def thm_to_labels_and_pairs(thm, proofs, params):
         level_of_negative_mining = params['level_of_negative_mining']
         ranking_thm = params['rankings_for_negative_mining'][thm]
         neg_premises_misclass = misclassified_negatives(
-            ranking_thm, atp_useful, level_of_negative_mining)
+            ranking_thm, pos_premises_all, level_of_negative_mining)
         neg_premises_not_misclass = not_pos_premises - neg_premises_misclass
         num_neg_premises_not_misclass = \
             min(len(neg_premises_not_misclass), ratio_neg_pos * len(pos_premises))
