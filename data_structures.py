@@ -321,20 +321,30 @@ class Rankings:
                              for thm in rankings_with_scores}
 
     def ranking_from_model(self, thm, model, params):
+        print(thm)
+        #time0 = time()
         features = params['features']
         chronology = params['chronology']
         available_premises = chronology.available_premises(thm)
-        pairs = [(features[thm], features[premise])
-                 for premise in available_premises]
+        features_thm = features[thm]
+        pairs = [(features_thm, features[prm])
+                 for prm in available_premises]
+        #time1=time(); print("1", time1-time0)
         scores = self.score_pairs(pairs, model, params)
+        #time2=time(); print("2", time2-time1)
         premises_scores = list(zip(available_premises, scores))
+        #time3=time(); print("3", time3-time2)
         premises_scores.sort(key = lambda x: x[1], reverse = True)
+        #time4=time(); print("4", time4-time3)
         return (thm, premises_scores)
 
     def score_pairs(self, pairs, model, params):
+        time0 = time()
         array = pairs_to_array(pairs, params)
+        time1=time(); print("1", time1-time0)
         if isinstance(model, xgboost.Booster):
             array = xgboost.DMatrix(array)
+        time2=time(); print("2", time2-time1)
         return model.predict(array)
 
     def __len__(self):
