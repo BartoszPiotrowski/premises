@@ -34,8 +34,8 @@ def knn_one_theorem(thm, thm_features,
     # chronology is important
     available_premises = chronology.available_premises(thm)
     proofs = {t: proofs[t] for t in available_premises \
-                if not thm in set().union(*proofs[t])}
-    features = {t: features[t] for t in proofs}
+                if not thm in set().union(*list(proofs[t]))}
+    features = {t: features[t] for t in available_premises}
     # separation of train and test
     assert not thm in proofs
     similarities = {t: similarity((thm, thm_features),
