@@ -37,7 +37,8 @@ def knn_one_theorem(thm, thm_features,
     features = {t: features[t] for t in proofs}
     # separation of train and test
     assert not thm in proofs
-    assert not thm in set().union(*proofs.values())
+    for thm in proofs:
+        assert not thm in proofs[thm]
     similarities = {t: similarity((thm, thm_features),
                                  (t, features[t]),
                                  dict_features_numbers,
