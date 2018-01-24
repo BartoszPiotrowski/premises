@@ -24,21 +24,21 @@ def similarity(thm1, thm2, dict_features_numbers, n_of_theorems, power):
     sI = sum([trans(n_of_theorems, dict_features_numbers[f]) for f in ftrsI])
     return (sI / (s1 + s2 - sI)) ** (1 / power) # Jaccard index
 
-# thm -- theorem and its features (as a tuple) with unknown premises useful
+# theorem -- theorem and its features (as a tuple) with unknown premises useful
 # for proving it; the function creates a ranking of premises
-def knn_one_theorem(thm, thm_features,
+def knn_one_theorem(theorem, thm_features,
                     proofs, features,
                     chronology,
                     dict_features_numbers,
                     N, power):
     # chronology is important
-    available_premises = chronology.available_premises(thm)
+    available_premises = chronology.available_premises(theorem)
     proofs = {t: proofs[t] for t in available_premises \
-                if not thm in set().union(*list(proofs[t]))}
+                if not theorem in set().union(*list(proofs[t]))}
     features = {t: features[t] for t in available_premises}
     # separation of train and test
-    assert not thm in proofs
-    similarities = {t: similarity((thm, thm_features),
+    assert not theorem in proofs
+    similarities = {t: similarity((theorem, thm_features),
                                  (t, features[t]),
                                  dict_features_numbers,
                                  len(features), power)
@@ -48,6 +48,7 @@ def knn_one_theorem(thm, thm_features,
     N_nearest_theorems = {t for t in set(similarities)
                           if similarities[t] > N_threshold}
     premises_scores = {}
+    assert not theorem in N_nearest_theorems
     for thm in N_nearest_theorems:
         premises_scores_one = {}
         for prf in proofs[thm]:
@@ -58,7 +59,7 @@ def knn_one_theorem(thm, thm_features,
             scr = similarities[thm] * premises_scores_one[prf] ** .3
             try: premises_scores[prf] = premises_scores[prf] + scr
             except: premises_scores[prf] = scr
-    assert not thm in premises_scores
+    assert not theorem in premises_scores
     sorted_premises = sorted(premises_scores,
                            key=premises_scores.__getitem__, reverse=True)
     m = premises_scores[sorted_premises[0]] # max
