@@ -127,5 +127,4 @@
 [2018-01-23 13:35:15] Average number of premises used in a proof: 5.716
 [2018-01-23 13:35:15] Theorems with maximal number of proofs found: ['t51_zfmisc_1', 't50_zfmisc_1']
 [2018-01-23 13:35:15] Distribution of lengths of proofs for theorem t51_zfmisc_1: [15, 2, 5, 6, 3, 5]
-[2018-01-23 13:35:15] ETA 0.64
-[2018-01-23 13:35:15] Training of xgboost model started...
+
