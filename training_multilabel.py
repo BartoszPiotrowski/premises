@@ -32,10 +32,9 @@ def knn_one_theorem(thm, thm_features,
                     dict_features_numbers,
                     N, power):
     # chronology is important
-    available_premises = set(proofs) & set(chronology[:chronology.index(thm)])
-    #available_premises = chronology.available_premises(thm)
-    proofs = {t: proofs[t] for t in available_premises}
-    features = {t: features[t] for t in available_premises}
+    available_premises = chronology.available_premises(thm)
+    proofs = {t: proofs[t] for t in available_premises if not thm in proofs[t]}
+    features = {t: features[t] for t in proofs}
     # separation of train and test
     assert not thm in proofs
     similarities = {t: similarity((thm, thm_features),
@@ -58,6 +57,7 @@ def knn_one_theorem(thm, thm_features,
             scr = similarities[thm] * premises_scores_one[prf] ** .3
             try: premises_scores[prf] = premises_scores[prf] + scr
             except: premises_scores[prf] = scr
+    assert not thm in premises_scores
     sorted_premises = sorted(premises_scores,
                            key=premises_scores.__getitem__, reverse=True)
     m = premises_scores[sorted_premises[0]] # max
@@ -80,7 +80,7 @@ def knn(test_theorems, proofs, params, n_jobs=-1):
     power = params['power'] if 'power' in params else 2
     # separation of train and test
     assert not set(proofs) & set(test_theorems)
-    proofs_train = proofs.with_trivial(set(chronology) - set(test_theorems))
+    proofs_train = proofs.with_trivial(set(chronology))
     features_train = features.subset(set(proofs_train))
     dict_features_numbers = features_train.dict_features_numbers()
     with Parallel(n_jobs=n_jobs) as parallel:

@@ -4,7 +4,7 @@ from random import sample
 sys.path.append('..')
 import premises as prs
 
-N_JOBS = 25
+N_JOBS = 10
 DATA_DIR = 'data/MPTP2078'
 ATP_DIR = 'atp'
 LOG_FILE = __file__.replace('.py', '.log')
@@ -16,13 +16,11 @@ chronology = prs.Chronology(from_file=join(DATA_DIR, 'chronology'),
                             logfile=LOG_FILE)
 proofs_train = prs.Proofs(from_file=join(DATA_DIR, 'atpproved.train'),
                           logfile=LOG_FILE)
-proofs_test = prs.Proofs(from_file=join(DATA_DIR, 'atpproved.test'),
-                          verbose=False)
-test_theorems = set(proofs_test)
+theorems = prs.utils.readlines(join(DATA_DIR, 'theorems_atpproved'))
+test_theorems = set(theorems) - set(proofs_test)
 params = {'features': features,
-          'features_ordered': features.all_features(),
           'chronology': chronology}
-Ns = [10, 20, 50, 100, 200, 500]
+Ns = [10, 20, 40, 80, 160, 320, 640]
 for N in Ns:
     prs.utils.printline("Neighbours: {}".format(N), logfile=LOG_FILE)
     params['N'] = N
