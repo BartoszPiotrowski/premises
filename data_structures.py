@@ -54,7 +54,7 @@ class Features:
         return {f:len(dft[f]) for f in dft}
 
     def subset(self, thms):
-        return Features(from_dict={thm: self[thm] for thm in thms})
+        return Features(from_dict={thm: self[thm] for thm in thms}, verbose=False)
 
 class Statements:
     def __init__(self, from_dict=None, from_file='', verbose=True, logfile=''):
@@ -286,21 +286,30 @@ class Rankings:
             self.rankings_with_scores = from_dict
             self.rankings = self._rankings_only_names(self.rankings_with_scores)
         elif model:
+            time0 = time()
             assert 'chronology' in params
             assert 'features' in params
             if verbose or logfile:
                 message = ("Creating rankings of premises from the trained model "
                            "for {} theorems...").format(len(thms))
                 printline(message, logfile, verbose)
+            chronology = params['chronology']
+            features = params['features']
+            params_small = {'merge_mode': params['merge_mode'],
+                            'num_of_features': params['num_of_features']}
             # be careful: backend 'loky' is needed to not colide with model
             # 'loky' is available only in the newest dev release of joblib
             # (only on github so far)
             with Parallel(n_jobs=n_jobs, backend='loky') as parallel:
                 drfm = delayed(self.ranking_from_model)
-                rankings_with_scores = parallel(drfm(thm, model, params)
-                                                for thm in thms)
+                rankings_with_scores = parallel(drfm(
+                 thm, model,
+                 chronology.available_premises(thm),
+                 features.subset(set(chronology.available_premises(thm)) | {thm}),
+                 params_small) for thm in thms)
             self.rankings_with_scores = dict(rankings_with_scores)
             self.rankings = self._rankings_only_names(self.rankings_with_scores)
+            print("ALL:", time()-time0)
         else:
             if verbose or logfile:
                 message = ("Creating random rankings of premises "
@@ -320,12 +329,9 @@ class Rankings:
                           for i in range(len(rankings_with_scores[thm]))]
                              for thm in rankings_with_scores}
 
-    def ranking_from_model(self, thm, model, params):
-        print(thm)
-        #time0 = time()
-        features = params['features']
-        chronology = params['chronology']
-        available_premises = chronology.available_premises(thm)
+    def ranking_from_model(self, thm, model, available_premises, features,
+                           params):
+        time0 = time()
         features_thm = features[thm]
         pairs = [(features_thm, features[prm])
                  for prm in available_premises]
@@ -336,7 +342,9 @@ class Rankings:
         #time3=time(); print("3", time3-time2)
         premises_scores.sort(key = lambda x: x[1], reverse = True)
         #time4=time(); print("4", time4-time3)
-        return (thm, premises_scores)
+        print(thm, time()-time0)
+        # rankings cut to 600 for efficiency when parallelizing
+        return (thm, premises_scores[:600])
 
     def score_pairs(self, pairs, model, params):
         time0 = time()
