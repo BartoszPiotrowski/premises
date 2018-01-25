@@ -21,3 +21,17 @@
 [2018-01-25 08:24:21] Theorems with maximal number of proofs found: ['l54_xreal_1', 't7_trees_3', 'l64_xcmplx_1', 'l102_jordan', 't32_aff_4', 't21_rlsub_2', 'l8_translac', 't17_xxreal_1', 'l19_xxreal_3', 't203_xcmplx_1', 't59_zfmisc_1', 'l7_homothet', 't32_projpl_1', 't12_rusub_1', 'l18_homothet', 't1_hausdorf', 't38_bcialg_4']
 [2018-01-25 08:24:23] Distribution of lengths of proofs for theorem l54_xreal_1: [8, 6, 3, 7]
 [2018-01-25 08:24:23] Neighbours: 160
+[2018-01-25 15:00:00] ATP evaluation started...
+[2018-01-25 16:48:21]     Number of proved theorems: 1653
+[2018-01-25 16:48:21]     Percentage of proved theorems: 50.81%
+[2018-01-25 16:48:21] Number of all theorems with proof(s): 1653
+[2018-01-25 16:48:21] Number of all proofs: 2561
+[2018-01-25 16:48:21] Number of theorems with exactly 1 proof(s): 986
+[2018-01-25 16:48:21] Number of theorems with exactly 2 proof(s): 466
+[2018-01-25 16:48:21] Number of theorems with exactly 3 proof(s): 163
+[2018-01-25 16:48:21] Number of theorems with exactly 4 proof(s): 36
+[2018-01-25 16:48:21] Number of theorems with exactly 5 proof(s): 2
+[2018-01-25 16:48:21] Average number of proofs per theorem: 1.549
+[2018-01-25 16:48:21] Average number of premises used in a proof: 7.538
+[2018-01-25 16:48:22] Theorems with maximal number of proofs found: ['t47_xreal_1', 't38_bcialg_4']
+[2018-01-25 16:48:24] Distribution of lengths of proofs for theorem t47_xreal_1: [5, 8, 9, 3, 4]
