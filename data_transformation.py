@@ -61,7 +61,7 @@ def thm_to_labels_and_pairs(thm, proofs, params):
         num_neg_premises_not_misclass = \
             min(len(neg_premises_not_misclass), ratio_neg_pos * len(pos_premises))
         neg_premises_not_misclass_sample = \
-         set(sample(neg_premises_not_misclass, num_neg_premises_not_misclass))
+            set(sample(neg_premises_not_misclass, num_neg_premises_not_misclass))
         neg_premises = neg_premises_misclass | neg_premises_not_misclass_sample
     else:
         num_neg = min(len(not_pos_premises), ratio_neg_pos * len(pos_premises))
@@ -123,12 +123,12 @@ def proofs_to_train(proofs, params, n_jobs=-1, verbose=True, logfile=''):
         else:
             printline("    No negative mining.", logfile, verbose)
     all_proved_thms = list(proofs)
-    thms_splited = partition(all_proved_thms, max(n_jobs, 4))
+    thms_split = partition(all_proved_thms, max(n_jobs, 4))
     with Parallel(n_jobs=n_jobs) as parallel:
         d_proofs_to_train_n_thms = delayed(proofs_to_train_n_thms)
         labels_and_arrays = parallel(
             d_proofs_to_train_n_thms(thms, proofs, params)
-                        for thms in thms_splited)
+                        for thms in thms_split)
     labels = [i for p in labels_and_arrays for i in p[0]]
     arrays = [p[1] for p in labels_and_arrays]
     array = sps.vstack(arrays)
