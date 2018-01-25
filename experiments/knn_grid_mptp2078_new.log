@@ -1,0 +1,107 @@
+[2018-01-25 00:17:41] Statements of 4564 thms and definitions loaded.
+[2018-01-25 00:17:42] Features of 4564 thms and definitions loaded.
+[2018-01-25 00:17:42] Chronological order of 4564 thms and definitions loaded.
+[2018-01-25 00:17:42] Proofs of 1000 thms loaded.
+[2018-01-25 00:17:42] Neighbours: 10
+[2018-01-25 00:18:19] ATP evaluation started...
+[2018-01-25 00:28:59]     Number of proved theorems: 138
+[2018-01-25 00:28:59]     Percentage of proved theorems: 40.35%
+[2018-01-25 00:28:59] Number of all theorems with proof(s): 138
+[2018-01-25 00:28:59] Number of all proofs: 173
+[2018-01-25 00:28:59] Number of theorems with exactly 1 proof(s): 104
+[2018-01-25 00:28:59] Number of theorems with exactly 2 proof(s): 33
+[2018-01-25 00:28:59] Number of theorems with exactly 3 proof(s): 1
+[2018-01-25 00:28:59] Average number of proofs per theorem: 1.254
+[2018-01-25 00:28:59] Average number of premises used in a proof: 3.936
+[2018-01-25 00:28:59] Theorems with maximal number of proofs found: ['t17_mcart_1']
+[2018-01-25 00:28:59] Distribution of lengths of proofs for theorem t17_mcart_1: [4, 3, 3]
+[2018-01-25 00:28:59] Neighbours: 20
+[2018-01-25 00:29:38] ATP evaluation started...
+[2018-01-25 00:43:21]     Number of proved theorems: 182
+[2018-01-25 00:43:21]     Percentage of proved theorems: 53.22%
+[2018-01-25 00:43:21] Number of all theorems with proof(s): 182
+[2018-01-25 00:43:21] Number of all proofs: 250
+[2018-01-25 00:43:21] Number of theorems with exactly 1 proof(s): 123
+[2018-01-25 00:43:21] Number of theorems with exactly 2 proof(s): 51
+[2018-01-25 00:43:21] Number of theorems with exactly 3 proof(s): 7
+[2018-01-25 00:43:21] Number of theorems with exactly 4 proof(s): 1
+[2018-01-25 00:43:21] Average number of proofs per theorem: 1.374
+[2018-01-25 00:43:21] Average number of premises used in a proof: 4.612
+[2018-01-25 00:43:21] Theorems with maximal number of proofs found: ['t53_enumset1']
+[2018-01-25 00:43:21] Distribution of lengths of proofs for theorem t53_enumset1: [3, 5, 7, 3]
+[2018-01-25 00:43:21] Neighbours: 40
+[2018-01-25 00:43:55] ATP evaluation started...
+[2018-01-25 01:00:03]     Number of proved theorems: 224
+[2018-01-25 01:00:03]     Percentage of proved theorems: 65.50%
+[2018-01-25 01:00:03] Number of all theorems with proof(s): 224
+[2018-01-25 01:00:03] Number of all proofs: 346
+[2018-01-25 01:00:03] Number of theorems with exactly 1 proof(s): 134
+[2018-01-25 01:00:03] Number of theorems with exactly 2 proof(s): 64
+[2018-01-25 01:00:03] Number of theorems with exactly 3 proof(s): 21
+[2018-01-25 01:00:03] Number of theorems with exactly 4 proof(s): 4
+[2018-01-25 01:00:03] Number of theorems with exactly 5 proof(s): 1
+[2018-01-25 01:00:03] Average number of proofs per theorem: 1.545
+[2018-01-25 01:00:03] Average number of premises used in a proof: 4.697
+[2018-01-25 01:00:03] Theorems with maximal number of proofs found: ['t128_relat_1']
+[2018-01-25 01:00:03] Distribution of lengths of proofs for theorem t128_relat_1: [2, 3, 3, 2, 4]
+[2018-01-25 01:00:03] Neighbours: 80
+[2018-01-25 01:00:37] ATP evaluation started...
+[2018-01-25 01:19:16]     Number of proved theorems: 240
+[2018-01-25 01:19:16]     Percentage of proved theorems: 70.18%
+[2018-01-25 01:19:16] Number of all theorems with proof(s): 240
+[2018-01-25 01:19:16] Number of all proofs: 402
+[2018-01-25 01:19:16] Number of theorems with exactly 1 proof(s): 133
+[2018-01-25 01:19:16] Number of theorems with exactly 2 proof(s): 63
+[2018-01-25 01:19:16] Number of theorems with exactly 3 proof(s): 33
+[2018-01-25 01:19:16] Number of theorems with exactly 4 proof(s): 11
+[2018-01-25 01:19:16] Average number of proofs per theorem: 1.675
+[2018-01-25 01:19:16] Average number of premises used in a proof: 4.928
+[2018-01-25 01:19:16] Theorems with maximal number of proofs found: ['t217_relat_1', 't28_xboole_1', 't11_setfam_1', 't133_relat_1', 't180_relat_1', 't110_xboole_1', 't80_xboole_1', 't84_xboole_1', 't218_relat_1', 't128_relat_1', 't76_enumset1']
+[2018-01-25 01:19:16] Distribution of lengths of proofs for theorem t217_relat_1: [2, 3, 2, 4]
+[2018-01-25 01:19:16] Neighbours: 160
+[2018-01-25 01:19:53] ATP evaluation started...
+[2018-01-25 01:41:37]     Number of proved theorems: 238
+[2018-01-25 01:41:37]     Percentage of proved theorems: 69.59%
+[2018-01-25 01:41:37] Number of all theorems with proof(s): 238
+[2018-01-25 01:41:37] Number of all proofs: 426
+[2018-01-25 01:41:37] Number of theorems with exactly 1 proof(s): 114
+[2018-01-25 01:41:37] Number of theorems with exactly 2 proof(s): 75
+[2018-01-25 01:41:37] Number of theorems with exactly 3 proof(s): 36
+[2018-01-25 01:41:37] Number of theorems with exactly 4 proof(s): 11
+[2018-01-25 01:41:37] Number of theorems with exactly 5 proof(s): 2
+[2018-01-25 01:41:37] Average number of proofs per theorem: 1.790
+[2018-01-25 01:41:37] Average number of premises used in a proof: 5.601
+[2018-01-25 01:41:37] Theorems with maximal number of proofs found: ['t133_relat_1', 't5_setfam_1']
+[2018-01-25 01:41:37] Distribution of lengths of proofs for theorem t133_relat_1: [5, 9, 3, 3, 10]
+[2018-01-25 01:41:37] Neighbours: 320
+[2018-01-25 01:42:12] ATP evaluation started...
+[2018-01-25 02:05:51]     Number of proved theorems: 236
+[2018-01-25 02:05:51]     Percentage of proved theorems: 69.01%
+[2018-01-25 02:05:51] Number of all theorems with proof(s): 236
+[2018-01-25 02:05:51] Number of all proofs: 454
+[2018-01-25 02:05:51] Number of theorems with exactly 1 proof(s): 104
+[2018-01-25 02:05:51] Number of theorems with exactly 2 proof(s): 76
+[2018-01-25 02:05:51] Number of theorems with exactly 3 proof(s): 34
+[2018-01-25 02:05:51] Number of theorems with exactly 4 proof(s): 15
+[2018-01-25 02:05:51] Number of theorems with exactly 5 proof(s): 6
+[2018-01-25 02:05:51] Number of theorems with exactly 6 proof(s): 1
+[2018-01-25 02:05:51] Average number of proofs per theorem: 1.924
+[2018-01-25 02:05:51] Average number of premises used in a proof: 6.013
+[2018-01-25 02:05:51] Theorems with maximal number of proofs found: ['t133_relat_1']
+[2018-01-25 02:05:51] Distribution of lengths of proofs for theorem t133_relat_1: [12, 6, 3, 9, 3, 10]
+[2018-01-25 02:05:51] Neighbours: 640
+[2018-01-25 02:06:27] ATP evaluation started...
+[2018-01-25 02:33:46]     Number of proved theorems: 231
+[2018-01-25 02:33:46]     Percentage of proved theorems: 67.54%
+[2018-01-25 02:33:46] Number of all theorems with proof(s): 231
+[2018-01-25 02:33:46] Number of all proofs: 459
+[2018-01-25 02:33:46] Number of theorems with exactly 1 proof(s): 101
+[2018-01-25 02:33:46] Number of theorems with exactly 2 proof(s): 68
+[2018-01-25 02:33:46] Number of theorems with exactly 3 proof(s): 36
+[2018-01-25 02:33:46] Number of theorems with exactly 4 proof(s): 19
+[2018-01-25 02:33:46] Number of theorems with exactly 5 proof(s): 4
+[2018-01-25 02:33:46] Number of theorems with exactly 6 proof(s): 3
+[2018-01-25 02:33:46] Average number of proofs per theorem: 1.987
+[2018-01-25 02:33:46] Average number of premises used in a proof: 6.264
+[2018-01-25 02:33:46] Theorems with maximal number of proofs found: ['t171_relat_1', 't149_relat_1', 't133_relat_1']
+[2018-01-25 02:33:46] Distribution of lengths of proofs for theorem t171_relat_1: [6, 8, 9, 7, 4, 7]
