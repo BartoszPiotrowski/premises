@@ -128,3 +128,52 @@
 [2018-01-23 13:35:15] Theorems with maximal number of proofs found: ['t51_zfmisc_1', 't50_zfmisc_1']
 [2018-01-23 13:35:15] Distribution of lengths of proofs for theorem t51_zfmisc_1: [15, 2, 5, 6, 3, 5]
 
+[2018-01-24 23:21:13] Statements of 4564 thms and definitions loaded.
+[2018-01-24 23:21:13] Features of 4564 thms and definitions loaded.
+[2018-01-24 23:21:13] Chronological order of 4564 thms and definitions loaded.
+[2018-01-24 23:21:13] Proofs of 1000 thms loaded.
+[2018-01-24 23:21:13] Transforming proofs of 1000 theorems to training data...
+[2018-01-24 23:21:13]     Number of features used: 10241 / 10241
+[2018-01-24 23:21:13]     Mode of combining theorems and premises to examples: merge_mode=concat
+[2018-01-24 23:21:13]     Negatives to positive ratio: 16
+[2018-01-24 23:21:13]     No negative mining.
+[2018-01-24 23:21:15] Transformation finished.
+[2018-01-24 23:21:15] ETA 0.64
+[2018-01-24 23:21:15] Training of xgboost model started...
+[2018-01-25 01:13:37] Training finished.
+[2018-01-25 01:13:37] Creating rankings of premises from the trained model for 342 theorems...
+[2018-01-25 01:14:19] Rankings created.
+[2018-01-25 01:14:19] ATP evaluation started...
+[2018-01-25 01:37:14]     Number of proved theorems: 274
+[2018-01-25 01:37:14]     Percentage of proved theorems: 80.12%
+[2018-01-25 01:37:14] Number of all theorems with proof(s): 274
+[2018-01-25 01:37:14] Number of all proofs: 544
+[2018-01-25 01:37:14] Number of theorems with exactly 1 proof(s): 113
+[2018-01-25 01:37:14] Number of theorems with exactly 2 proof(s): 87
+[2018-01-25 01:37:14] Number of theorems with exactly 3 proof(s): 46
+[2018-01-25 01:37:14] Number of theorems with exactly 4 proof(s): 21
+[2018-01-25 01:37:14] Number of theorems with exactly 5 proof(s): 7
+[2018-01-25 01:37:14] Average number of proofs per theorem: 1.985
+[2018-01-25 01:37:14] Average number of premises used in a proof: 5.702
+[2018-01-25 01:37:14] Theorems with maximal number of proofs found: ['t51_zfmisc_1', 't17_mcart_1', 't24_setfam_1', 't150_relat_1', 't60_relat_1', 't62_relat_1', 't59_funct_2']
+[2018-01-25 01:37:14] Distribution of lengths of proofs for theorem t51_zfmisc_1: [4, 4, 4, 4, 4]
+[2018-01-25 01:37:14] ETA 1.28
+[2018-01-25 01:37:14] Training of xgboost model started...
+[2018-01-25 03:03:05] Training finished.
+[2018-01-25 03:03:05] Creating rankings of premises from the trained model for 342 theorems...
+[2018-01-25 03:03:44] Rankings created.
+[2018-01-25 03:03:44] ATP evaluation started...
+[2018-01-25 03:29:35]     Number of proved theorems: 269
+[2018-01-25 03:29:35]     Percentage of proved theorems: 78.65%
+[2018-01-25 03:29:35] Number of all theorems with proof(s): 269
+[2018-01-25 03:29:35] Number of all proofs: 529
+[2018-01-25 03:29:35] Number of theorems with exactly 1 proof(s): 115
+[2018-01-25 03:29:35] Number of theorems with exactly 2 proof(s): 81
+[2018-01-25 03:29:35] Number of theorems with exactly 3 proof(s): 46
+[2018-01-25 03:29:35] Number of theorems with exactly 4 proof(s): 22
+[2018-01-25 03:29:35] Number of theorems with exactly 5 proof(s): 4
+[2018-01-25 03:29:35] Number of theorems with exactly 6 proof(s): 1
+[2018-01-25 03:29:35] Average number of proofs per theorem: 1.967
+[2018-01-25 03:29:35] Average number of premises used in a proof: 5.586
+[2018-01-25 03:29:35] Theorems with maximal number of proofs found: ['t51_zfmisc_1']
+[2018-01-25 03:29:35] Distribution of lengths of proofs for theorem t51_zfmisc_1: [4, 7, 12, 4, 4, 5]
