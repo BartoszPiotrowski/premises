@@ -1,12 +1,6 @@
-- sparse
-- run on Mizar40
-- random negatives
-- print ranking
-- negative mining
+- hash features when loading
+- check size of the model and avoid copying it when it is big
 - create rankings faster
-- in chronology/statements/... you have not only theorems but also definitions...
-- logfile
-- verbose
 - in atp rerun as long as fixpoint is achieved
 - private methods
 - Proofs/atp_eval: handling clouse loop numbers
