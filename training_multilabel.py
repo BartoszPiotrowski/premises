@@ -81,7 +81,7 @@ def knn(test_theorems, proofs, params, n_jobs=-1):
     N = params['N'] if 'N' in params else 50
     power = params['power'] if 'power' in params else 2
     # separation of train and test
-    assert not set(proofs) & set(test_theorems)
+    # assert not set(proofs) & set(test_theorems)
     proofs_train = proofs.with_trivial(set(chronology))
     features_train = features.subset(set(proofs_train))
     dict_features_numbers = features_train.dict_features_numbers()
