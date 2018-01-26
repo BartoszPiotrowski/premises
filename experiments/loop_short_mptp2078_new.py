@@ -1,5 +1,7 @@
 import sys
 from os.path import join
+import random
+random.seed(1)
 sys.path.append('..')
 import premises as prs
 

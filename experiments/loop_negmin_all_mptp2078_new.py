@@ -1,6 +1,7 @@
-
 import sys
 from os.path import join
+import random
+random.seed(1)
 sys.path.append('..')
 import premises as prs
 
@@ -14,7 +15,7 @@ statements = prs.Statements(from_file=join(DATA_DIR, 'statements'),
 features = prs.Features(from_file=join(DATA_DIR, 'features'), logfile=LOG_FILE)
 chronology = prs.Chronology(from_file=join(DATA_DIR, 'chronology'),
                             logfile=LOG_FILE)
-theorems = prs.utils.readlines(join(DATA_DIR, 'theorems'))
+theorems = prs.utils.readlines(join(DATA_DIR, 'theorems_atpproved'))
 params_data_trans = {'features': features,
                      'chronology': chronology}
 
