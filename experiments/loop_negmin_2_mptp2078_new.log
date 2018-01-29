@@ -1236,3 +1236,9 @@
 [2018-01-29 13:45:20]     Negative mining:
 [2018-01-29 13:45:20]         Level of negative mining: 2
 [2018-01-29 13:45:20]         Part of theorems for negative mining: 0.5
+[2018-01-29 13:47:45] Transformation finished.
+[2018-01-29 13:47:45] Training of xgboost model started...
+[2018-01-29 16:16:17] Training finished.
+[2018-01-29 16:16:18] Creating rankings of premises from the trained model for 1342 theorems...
+[2018-01-29 16:20:02] Rankings created.
+[2018-01-29 16:20:02] ATP evaluation started...
