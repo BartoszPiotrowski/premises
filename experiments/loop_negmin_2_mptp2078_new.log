@@ -1178,3 +1178,61 @@
 [2018-01-29 10:50:05]         Part of theorems for negative mining: 0.5
 [2018-01-29 10:51:47] Transformation finished.
 [2018-01-29 10:51:47] Training of xgboost model started...
+[2018-01-29 13:14:19] Training finished.
+[2018-01-29 13:14:19] Creating rankings of premises from the trained model for 1342 theorems...
+[2018-01-29 13:17:08] Rankings created.
+[2018-01-29 13:17:08] ATP evaluation started...
+[2018-01-29 13:45:16]     Number of proved theorems: 1094
+[2018-01-29 13:45:16]     Percentage of proved theorems: 81.52%
+[2018-01-29 13:45:17] Number of all theorems with proof(s): 1124
+[2018-01-29 13:45:17] Number of all proofs: 6388
+[2018-01-29 13:45:17] Number of theorems with exactly 1 proof(s): 258
+[2018-01-29 13:45:17] Number of theorems with exactly 2 proof(s): 199
+[2018-01-29 13:45:17] Number of theorems with exactly 3 proof(s): 128
+[2018-01-29 13:45:17] Number of theorems with exactly 4 proof(s): 101
+[2018-01-29 13:45:17] Number of theorems with exactly 5 proof(s): 77
+[2018-01-29 13:45:17] Number of theorems with exactly 6 proof(s): 59
+[2018-01-29 13:45:17] Number of theorems with exactly 7 proof(s): 37
+[2018-01-29 13:45:17] Number of theorems with exactly 8 proof(s): 37
+[2018-01-29 13:45:17] Number of theorems with exactly 9 proof(s): 32
+[2018-01-29 13:45:17] Number of theorems with exactly 10 proof(s): 33
+[2018-01-29 13:45:17] Number of theorems with exactly 11 proof(s): 19
+[2018-01-29 13:45:17] Number of theorems with exactly 12 proof(s): 17
+[2018-01-29 13:45:17] Number of theorems with exactly 13 proof(s): 9
+[2018-01-29 13:45:17] Number of theorems with exactly 14 proof(s): 11
+[2018-01-29 13:45:17] Number of theorems with exactly 15 proof(s): 15
+[2018-01-29 13:45:17] Number of theorems with exactly 16 proof(s): 12
+[2018-01-29 13:45:17] Number of theorems with exactly 17 proof(s): 8
+[2018-01-29 13:45:17] Number of theorems with exactly 18 proof(s): 12
+[2018-01-29 13:45:17] Number of theorems with exactly 19 proof(s): 6
+[2018-01-29 13:45:17] Number of theorems with exactly 20 proof(s): 6
+[2018-01-29 13:45:17] Number of theorems with exactly 21 proof(s): 3
+[2018-01-29 13:45:17] Number of theorems with exactly 22 proof(s): 7
+[2018-01-29 13:45:17] Number of theorems with exactly 23 proof(s): 4
+[2018-01-29 13:45:17] Number of theorems with exactly 24 proof(s): 5
+[2018-01-29 13:45:17] Number of theorems with exactly 25 proof(s): 4
+[2018-01-29 13:45:17] Number of theorems with exactly 26 proof(s): 1
+[2018-01-29 13:45:17] Number of theorems with exactly 28 proof(s): 3
+[2018-01-29 13:45:17] Number of theorems with exactly 29 proof(s): 4
+[2018-01-29 13:45:17] Number of theorems with exactly 30 proof(s): 3
+[2018-01-29 13:45:17] Number of theorems with exactly 31 proof(s): 3
+[2018-01-29 13:45:17] Number of theorems with exactly 32 proof(s): 3
+[2018-01-29 13:45:17] Number of theorems with exactly 33 proof(s): 1
+[2018-01-29 13:45:17] Number of theorems with exactly 35 proof(s): 1
+[2018-01-29 13:45:17] Number of theorems with exactly 36 proof(s): 1
+[2018-01-29 13:45:17] Number of theorems with exactly 37 proof(s): 1
+[2018-01-29 13:45:17] Number of theorems with exactly 40 proof(s): 2
+[2018-01-29 13:45:17] Number of theorems with exactly 43 proof(s): 1
+[2018-01-29 13:45:17] Number of theorems with exactly 47 proof(s): 1
+[2018-01-29 13:45:17] Average number of proofs per theorem: 5.683
+[2018-01-29 13:45:17] Average number of premises used in a proof: 9.671
+[2018-01-29 13:45:18] Theorems with maximal number of proofs found: ['t43_zfmisc_1']
+[2018-01-29 13:45:20] Distribution of lengths of proofs for theorem t43_zfmisc_1: [29, 15, 12, 17, 23, 19, 20, 13, 13, 17, 19, 25, 13, 12, 24, 12, 23, 23, 25, 23, 20, 27, 13, 24, 22, 26, 23, 24, 16, 16, 23, 20, 26, 25, 17, 23, 23, 12, 24, 26, 22, 13, 22, 13, 23, 26, 23]
+[2018-01-29 13:45:20] ITERATION: 24
+[2018-01-29 13:45:20] Transforming proofs of 1124 theorems to training data...
+[2018-01-29 13:45:20]     Number of features used: 10241 / 10241
+[2018-01-29 13:45:20]     Mode of combining theorems and premises to examples: merge_mode=concat
+[2018-01-29 13:45:20]     Negatives to positive ratio: 16
+[2018-01-29 13:45:20]     Negative mining:
+[2018-01-29 13:45:20]         Level of negative mining: 2
+[2018-01-29 13:45:20]         Part of theorems for negative mining: 0.5
