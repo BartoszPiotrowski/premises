@@ -1,0 +1,9 @@
+[2018-01-30 14:27:02] Statements of 146700 thms and definitions loaded.
+[2018-01-30 14:27:12] Features of 146700 thms and definitions loaded.
+[2018-01-30 14:27:12] Chronological order of 146700 thms and definitions loaded.
+[2018-01-30 14:27:14] Proofs of 29271 thms loaded.
+[2018-01-30 14:27:14] Transforming proofs of 29271 theorems to training data...
+[2018-01-30 14:27:14]     Number of features used: 135511 / 451706
+[2018-01-30 14:27:14]     Mode of combining theorems and premises to examples: merge_mode=comb
+[2018-01-30 14:27:14]     Negatives to positive ratio: 28
+[2018-01-30 14:27:14]     No negative mining.
