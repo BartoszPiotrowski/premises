@@ -26,10 +26,8 @@ params = {'features': features,
 for i in range(40):
     prs.utils.printline("ADDING PROOFS ROUND: {}".format(i), logfile=LOG_FILE)
 
-    rankings_train = prs.knn(train_theorems, proofs_train, params,
-                         n_jobs=N_JOBS, logfile=LOG_FILE)
-    rankings_test = prs.knn(test_theorems, proofs_train, params,
-                         n_jobs=N_JOBS, logfile=LOG_FILE)
+    rankings_train = prs.knn(train_theorems, proofs_train, params, n_jobs=N_JOBS)
+    rankings_test = prs.knn(test_theorems, proofs_train, params, n_jobs=N_JOBS)
     params_atp_eval = {}
     proofs_train.update(prs.atp_evaluation(rankings_train, statements,
           params_atp_eval, dirpath=ATP_DIR, n_jobs=N_JOBS, logfile=LOG_FILE))
