@@ -1,0 +1,187 @@
+[2018-01-21 00:52:04] Statements of 4564 thms and definitions loaded.
+[2018-01-21 00:52:04] Features of 4564 thms and definitions loaded.
+[2018-01-21 00:52:04] Chronological order of 4564 thms and definitions loaded.
+[2018-01-21 00:52:04] Proofs of 1000 thms loaded.
+[2018-01-21 00:52:04] Transforming proofs of 1000 theorems to training data...
+[2018-01-21 00:52:04]     Number of features used: 10241 / 10241
+[2018-01-21 00:52:04]     Mode of combining theorems and premises to examples: merge_mode=concat
+[2018-01-21 00:52:04]     Negatives to positive ratio: 1
+[2018-01-21 00:52:04]     No negative mining.
+[2018-01-21 00:52:06] Transformation finished.
+[2018-01-21 00:52:06] Training of xgboost model started...
+[2018-01-21 01:04:18] Training finished.
+[2018-01-21 01:04:18] Creating rankings of premises from the trained model for 342 theorems...
+[2018-01-21 01:04:52] Rankings created.
+[2018-01-21 01:04:52] ATP evaluation started...
+[2018-01-21 01:16:29]     Number of proved theorems: 253
+[2018-01-21 01:16:29]     Percentage of proved theorems: 73.98%
+[2018-01-21 01:16:29] Number of all theorems with proof(s): 253
+[2018-01-21 01:16:29] Number of all proofs: 475
+[2018-01-21 01:16:29] Number of theorems with exactly 1 proof(s): 119
+[2018-01-21 01:16:29] Number of theorems with exactly 2 proof(s): 74
+[2018-01-21 01:16:29] Number of theorems with exactly 3 proof(s): 40
+[2018-01-21 01:16:29] Number of theorems with exactly 4 proof(s): 13
+[2018-01-21 01:16:29] Number of theorems with exactly 5 proof(s): 6
+[2018-01-21 01:16:29] Number of theorems with exactly 6 proof(s): 1
+[2018-01-21 01:16:29] Average number of proofs per theorem: 1.877
+[2018-01-21 01:16:29] Transforming proofs of 1000 theorems to training data...
+[2018-01-21 01:16:29]     Number of features used: 10241 / 10241
+[2018-01-21 01:16:29]     Mode of combining theorems and premises to examples: merge_mode=concat
+[2018-01-21 01:16:29]     Negatives to positive ratio: 2
+[2018-01-21 01:16:29]     No negative mining.
+[2018-01-21 01:16:31] Transformation finished.
+[2018-01-21 01:16:31] Training of xgboost model started...
+[2018-01-21 01:28:55] Training finished.
+[2018-01-21 01:28:55] Creating rankings of premises from the trained model for 342 theorems...
+[2018-01-21 01:29:28] Rankings created.
+[2018-01-21 01:29:28] ATP evaluation started...
+[2018-01-21 01:41:12]     Number of proved theorems: 268
+[2018-01-21 01:41:12]     Percentage of proved theorems: 78.36%
+[2018-01-21 01:41:12] Number of all theorems with proof(s): 268
+[2018-01-21 01:41:12] Number of all proofs: 513
+[2018-01-21 01:41:12] Number of theorems with exactly 1 proof(s): 118
+[2018-01-21 01:41:12] Number of theorems with exactly 2 proof(s): 84
+[2018-01-21 01:41:12] Number of theorems with exactly 3 proof(s): 41
+[2018-01-21 01:41:12] Number of theorems with exactly 4 proof(s): 21
+[2018-01-21 01:41:12] Number of theorems with exactly 5 proof(s): 4
+[2018-01-21 01:41:12] Average number of proofs per theorem: 1.914
+[2018-01-21 01:41:12] Transforming proofs of 1000 theorems to training data...
+[2018-01-21 01:41:12]     Number of features used: 10241 / 10241
+[2018-01-21 01:41:12]     Mode of combining theorems and premises to examples: merge_mode=concat
+[2018-01-21 01:41:12]     Negatives to positive ratio: 4
+[2018-01-21 01:41:12]     No negative mining.
+[2018-01-21 01:41:13] Transformation finished.
+[2018-01-21 01:41:13] Training of xgboost model started...
+[2018-01-21 01:55:01] Training finished.
+[2018-01-21 01:55:01] Creating rankings of premises from the trained model for 342 theorems...
+[2018-01-21 01:55:36] Rankings created.
+[2018-01-21 01:55:36] ATP evaluation started...
+[2018-01-21 02:17:16]     Number of proved theorems: 270
+[2018-01-21 02:17:16]     Percentage of proved theorems: 78.95%
+[2018-01-21 02:17:16] Number of all theorems with proof(s): 270
+[2018-01-21 02:17:16] Number of all proofs: 521
+[2018-01-21 02:17:16] Number of theorems with exactly 1 proof(s): 120
+[2018-01-21 02:17:16] Number of theorems with exactly 2 proof(s): 76
+[2018-01-21 02:17:16] Number of theorems with exactly 3 proof(s): 54
+[2018-01-21 02:17:16] Number of theorems with exactly 4 proof(s): 13
+[2018-01-21 02:17:16] Number of theorems with exactly 5 proof(s): 7
+[2018-01-21 02:17:16] Average number of proofs per theorem: 1.930
+[2018-01-21 02:17:16] Transforming proofs of 1000 theorems to training data...
+[2018-01-21 02:17:16]     Number of features used: 10241 / 10241
+[2018-01-21 02:17:16]     Mode of combining theorems and premises to examples: merge_mode=concat
+[2018-01-21 02:17:16]     Negatives to positive ratio: 8
+[2018-01-21 02:17:16]     No negative mining.
+[2018-01-21 02:17:18] Transformation finished.
+[2018-01-21 02:17:18] Training of xgboost model started...
+[2018-01-21 02:26:23] Training finished.
+[2018-01-21 02:26:23] Creating rankings of premises from the trained model for 342 theorems...
+[2018-01-21 02:26:50] Rankings created.
+[2018-01-21 02:26:50] ATP evaluation started...
+[2018-01-21 02:48:19]     Number of proved theorems: 269
+[2018-01-21 02:48:19]     Percentage of proved theorems: 78.65%
+[2018-01-21 02:48:19] Number of all theorems with proof(s): 269
+[2018-01-21 02:48:19] Number of all proofs: 530
+[2018-01-21 02:48:19] Number of theorems with exactly 1 proof(s): 112
+[2018-01-21 02:48:19] Number of theorems with exactly 2 proof(s): 81
+[2018-01-21 02:48:19] Number of theorems with exactly 3 proof(s): 56
+[2018-01-21 02:48:19] Number of theorems with exactly 4 proof(s): 13
+[2018-01-21 02:48:19] Number of theorems with exactly 5 proof(s): 6
+[2018-01-21 02:48:19] Number of theorems with exactly 6 proof(s): 1
+[2018-01-21 02:48:19] Average number of proofs per theorem: 1.970
+[2018-01-21 02:48:19] Transforming proofs of 1000 theorems to training data...
+[2018-01-21 02:48:19]     Number of features used: 10241 / 10241
+[2018-01-21 02:48:19]     Mode of combining theorems and premises to examples: merge_mode=concat
+[2018-01-21 02:48:19]     Negatives to positive ratio: 16
+[2018-01-21 02:48:19]     No negative mining.
+[2018-01-21 02:48:21] Transformation finished.
+[2018-01-21 02:48:21] Training of xgboost model started...
+[2018-01-21 02:49:54] Training finished.
+[2018-01-21 02:49:54] Creating rankings of premises from the trained model for 342 theorems...
+[2018-01-21 02:50:18] Rankings created.
+[2018-01-21 02:50:18] ATP evaluation started...
+[2018-01-21 03:11:09]     Number of proved theorems: 274
+[2018-01-21 03:11:09]     Percentage of proved theorems: 80.12%
+[2018-01-21 03:11:09] Number of all theorems with proof(s): 274
+[2018-01-21 03:11:09] Number of all proofs: 538
+[2018-01-21 03:11:09] Number of theorems with exactly 1 proof(s): 113
+[2018-01-21 03:11:09] Number of theorems with exactly 2 proof(s): 88
+[2018-01-21 03:11:09] Number of theorems with exactly 3 proof(s): 47
+[2018-01-21 03:11:09] Number of theorems with exactly 4 proof(s): 22
+[2018-01-21 03:11:09] Number of theorems with exactly 5 proof(s): 4
+[2018-01-21 03:11:09] Average number of proofs per theorem: 1.964
+[2018-01-21 03:11:09] Transforming proofs of 1000 theorems to training data...
+[2018-01-21 03:11:09]     Number of features used: 10241 / 10241
+[2018-01-21 03:11:09]     Mode of combining theorems and premises to examples: merge_mode=concat
+[2018-01-21 03:11:09]     Negatives to positive ratio: 32
+[2018-01-21 03:11:09]     No negative mining.
+[2018-01-21 03:11:11] Transformation finished.
+[2018-01-21 03:11:11] Training of xgboost model started...
+[2018-01-21 03:13:20] Training finished.
+[2018-01-21 03:13:20] Creating rankings of premises from the trained model for 342 theorems...
+[2018-01-21 03:13:44] Rankings created.
+[2018-01-21 03:13:44] ATP evaluation started...
+[2018-01-21 03:34:43]     Number of proved theorems: 273
+[2018-01-21 03:34:43]     Percentage of proved theorems: 79.82%
+[2018-01-21 03:34:43] Number of all theorems with proof(s): 273
+[2018-01-21 03:34:43] Number of all proofs: 527
+[2018-01-21 03:34:43] Number of theorems with exactly 1 proof(s): 116
+[2018-01-21 03:34:43] Number of theorems with exactly 2 proof(s): 87
+[2018-01-21 03:34:43] Number of theorems with exactly 3 proof(s): 48
+[2018-01-21 03:34:43] Number of theorems with exactly 4 proof(s): 18
+[2018-01-21 03:34:43] Number of theorems with exactly 5 proof(s): 3
+[2018-01-21 03:34:43] Number of theorems with exactly 6 proof(s): 1
+[2018-01-21 03:34:43] Average number of proofs per theorem: 1.930
+[2018-01-21 03:34:43] Transforming proofs of 1000 theorems to training data...
+[2018-01-21 03:34:43]     Number of features used: 10241 / 10241
+[2018-01-21 03:34:43]     Mode of combining theorems and premises to examples: merge_mode=concat
+[2018-01-21 03:34:43]     Negatives to positive ratio: 64
+[2018-01-21 03:34:43]     No negative mining.
+[2018-01-21 03:34:45] Transformation finished.
+[2018-01-21 03:34:45] Training of xgboost model started...
+[2018-01-21 03:37:30] Training finished.
+[2018-01-21 03:37:30] Creating rankings of premises from the trained model for 342 theorems...
+[2018-01-21 03:37:54] Rankings created.
+[2018-01-21 03:37:54] ATP evaluation started...
+[2018-01-21 03:48:37]     Number of proved theorems: 274
+[2018-01-21 03:48:37]     Percentage of proved theorems: 80.12%
+[2018-01-21 03:48:37] Number of all theorems with proof(s): 274
+[2018-01-21 03:48:37] Number of all proofs: 539
+[2018-01-21 03:48:37] Number of theorems with exactly 1 proof(s): 125
+[2018-01-21 03:48:37] Number of theorems with exactly 2 proof(s): 67
+[2018-01-21 03:48:37] Number of theorems with exactly 3 proof(s): 53
+[2018-01-21 03:48:37] Number of theorems with exactly 4 proof(s): 24
+[2018-01-21 03:48:37] Number of theorems with exactly 5 proof(s): 5
+[2018-01-21 03:48:37] Average number of proofs per theorem: 1.967
+[2018-01-21 03:48:37] Transforming proofs of 1000 theorems to training data...
+[2018-01-21 03:48:37]     Number of features used: 10241 / 10241
+[2018-01-21 03:48:37]     Mode of combining theorems and premises to examples: merge_mode=concat
+[2018-01-21 03:48:37]     Negatives to positive ratio: 128
+[2018-01-21 03:48:37]     No negative mining.
+[2018-01-21 03:48:41] Transformation finished.
+[2018-01-21 03:48:41] Training of xgboost model started...
+[2018-01-21 03:52:36] Training finished.
+[2018-01-21 03:52:36] Creating rankings of premises from the trained model for 342 theorems...
+[2018-01-21 03:53:00] Rankings created.
+[2018-01-21 03:53:00] ATP evaluation started...
+[2018-01-21 04:14:31]     Number of proved theorems: 276
+[2018-01-21 04:14:31]     Percentage of proved theorems: 80.70%
+[2018-01-21 04:14:31] Number of all theorems with proof(s): 276
+[2018-01-21 04:14:31] Number of all proofs: 526
+[2018-01-21 04:14:31] Number of theorems with exactly 1 proof(s): 132
+[2018-01-21 04:14:31] Number of theorems with exactly 2 proof(s): 66
+[2018-01-21 04:14:31] Number of theorems with exactly 3 proof(s): 54
+[2018-01-21 04:14:31] Number of theorems with exactly 4 proof(s): 21
+[2018-01-21 04:14:31] Number of theorems with exactly 5 proof(s): 2
+[2018-01-21 04:14:31] Number of theorems with exactly 6 proof(s): 1
+[2018-01-21 04:14:31] Average number of proofs per theorem: 1.906
+[2018-01-21 14:39:12] Statements of 4564 thms and definitions loaded.
+[2018-01-21 14:39:13] Features of 4564 thms and definitions loaded.
+[2018-01-21 14:39:13] Chronological order of 4564 thms and definitions loaded.
+[2018-01-21 14:39:13] Proofs of 1000 thms loaded.
+[2018-01-21 14:39:13] Transforming proofs of 1000 theorems to training data...
+[2018-01-21 14:39:13]     Number of features used: 10241 / 10241
+[2018-01-21 14:39:13]     Mode of combining theorems and premises to examples: merge_mode=concat
+[2018-01-21 14:39:13]     Negatives to positive ratio: 256
+[2018-01-21 14:39:13]     No negative mining.
+[2018-01-21 14:39:18] Transformation finished.
+[2018-01-21 14:39:18] Training of xgboost model started...
