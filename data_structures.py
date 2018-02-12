@@ -137,8 +137,7 @@ class Proofs:
             .
             .
             '''
-            prfs_dict = read_dict(from_file, type_of_values=list, sep_in_list=' ')
-            prfs_dict = {thm: [set(prfs_dict[thm])] for thm in prfs_dict}
+            prfs_dict = self.read_proofs(from_file)
         else:
             '''
             The dict with 'proofs' should have theorems' names as keys and each
@@ -149,8 +148,19 @@ class Proofs:
         self.proofs = {}
         self.update(prfs_dict)
         if verbose or logfile:
-            message = "Proofs of {} thms loaded.".format(len(self))
+            message = "Proofs of {} theorems loaded.".format(len(self))
             printline(message, logfile, verbose)
+
+    def read_proofs(self, filename, sep=':', sep_in_list=' '):
+        with open(filename) as file:
+            slines = [l.split(sep) for l in file.read().splitlines()]
+        names = [l[0] for l in slines]
+        proofs = [l[1] for l in slines]
+        proofs_dict = {}
+        for i in range(len(names)):
+            try: proofs_dict[names[i]].append(set(proofs[i]))
+            except: proofs_dict[names[i]] = [set(proofs[i])]
+        return proofs_dict
 
     def __len__(self):
         return len(self.proofs)
