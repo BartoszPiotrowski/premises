@@ -155,7 +155,10 @@ class Proofs:
         with open(filename) as file:
             slines = [l.split(sep) for l in file.read().splitlines()]
         names = [l[0] for l in slines]
-        proofs = [l[1] for l in slines]
+        proofs_raw = [l[1] for l in slines]
+        proofs = []
+        for v in proofs_raw:
+            proofs.append([i for i in v.split(sep_in_list)])
         proofs_dict = {}
         for i in range(len(names)):
             try: proofs_dict[names[i]].append(set(proofs[i]))
