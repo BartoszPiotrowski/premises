@@ -1,7 +1,17 @@
-import os
+import os, pickle
 from time import strftime
 from random import shuffle
 
+
+def save_obj(obj, filename):
+    print("Saving given object to file {}".format(filename))
+    with open(filename, 'wb') as f:
+        pickle.dump(obj, f, pickle.HIGHEST_PROTOCOL)
+
+def load_obj(filename):
+    print("Loading object {}".format(filename))
+    with open(filename, 'rb') as f:
+        return pickle.load(f)
 
 def remove_supersets(list_of_sets):
     '''Removes proper supersets from the list of sets'''

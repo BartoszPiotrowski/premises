@@ -8,6 +8,7 @@ N_JOBS = 50
 DATA_DIR = 'data/mizar40'
 ATP_DIR = 'atp'
 MODELS_DIR = 'models'
+RANKINGS_DIR = 'rankings'
 LOG_FILE = __file__.replace('.py', '.log')
 
 statements = prs.Statements(from_file=join(DATA_DIR, 'statements'),
@@ -31,7 +32,9 @@ params_train = {'num_boost_round': 6000}
 params_train = {'eta': 0.3}
 model = prs.train(train_labels, train_array, params=params_train,
                     n_jobs=N_JOBS, logfile=LOG_FILE)
-model.save_model('model_xgboost_multi_mizar40_1.pkl')
-model.save_model(join(MODELS_DIR, 'model_xgboost_multi_mizar40_1.pkl'))
+model.save_model('model_multi_mizar40_1.pkl')
+model.save_model(join(MODELS_DIR, 'model_multi_mizar40_1.pkl'))
 rankings_test = prs.Rankings(test_theorems, model, params_data_trans,
                      n_jobs=N_JOBS, logfile=LOG_FILE)
+prs.utils.save_obj(rankings_test,
+                   join(RANKINGS_DIR, 'rankings_multi_mizar40_1.pkl'))
