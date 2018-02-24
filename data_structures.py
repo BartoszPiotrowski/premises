@@ -68,7 +68,7 @@ class Statements:
         else:
             print("Error: no dict or file name provided to initialize from.")
         if verbose or logfile:
-            message = "Statements of {} thms and definitions loaded.".format(
+            message = "Statements of {} theorems and definitions loaded.".format(
                 len(self))
             printline(message, logfile, verbose)
 
@@ -262,8 +262,8 @@ class Proofs:
         return sum(lengths) / len(lengths)
 
     def thms_with_max_number_of_proofs(self):
-        return [thm for thm in self.proofs \
-                if len(self[thm]) == max(self.nums_of_proofs())]
+        maxim = max(self.nums_of_proofs())
+        return [thm for thm in self.proofs if len(self[thm]) == maxim]
 
     def stats(self):
         return {'num_of_thms': len(self),
@@ -282,15 +282,15 @@ class Proofs:
                 n, ns[n]), logfile)
         printline("Average number of proofs per theorem: {:.3f}".format(
                   self.avg_num_of_proofs()), logfile)
-        printline("Average number of premises used in a proof: {:.3f}".format(
+        printline("Average number of premises used in one proof: {:.3f}".format(
                   self.avg_length_of_proof()), logfile)
         printline("Theorems with maximal number of proofs found: {}".format(
                    self.thms_with_max_number_of_proofs()), logfile)
-        thm_max = self.thms_with_max_number_of_proofs()[0]
-        printline("Distribution of lengths of proofs for theorem {}: {}".format(
-                         thm_max, [len(p) for p in self[thm_max]]), logfile)
-        for p in self[thm_max]:
-            print(p)
+        #thm_max = self.thms_with_max_number_of_proofs()[0]
+        #printline("Distribution of lengths of proofs for theorem {}: {}".format(
+        #                 thm_max, [len(p) for p in self[thm_max]]), logfile)
+        #for p in self[thm_max]:
+        #    print(p)
 
 class Rankings:
     def __init__(self, thms=None, model=None, params=None, from_dict=None,
