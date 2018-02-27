@@ -16,7 +16,7 @@ chronology = prs.Chronology(from_file=join(DATA_DIR, 'chronology'),
                             logfile=LOG_FILE)
 test_theorems = prs.utils.readlines(join(DATA_DIR, 'theorems_not_atpproved'))
 params_data_trans = {'features': features,
-                     'num_of_features': int(0.2 * features.num_of_features)
+                     'num_of_features': int(0.2 * features.num_of_features),
                      'merge_mode': 'concat',
                      'chronology': chronology}
 # model.save_model(join(MODELS_DIR, 'model_multi_mizar40_1.pkl'))
