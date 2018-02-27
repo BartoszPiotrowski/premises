@@ -307,7 +307,7 @@ class Rankings:
             params_small = {'merge_mode': params['merge_mode'],
                             'num_of_features': params['num_of_features']}
             print("BEFORE", len(thms))
-            thms = [t in thms if len(chronology.available_premises(t))]
+            thms = [t for t in thms if len(chronology.available_premises(t))]
             if verbose or logfile:
                 message = ("Creating rankings of premises from the trained model "
                            "for {} theorems...").format(len(thms))
