@@ -345,6 +345,7 @@ class Rankings:
     def ranking_from_model(self, thm, model, available_premises, features,
                            params):
         time0 = time()
+        assert len(available_premises):
         features_thm = features[thm]
         pairs = [(features_thm, features[prm])
                  for prm in available_premises]
