@@ -360,6 +360,7 @@ class Rankings:
         return (thm, premises_scores[:600])
 
     def score_pairs(self, pairs, model, params):
+        assert len(pairs)
         time0 = time()
         array = pairs_to_array(pairs, params)
         time1=time(); print("1", time1-time0)

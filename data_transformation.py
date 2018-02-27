@@ -10,6 +10,7 @@ from .utils import printline, partition
 
 # pair means here (thm features, prm features)
 def pairs_to_array(pairs, params):
+    assert len(pairs)
     num_of_features = params['num_of_features']
     merge_mode = params['merge_mode']
     if merge_mode == 'comb':
