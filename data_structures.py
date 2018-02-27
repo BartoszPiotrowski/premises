@@ -302,14 +302,17 @@ class Rankings:
             time0 = time()
             assert 'chronology' in params
             assert 'features' in params
-            if verbose or logfile:
-                message = ("Creating rankings of premises from the trained model "
-                           "for {} theorems...").format(len(thms))
-                printline(message, logfile, verbose)
             chronology = params['chronology']
             features = params['features']
             params_small = {'merge_mode': params['merge_mode'],
                             'num_of_features': params['num_of_features']}
+            print("BEFORE", len(thms))
+            thms = [t in thms if len(chronology.available_premises(t))]
+            if verbose or logfile:
+                message = ("Creating rankings of premises from the trained model "
+                           "for {} theorems...").format(len(thms))
+                printline(message, logfile, verbose)
+            print("AFTER", len(thms))
             # be careful: backend 'loky' is needed to not colide with model
             # 'loky' is available only in the newest dev release of joblib
             # (only on github so far)
@@ -345,7 +348,7 @@ class Rankings:
     def ranking_from_model(self, thm, model, available_premises, features,
                            params):
         time0 = time()
-        assert len(available_premises):
+        assert len(available_premises)
         features_thm = features[thm]
         pairs = [(features_thm, features[prm])
                  for prm in available_premises]
