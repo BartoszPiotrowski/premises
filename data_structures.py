@@ -124,6 +124,8 @@ class Chronology:
         else:
             print("Error: theorem {} not contained in chronology list.".format(
                                 thm))
+    def initial_segment(self, i):
+        return self.chronology[:i]
 
 class Proofs:
     def __init__(self, from_dict={}, from_file='', verbose=True, logfile=''):
