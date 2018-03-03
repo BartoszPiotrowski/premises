@@ -32,7 +32,7 @@ params_train = {'eta': 0.3}
 model = prs.train(train_labels, train_array, params=params_train,
                     n_jobs=N_JOBS, logfile=LOG_FILE)
 rankings_test = prs.Rankings(test_theorems, model, params_data_trans,
-                     n_jobs=N_JOBS, logfile=LOG_FILE)
+             save_to_dir='rankings_512_1024', n_jobs=N_JOBS, logfile=LOG_FILE)
 params_atp_eval = {'n_premises':[1, 2, 4, 8, 16, 32, 64, 128, 256, 512]}
 proofs_test = prs.atp_evaluation(rankings_test, statements, params_atp_eval,
                          dirpath=ATP_DIR, n_jobs=N_JOBS, logfile=LOG_FILE)
