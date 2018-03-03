@@ -17,7 +17,7 @@ chronology = prs.Chronology(from_file=join(DATA_DIR, 'chronology'),
 proofs_train = prs.Proofs(from_file=join(DATA_DIR, 'atpproved.train'),
                           logfile=LOG_FILE)
 theorems = prs.utils.readlines(join(DATA_DIR, 'theorems_atpproved'))
-test_theorems = set(theorems) - set(proofs_test)
+test_theorems = set(theorems) - set(proofs_train)
 params = {'features': features,
           'chronology': chronology}
 Ns = [80, 160]
