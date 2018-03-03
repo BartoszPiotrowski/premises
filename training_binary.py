@@ -6,7 +6,7 @@ from joblib import Parallel, delayed
 from .utils import printline
 
 def train(labels, array, weights=None, model="xgboost", params={}, n_jobs=-1,
-         verbose=True, logfile=''):
+         save_model_to_file=None, verbose=True, logfile=''):
     assert isinstance(labels, list)
     if verbose or logfile:
         printline("Training of {} model started...".format(model),
@@ -15,6 +15,8 @@ def train(labels, array, weights=None, model="xgboost", params={}, n_jobs=-1,
         trained_model = train_xgboost(labels, array, weights, params, n_jobs)
     if verbose or logfile:
         printline("Training finished.", logfile, verbose)
+    if save_model_to_file:
+        trained_model.save_model(save_model_to_file)
     return trained_model
 
 def train_xgboost(labels, array, weights, params, n_jobs):
