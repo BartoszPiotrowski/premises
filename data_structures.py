@@ -1,6 +1,7 @@
 from .utils import read_dict, remove_supersets, readlines, printline
-from .utils import shuffled, partition
+from .utils import shuffled, partition, writelines
 from .data_transformation import pairs_to_array
+import os
 from joblib import Parallel, delayed
 import xgboost
 from random import sample
@@ -294,10 +295,14 @@ class Proofs:
 
 class Rankings:
     def __init__(self, thms=None, model=None, params=None, from_dict=None,
+                 to_merge=None, merge_mode='geom', save_to_dir=None,
                  verbose=True, logfile='', n_jobs=-1):
+        if save_to_dir:
+            if not os.path.exists(save_to_dir):
+                os.mkdir(save_to_dir)
         if from_dict:
-            self.rankings_with_scores = from_dict
-            self.rankings = self._rankings_only_names(self.rankings_with_scores)
+            self.rankings = from_dict
+            self.rankings_with_scores = None
         elif model:
             time0 = time()
             assert 'chronology' in params
@@ -322,9 +327,17 @@ class Rankings:
                  thm, model,
                  chronology.available_premises(thm),
                  features.subset(set(chronology.available_premises(thm)) | {thm}),
-                 params_small) for thm in thms)
-            self.rankings_with_scores = dict(rankings_with_scores)
-            self.rankings = self._rankings_only_names(self.rankings_with_scores)
+                 params_small, save_to_dir) for thm in thms)
+            rankings_with_scores = dict(rankings_with_scores)
+            rankings = self._rankings_only_names(rankings_with_scores)
+            if to_merge:
+                assert set(thms) == set(to_merge)
+                merged = self.merge_rankings(rankings, to_merge, mode=merge_mode)
+                self.rankings = merged
+                self.rankings_with_scores = None
+            else:
+                self.rankings = rankings
+                self.rankings_with_scores = rankings_with_scores
             print("ALL:", time()-time0)
         else:
             if verbose or logfile:
@@ -335,6 +348,7 @@ class Rankings:
             random_rankings = {thm: shuffled(chronology.available_premises(thm))
                                for thm in thms}
             self.rankings = random_rankings
+            self.rankings_with_scores = None
 
         if verbose or logfile:
             message = "Rankings created."
@@ -346,7 +360,7 @@ class Rankings:
                              for thm in rankings_with_scores}
 
     def ranking_from_model(self, thm, model, available_premises, features,
-                           params):
+                           params, save_to_dir=None):
         time0 = time()
         assert len(available_premises)
         features_thm = features[thm]
@@ -360,8 +374,12 @@ class Rankings:
         premises_scores.sort(key = lambda x: x[1], reverse = True)
         #time4=time(); print("4", time4-time3)
         print(thm, time()-time0)
-        # rankings cut to 600 for efficiency when parallelizing
-        return (thm, premises_scores[:600])
+        # rankings cut to 1024 for efficiency when parallelizing
+        ranking_with_scores = premises_scores[:1024]
+        if save_to_dir:
+            ranking = [t[0] for t in ranking_with_scores]
+            writelines(ranking, os.path.join(save_to_dir, thm))
+        return (thm, ranking_with_scores)
 
     def score_pairs(self, pairs, model, params):
         assert len(pairs)
@@ -372,6 +390,33 @@ class Rankings:
             array = xgboost.DMatrix(array)
         time2=time(); print("2", time2-time1)
         return model.predict(array)
+
+    def merge_two_rankings(self, ranking1, ranking2, mode='geom'):
+        comb = {
+            'aryt': lambda x, y: (x + y) / 2,
+            'geom': lambda x, y: (x * y)**.5
+        }[mode]
+        scores_ranking1 = {ranking1[i]: i for i in range(len(ranking1))}
+        scores_ranking2 = {ranking2[i]: i for i in range(len(ranking2))}
+        scores_ranking = {p: comb(scores_ranking1[p], scores_ranking2[p]) \
+                        if p in set(scores_ranking1) & set(scores_ranking2) else \
+                           (scores_ranking1[p] if p in scores_ranking1 else \
+                            scores_ranking2[p]) \
+                            for p in set(scores_ranking1) | set(scores_ranking2)}
+        ranking = sorted(scores_ranking.items(), key=lambda x: x[1])
+        return [i[0] for i in ranking]
+
+    def merge_rankings(self, rankings_a, rankings_b, mode="geom"):
+        assert set(rankings_a) == set(rankings_b)
+        return {thm: self.merge_two_rankings(rankings_a[thm], rankings_b[thm],
+                                               mode=mode) for thm in rankings_a}
+
+    def save_ranking_to_file(self, thm, file_name):
+        writelines(self[thm], file_name)
+
+    def save_rankings_to_dir(self, dir_name):
+        for thm in self:
+            self.save_ranking_to_file(thm, os.path.join(dir_name, thm))
 
     def __len__(self):
         return len(self.rankings)
