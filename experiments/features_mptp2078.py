@@ -4,7 +4,7 @@ from random import sample
 sys.path.append('..')
 import premises as prs
 
-N_JOBS = 10
+N_JOBS = 40
 DATA_DIR = 'data/MPTP2078'
 ATP_DIR = 'atp'
 LOG_FILE = __file__.replace('.py', '.log')
@@ -20,7 +20,7 @@ theorems = prs.utils.readlines(join(DATA_DIR, 'theorems_atpproved'))
 train_theorems = set(proofs_train)
 test_theorems = set(theorems) - set(train_theorems)
 
-for r in [0.1, 0.5, 1]:
+for r in [0.01, 0.02, 0.04, 0.08, 0.16, 0.32, 0.64, 1]:
     params_data_trans = {'features': features,
                          'chronology': chronology,
                          'num_of_features': r}
