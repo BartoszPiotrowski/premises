@@ -415,6 +415,8 @@ class Rankings:
         writelines(self[thm], file_name)
 
     def save_rankings_to_dir(self, dir_name):
+        if not os.path.exists(dir_name):
+            os.mkdir(dir_name)
         for thm in self:
             self.save_ranking_to_file(thm, os.path.join(dir_name, thm))
 
