@@ -1,0 +1,33 @@
+[2018-03-03 22:26:08] Statements of 146700 theorems and definitions loaded.
+[2018-03-03 22:26:15] Features of 146700 thms and definitions loaded.
+[2018-03-03 22:26:15] Chronological order of 146700 thms and definitions loaded.
+[2018-03-03 22:26:17] Proofs of 29271 theorems loaded.
+[2018-03-03 22:28:51] Statements of 146700 theorems and definitions loaded.
+[2018-03-03 22:28:58] Features of 146700 thms and definitions loaded.
+[2018-03-03 22:28:58] Chronological order of 146700 thms and definitions loaded.
+[2018-03-03 22:29:00] Proofs of 29271 theorems loaded.
+[2018-03-03 22:29:00] Neighbours: 80
+[2018-03-03 22:36:51] Statements of 146700 theorems and definitions loaded.
+[2018-03-03 22:36:58] Features of 146700 thms and definitions loaded.
+[2018-03-03 22:36:58] Chronological order of 146700 thms and definitions loaded.
+[2018-03-03 22:37:00] Proofs of 29271 theorems loaded.
+[2018-03-03 22:37:00] Neighbours: 80
+[2018-03-04 04:25:38] ATP evaluation started...
+[2018-03-06 13:13:54] Statements of 146700 theorems and definitions loaded.
+[2018-03-06 13:14:01] Features of 146700 thms and definitions loaded.
+[2018-03-06 13:14:02] Chronological order of 146700 thms and definitions loaded.
+[2018-03-06 13:14:03] Proofs of 29271 theorems loaded.
+[2018-03-06 13:14:03] Neighbours: 80
+[2018-03-06 18:57:34] ATP evaluation started...
+[2018-03-06 20:09:38]     Number of proved theorems: 1605
+[2018-03-06 20:09:38]     Percentage of proved theorems: 49.34%
+[2018-03-06 20:09:38] Number of all theorems with proof(s): 1605
+[2018-03-06 20:09:38] Number of all proofs: 2306
+[2018-03-06 20:09:38] Number of theorems with exactly 1 proof(s): 1056
+[2018-03-06 20:09:38] Number of theorems with exactly 2 proof(s): 415
+[2018-03-06 20:09:38] Number of theorems with exactly 3 proof(s): 116
+[2018-03-06 20:09:38] Number of theorems with exactly 4 proof(s): 18
+[2018-03-06 20:09:38] Average number of proofs per theorem: 1.437
+[2018-03-06 20:09:38] Average number of premises used in one proof: 6.907
+[2018-03-06 20:09:38] Theorems with maximal number of proofs found: ['t12_rusub_1', 't23_tex_3', 'l54_xreal_1', 't73_waybel_1', 't55_procal_1', 't32_projpl_1', 't89_relat_1', 'l102_jordan', 't203_xcmplx_1', 't59_zfmisc_1', 't15_projdes1', 'l7_homothet', 't7_trees_3', 't21_rlsub_2', 't76_xboole_1', 't1_hausdorf', 'l19_xxreal_3', 't17_xxreal_1']
+[2018-03-06 20:09:38] Neighbours: 160

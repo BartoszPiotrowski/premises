@@ -4,7 +4,7 @@ from random import sample
 sys.path.append('..')
 import premises as prs
 
-N_JOBS = 50
+N_JOBS = 52
 DATA_DIR = 'data/mizar40'
 ATP_DIR = 'atp'
 MODELS_DIR = 'models'
