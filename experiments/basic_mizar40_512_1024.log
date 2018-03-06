@@ -1,0 +1,43 @@
+[2018-03-03 22:47:46] Statements of 146700 theorems and definitions loaded.
+[2018-03-03 22:47:53] Features of 146700 thms and definitions loaded.
+[2018-03-03 22:47:53] Chronological order of 146700 thms and definitions loaded.
+[2018-03-03 22:47:54] Proofs of 29271 theorems loaded.
+[2018-03-03 22:47:54] Transforming proofs of 29271 theorems to training data...
+[2018-03-03 22:47:54]     Number of features used: 135511 / 451706
+[2018-03-03 22:47:54]     Mode of combining theorems and premises to examples: merge_mode=concat
+[2018-03-03 22:47:54]     Negatives to positive ratio: 20
+[2018-03-03 22:47:54]     No negative mining.
+[2018-03-03 23:06:42] Transformation finished.
+[2018-03-03 23:06:42] Training of xgboost model started...
+[2018-03-05 22:11:28] Training finished.
+[2018-03-05 22:12:06] Creating rankings of premises from the trained model for 3253 theorems...
+[2018-03-06 03:14:53] Rankings created.
+[2018-03-06 03:14:53] ATP evaluation started...
+[2018-03-06 04:02:38]     Number of proved theorems: 1835
+[2018-03-06 04:02:38]     Percentage of proved theorems: 56.41%
+[2018-03-06 04:02:38] Number of all theorems with proof(s): 1835
+[2018-03-06 04:02:38] Number of all proofs: 3051
+[2018-03-06 04:02:38] Number of theorems with exactly 1 proof(s): 1085
+[2018-03-06 04:02:38] Number of theorems with exactly 2 proof(s): 427
+[2018-03-06 04:02:38] Number of theorems with exactly 3 proof(s): 208
+[2018-03-06 04:02:38] Number of theorems with exactly 4 proof(s): 92
+[2018-03-06 04:02:38] Number of theorems with exactly 5 proof(s): 18
+[2018-03-06 04:02:38] Number of theorems with exactly 6 proof(s): 5
+[2018-03-06 04:02:38] Average number of proofs per theorem: 1.663
+[2018-03-06 04:02:38] Average number of premises used in one proof: 7.225
+[2018-03-06 04:02:38] Theorems with maximal number of proofs found: ['l24_wsierp_1', 'l54_xreal_1', 't97_funct_4', 't112_funct_7', 'l22_zfmisc_1']
+[2018-03-06 04:02:38] ATP evaluation started...
+[2018-03-06 04:58:46]     Number of proved theorems: 1876
+[2018-03-06 04:58:46]     Percentage of proved theorems: 57.67%
+[2018-03-06 04:58:46] Number of all theorems with proof(s): 1876
+[2018-03-06 04:58:46] Number of all proofs: 3290
+[2018-03-06 04:58:46] Number of theorems with exactly 1 proof(s): 1064
+[2018-03-06 04:58:46] Number of theorems with exactly 2 proof(s): 428
+[2018-03-06 04:58:46] Number of theorems with exactly 3 proof(s): 225
+[2018-03-06 04:58:46] Number of theorems with exactly 4 proof(s): 112
+[2018-03-06 04:58:46] Number of theorems with exactly 5 proof(s): 36
+[2018-03-06 04:58:46] Number of theorems with exactly 6 proof(s): 10
+[2018-03-06 04:58:46] Number of theorems with exactly 7 proof(s): 1
+[2018-03-06 04:58:46] Average number of proofs per theorem: 1.754
+[2018-03-06 04:58:46] Average number of premises used in one proof: 7.536
+[2018-03-06 04:58:46] Theorems with maximal number of proofs found: ['l54_xreal_1']
