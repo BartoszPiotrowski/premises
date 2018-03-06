@@ -303,8 +303,13 @@ class Rankings:
             if not os.path.exists(save_to_dir):
                 os.mkdir(save_to_dir)
         if from_dict:
-            self.rankings = from_dict
-            self.rankings_with_scores = None
+            ex = from_dict[list(from_dict)[0]]
+            if type(ex) == str
+                self.rankings = from_dict
+                self.rankings_with_scores = None
+            else:
+                self.rankings_with_scores = from_dict
+                self.rankings = self._rankings_only_names(from_dict)
         elif model:
             time0 = time()
             assert 'chronology' in params
