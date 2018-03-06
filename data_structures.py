@@ -304,7 +304,7 @@ class Rankings:
                 os.mkdir(save_to_dir)
         if from_dict:
             ex = from_dict[list(from_dict)[0]]
-            if type(ex) == str
+            if type(ex) == str:
                 self.rankings = from_dict
                 self.rankings_with_scores = None
             else:
