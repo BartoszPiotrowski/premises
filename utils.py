@@ -51,8 +51,13 @@ def readlines(filename):
         return f.read().splitlines()
 
 def writelines(list_of_lines, filename):
+    if not type(list_of_lines[0]) == str:
+        list_of_lines = [list_to_line(l) for l in list_of_lines]
     with open(filename, encoding ='utf-8', mode='wt') as f:
         f.write('\n'.join(list_of_lines))
+
+def list_to_line(l):
+    return ', '.join([str(i) for i in l])
 
 def mkdir_if_not_exists(dirpath):
     if not os.path.exists(dirpath):

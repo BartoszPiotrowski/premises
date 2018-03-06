@@ -295,6 +295,18 @@ class Proofs:
         #for p in self[thm_max]:
         #    print(p)
 
+    def save_proofs_to_file(self, file_name):
+        lines = ['{}:{}'.format(thm, ' '.join(list(prf)))
+                 for thm in self for prf in self[thm]]
+        writelines(lines, file_name)
+
+    def save_proofs_to_dir(self, dir_name):
+        if not os.path.exists(dir_name):
+            os.mkdir(dir_name)
+        for thm in self:
+            for prf in self[thm]:
+                writelines(list(prf), join(dir_name, thm))
+
 class Rankings:
     def __init__(self, thms=None, model=None, params=None, from_dict=None,
                  to_merge=None, merge_mode='geom', save_to_dir=None,
@@ -418,14 +430,18 @@ class Rankings:
         return {thm: self.merge_two_rankings(rankings_a[thm], rankings_b[thm],
                                                mode=mode) for thm in rankings_a}
 
-    def save_ranking_to_file(self, thm, file_name):
-        writelines(self[thm], file_name)
+    def save_ranking_to_file(self, thm, file_name, with_scores=False):
+        if with_scores:
+            writelines(self.rankings_with_scores[thm], file_name)
+        else:
+            writelines(self[thm], file_name)
 
-    def save_rankings_to_dir(self, dir_name):
+    def save_rankings_to_dir(self, dir_name, with_scores=False):
         if not os.path.exists(dir_name):
             os.mkdir(dir_name)
         for thm in self:
-            self.save_ranking_to_file(thm, os.path.join(dir_name, thm))
+            self.save_ranking_to_file(thm, os.path.join(dir_name, thm),
+                                      with_scores)
 
     def __len__(self):
         return len(self.rankings)
