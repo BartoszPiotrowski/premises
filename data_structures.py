@@ -304,7 +304,7 @@ class Proofs:
         if not os.path.exists(dir_name):
             os.mkdir(dir_name)
         for thm in self:
-            atp_useful = set().union(*self[thm])
+            atp_useful = list(set().union(*self[thm]))
             writelines(atp_useful, os.path.join(dir_name, thm))
 
 class Rankings:
