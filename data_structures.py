@@ -300,12 +300,12 @@ class Proofs:
                  for thm in self for prf in self[thm]]
         writelines(lines, file_name)
 
-    def save_proofs_to_dir(self, dir_name):
+    def save_atp_useful_to_dir(self, dir_name):
         if not os.path.exists(dir_name):
             os.mkdir(dir_name)
         for thm in self:
-            for prf in self[thm]:
-                writelines(list(prf), join(dir_name, thm))
+            atp_useful = set().union(*self[thm])
+            writelines(atp_useful, os.path.join(dir_name, thm))
 
 class Rankings:
     def __init__(self, thms=None, model=None, params=None, from_dict=None,
