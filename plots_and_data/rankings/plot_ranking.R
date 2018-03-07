@@ -11,10 +11,11 @@ r$premise <- factor(r$premise, levels=r$premise)
 m<-40
 r <- r[1:m,]
 ggplot(r, aes(x=premise, y=score)) +
-	geom_point(aes(color=ATP_useful), size=6) +
-	theme(axis.text.x=element_text(angle=60,hjust=1,vjust=1,size=13)) +
+	geom_point(aes(color=ATP_useful), size=5) +
+	theme(axis.text.x=element_text(angle=50,hjust=1,vjust=1,size=10)) +
 	theme(plot.title = element_text(hjust = 0.5)) +
 	ggtitle(paste("Predictions for conjecture", t)) +
 	xlab('Premises') +
-	ylab('Score')
+	ylab('Score') +
+	labs(colour = "ATP-usefulness")
 ggsave(paste('plots/', t, '.pdf', sep=''), device='pdf', width=10)
