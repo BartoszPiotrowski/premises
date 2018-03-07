@@ -28,6 +28,6 @@ ggplot(data_melt, aes(x=`Round`, y=`Number of proved theorems`)) +
 	geom_point(aes(color=Method, shape=Method), alpha=0.9) +
 	geom_line(aes(color=Method), alpha=0.7) +
 	scale_y_continuous(breaks=c(300,400,500,600,700,800,900,1000,1100)) +
-	scale_x_continuous(breaks=data_melt$Round)
+	scale_x_continuous(breaks=seq(0,30,3))
 #	theme(axis.text.x=element_text(angle=31,hjust=1,vjust=1))
-ggsave('loops.png', device='png', height=4, width=7.8, dpi=800)
+ggsave('loops.png', device='png', height=3, width=5, dpi=800)

@@ -30,7 +30,7 @@ print(data_melt)
 ggplot(data_melt, aes(x=`Round`, y=`Number of proved theorems`)) +
 	geom_point(aes(color=Method, shape=Method), alpha=0.9) +
 	geom_line(aes(color=Method), alpha=0.8) +
-	scale_y_continuous(breaks=c(240,250,260,270,280,290,300,310,320)) +
-	scale_x_continuous(breaks=data_melt$Round)
+	scale_y_continuous(breaks=c(230,240,250,260,270,280,290,300,310,320)) +
+	scale_x_continuous(breaks=c(3,6,9,12,15,18,21,24,27,30))
 #	theme(axis.text.x=element_text(angle=30,hjust=1,vjust=1))
-ggsave('addings.png', device='png', height=4, width=7.8, dpi=800)
+ggsave('addings.png', device='png', height=2.7, width=5.5, dpi=800)
