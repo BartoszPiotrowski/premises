@@ -26,7 +26,13 @@ def pairs_to_array(pairs, params):
         print("Error: unknown merge mode.")
     hasher = FeatureHasher(n_features=num_of_features, input_type='string')
     csc_array = hasher.transform(list_of_pairs)
-    return csc_array
+    if params['sparse']:
+        array = csc_array
+    else:
+        array = csc_array.toarray()
+        print(array)
+    return array
+
 
 def proofs_to_train_n_thms(thms, proofs, params):
     labels, pairs = [], []
@@ -132,7 +138,10 @@ def proofs_to_train(proofs, params, n_jobs=-1, verbose=True, logfile=''):
                         for thms in thms_split)
     labels = [i for p in labels_and_arrays for i in p[0]]
     arrays = [p[1] for p in labels_and_arrays]
-    array = sps.vstack(arrays)
+    if params['sparse']:
+        array = sps.vstack(arrays)
+    else:
+        array = np.vstack(arrays)
     assert len(labels) == array.shape[0]
     if verbose or logfile:
         printline("Transformation finished.", logfile, verbose)
