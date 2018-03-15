@@ -92,6 +92,8 @@ def proofs_to_train(proofs, params, n_jobs=-1, verbose=True, logfile=''):
         params['only_short_proofs'] = True
     if not 'num_of_features' in params:
         params['num_of_features'] = 1
+    if not 'sparse' in params:
+        params['sparse'] = True
     assert params['num_of_features'] > 0
     if params['num_of_features'] <= 1:
         params['num_of_features'] = \
