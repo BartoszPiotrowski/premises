@@ -1,4 +1,4 @@
-import os
+import os, sys
 from time import time
 from random import sample
 from math import log
@@ -51,6 +51,9 @@ def knn_one_theorem(theorem, thm_features,
         print(len(proofs))
         print(len(thm_features))
         print(len(features))
+        print(len(similarities))
+        print(similarities.values())
+        sys.exit()
 
     N_threshold = similarities_sorted_values[min(N,
                                              len(similarities_sorted_values) - 1)]
