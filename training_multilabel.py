@@ -46,7 +46,12 @@ def knn_one_theorem(theorem, thm_features,
                                  len(features), power)
                     for t in proofs}
     similarities_sorted_values = sorted(similarities.values(), reverse=True)
-    assert len(similarities_sorted_values)
+    if not len(similarities_sorted_values):
+        print(theorem)
+        print(len(proofs))
+        print(len(thm_features))
+        print(len(features))
+
     N_threshold = similarities_sorted_values[min(N,
                                              len(similarities_sorted_values) - 1)]
     N_nearest_theorems = {t for t in set(similarities)
