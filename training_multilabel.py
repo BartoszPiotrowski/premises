@@ -1,8 +1,10 @@
+import os
 from time import time
 from random import sample
 from math import log
 from joblib import Parallel, delayed
 from .data_structures import Proofs, Features, Rankings
+from .utils import writelines
 
 
 # thm1, thm2 -- theorems with features; we measure similarity between them
@@ -30,7 +32,7 @@ def knn_one_theorem(theorem, thm_features,
                     proofs, features,
                     chronology,
                     dict_features_numbers,
-                    N, power):
+                    N, power, rankings_dir):
     # chronology is important
     available_premises = chronology.available_premises(theorem)
     proofs = {t: proofs[t] for t in available_premises \
@@ -66,11 +68,14 @@ def knn_one_theorem(theorem, thm_features,
     if m == 0: m = 1 # sometimes m = 0
     premises_scores_norm = [(p, premises_scores[p] / m) for p in sorted_premises
                            if not p == thm]
+    if rankings_dir:
+        ranking = [ps[0] for ps in premises_scores_norm]
+        writelines(ranking, os.path.join(rankings_dir, theorem))
     return premises_scores_norm
 
 # wrapper for knn_one_theorem() useful for using with Parallel
-def                      knnot(t, tf, dtp, dtf, ch, dfn, N, p):
-    return (t, knn_one_theorem(t, tf, dtp, dtf, ch, dfn, N, p))
+def                      knnot(t, tf, dtp, dtf, ch, dfn, N, p, d):
+    return (t, knn_one_theorem(t, tf, dtp, dtf, ch, dfn, N, p, d))
 
 # creates rankings of useful premises for given theorems using knn_one_theorem()
 # returns results as a dictionary
@@ -80,6 +85,7 @@ def knn(test_theorems, proofs, params, n_jobs=-1):
     features = params['features']
     N = params['N'] if 'N' in params else 50
     power = params['power'] if 'power' in params else 2
+    rankings_dir = params['rankings_dir'] if 'rankings_dir' in params else None
     # separation of train and test
     # assert not set(proofs) & set(test_theorems)
     proofs_train = proofs.with_trivial(set(chronology))
@@ -89,6 +95,6 @@ def knn(test_theorems, proofs, params, n_jobs=-1):
         dknnot = delayed(knnot)
         rankings = parallel(
            dknnot(thm, features[thm], proofs_train, features_train, chronology,
-                  dict_features_numbers, N, power)
+                  dict_features_numbers, N, power, rankings_dir)
             for thm in test_theorems)
     return Rankings(from_dict=dict(rankings))
