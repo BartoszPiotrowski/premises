@@ -82,6 +82,7 @@ def                      knnot(t, tf, dtp, dtf, ch, dfn, N, p, d):
 # returns results as a dictionary
 # (keys: theorems names, values: lists of premises)
 def knn(test_theorems, proofs, params, n_jobs=-1):
+    test_theorems = set(test_theorems) - {'t1_tarski'}
     chronology = params['chronology']
     features = params['features']
     N = params['N'] if 'N' in params else 50
