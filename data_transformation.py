@@ -26,12 +26,7 @@ def pairs_to_array(pairs, params):
         print("Error: unknown merge mode.")
     hasher = FeatureHasher(n_features=num_of_features, input_type='string')
     csc_array = hasher.transform(list_of_pairs)
-    if params['sparse']:
-        array = csc_array
-    else:
-        array = csc_array.toarray()
-        print(array)
-    return array
+    return csc_array
 
 
 def proofs_to_train_n_thms(thms, proofs, params):

@@ -309,8 +309,8 @@ class Proofs:
 
 class Rankings:
     def __init__(self, thms=None, model=None, params=None, from_dict=None,
-                 to_merge=None, merge_mode='geom', save_to_dir=None,
-                 verbose=True, logfile='', n_jobs=-1):
+                 model_type=None, to_merge=None, merge_mode='geom',
+                 save_to_dir=None, verbose=True, logfile='', n_jobs=-1):
         if save_to_dir:
             if not os.path.exists(save_to_dir):
                 os.mkdir(save_to_dir)
@@ -346,7 +346,7 @@ class Rankings:
                  thm, model,
                  chronology.available_premises(thm),
                  features.subset(set(chronology.available_premises(thm)) | {thm}),
-                 params_small, save_to_dir) for thm in thms)
+                 params_small, model_type, save_to_dir) for thm in thms)
             rankings_with_scores = dict(rankings_with_scores)
             rankings = self._rankings_only_names(rankings_with_scores)
             if to_merge:
@@ -379,14 +379,17 @@ class Rankings:
                              for thm in rankings_with_scores}
 
     def ranking_from_model(self, thm, model, available_premises, features,
-                           params, save_to_dir=None):
+                           params, model_type=None, save_to_dir=None):
         time0 = time()
         assert len(available_premises)
         features_thm = features[thm]
         pairs = [(features_thm, features[prm])
                  for prm in available_premises]
         #time1=time(); print("1", time1-time0)
-        scores = self.score_pairs(pairs, model, params)
+        if model_type == 'net':
+            scores = self.score_pairs_tf(pairs, model, params)
+        else:
+            scores = self.score_pairs(pairs, model, params)
         #time2=time(); print("2", time2-time1)
         premises_scores = list(zip(available_premises, scores))
         #time3=time(); print("3", time3-time2)
@@ -409,6 +412,13 @@ class Rankings:
             array = xgboost.DMatrix(array)
         time2=time(); print("2", time2-time1)
         return model.predict(array)
+
+    def score_pairs_tf(self, pairs, model, params):
+        import tensorflow as tf
+        with tf.Session() as sess:
+            saver = tf.train.import_meta_graph(model + '.meta')
+            saver.restore(sess, model)
+            print(model)
 
     def merge_two_rankings(self, ranking1, ranking2, mode='geom'):
         comb = {
