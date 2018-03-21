@@ -84,8 +84,10 @@ def proof(theorem, ranking, statements, dirpath, params):
 
 def proofs_from_ranking(theorem, ranking, statements, dirpath, params):
     n_premises = params['n_premises'] if 'n_premises' in params else \
-        [1, 2, 4, 8, 16, 32, 64, 128, 256, 512]
+        [8, 16, 32, 64, 128, 256, 512]
     n_premises = [i for i in n_premises if i <= len(ranking)]
+    if not n_premises:
+        n_premises = [len(ranking)]
     assert len(ranking) > 0
     proofs = [proof(theorem, ranking[:i], statements, dirpath, params)
               for i in n_premises]

@@ -1,6 +1,8 @@
 #!/usr/bin/env python3
 import numpy as np
 import tensorflow as tf
+import warnings
+warnings.simplefilter("ignore", DeprecationWarning)
 
 
 class Network:
@@ -21,46 +23,49 @@ class Network:
         with self.session.graph.as_default():
             # Inputs
             self.array = tf.placeholder(
-                tf.float32, [None, self.NUM_OF_FEATURES], name="proofs")
-            self.labels = tf.placeholder(tf.int64, [None], name="labels")
+                tf.float32, [None, self.NUM_OF_FEATURES], name='array')
+            self.labels = tf.placeholder(tf.int64, [None], name='labels')
 
             # Computation
-            flattened_array = tf.layers.flatten(self.array, name="flatten")
+            flattened_array = tf.layers.flatten(self.array, name='flatten')
             layers = [flattened_array]
-            for i in range(params["layers"]):
+            for i in range(params['layers']):
                 layers.append(
                     tf.layers.dense(
                         layers[i],
-                        params["hidden_layer"],
+                        params['hidden_layer'],
                         activation={'none': None,
                                     'relu': tf.nn.relu,
                                     'tanh': tf.nn.tanh,
-                                    'sigmoid': tf.nn.sigmoid}[params["activation"]],
-                        name="hidden_layer" + str(i+1)))
+                                    'sigmoid': \
+                                        tf.nn.sigmoid}[params['activation']],
+                        name='hidden_layer' + str(i+1)))
             hidden_layer = layers[-1]
             output_layer = tf.layers.dense(
                 hidden_layer,
                 self.LABELS,
                 activation=None,
-                name="output_layer")
-            self.predictions = tf.argmax(output_layer, axis=1)
+                name='output_layer')
+            self.labels = tf.argmax(output_layer, axis=1, name='labels')
+            softmax = tf.nn.softmax(output_layer, axis=1, name='softmax')
+            self.scores = softmax[:,1]
 
             # Training
             loss = tf.losses.sparse_softmax_cross_entropy(
                 self.labels, output_layer, scope="loss")
             global_step = tf.train.create_global_step()
-            self.training = tf.train.AdamOptimizer(0.03).minimize(
+            self.training = tf.train.AdamOptimizer(0.01).minimize(
                 loss, global_step=global_step, name="training")
 
             # Summaries
             accuracy = tf.reduce_mean(
-                tf.cast(tf.equal(self.labels, self.predictions), tf.float32))
+                tf.cast(tf.equal(self.labels, self.labels), tf.float32))
             self.accuracy = tf.reduce_mean(
-                tf.cast(tf.equal(self.labels, self.predictions), tf.float32))
+                tf.cast(tf.equal(self.labels, self.labels), tf.float32))
             confusion_matrix = tf.reshape(
                 tf.confusion_matrix(
-                    self.labels, self.predictions, weights=tf.not_equal(
-                        self.labels, self.predictions), dtype=tf.float32), [
+                    self.labels, self.labels, weights=tf.not_equal(
+                        self.labels, self.labels), dtype=tf.float32), [
                     1, self.LABELS, self.LABELS, 1])
 
             summary_writer = tf.contrib.summary.create_file_writer(
@@ -92,6 +97,8 @@ class Network:
                     session=self.session, graph=self.session.graph)
 
             # Saver
+            tf.add_to_collection('end_points/array', self.array)
+            tf.add_to_collection('end_points/scores', self.scores)
             self.saver = tf.train.Saver()
 
     def train(self, array, labels):
@@ -106,9 +113,15 @@ class Network:
         return self.session.run(self.accuracy,
                         {self.array: array, self.labels: labels})
 
-    def predict(self, array, labels):
-        return self.session.run(self.predictions,
-                        {self.array: array, self.labels: labels})
+    #def predict(self, array):
+    #    return self.session.run(self.scores, {self.array: [array]})
 
     def save(self, path):
-        self.saver.save(self.session, path)
+        return self.saver.save(self.session, path)
+
+    #def load(self, path):
+    #    with self.session.graph.as_default():
+    #        self.saver = tf.train.import_meta_graph(path + ".meta")
+    #        self.array = tf.get_collection("end_points/array")[0]
+    #        self.scores = tf.get_collection("end_points/scores")[0]
+    #    self.saver.restore(self.session, path)

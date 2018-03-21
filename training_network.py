@@ -5,8 +5,9 @@ import scipy.sparse as sps
 from time import time
 from datetime import datetime
 from joblib import Parallel, delayed
-from .construct_net import Network
+from .construct_network import Network
 from .utils import printline
+
 
 def train_net(labels, array, params={}, n_jobs=4, save_model_to_file=None,
               verbose=True, logfile=''):
@@ -33,5 +34,5 @@ def train_net(labels, array, params={}, n_jobs=4, save_model_to_file=None,
         printline("Training finished.", logfile, verbose)
         printline("Saving model to the file {}".format(model_path),
                   logfile, verbose)
-    network.save(model_path)
-    return model_path
+    model_path_ = network.save(model_path)
+    return model_path_

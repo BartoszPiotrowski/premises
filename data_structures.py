@@ -1,11 +1,12 @@
 from .utils import read_dict, remove_supersets, readlines, printline
 from .utils import shuffled, partition, writelines
 from .data_transformation import pairs_to_array
-import os
+import os, sys
 from joblib import Parallel, delayed
 import xgboost
 from random import sample
 from time import time
+
 
 class Features:
     def __init__(self, from_dict={}, from_file='', verbose=True, logfile=''):
@@ -330,13 +331,11 @@ class Rankings:
             features = params['features']
             params_small = {'merge_mode': params['merge_mode'],
                             'num_of_features': params['num_of_features']}
-            print("BEFORE", len(thms))
             thms = [t for t in thms if len(chronology.available_premises(t))]
             if verbose or logfile:
                 message = ("Creating rankings of premises from the trained model "
                            "for {} theorems...").format(len(thms))
                 printline(message, logfile, verbose)
-            print("AFTER", len(thms))
             # be careful: backend 'loky' is needed to not colide with model
             # 'loky' is available only in the newest dev release of joblib
             # (only on github so far)
@@ -414,11 +413,41 @@ class Rankings:
         return model.predict(array)
 
     def score_pairs_tf(self, pairs, model, params):
+        array = pairs_to_array(pairs, params)
         import tensorflow as tf
-        with tf.Session() as sess:
-            saver = tf.train.import_meta_graph(model + '.meta')
-            saver.restore(sess, model)
-            print(model)
+        #from .construct_network import Network
+
+        class Network:
+            def __init__(self, threads, seed=42):
+                # Create an empty graph and a session
+                graph = tf.Graph()
+                graph.seed = seed
+                self.session = tf.Session(
+                    graph=graph,
+                    config=tf.ConfigProto(
+                        inter_op_parallelism_threads=threads,
+                        intra_op_parallelism_threads=threads))
+
+            def load(self, path):
+                # Load the metagraph
+                with self.session.graph.as_default():
+                    self.saver = tf.train.import_meta_graph(path + ".meta")
+
+                    # Attach the end points
+                    self.array = tf.get_collection("end_points/array")[0]
+                    self.scores = tf.get_collection("end_points/scores")[0]
+
+                # Load the graph weights
+                self.saver.restore(self.session, path)
+
+            def predict(self, array):
+                return self.session.run(self.scores,
+                                        {self.array: array.toarray()})
+        network = Network(threads=4)
+        network.load(model)
+        preds = network.predict(array)
+        assert len(preds) == len(pairs)
+        return preds
 
     def merge_two_rankings(self, ranking1, ranking2, mode='geom'):
         comb = {
