@@ -1,6 +1,7 @@
-import os, pickle
+import os, pickle, re
 from time import strftime
 from random import shuffle
+from datetime import datetime
 
 
 def save_obj(obj, filename):
@@ -42,8 +43,7 @@ def read_dict(filename, type_of_names=str, type_of_values=str, sep=':',
             else:
                 values.append([])
     else:
-        print("Error: cannot read the file to dict.")
-        return
+        raise ValueError("Cannot read the file from dict.")
     return dict(zip(names, values))
 
 def readlines(filename):
@@ -81,3 +81,14 @@ def partition(lst, n):
         n = len(lst)
     division = len(lst) / n
     return [lst[round(division * i):round(division * (i + 1))] for i in range(n)]
+
+def make_path(directory, params):
+    path = os.path.join(
+        directory,
+        '{}--{}'.format(
+            datetime.now().strftime('%Y-%m-%d_%H%M%S'),
+            ','.join(
+                ('{}={}'.format(
+                    re.sub("(.)[^_]*_?", r"\1", key), value)
+                    for key, value in params.items()))))
+    return path

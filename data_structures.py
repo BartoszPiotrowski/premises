@@ -385,10 +385,12 @@ class Rankings:
         pairs = [(features_thm, features[prm])
                  for prm in available_premises]
         #time1=time(); print("1", time1-time0)
-        if model_type == 'net':
+        if model_type == 'network':
             scores = self.score_pairs_tf(pairs, model, params)
+        elif model_type == 'xgboost':
+            scores = self.score_pairs_xgb(pairs, model, params)
         else:
-            scores = self.score_pairs(pairs, model, params)
+            raise ValueError("Unknown type of model!")
         #time2=time(); print("2", time2-time1)
         premises_scores = list(zip(available_premises, scores))
         #time3=time(); print("3", time3-time2)
@@ -402,49 +404,20 @@ class Rankings:
             writelines(ranking, os.path.join(save_to_dir, thm))
         return (thm, ranking_with_scores)
 
-    def score_pairs(self, pairs, model, params):
+    def score_pairs_xgb(self, pairs, model_path, params):
         assert len(pairs)
-        time0 = time()
         array = pairs_to_array(pairs, params)
-        time1=time(); print("1", time1-time0)
-        if isinstance(model, xgboost.Booster):
-            array = xgboost.DMatrix(array)
-        time2=time(); print("2", time2-time1)
+        array = xgboost.DMatrix(array)
+        model = xgboost.Booster()
+        model.load_model(model_path)
         return model.predict(array)
 
-    def score_pairs_tf(self, pairs, model, params):
+    def score_pairs_tf(self, pairs, model_path, params):
+        assert len(pairs)
         array = pairs_to_array(pairs, params)
-        import tensorflow as tf
-        #from .construct_network import Network
-
-        class Network:
-            def __init__(self, threads, seed=42):
-                # Create an empty graph and a session
-                graph = tf.Graph()
-                graph.seed = seed
-                self.session = tf.Session(
-                    graph=graph,
-                    config=tf.ConfigProto(
-                        inter_op_parallelism_threads=threads,
-                        intra_op_parallelism_threads=threads))
-
-            def load(self, path):
-                # Load the metagraph
-                with self.session.graph.as_default():
-                    self.saver = tf.train.import_meta_graph(path + ".meta")
-
-                    # Attach the end points
-                    self.array = tf.get_collection("end_points/array")[0]
-                    self.scores = tf.get_collection("end_points/scores")[0]
-
-                # Load the graph weights
-                self.saver.restore(self.session, path)
-
-            def predict(self, array):
-                return self.session.run(self.scores,
-                                        {self.array: array.toarray()})
-        network = Network(threads=4)
-        network.load(model)
+        from .construct_network import NetworkPredict
+        network = NetworkPredict(threads=4)
+        network.load(model_path)
         preds = network.predict(array)
         assert len(preds) == len(pairs)
         return preds
