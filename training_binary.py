@@ -6,24 +6,29 @@ from .utils import printline, make_path
 from .construct_network import Network
 
 
-def train(labels, array, params={}, n_jobs=4, model_dir='',
-          verbose=True, logfile=''):
+def train(labels, array, labels_valid=None, array_valid=None, params={},
+          n_jobs=4, model_dir='', verbose=True, logdir='', logfile=''):
     assert isinstance(labels, list)
     params['model'] = 'xgboost' if 'model' not in params else params['model']
     if not os.path.exists(model_dir):
         os.mkdir(model_dir)
+    if logdir:
+        if not os.path.exists(logdir):
+            os.mkdir(logdir)
+        logdir = make_path(logdir, params)
     if params['model'] == 'xgboost':
-        model_path = train_xgboost(labels, array, params, model_dir, n_jobs,
-                                   verbose, logfile)
+        model_path = train_xgboost(labels, array, labels_valid, array_valid,
+                           params, model_dir, n_jobs, verbose, logdir, logfile)
     elif params['model'] == 'network':
-        model_path = train_network(labels, array, params, model_dir, n_jobs,
-                                   verbose, logfile)
+        model_path = train_network(labels, array, labels_valid, array_valid,
+                           params, model_dir, n_jobs, verbose, logdir, logfile)
     else:
         raise ValueError("Model {} not available!".format(params['model']))
     return model_path
 
 
-def train_xgboost(labels, array, params, model_dir, n_jobs, verbose, logfile):
+def train_xgboost(labels, array, labels_valid, array_valid, params,
+                  model_dir, n_jobs, verbose, logdir, logfile):
     num_boost_round = params['num_boost_round'] \
         if 'num_boost_round' in params else 5000
     eta = params['eta'] if 'eta' in params else 0.1
@@ -53,16 +58,17 @@ def train_xgboost(labels, array, params, model_dir, n_jobs, verbose, logfile):
     return model_path
 
 
-def train_network(labels, array, params, model_dir, n_jobs, verbose, logfile):
+def train_network(labels, array, labels_valid, array_valid, params,
+                  model_dir, n_jobs, verbose, logdir, logfile):
     from .construct_network import Network
     if verbose or logfile:
         printline("Constructing neural net graph...", logfile, verbose)
         network = Network(threads=n_jobs)
-        network.construct(params)
+        network.construct(params, logdir)
     if verbose or logfile:
         printline("Training of neural net started...", logfile, verbose)
     for i in range(params['epochs']):
-        printline('Epoch: {}'.format(i), logfile)
+        printline("Epoch: {}".format(i), logfile)
         indices = range(len(labels))
         permut_indices = np.random.permutation(indices)
         bs = params['batch_size']
@@ -71,13 +77,33 @@ def train_network(labels, array, params, model_dir, n_jobs, verbose, logfile):
             array_batch = array[batch_indices].toarray()
             labels_batch = [labels[i] for i in batch_indices]
             network.train(array_batch, labels_batch)
-        #network.evaluate("train", array_batch, labels_batch)
+        # How is it going on training set?
         batch_indices = np.random.choice(len(labels), params['batch_size'])
         array_batch = array[batch_indices].toarray()
         labels_batch = [labels[i] for i in batch_indices]
         accuracy = network.evaluate_accuracy(array_batch, labels_batch)
+        recall = network.evaluate_recall(array_batch, labels_batch)
+        precision = network.evaluate_precision(array_batch, labels_batch)
+        f1_score = network.evaluate_f1_score(array_batch, labels_batch)
         printline(
-            "Accuracy on random batch: {:.2f}".format(accuracy * 100), logfile)
+            "Accuracy/Precision/Recall/F1-score on a random training batch: "
+            "  {:.2f}/{:.2f}/{:.2f}/{:.2f}".format(
+                accuracy, precision, recall, f1_score), logfile)
+        if not labels_valid == None and not array_valid == None:
+            # How is it going on validation set?
+            batch_indices = np.random.choice(
+                len(labels_valid), params['batch_size'])
+            array_batch = array_valid[batch_indices].toarray()
+            labels_batch = [labels_valid[i] for i in batch_indices]
+            network.evaluate_summaries(array_batch, labels_batch)
+            accuracy = network.evaluate_accuracy(array_batch, labels_batch)
+            recall = network.evaluate_recall(array_batch, labels_batch)
+            precision = network.evaluate_precision(array_batch, labels_batch)
+            f1_score = network.evaluate_f1_score(array_batch, labels_batch)
+            printline(
+            "Accuracy/Precision/Recall/F1-score on a random validation batch: "
+                "{:.2f}/{:.2f}/{:.2f}/{:.2f}".format(
+                    accuracy, precision, recall, f1_score), logfile)
         model_path = make_path(model_dir, params)
     if verbose or logfile:
         printline("Training finished.", logfile, verbose)

@@ -414,7 +414,7 @@ class Rankings:
 
     def score_pairs_tf(self, pairs, model_path, params):
         assert len(pairs)
-        array = pairs_to_array(pairs, params)
+        array = pairs_to_array(pairs, params).toarray()
         from .construct_network import NetworkPredict
         network = NetworkPredict(threads=4)
         network.load(model_path)
