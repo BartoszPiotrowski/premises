@@ -1,0 +1,65 @@
+[2018-03-22 22:35:12] Statements of 4564 theorems and definitions loaded.
+[2018-03-22 22:35:12] Features of 4564 thms and definitions loaded.
+[2018-03-22 22:35:12] Chronological order of 4564 thms and definitions loaded.
+[2018-03-22 22:35:12] Proofs of 1000 theorems loaded.
+[2018-03-22 22:35:12] Proofs of 342 theorems loaded.
+[2018-03-22 22:35:12] Transforming proofs of 1000 theorems to training data...
+[2018-03-22 22:35:12]     Number of features used: 2048 / 10241
+[2018-03-22 22:35:12]     Mode of combining theorems and premises to examples: merge_mode=concat
+[2018-03-22 22:35:12]     Negatives to positive ratio: 10
+[2018-03-22 22:35:12]     No negative mining.
+[2018-03-22 22:35:20] Transformation finished.
+[2018-03-22 22:35:20] Transforming proofs of 342 theorems to training data...
+[2018-03-22 22:35:20]     Number of features used: 2048 / 10241
+[2018-03-22 22:35:20]     Mode of combining theorems and premises to examples: merge_mode=concat
+[2018-03-22 22:35:20]     Negatives to positive ratio: 10
+[2018-03-22 22:35:20]     No negative mining.
+[2018-03-22 22:35:21] Transformation finished.
+[2018-03-22 22:35:21] Constructing neural net graph...
+[2018-03-22 22:37:04] Statements of 4564 theorems and definitions loaded.
+[2018-03-22 22:37:04] Features of 4564 thms and definitions loaded.
+[2018-03-22 22:37:04] Chronological order of 4564 thms and definitions loaded.
+[2018-03-22 22:37:04] Proofs of 1000 theorems loaded.
+[2018-03-22 22:37:04] Proofs of 342 theorems loaded.
+[2018-03-22 22:37:04] Transforming proofs of 1000 theorems to training data...
+[2018-03-22 22:37:04]     Number of features used: 2048 / 10241
+[2018-03-22 22:37:04]     Mode of combining theorems and premises to examples: merge_mode=concat
+[2018-03-22 22:37:04]     Negatives to positive ratio: 10
+[2018-03-22 22:37:04]     No negative mining.
+[2018-03-22 22:37:11] Transformation finished.
+[2018-03-22 22:37:11] Transforming proofs of 342 theorems to training data...
+[2018-03-22 22:37:11]     Number of features used: 2048 / 10241
+[2018-03-22 22:37:11]     Mode of combining theorems and premises to examples: merge_mode=concat
+[2018-03-22 22:37:11]     Negatives to positive ratio: 10
+[2018-03-22 22:37:11]     No negative mining.
+[2018-03-22 22:37:12] Transformation finished.
+[2018-03-22 22:37:12] Constructing neural net graph...
+[2018-03-22 22:40:27] Statements of 4564 theorems and definitions loaded.
+[2018-03-22 22:40:27] Features of 4564 thms and definitions loaded.
+[2018-03-22 22:40:27] Chronological order of 4564 thms and definitions loaded.
+[2018-03-22 22:40:27] Proofs of 1000 theorems loaded.
+[2018-03-22 22:40:27] Proofs of 342 theorems loaded.
+[2018-03-22 22:40:27] Transforming proofs of 1000 theorems to training data...
+[2018-03-22 22:40:27]     Number of features used: 2048 / 10241
+[2018-03-22 22:40:27]     Mode of combining theorems and premises to examples: merge_mode=concat
+[2018-03-22 22:40:27]     Negatives to positive ratio: 10
+[2018-03-22 22:40:27]     No negative mining.
+[2018-03-22 22:40:36] Transformation finished.
+[2018-03-22 22:40:36] Transforming proofs of 342 theorems to training data...
+[2018-03-22 22:40:36]     Number of features used: 2048 / 10241
+[2018-03-22 22:40:36]     Mode of combining theorems and premises to examples: merge_mode=concat
+[2018-03-22 22:40:36]     Negatives to positive ratio: 10
+[2018-03-22 22:40:36]     No negative mining.
+[2018-03-22 22:40:37] Transformation finished.
+[2018-03-22 22:40:37] Constructing neural net graph...
+[2018-03-22 22:40:37] Training of neural net started...
+[2018-03-22 22:40:37] Epoch: 0
+[2018-03-22 22:40:40] Accuracy/Precision/Recall/F1-score on a random training batch:   0.95/1.00/0.44/0.62
+[2018-03-22 22:40:40] Accuracy/Precision/Recall/F1-score on a random validation batch: 0.93/nan/0.00/nan
+[2018-03-22 22:40:40] Epoch: 1
+[2018-03-22 22:40:43] Accuracy/Precision/Recall/F1-score on a random training batch:   0.93/0.50/0.29/0.36
+[2018-03-22 22:40:43] Accuracy/Precision/Recall/F1-score on a random validation batch: 0.94/0.50/0.33/0.40
+[2018-03-22 22:40:43] Epoch: 2
+[2018-03-22 22:40:47] Accuracy/Precision/Recall/F1-score on a random training batch:   0.91/0.75/0.27/0.40
+[2018-03-22 22:40:47] Accuracy/Precision/Recall/F1-score on a random validation batch: 0.91/1.00/0.31/0.47
+[2018-03-22 22:40:47] Epoch: 3

@@ -43,7 +43,7 @@ params_train = {'model': 'network',
                 'batch_size': 100,
                 'learning_rate': 0.01,
                 'epochs': 500,
-                'layers': 1,
+                'layers': 3,
                 'hidden_layer': 100,
                 'dropout': 0.5,
                 'num_of_features': train_array.shape[1]}

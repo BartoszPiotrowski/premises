@@ -1,3 +1,5 @@
+
+
 import sys, os
 from random import sample
 sys.path.append('..')
@@ -45,7 +47,7 @@ params_train = {'model': 'network',
                 'epochs': 500,
                 'layers': 1,
                 'hidden_layer': 100,
-                'dropout': 0.5,
+                'dropout': 0.,
                 'num_of_features': train_array.shape[1]}
 
 model_path = prs.train(train_labels, train_array, test_labels, test_array,
