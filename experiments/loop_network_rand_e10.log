@@ -1,0 +1,394 @@
+[2018-03-23 21:41:29] Statements of 4564 theorems and definitions loaded.
+[2018-03-23 21:41:29] Features of 4564 thms and definitions loaded.
+[2018-03-23 21:41:29] Chronological order of 4564 thms and definitions loaded.
+[2018-03-23 21:41:29] Creating random rankings of premises for 1342 theorems...
+[2018-03-23 21:41:31] Rankings created.
+[2018-03-23 21:41:31] ATP evaluation started...
+[2018-03-23 22:09:17]     Number of proved theorems: 338
+[2018-03-23 22:09:17]     Percentage of proved theorems: 25.19%
+[2018-03-23 22:09:17] ITERATION: 0
+[2018-03-23 22:09:17] Transforming proofs of 338 theorems to training data...
+[2018-03-23 22:09:17]     Number of features used: 5120 / 10241
+[2018-03-23 22:09:17]     Mode of combining theorems and premises to examples: merge_mode=concat
+[2018-03-23 22:09:17]     Negatives to positive ratio: 10
+[2018-03-23 22:09:17]     No negative mining.
+[2018-03-23 22:09:21] Transformation finished.
+[2018-03-23 22:09:21] Constructing neural net graph...
+[2018-03-23 22:09:21] Training of neural net started...
+[2018-03-23 22:09:21] Epoch: 0
+[2018-03-23 22:09:24] Accuracy/Precision/Recall/F1-score on a random training batch:   0.91/nan/0.00/nan
+[2018-03-23 22:09:24] Epoch: 1
+[2018-03-23 22:09:26] Accuracy/Precision/Recall/F1-score on a random training batch:   0.91/1.00/0.18/0.31
+[2018-03-23 22:09:26] Epoch: 2
+[2018-03-23 22:09:29] Accuracy/Precision/Recall/F1-score on a random training batch:   0.91/1.00/0.10/0.18
+[2018-03-23 22:09:29] Epoch: 3
+[2018-03-23 22:09:31] Accuracy/Precision/Recall/F1-score on a random training batch:   0.91/1.00/0.18/0.31
+[2018-03-23 22:09:31] Epoch: 4
+[2018-03-23 22:09:33] Accuracy/Precision/Recall/F1-score on a random training batch:   0.94/1.00/0.14/0.25
+[2018-03-23 22:09:33] Epoch: 5
+[2018-03-23 22:09:36] Accuracy/Precision/Recall/F1-score on a random training batch:   0.93/0.67/0.25/0.36
+[2018-03-23 22:09:36] Epoch: 6
+[2018-03-23 22:09:38] Accuracy/Precision/Recall/F1-score on a random training batch:   0.94/0.67/0.29/0.40
+[2018-03-23 22:09:38] Epoch: 7
+[2018-03-23 22:09:40] Accuracy/Precision/Recall/F1-score on a random training batch:   0.96/1.00/0.33/0.50
+[2018-03-23 22:09:40] Epoch: 8
+[2018-03-23 22:09:42] Accuracy/Precision/Recall/F1-score on a random training batch:   0.95/0.80/0.50/0.62
+[2018-03-23 22:09:42] Epoch: 9
+[2018-03-23 22:09:45] Accuracy/Precision/Recall/F1-score on a random training batch:   0.94/0.67/0.29/0.40
+[2018-03-23 22:09:45] Training finished.
+[2018-03-23 22:09:45] Saving model to file experiments/loop_network_rand_e10/model/2018-03-23_220945--lr=0.001,e=10,l=1,a=relu,bs=100,m=network,hl=100,d=0.3,nof=10240
+[2018-03-23 22:09:45] Creating rankings of premises from the trained model for 1342 theorems...
+[2018-03-23 22:10:38] Rankings created.
+[2018-03-23 22:10:38] ATP evaluation started...
+[2018-03-23 22:32:53]     Number of proved theorems: 554
+[2018-03-23 22:32:53]     Percentage of proved theorems: 41.28%
+[2018-03-23 22:32:53] Number of all theorems with proof(s): 565
+[2018-03-23 22:32:53] Number of all proofs: 1360
+[2018-03-23 22:32:53] Number of theorems with exactly 1 proof(s): 215
+[2018-03-23 22:32:53] Number of theorems with exactly 2 proof(s): 129
+[2018-03-23 22:32:53] Number of theorems with exactly 3 proof(s): 98
+[2018-03-23 22:32:53] Number of theorems with exactly 4 proof(s): 64
+[2018-03-23 22:32:53] Number of theorems with exactly 5 proof(s): 30
+[2018-03-23 22:32:53] Number of theorems with exactly 6 proof(s): 18
+[2018-03-23 22:32:53] Number of theorems with exactly 7 proof(s): 9
+[2018-03-23 22:32:53] Number of theorems with exactly 8 proof(s): 2
+[2018-03-23 22:32:53] Average number of proofs per theorem: 2.407
+[2018-03-23 22:32:53] Average number of premises used in one proof: 7.798
+[2018-03-23 22:32:53] Theorems with maximal number of proofs found: ['t174_funct_1', 't205_relat_1']
+[2018-03-23 22:32:53] ITERATION: 1
+[2018-03-23 22:32:53] Transforming proofs of 565 theorems to training data...
+[2018-03-23 22:32:53]     Number of features used: 5120 / 10241
+[2018-03-23 22:32:53]     Mode of combining theorems and premises to examples: merge_mode=concat
+[2018-03-23 22:32:53]     Negatives to positive ratio: 10
+[2018-03-23 22:32:53]     Negative mining:
+[2018-03-23 22:32:53]         Level of negative mining: random
+[2018-03-23 22:32:53]         Part of theorems for negative mining: 0.5
+[2018-03-23 22:36:18] Transformation finished.
+[2018-03-23 22:36:18] Restoring neural net graph...
+[2018-03-23 22:36:18] Training of neural net started...
+[2018-03-23 22:36:18] Epoch: 0
+[2018-03-23 22:36:23] Accuracy/Precision/Recall/F1-score on a random training batch:   0.94/1.00/0.40/0.57
+[2018-03-23 22:36:23] Epoch: 1
+[2018-03-23 22:36:28] Accuracy/Precision/Recall/F1-score on a random training batch:   0.99/1.00/0.75/0.86
+[2018-03-23 22:36:28] Epoch: 2
+[2018-03-23 22:36:32] Accuracy/Precision/Recall/F1-score on a random training batch:   0.97/1.00/0.40/0.57
+[2018-03-23 22:36:32] Epoch: 3
+[2018-03-23 22:36:37] Accuracy/Precision/Recall/F1-score on a random training batch:   0.95/0.80/0.50/0.62
+[2018-03-23 22:36:37] Epoch: 4
+[2018-03-23 22:36:42] Accuracy/Precision/Recall/F1-score on a random training batch:   0.98/1.00/0.33/0.50
+[2018-03-23 22:36:42] Epoch: 5
+[2018-03-23 22:36:47] Accuracy/Precision/Recall/F1-score on a random training batch:   0.98/0.50/0.50/0.50
+[2018-03-23 22:36:47] Epoch: 6
+[2018-03-23 22:36:51] Accuracy/Precision/Recall/F1-score on a random training batch:   0.99/1.00/0.75/0.86
+[2018-03-23 22:36:51] Epoch: 7
+[2018-03-23 22:36:56] Accuracy/Precision/Recall/F1-score on a random training batch:   0.97/0.80/0.67/0.73
+[2018-03-23 22:36:56] Epoch: 8
+[2018-03-23 22:37:01] Accuracy/Precision/Recall/F1-score on a random training batch:   0.97/1.00/0.62/0.77
+[2018-03-23 22:37:01] Epoch: 9
+[2018-03-23 22:37:05] Accuracy/Precision/Recall/F1-score on a random training batch:   0.97/0.67/0.50/0.57
+[2018-03-23 22:37:05] Training finished.
+[2018-03-23 22:37:05] Saving model to file experiments/loop_network_rand_e10/model/2018-03-23_223705--lr=0.001,e=10,l=1,a=relu,bs=100,m=network,hl=100,d=0.3,nof=10240
+[2018-03-23 22:37:06] Creating rankings of premises from the trained model for 1342 theorems...
+[2018-03-23 22:38:06] Rankings created.
+[2018-03-23 22:38:06] ATP evaluation started...
+[2018-03-23 22:53:12]     Number of proved theorems: 682
+[2018-03-23 22:53:12]     Percentage of proved theorems: 50.82%
+[2018-03-23 22:53:12] Number of all theorems with proof(s): 691
+[2018-03-23 22:53:12] Number of all proofs: 1913
+[2018-03-23 22:53:12] Number of theorems with exactly 1 proof(s): 255
+[2018-03-23 22:53:12] Number of theorems with exactly 2 proof(s): 139
+[2018-03-23 22:53:12] Number of theorems with exactly 3 proof(s): 110
+[2018-03-23 22:53:12] Number of theorems with exactly 4 proof(s): 74
+[2018-03-23 22:53:12] Number of theorems with exactly 5 proof(s): 33
+[2018-03-23 22:53:12] Number of theorems with exactly 6 proof(s): 33
+[2018-03-23 22:53:12] Number of theorems with exactly 7 proof(s): 18
+[2018-03-23 22:53:12] Number of theorems with exactly 8 proof(s): 12
+[2018-03-23 22:53:12] Number of theorems with exactly 9 proof(s): 8
+[2018-03-23 22:53:12] Number of theorems with exactly 10 proof(s): 5
+[2018-03-23 22:53:12] Number of theorems with exactly 11 proof(s): 2
+[2018-03-23 22:53:12] Number of theorems with exactly 12 proof(s): 1
+[2018-03-23 22:53:12] Number of theorems with exactly 13 proof(s): 1
+[2018-03-23 22:53:12] Average number of proofs per theorem: 2.768
+[2018-03-23 22:53:12] Average number of premises used in one proof: 8.146
+[2018-03-23 22:53:12] Theorems with maximal number of proofs found: ['t174_funct_1']
+[2018-03-23 22:53:12] ITERATION: 2
+[2018-03-23 22:53:12] Transforming proofs of 691 theorems to training data...
+[2018-03-23 22:53:12]     Number of features used: 5120 / 10241
+[2018-03-23 22:53:12]     Mode of combining theorems and premises to examples: merge_mode=concat
+[2018-03-23 22:53:12]     Negatives to positive ratio: 10
+[2018-03-23 22:53:12]     Negative mining:
+[2018-03-23 22:53:12]         Level of negative mining: random
+[2018-03-23 22:53:12]         Part of theorems for negative mining: 0.5
+[2018-03-23 22:56:34] Transformation finished.
+[2018-03-23 22:56:34] Restoring neural net graph...
+[2018-03-23 22:56:35] Training of neural net started...
+[2018-03-23 22:56:35] Epoch: 0
+[2018-03-23 22:56:40] Accuracy/Precision/Recall/F1-score on a random training batch:   0.97/1.00/0.57/0.73
+[2018-03-23 22:56:40] Epoch: 1
+[2018-03-23 22:56:46] Accuracy/Precision/Recall/F1-score on a random training batch:   0.98/1.00/0.75/0.86
+[2018-03-23 22:56:46] Epoch: 2
+[2018-03-23 22:56:52] Accuracy/Precision/Recall/F1-score on a random training batch:   0.98/1.00/0.75/0.86
+[2018-03-23 22:56:52] Epoch: 3
+[2018-03-23 22:56:58] Accuracy/Precision/Recall/F1-score on a random training batch:   1.00/1.00/1.00/1.00
+[2018-03-23 22:56:58] Epoch: 4
+[2018-03-23 22:57:04] Accuracy/Precision/Recall/F1-score on a random training batch:   0.98/1.00/0.67/0.80
+[2018-03-23 22:57:04] Epoch: 5
+[2018-03-23 22:57:09] Accuracy/Precision/Recall/F1-score on a random training batch:   0.98/1.00/0.80/0.89
+[2018-03-23 22:57:09] Epoch: 6
+[2018-03-23 22:57:15] Accuracy/Precision/Recall/F1-score on a random training batch:   0.99/0.80/1.00/0.89
+[2018-03-23 22:57:15] Epoch: 7
+[2018-03-23 22:57:21] Accuracy/Precision/Recall/F1-score on a random training batch:   0.97/1.00/0.50/0.67
+[2018-03-23 22:57:21] Epoch: 8
+[2018-03-23 22:57:27] Accuracy/Precision/Recall/F1-score on a random training batch:   0.99/1.00/0.83/0.91
+[2018-03-23 22:57:27] Epoch: 9
+[2018-03-23 22:57:33] Accuracy/Precision/Recall/F1-score on a random training batch:   0.95/0.88/0.64/0.74
+[2018-03-23 22:57:33] Training finished.
+[2018-03-23 22:57:33] Saving model to file experiments/loop_network_rand_e10/model/2018-03-23_225733--lr=0.001,e=10,l=1,a=relu,bs=100,m=network,hl=100,d=0.3,nof=10240
+[2018-03-23 22:57:33] Creating rankings of premises from the trained model for 1342 theorems...
+[2018-03-23 22:58:34] Rankings created.
+[2018-03-23 22:58:34] ATP evaluation started...
+[2018-03-23 23:12:59]     Number of proved theorems: 741
+[2018-03-23 23:12:59]     Percentage of proved theorems: 55.22%
+[2018-03-23 23:12:59] Number of all theorems with proof(s): 752
+[2018-03-23 23:12:59] Number of all proofs: 2297
+[2018-03-23 23:12:59] Number of theorems with exactly 1 proof(s): 240
+[2018-03-23 23:12:59] Number of theorems with exactly 2 proof(s): 175
+[2018-03-23 23:12:59] Number of theorems with exactly 3 proof(s): 109
+[2018-03-23 23:12:59] Number of theorems with exactly 4 proof(s): 83
+[2018-03-23 23:12:59] Number of theorems with exactly 5 proof(s): 39
+[2018-03-23 23:12:59] Number of theorems with exactly 6 proof(s): 36
+[2018-03-23 23:12:59] Number of theorems with exactly 7 proof(s): 20
+[2018-03-23 23:12:59] Number of theorems with exactly 8 proof(s): 14
+[2018-03-23 23:12:59] Number of theorems with exactly 9 proof(s): 11
+[2018-03-23 23:12:59] Number of theorems with exactly 10 proof(s): 9
+[2018-03-23 23:12:59] Number of theorems with exactly 11 proof(s): 6
+[2018-03-23 23:12:59] Number of theorems with exactly 12 proof(s): 5
+[2018-03-23 23:12:59] Number of theorems with exactly 13 proof(s): 3
+[2018-03-23 23:12:59] Number of theorems with exactly 15 proof(s): 1
+[2018-03-23 23:12:59] Number of theorems with exactly 16 proof(s): 1
+[2018-03-23 23:12:59] Average number of proofs per theorem: 3.055
+[2018-03-23 23:12:59] Average number of premises used in one proof: 8.351
+[2018-03-23 23:12:59] Theorems with maximal number of proofs found: ['t60_funct_2']
+[2018-03-23 23:13:00] ITERATION: 3
+[2018-03-23 23:13:00] Transforming proofs of 752 theorems to training data...
+[2018-03-23 23:13:00]     Number of features used: 5120 / 10241
+[2018-03-23 23:13:00]     Mode of combining theorems and premises to examples: merge_mode=concat
+[2018-03-23 23:13:00]     Negatives to positive ratio: 10
+[2018-03-23 23:13:00]     Negative mining:
+[2018-03-23 23:13:00]         Level of negative mining: random
+[2018-03-23 23:13:00]         Part of theorems for negative mining: 0.5
+[2018-03-23 23:16:26] Transformation finished.
+[2018-03-23 23:16:26] Restoring neural net graph...
+[2018-03-23 23:16:26] Training of neural net started...
+[2018-03-23 23:16:26] Epoch: 0
+[2018-03-23 23:16:32] Accuracy/Precision/Recall/F1-score on a random training batch:   0.98/0.83/0.83/0.83
+[2018-03-23 23:16:32] Epoch: 1
+[2018-03-23 23:16:37] Accuracy/Precision/Recall/F1-score on a random training batch:   1.00/1.00/1.00/1.00
+[2018-03-23 23:16:37] Epoch: 2
+[2018-03-23 23:16:43] Accuracy/Precision/Recall/F1-score on a random training batch:   0.99/1.00/0.67/0.80
+[2018-03-23 23:16:43] Epoch: 3
+[2018-03-23 23:16:49] Accuracy/Precision/Recall/F1-score on a random training batch:   0.99/1.00/0.80/0.89
+[2018-03-23 23:16:49] Epoch: 4
+[2018-03-23 23:16:54] Accuracy/Precision/Recall/F1-score on a random training batch:   0.98/1.00/0.78/0.88
+[2018-03-23 23:16:54] Epoch: 5
+[2018-03-23 23:17:00] Accuracy/Precision/Recall/F1-score on a random training batch:   1.00/1.00/1.00/1.00
+[2018-03-23 23:17:00] Epoch: 6
+[2018-03-23 23:17:06] Accuracy/Precision/Recall/F1-score on a random training batch:   1.00/1.00/1.00/1.00
+[2018-03-23 23:17:06] Epoch: 7
+[2018-03-23 23:17:11] Accuracy/Precision/Recall/F1-score on a random training batch:   1.00/1.00/1.00/1.00
+[2018-03-23 23:17:11] Epoch: 8
+[2018-03-23 23:17:17] Accuracy/Precision/Recall/F1-score on a random training batch:   0.99/1.00/0.86/0.92
+[2018-03-23 23:17:17] Epoch: 9
+[2018-03-23 23:17:22] Accuracy/Precision/Recall/F1-score on a random training batch:   0.98/0.75/0.75/0.75
+[2018-03-23 23:17:22] Training finished.
+[2018-03-23 23:17:22] Saving model to file experiments/loop_network_rand_e10/model/2018-03-23_231722--lr=0.001,e=10,l=1,a=relu,bs=100,m=network,hl=100,d=0.3,nof=10240
+[2018-03-23 23:17:23] Creating rankings of premises from the trained model for 1342 theorems...
+[2018-03-23 23:18:19] Rankings created.
+[2018-03-23 23:18:19] ATP evaluation started...
+[2018-03-23 23:35:52]     Number of proved theorems: 774
+[2018-03-23 23:35:52]     Percentage of proved theorems: 57.68%
+[2018-03-23 23:35:52] Number of all theorems with proof(s): 784
+[2018-03-23 23:35:52] Number of all proofs: 2641
+[2018-03-23 23:35:52] Number of theorems with exactly 1 proof(s): 225
+[2018-03-23 23:35:52] Number of theorems with exactly 2 proof(s): 175
+[2018-03-23 23:35:52] Number of theorems with exactly 3 proof(s): 119
+[2018-03-23 23:35:52] Number of theorems with exactly 4 proof(s): 87
+[2018-03-23 23:35:52] Number of theorems with exactly 5 proof(s): 51
+[2018-03-23 23:35:52] Number of theorems with exactly 6 proof(s): 27
+[2018-03-23 23:35:52] Number of theorems with exactly 7 proof(s): 30
+[2018-03-23 23:35:52] Number of theorems with exactly 8 proof(s): 20
+[2018-03-23 23:35:52] Number of theorems with exactly 9 proof(s): 12
+[2018-03-23 23:35:52] Number of theorems with exactly 10 proof(s): 12
+[2018-03-23 23:35:52] Number of theorems with exactly 11 proof(s): 6
+[2018-03-23 23:35:52] Number of theorems with exactly 12 proof(s): 7
+[2018-03-23 23:35:52] Number of theorems with exactly 13 proof(s): 4
+[2018-03-23 23:35:52] Number of theorems with exactly 14 proof(s): 3
+[2018-03-23 23:35:52] Number of theorems with exactly 16 proof(s): 4
+[2018-03-23 23:35:52] Number of theorems with exactly 17 proof(s): 1
+[2018-03-23 23:35:52] Number of theorems with exactly 21 proof(s): 1
+[2018-03-23 23:35:52] Average number of proofs per theorem: 3.369
+[2018-03-23 23:35:52] Average number of premises used in one proof: 8.489
+[2018-03-23 23:35:52] Theorems with maximal number of proofs found: ['t60_funct_2']
+[2018-03-23 23:35:52] ITERATION: 4
+[2018-03-23 23:35:52] Transforming proofs of 784 theorems to training data...
+[2018-03-23 23:35:52]     Number of features used: 5120 / 10241
+[2018-03-23 23:35:52]     Mode of combining theorems and premises to examples: merge_mode=concat
+[2018-03-23 23:35:52]     Negatives to positive ratio: 10
+[2018-03-23 23:35:52]     Negative mining:
+[2018-03-23 23:35:52]         Level of negative mining: random
+[2018-03-23 23:35:52]         Part of theorems for negative mining: 0.5
+[2018-03-23 23:39:14] Transformation finished.
+[2018-03-23 23:39:14] Restoring neural net graph...
+[2018-03-23 23:39:15] Training of neural net started...
+[2018-03-23 23:39:15] Epoch: 0
+[2018-03-23 23:39:21] Accuracy/Precision/Recall/F1-score on a random training batch:   0.98/0.75/0.75/0.75
+[2018-03-23 23:39:21] Epoch: 1
+[2018-03-23 23:39:28] Accuracy/Precision/Recall/F1-score on a random training batch:   0.98/0.89/0.89/0.89
+[2018-03-23 23:39:28] Epoch: 2
+[2018-03-23 23:39:35] Accuracy/Precision/Recall/F1-score on a random training batch:   0.99/0.88/1.00/0.93
+[2018-03-23 23:39:35] Epoch: 3
+[2018-03-23 23:39:41] Accuracy/Precision/Recall/F1-score on a random training batch:   0.98/0.92/0.92/0.92
+[2018-03-23 23:39:41] Epoch: 4
+[2018-03-23 23:39:48] Accuracy/Precision/Recall/F1-score on a random training batch:   0.97/0.78/0.88/0.82
+[2018-03-23 23:39:48] Epoch: 5
+[2018-03-23 23:39:55] Accuracy/Precision/Recall/F1-score on a random training batch:   0.99/1.00/0.89/0.94
+[2018-03-23 23:39:55] Epoch: 6
+[2018-03-23 23:40:01] Accuracy/Precision/Recall/F1-score on a random training batch:   0.98/0.88/0.88/0.88
+[2018-03-23 23:40:01] Epoch: 7
+[2018-03-23 23:40:08] Accuracy/Precision/Recall/F1-score on a random training batch:   1.00/1.00/1.00/1.00
+[2018-03-23 23:40:08] Epoch: 8
+[2018-03-23 23:40:15] Accuracy/Precision/Recall/F1-score on a random training batch:   0.99/0.88/1.00/0.93
+[2018-03-23 23:40:15] Epoch: 9
+[2018-03-23 23:40:21] Accuracy/Precision/Recall/F1-score on a random training batch:   1.00/1.00/1.00/1.00
+[2018-03-23 23:40:21] Training finished.
+[2018-03-23 23:40:21] Saving model to file experiments/loop_network_rand_e10/model/2018-03-23_234021--lr=0.001,e=10,l=1,a=relu,bs=100,m=network,hl=100,d=0.3,nof=10240
+[2018-03-23 23:40:22] Creating rankings of premises from the trained model for 1342 theorems...
+[2018-03-23 23:41:18] Rankings created.
+[2018-03-23 23:41:18] ATP evaluation started...
+[2018-03-23 23:58:29]     Number of proved theorems: 789
+[2018-03-23 23:58:29]     Percentage of proved theorems: 58.79%
+[2018-03-23 23:58:29] Number of all theorems with proof(s): 799
+[2018-03-23 23:58:29] Number of all proofs: 2893
+[2018-03-23 23:58:29] Number of theorems with exactly 1 proof(s): 208
+[2018-03-23 23:58:29] Number of theorems with exactly 2 proof(s): 184
+[2018-03-23 23:58:29] Number of theorems with exactly 3 proof(s): 114
+[2018-03-23 23:58:29] Number of theorems with exactly 4 proof(s): 91
+[2018-03-23 23:58:29] Number of theorems with exactly 5 proof(s): 54
+[2018-03-23 23:58:29] Number of theorems with exactly 6 proof(s): 37
+[2018-03-23 23:58:29] Number of theorems with exactly 7 proof(s): 28
+[2018-03-23 23:58:29] Number of theorems with exactly 8 proof(s): 16
+[2018-03-23 23:58:29] Number of theorems with exactly 9 proof(s): 16
+[2018-03-23 23:58:29] Number of theorems with exactly 10 proof(s): 14
+[2018-03-23 23:58:29] Number of theorems with exactly 11 proof(s): 10
+[2018-03-23 23:58:29] Number of theorems with exactly 12 proof(s): 5
+[2018-03-23 23:58:29] Number of theorems with exactly 13 proof(s): 7
+[2018-03-23 23:58:29] Number of theorems with exactly 14 proof(s): 2
+[2018-03-23 23:58:29] Number of theorems with exactly 15 proof(s): 4
+[2018-03-23 23:58:29] Number of theorems with exactly 16 proof(s): 3
+[2018-03-23 23:58:29] Number of theorems with exactly 18 proof(s): 4
+[2018-03-23 23:58:29] Number of theorems with exactly 20 proof(s): 1
+[2018-03-23 23:58:29] Number of theorems with exactly 22 proof(s): 1
+[2018-03-23 23:58:29] Average number of proofs per theorem: 3.621
+[2018-03-23 23:58:29] Average number of premises used in one proof: 8.646
+[2018-03-23 23:58:29] Theorems with maximal number of proofs found: ['t60_funct_2']
+[2018-03-23 23:58:29] ITERATION: 5
+[2018-03-23 23:58:29] Transforming proofs of 799 theorems to training data...
+[2018-03-23 23:58:29]     Number of features used: 5120 / 10241
+[2018-03-23 23:58:29]     Mode of combining theorems and premises to examples: merge_mode=concat
+[2018-03-23 23:58:29]     Negatives to positive ratio: 10
+[2018-03-23 23:58:29]     Negative mining:
+[2018-03-23 23:58:29]         Level of negative mining: random
+[2018-03-23 23:58:29]         Part of theorems for negative mining: 0.5
+[2018-03-24 00:01:53] Transformation finished.
+[2018-03-24 00:01:53] Restoring neural net graph...
+[2018-03-24 00:01:54] Training of neural net started...
+[2018-03-24 00:01:54] Epoch: 0
+[2018-03-24 00:02:00] Accuracy/Precision/Recall/F1-score on a random training batch:   1.00/1.00/1.00/1.00
+[2018-03-24 00:02:00] Epoch: 1
+[2018-03-24 00:02:06] Accuracy/Precision/Recall/F1-score on a random training batch:   0.99/1.00/0.86/0.92
+[2018-03-24 00:02:06] Epoch: 2
+[2018-03-24 00:02:13] Accuracy/Precision/Recall/F1-score on a random training batch:   1.00/1.00/1.00/1.00
+[2018-03-24 00:02:13] Epoch: 3
+[2018-03-24 00:02:19] Accuracy/Precision/Recall/F1-score on a random training batch:   0.98/0.89/0.89/0.89
+[2018-03-24 00:02:19] Epoch: 4
+[2018-03-24 00:02:26] Accuracy/Precision/Recall/F1-score on a random training batch:   0.96/0.80/0.57/0.67
+[2018-03-24 00:02:26] Epoch: 5
+[2018-03-24 00:02:32] Accuracy/Precision/Recall/F1-score on a random training batch:   1.00/1.00/1.00/1.00
+[2018-03-24 00:02:32] Epoch: 6
+[2018-03-24 00:02:38] Accuracy/Precision/Recall/F1-score on a random training batch:   1.00/1.00/1.00/1.00
+[2018-03-24 00:02:38] Epoch: 7
+[2018-03-24 00:02:45] Accuracy/Precision/Recall/F1-score on a random training batch:   1.00/1.00/1.00/1.00
+[2018-03-24 00:02:45] Epoch: 8
+[2018-03-24 00:02:51] Accuracy/Precision/Recall/F1-score on a random training batch:   1.00/1.00/1.00/1.00
+[2018-03-24 00:02:51] Epoch: 9
+[2018-03-24 00:02:58] Accuracy/Precision/Recall/F1-score on a random training batch:   1.00/1.00/1.00/1.00
+[2018-03-24 00:02:58] Training finished.
+[2018-03-24 00:02:58] Saving model to file experiments/loop_network_rand_e10/model/2018-03-24_000258--lr=0.001,e=10,l=1,a=relu,bs=100,m=network,hl=100,d=0.3,nof=10240
+[2018-03-24 00:02:58] Creating rankings of premises from the trained model for 1342 theorems...
+[2018-03-24 00:03:53] Rankings created.
+[2018-03-24 00:03:53] ATP evaluation started...
+[2018-03-24 00:21:00]     Number of proved theorems: 791
+[2018-03-24 00:21:00]     Percentage of proved theorems: 58.94%
+[2018-03-24 00:21:00] Number of all theorems with proof(s): 809
+[2018-03-24 00:21:00] Number of all proofs: 3081
+[2018-03-24 00:21:00] Number of theorems with exactly 1 proof(s): 206
+[2018-03-24 00:21:00] Number of theorems with exactly 2 proof(s): 175
+[2018-03-24 00:21:00] Number of theorems with exactly 3 proof(s): 120
+[2018-03-24 00:21:00] Number of theorems with exactly 4 proof(s): 85
+[2018-03-24 00:21:00] Number of theorems with exactly 5 proof(s): 54
+[2018-03-24 00:21:00] Number of theorems with exactly 6 proof(s): 44
+[2018-03-24 00:21:00] Number of theorems with exactly 7 proof(s): 30
+[2018-03-24 00:21:00] Number of theorems with exactly 8 proof(s): 19
+[2018-03-24 00:21:00] Number of theorems with exactly 9 proof(s): 17
+[2018-03-24 00:21:00] Number of theorems with exactly 10 proof(s): 11
+[2018-03-24 00:21:00] Number of theorems with exactly 11 proof(s): 15
+[2018-03-24 00:21:00] Number of theorems with exactly 12 proof(s): 8
+[2018-03-24 00:21:00] Number of theorems with exactly 13 proof(s): 6
+[2018-03-24 00:21:00] Number of theorems with exactly 14 proof(s): 5
+[2018-03-24 00:21:00] Number of theorems with exactly 15 proof(s): 1
+[2018-03-24 00:21:00] Number of theorems with exactly 16 proof(s): 3
+[2018-03-24 00:21:00] Number of theorems with exactly 17 proof(s): 3
+[2018-03-24 00:21:00] Number of theorems with exactly 18 proof(s): 1
+[2018-03-24 00:21:00] Number of theorems with exactly 19 proof(s): 1
+[2018-03-24 00:21:00] Number of theorems with exactly 20 proof(s): 2
+[2018-03-24 00:21:00] Number of theorems with exactly 21 proof(s): 2
+[2018-03-24 00:21:00] Number of theorems with exactly 24 proof(s): 1
+[2018-03-24 00:21:00] Average number of proofs per theorem: 3.808
+[2018-03-24 00:21:00] Average number of premises used in one proof: 8.720
+[2018-03-24 00:21:00] Theorems with maximal number of proofs found: ['t60_funct_2']
+[2018-03-24 00:21:00] ITERATION: 6
+[2018-03-24 00:21:00] Transforming proofs of 809 theorems to training data...
+[2018-03-24 00:21:00]     Number of features used: 5120 / 10241
+[2018-03-24 00:21:00]     Mode of combining theorems and premises to examples: merge_mode=concat
+[2018-03-24 00:21:00]     Negatives to positive ratio: 10
+[2018-03-24 00:21:00]     Negative mining:
+[2018-03-24 00:21:00]         Level of negative mining: random
+[2018-03-24 00:21:00]         Part of theorems for negative mining: 0.5
+[2018-03-24 00:24:22] Transformation finished.
+[2018-03-24 00:24:22] Restoring neural net graph...
+[2018-03-24 00:24:23] Training of neural net started...
+[2018-03-24 00:24:23] Epoch: 0
+[2018-03-24 00:24:29] Accuracy/Precision/Recall/F1-score on a random training batch:   0.99/1.00/0.90/0.95
+[2018-03-24 00:24:29] Epoch: 1
+[2018-03-24 00:24:36] Accuracy/Precision/Recall/F1-score on a random training batch:   1.00/1.00/1.00/1.00
+[2018-03-24 00:24:36] Epoch: 2
+[2018-03-24 00:24:42] Accuracy/Precision/Recall/F1-score on a random training batch:   1.00/1.00/1.00/1.00
+[2018-03-24 00:24:42] Epoch: 3
+[2018-03-24 00:24:49] Accuracy/Precision/Recall/F1-score on a random training batch:   0.99/1.00/0.92/0.96
+[2018-03-24 00:24:49] Epoch: 4
+[2018-03-24 00:24:55] Accuracy/Precision/Recall/F1-score on a random training batch:   0.99/0.91/1.00/0.95
+[2018-03-24 00:24:55] Epoch: 5
+[2018-03-24 00:25:02] Accuracy/Precision/Recall/F1-score on a random training batch:   0.98/0.71/1.00/0.83
+[2018-03-24 00:25:02] Epoch: 6
+[2018-03-24 00:25:08] Accuracy/Precision/Recall/F1-score on a random training batch:   0.99/1.00/0.86/0.92
+[2018-03-24 00:25:08] Epoch: 7
+[2018-03-24 00:25:15] Accuracy/Precision/Recall/F1-score on a random training batch:   0.99/1.00/0.90/0.95
+[2018-03-24 00:25:15] Epoch: 8
+[2018-03-24 00:25:21] Accuracy/Precision/Recall/F1-score on a random training batch:   1.00/1.00/1.00/1.00
+[2018-03-24 00:25:21] Epoch: 9
+[2018-03-24 00:25:28] Accuracy/Precision/Recall/F1-score on a random training batch:   1.00/1.00/1.00/1.00
+[2018-03-24 00:25:28] Training finished.
+[2018-03-24 00:25:28] Saving model to file experiments/loop_network_rand_e10/model/2018-03-24_002528--lr=0.001,e=10,l=1,a=relu,bs=100,m=network,hl=100,d=0.3,nof=10240
+[2018-03-24 00:25:29] Creating rankings of premises from the trained model for 1342 theorems...
+[2018-03-24 00:26:25] Rankings created.
+[2018-03-24 00:26:25] ATP evaluation started...
