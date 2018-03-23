@@ -33,7 +33,7 @@ params_data_trans = {'features': features,
 rankings_random = prs.Rankings(theorems, model=None, params=params_data_trans,
                              n_jobs=N_JOBS, logfile=LOG_FILE)
 
-params_atp_eval = {}
+params_atp_eval = {'n_premises': [500]}
 proofs = prs.atp_evaluation(rankings_random, statements, params=params_atp_eval,
                             dirpath=ATP_DIR, n_jobs=N_JOBS, logfile=LOG_FILE)
 
@@ -45,7 +45,7 @@ params_train = {'model': 'network',
                 'layers': 1,
                 'hidden_layer': 100,
                 'dropout': 0.3}
-pretrained_model_path = None
+model_path = None
 for i in range(40):
     prs.utils.printline("ITERATION: {}".format(i), LOG_FILE)
     train_labels, train_array = prs.proofs_to_train(proofs, params_data_trans,
