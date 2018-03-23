@@ -4,7 +4,7 @@ sys.path.append('..')
 import premises as prs
 
 
-N_JOBS = 3
+N_JOBS = 45
 DATA_DIR = 'data/debug_data'
 OUTPUT_DIR = __file__.strip('.py')
 if not os.path.exists(OUTPUT_DIR):
@@ -33,36 +33,37 @@ params_data_trans = {'features': features,
 rankings_random = prs.Rankings(theorems, model=None, params=params_data_trans,
                              n_jobs=N_JOBS, logfile=LOG_FILE)
 
-proofs = prs.atp_evaluation(rankings_random, statements, dirpath=ATP_DIR,
-                                 n_jobs=N_JOBS, logfile=LOG_FILE)
+params_atp_eval = {}
+proofs = prs.atp_evaluation(rankings_random, statements, params=params_atp_eval,
+                            dirpath=ATP_DIR, n_jobs=N_JOBS, logfile=LOG_FILE)
 
 params_train = {'model': 'network',
                 'activation': 'relu',
                 'batch_size': 100,
                 'learning_rate': 0.001,
-                'epochs': 100,
+                'epochs': 50,
                 'layers': 1,
                 'hidden_layer': 100,
-                'dropout': 0.3,
-                'num_of_features': train_array.shape[1]}
-
+                'dropout': 0.3}
+pretrained_model_path = None
 for i in range(40):
     prs.utils.printline("ITERATION: {}".format(i), LOG_FILE)
     train_labels, train_array = prs.proofs_to_train(proofs, params_data_trans,
                                            n_jobs=N_JOBS, logfile=LOG_FILE)
 
-    model_path = prs.train(train_labels, train_array, test_labels, test_array,
-           params=params_train, model_dir=MODEL_DIR, n_jobs=N_JOBS,
+    params_train['num_of_features'] = train_array.shape[1]
+    model_path = prs.train(train_labels, train_array, params=params_train,
+           pretrained_model_path=model_path, model_dir=MODEL_DIR, n_jobs=N_JOBS,
                            logdir=LOG_DIR, logfile=LOG_FILE)
 
-    params_train['pretrained_model'] = model_path
-
+    pretrained_model_path = model_path
     rankings = prs.Rankings(theorems, model_path, params_data_trans,
                              model_type=params_train['model'],
                              n_jobs=N_JOBS, logfile=LOG_FILE)
 
-    params_atp_eval = {}
     proofs.update(prs.atp_evaluation(rankings, statements, params_atp_eval,
                          dirpath=ATP_DIR, n_jobs=N_JOBS, logfile=LOG_FILE))
 
     proofs.print_stats(logfile=LOG_FILE)
+    params_data_trans['rankings_for_negative_mining'] = rankings
+    params_data_trans['level_of_negative_mining'] = 1
