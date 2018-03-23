@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 import numpy as np
 import tensorflow as tf
+import tensorflow.contrib.summary  # Needed to allow importing summary operations
 import warnings
 warnings.simplefilter("ignore", DeprecationWarning)
 
@@ -78,9 +79,39 @@ class Network:
                         self.labels, self.predictions), dtype=tf.float32), [
                     1, self.LABELS, self.LABELS, 1])
 
+            # Summaries
+            summary_writer = tf.contrib.summary.create_file_writer(
+                logdir, flush_millis=1 * 300)
+            with summary_writer.as_default(), \
+                   tf.contrib.summary.record_summaries_every_n_global_steps(10):
+                self.summaries_train = [
+                    tf.contrib.summary.scalar(
+                        'train/loss',
+                        loss),
+                    tf.contrib.summary.scalar(
+                        'train/accuracy',
+                        self.accuracy),
+                    tf.contrib.summary.scalar(
+                        'train/f1_score',
+                        self.f1_score)]
+            with summary_writer.as_default(), \
+                    tf.contrib.summary.always_record_summaries():
+                self.summaries_test = [
+                    tf.contrib.summary.scalar(
+                        'test/accuracy',
+                        self.accuracy),
+                    tf.contrib.summary.scalar(
+                        'test/f1_score',
+                        self.f1_score),
+                    tf.contrib.summary.image(
+                        'test/confusion_matrix',
+                        self.confusion_matrix)]
 
             # Initialize variables
             self.session.run(tf.global_variables_initializer())
+            with summary_writer.as_default():
+                tf.contrib.summary.initialize(
+                    session=self.session, graph=self.session.graph)
 
             # Saver
             tf.add_to_collection('end_points/is_training', self.is_training)
@@ -88,17 +119,20 @@ class Network:
             tf.add_to_collection('end_points/labels', self.labels)
             tf.add_to_collection('end_points/scores', self.scores)
             tf.add_to_collection('end_points/training', self.training)
-            tf.add_to_collection('end_points/accuracy', self.accuracy)
-            tf.add_to_collection('end_points/recall', self.recall)
-            tf.add_to_collection('end_points/precision', self.precision)
-            tf.add_to_collection('end_points/f1_score', self.f1_score)
+            tf.add_to_collection('end_points/loss', loss)
             self.saver = tf.train.Saver()
 
     def train(self, array, labels):
-        self.session.run(self.training,
+        self.session.run([self.training, self.summaries_train],
                          {self.array: array,
                           self.labels: labels,
                           self.is_training: True})
+
+    def evaluate_summaries(self, array, labels):
+        self.session.run(self.summaries_test,
+                        {self.array: array,
+                         self.labels: labels,
+                         self.is_training: False})
 
     def evaluate_accuracy(self, array, labels):
         return self.session.run(self.accuracy,
@@ -138,13 +172,40 @@ class Network:
             self.labels = tf.get_collection('end_points/labels')[0]
             self.scores = tf.get_collection('end_points/scores')[0]
             self.training = tf.get_collection('end_points/training')[0]
-            self.accuracy = tf.get_collection('end_points/accuracy')[0]
-            self.recall = tf.get_collection('end_points/recall')[0]
-            self.precision = tf.get_collection('end_points/precision')[0]
-            self.f1_score = tf.get_collection('end_points/f1_score')[0]
+            loss = tf.get_collection('end_points/loss')[0]
 
         # Load the graph weights
         self.saver.restore(self.session, path)
+        summary_writer = tf.contrib.summary.create_file_writer(
+            logdir, flush_millis=1 * 300)
+        with summary_writer.as_default(), \
+               tf.contrib.summary.record_summaries_every_n_global_steps(10):
+            self.summaries_train = [
+                tf.contrib.summary.scalar(
+                    'train/loss',
+                    loss),
+                tf.contrib.summary.scalar(
+                    'train/accuracy',
+                    self.accuracy),
+                tf.contrib.summary.scalar(
+                    'train/f1_score',
+                    self.f1_score)]
+        with summary_writer.as_default(), \
+                tf.contrib.summary.always_record_summaries():
+            self.summaries_test = [
+                tf.contrib.summary.scalar(
+                    'test/accuracy',
+                    self.accuracy),
+                tf.contrib.summary.scalar(
+                    'test/f1_score',
+                    self.f1_score),
+                tf.contrib.summary.image(
+                    'test/confusion_matrix',
+                    self.confusion_matrix)]
+        with summary_writer.as_default():
+            tf.contrib.summary.initialize(
+                session=self.session, graph=self.session.graph)
+
 
 
 class NetworkPredict:
