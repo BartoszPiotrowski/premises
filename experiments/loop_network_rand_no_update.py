@@ -41,7 +41,7 @@ params_train = {'model': 'network',
                 'activation': 'relu',
                 'batch_size': 100,
                 'learning_rate': 0.001,
-                'epochs': 50,
+                'epochs': 100,
                 'layers': 1,
                 'hidden_layer': 100,
                 'dropout': 0.3}
