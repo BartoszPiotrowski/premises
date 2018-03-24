@@ -54,7 +54,7 @@ class Network:
                 name='output_layer')
             self.predictions = tf.argmax(output_layer, axis=1, name='predictions')
             softmax = tf.nn.softmax(output_layer, axis=1, name='softmax')
-            self.scores = softmax[:,1]
+            self.scores = softmax[:,0]
 
             # Training
             loss = tf.losses.sparse_softmax_cross_entropy(
