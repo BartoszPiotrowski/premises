@@ -1,6 +1,9 @@
-- hash features when loading
+- punish false negatives more!
+- predict not safe when n_Jobs > 1?http://xgboost.readthedocs.io/en/latest/python/python_api.html?highlight=save_model#xgboost.Booster.predict
 - check size of the model and avoid copying it when it is big
 - create rankings faster
-- in atp rerun as long as fixpoint is achieved
+- better atp-minimization
 - private methods
 - Proofs/atp_eval: handling clouse loop numbers
+- raising errors
+- F1 score
