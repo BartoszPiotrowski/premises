@@ -4,8 +4,8 @@ sys.path.append('..')
 import premises as prs
 
 
-N_JOBS = 45
-DATA_DIR = 'data/MPTP2078'
+N_JOBS = 4
+DATA_DIR = 'data/debug_data'
 OUTPUT_DIR = __file__.strip('.py')
 if not os.path.exists(OUTPUT_DIR):
     os.mkdir(OUTPUT_DIR)
