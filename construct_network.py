@@ -55,10 +55,14 @@ class Network:
             self.predictions = tf.argmax(output_layer, axis=1, name='predictions')
             softmax = tf.nn.softmax(output_layer, axis=1, name='softmax')
             self.scores = softmax[:,1]
-
+            self.labels_one_hot = tf.one_hot(self.labels, 2)
             # Training
-            loss = tf.losses.sparse_softmax_cross_entropy(
-                self.labels, output_layer, scope='loss')
+            loss = tf.nn.weighted_cross_entropy_with_logits(
+            #loss = tf.losses.sparse_softmax_cross_entropy(
+                self.labels_one_hot,
+                output_layer,
+                pos_weight=params['pos_weight'],
+                name='loss')
             global_step = tf.train.create_global_step()
             self.training = tf.train.AdamOptimizer(
                 params['learning_rate']).minimize(
