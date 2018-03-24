@@ -1,21 +1,26 @@
-import sys
-from os.path import join
+import sys, os
 sys.path.append('..')
 import premises as prs
 
-N_JOBS = 15
+N_JOBS = 20
 DATA_DIR = 'data/MPTP2078'
-ATP_DIR = 'atp'
+OUTPUT_DIR = __file__.strip('.py')
+if not os.path.exists(OUTPUT_DIR):
+    os.mkdir(OUTPUT_DIR)
 LOG_FILE = __file__.replace('.py', '.log')
+ATP_DIR = os.path.join(OUTPUT_DIR, 'atp')
+LOG_DIR = os.path.join(OUTPUT_DIR, 'logs')
+MODEL_DIR = os.path.join(OUTPUT_DIR, 'model')
 
-statements = prs.Statements(from_file=join(DATA_DIR, 'statements'),
+statements = prs.Statements(from_file=os.path.join(DATA_DIR, 'statements'),
                             logfile=LOG_FILE)
-features = prs.Features(from_file=join(DATA_DIR, 'features'), logfile=LOG_FILE)
-chronology = prs.Chronology(from_file=join(DATA_DIR, 'chronology'),
+features = prs.Features(from_file=os.path.join(DATA_DIR, 'features'),
+                        logfile=LOG_FILE)
+chronology = prs.Chronology(from_file=os.path.join(DATA_DIR, 'chronology'),
                             logfile=LOG_FILE)
-proofs_train = prs.Proofs(from_file=join(DATA_DIR, 'atpproved.train'),
+proofs_train = prs.Proofs(from_file=os.path.join(DATA_DIR, 'atpproved.train'),
                           logfile=LOG_FILE)
-theorems = prs.utils.readlines(join(DATA_DIR, 'theorems_atpproved'))
+theorems = prs.utils.readlines(os.path.join(DATA_DIR, 'theorems_atpproved'))
 train_theorems = set(proofs_train)
 test_theorems = set(theorems) - set(train_theorems)
 
