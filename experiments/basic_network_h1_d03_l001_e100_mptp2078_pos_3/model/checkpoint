@@ -1,0 +1,2 @@
+model_checkpoint_path: "2018-03-24_180506--bs=100,l=1,d=0.3,nof=4096,m=network,a=relu,lr=0.001,hl=100,e=100,pw=3"
+all_model_checkpoint_paths: "2018-03-24_180506--bs=100,l=1,d=0.3,nof=4096,m=network,a=relu,lr=0.001,hl=100,e=100,pw=3"
