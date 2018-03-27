@@ -1,0 +1,86 @@
+[2018-02-24 21:33:40] Statements of 146700 theorems and definitions loaded.
+[2018-02-24 21:33:48] Features of 146700 thms and definitions loaded.
+[2018-02-24 21:33:48] Chronological order of 146700 thms and definitions loaded.
+[2018-02-24 21:33:52] Proofs of 32524 theorems loaded.
+[2018-02-24 21:33:52] Number of all theorems with proof(s): 32524
+[2018-02-24 21:33:52] Number of all proofs: 91885
+[2018-02-24 21:33:52] Number of theorems with exactly 1 proof(s): 13923
+[2018-02-24 21:33:52] Number of theorems with exactly 2 proof(s): 6388
+[2018-02-24 21:33:52] Number of theorems with exactly 3 proof(s): 3748
+[2018-02-24 21:33:52] Number of theorems with exactly 4 proof(s): 2432
+[2018-02-24 21:33:52] Number of theorems with exactly 5 proof(s): 1742
+[2018-02-24 21:33:52] Number of theorems with exactly 6 proof(s): 1239
+[2018-02-24 21:33:52] Number of theorems with exactly 7 proof(s): 870
+[2018-02-24 21:33:52] Number of theorems with exactly 8 proof(s): 610
+[2018-02-24 21:33:52] Number of theorems with exactly 9 proof(s): 492
+[2018-02-24 21:33:52] Number of theorems with exactly 10 proof(s): 346
+[2018-02-24 21:33:52] Number of theorems with exactly 11 proof(s): 252
+[2018-02-24 21:33:52] Number of theorems with exactly 12 proof(s): 196
+[2018-02-24 21:33:52] Number of theorems with exactly 13 proof(s): 128
+[2018-02-24 21:33:52] Number of theorems with exactly 14 proof(s): 97
+[2018-02-24 21:33:52] Number of theorems with exactly 15 proof(s): 26
+[2018-02-24 21:33:52] Number of theorems with exactly 16 proof(s): 12
+[2018-02-24 21:33:52] Number of theorems with exactly 17 proof(s): 3
+[2018-02-24 21:33:52] Number of theorems with exactly 18 proof(s): 3
+[2018-02-24 21:33:52] Number of theorems with exactly 19 proof(s): 3
+[2018-02-24 21:33:52] Number of theorems with exactly 20 proof(s): 5
+[2018-02-24 21:33:52] Number of theorems with exactly 21 proof(s): 2
+[2018-02-24 21:33:52] Number of theorems with exactly 22 proof(s): 1
+[2018-02-24 21:33:52] Number of theorems with exactly 23 proof(s): 1
+[2018-02-24 21:33:52] Number of theorems with exactly 25 proof(s): 1
+[2018-02-24 21:33:52] Number of theorems with exactly 26 proof(s): 1
+[2018-02-24 21:33:52] Number of theorems with exactly 27 proof(s): 1
+[2018-02-24 21:33:52] Number of theorems with exactly 28 proof(s): 1
+[2018-02-24 21:33:52] Number of theorems with exactly 29 proof(s): 1
+[2018-02-24 21:33:52] Average number of proofs per theorem: 2.825
+[2018-02-24 21:33:52] Average number of premises used in one proof: 10.357
+[2018-02-24 21:33:52] Theorems with maximal number of proofs found: ['t142_xreal_1']
+[2018-02-24 21:33:52] Transforming proofs of 32524 theorems to training data...
+[2018-02-24 21:33:52]     Number of features used: 180682 / 451706
+[2018-02-24 21:33:52]     Mode of combining theorems and premises to examples: merge_mode=concat
+[2018-02-24 21:33:52]     Negatives to positive ratio: 32
+[2018-02-24 21:33:52]     No negative mining.
+[2018-02-24 21:56:22] Statements of 146700 theorems and definitions loaded.
+[2018-02-24 21:56:30] Features of 146700 thms and definitions loaded.
+[2018-02-24 21:56:30] Chronological order of 146700 thms and definitions loaded.
+[2018-02-24 21:56:33] Proofs of 32524 theorems loaded.
+[2018-02-24 21:56:34] Number of all theorems with proof(s): 32524
+[2018-02-24 21:56:34] Number of all proofs: 91885
+[2018-02-24 21:56:34] Number of theorems with exactly 1 proof(s): 13923
+[2018-02-24 21:56:34] Number of theorems with exactly 2 proof(s): 6388
+[2018-02-24 21:56:34] Number of theorems with exactly 3 proof(s): 3748
+[2018-02-24 21:56:34] Number of theorems with exactly 4 proof(s): 2432
+[2018-02-24 21:56:34] Number of theorems with exactly 5 proof(s): 1742
+[2018-02-24 21:56:34] Number of theorems with exactly 6 proof(s): 1239
+[2018-02-24 21:56:34] Number of theorems with exactly 7 proof(s): 870
+[2018-02-24 21:56:34] Number of theorems with exactly 8 proof(s): 610
+[2018-02-24 21:56:34] Number of theorems with exactly 9 proof(s): 492
+[2018-02-24 21:56:34] Number of theorems with exactly 10 proof(s): 346
+[2018-02-24 21:56:34] Number of theorems with exactly 11 proof(s): 252
+[2018-02-24 21:56:34] Number of theorems with exactly 12 proof(s): 196
+[2018-02-24 21:56:34] Number of theorems with exactly 13 proof(s): 128
+[2018-02-24 21:56:34] Number of theorems with exactly 14 proof(s): 97
+[2018-02-24 21:56:34] Number of theorems with exactly 15 proof(s): 26
+[2018-02-24 21:56:34] Number of theorems with exactly 16 proof(s): 12
+[2018-02-24 21:56:34] Number of theorems with exactly 17 proof(s): 3
+[2018-02-24 21:56:34] Number of theorems with exactly 18 proof(s): 3
+[2018-02-24 21:56:34] Number of theorems with exactly 19 proof(s): 3
+[2018-02-24 21:56:34] Number of theorems with exactly 20 proof(s): 5
+[2018-02-24 21:56:34] Number of theorems with exactly 21 proof(s): 2
+[2018-02-24 21:56:34] Number of theorems with exactly 22 proof(s): 1
+[2018-02-24 21:56:34] Number of theorems with exactly 23 proof(s): 1
+[2018-02-24 21:56:34] Number of theorems with exactly 25 proof(s): 1
+[2018-02-24 21:56:34] Number of theorems with exactly 26 proof(s): 1
+[2018-02-24 21:56:34] Number of theorems with exactly 27 proof(s): 1
+[2018-02-24 21:56:34] Number of theorems with exactly 28 proof(s): 1
+[2018-02-24 21:56:34] Number of theorems with exactly 29 proof(s): 1
+[2018-02-24 21:56:34] Average number of proofs per theorem: 2.825
+[2018-02-24 21:56:34] Average number of premises used in one proof: 10.357
+[2018-02-24 21:56:34] Theorems with maximal number of proofs found: ['t142_xreal_1']
+[2018-02-24 21:56:34] Transforming proofs of 32524 theorems to training data...
+[2018-02-24 21:56:34]     Number of features used: 180682 / 451706
+[2018-02-24 21:56:34]     Mode of combining theorems and premises to examples: merge_mode=concat
+[2018-02-24 21:56:34]     Negatives to positive ratio: 32
+[2018-02-24 21:56:34]     No negative mining.
+[2018-02-24 22:22:29] Transformation finished.
+[2018-02-24 22:22:29] Training of xgboost model started...

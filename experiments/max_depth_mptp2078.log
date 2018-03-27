@@ -182,3 +182,35 @@
 [2018-01-22 18:24:12] Transformation finished.
 [2018-01-22 18:24:12] MAX DEPTH 15
 [2018-01-22 18:24:12] Training of xgboost model started...
+[2018-01-22 18:37:25] Training finished.
+[2018-01-22 18:37:25] Creating rankings of premises from the trained model for 342 theorems...
+[2018-01-22 18:37:51] Rankings created.
+[2018-01-22 18:37:51] ATP evaluation started...
+[2018-01-22 18:59:31]     Number of proved theorems: 281
+[2018-01-22 18:59:31]     Percentage of proved theorems: 82.16%
+[2018-01-22 18:59:31] Number of all theorems with proof(s): 281
+[2018-01-22 18:59:31] Number of all proofs: 569
+[2018-01-22 18:59:31] Number of theorems with exactly 1 proof(s): 115
+[2018-01-22 18:59:31] Number of theorems with exactly 2 proof(s): 84
+[2018-01-22 18:59:31] Number of theorems with exactly 3 proof(s): 51
+[2018-01-22 18:59:31] Number of theorems with exactly 4 proof(s): 22
+[2018-01-22 18:59:31] Number of theorems with exactly 5 proof(s): 9
+[2018-01-22 18:59:31] Average number of proofs per theorem: 2.025
+[2018-01-22 18:59:31] MAX DEPTH 14
+[2018-01-22 18:59:31] Training of xgboost model started...
+[2018-01-22 19:11:39] Training finished.
+[2018-01-22 19:11:39] Creating rankings of premises from the trained model for 342 theorems...
+[2018-01-22 19:12:05] Rankings created.
+[2018-01-22 19:12:05] ATP evaluation started...
+[2018-01-22 19:33:34]     Number of proved theorems: 276
+[2018-01-22 19:33:34]     Percentage of proved theorems: 80.70%
+[2018-01-22 19:33:34] Number of all theorems with proof(s): 276
+[2018-01-22 19:33:34] Number of all proofs: 545
+[2018-01-22 19:33:34] Number of theorems with exactly 1 proof(s): 119
+[2018-01-22 19:33:34] Number of theorems with exactly 2 proof(s): 82
+[2018-01-22 19:33:34] Number of theorems with exactly 3 proof(s): 45
+[2018-01-22 19:33:34] Number of theorems with exactly 4 proof(s): 23
+[2018-01-22 19:33:34] Number of theorems with exactly 5 proof(s): 7
+[2018-01-22 19:33:34] Average number of proofs per theorem: 1.975
+[2018-01-22 19:33:34] MAX DEPTH 13
+[2018-01-22 19:33:34] Training of xgboost model started...
