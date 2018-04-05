@@ -3,7 +3,6 @@ import numpy as np
 import xgboost as xgb
 import tensorflow as tf
 from .utils import printline, make_path
-from .construct_network import Network
 
 
 def train(labels, array, labels_valid=None, array_valid=None, params={},
@@ -59,7 +58,10 @@ def train_xgboost(labels, array, labels_valid, array_valid, params,
 
 def train_network(labels, array, labels_valid, array_valid, params,
                   pretrained_model_path, model_dir, n_jobs, verbose, logdir, logfile):
-    from .construct_network import Network
+    if params['dual']:
+        from .construct_network_dual import Network
+    else:
+        from .construct_network import Network
     if pretrained_model_path:
         if verbose or logfile:
             printline("Restoring neural net graph...", logfile, verbose)
@@ -79,12 +81,20 @@ def train_network(labels, array, labels_valid, array_valid, params,
         bs = params['batch_size']
         for j in range(len(indices) // bs):
             batch_indices = permut_indices[j * bs : (j + 1) * bs]
-            array_batch = array[batch_indices].toarray()
             labels_batch = [labels[i] for i in batch_indices]
+            if params['dual']:
+                array_batch = [array[0][batch_indices].toarray(),
+                               array[1][batch_indices].toarray()]
+            else:
+                array_batch = array[batch_indices].toarray()
             network.train(array_batch, labels_batch)
         # How is it going on training set?
         batch_indices = np.random.choice(len(labels), params['batch_size'])
-        array_batch = array[batch_indices].toarray()
+        if params['dual']:
+            array_batch = [array[0][batch_indices].toarray(),
+                           array[1][batch_indices].toarray()]
+        else:
+            array_batch = array[batch_indices].toarray()
         labels_batch = [labels[i] for i in batch_indices]
         accuracy = network.evaluate_accuracy(array_batch, labels_batch)
         recall = network.evaluate_recall(array_batch, labels_batch)
@@ -98,7 +108,11 @@ def train_network(labels, array, labels_valid, array_valid, params,
             # How is it going on validation set?
             batch_indices = np.random.choice(
                 len(labels_valid), params['batch_size'])
-            array_batch = array_valid[batch_indices].toarray()
+            if params['dual']:
+                array_batch = [array_valid[0][batch_indices].toarray(),
+                               array_valid[1][batch_indices].toarray()]
+            else:
+                array_batch = array_valid[batch_indices].toarray()
             labels_batch = [labels_valid[i] for i in batch_indices]
             #network.evaluate_summaries(array_batch, labels_batch)
             accuracy = network.evaluate_accuracy(array_batch, labels_batch)
