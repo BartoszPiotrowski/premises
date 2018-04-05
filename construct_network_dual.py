@@ -40,17 +40,6 @@ class Network:
                     tf.layers.dropout(layers_left[-1],
                                       rate=params['dropout'],
                                       training=self.is_training))
-            layers_left.append(
-                tf.layers.dense(
-                    layers_left[-1],
-                    params['hidden_layer'],
-                    activation=tf.nn.relu,
-                    name='layer_left_1'))
-            if params['dropout']:
-                layers_left.append(
-                    tf.layers.dropout(layers_left[-1],
-                                      rate=params['dropout'],
-                                      training=self.is_training))
 
             layers_right = [self.array_right]
             layers_right.append(
@@ -59,17 +48,6 @@ class Network:
                     params['hidden_layer'],
                     activation=tf.nn.relu,
                     name='layer_right_0'))
-            if params['dropout']:
-                layers_right.append(
-                    tf.layers.dropout(layers_right[-1],
-                                      rate=params['dropout'],
-                                      training=self.is_training))
-            layers_right.append(
-                tf.layers.dense(
-                    layers_right[-1],
-                    params['hidden_layer'],
-                    activation=tf.nn.relu,
-                    name='layer_right_1'))
             if params['dropout']:
                 layers_right.append(
                     tf.layers.dropout(layers_right[-1],
@@ -86,17 +64,6 @@ class Network:
             if params['dropout']:
                 layers_top.append(
                     tf.layers.dropout(layers_right[-1],
-                                      rate=params['dropout'],
-                                      training=self.is_training))
-            layers_top.append(
-                tf.layers.dense(
-                    layers_top[-1],
-                    params['hidden_layer'],
-                    activation=tf.nn.relu,
-                    name='hidden_layer_1'))
-            if params['dropout']:
-                layers_top.append(
-                    tf.layers.dropout(layers_top[-1],
                                       rate=params['dropout'],
                                       training=self.is_training))
             output_layer = tf.layers.dense(
