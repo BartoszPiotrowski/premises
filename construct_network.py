@@ -28,8 +28,7 @@ class Network:
             self.is_training = tf.placeholder(tf.bool, [], name='is_training')
 
             # Computation
-            flattened_array = tf.layers.flatten(self.array, name='flatten')
-            layers = [flattened_array]
+            layers = [self.array]
             for i in range(params['layers']):
                 layers.append(
                     tf.layers.dense(
