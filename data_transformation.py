@@ -13,20 +13,29 @@ def pairs_to_array(pairs, params):
     assert len(pairs)
     num_of_features = params['num_of_features']
     merge_mode = params['merge_mode']
-    if merge_mode == 'comb':
-        list_of_pairs = [list(thm_f) + list(prm_f) for thm_f, prm_f in pairs]
-    elif merge_mode == 'concat':
-        num_of_features = 2 * num_of_features
-        list_of_pairs = []
-        for thm_f, prm_f in pairs:
-            thm_f_appended = ['T' + f for f in thm_f]
-            prm_f_appended = ['P' + f for f in prm_f]
-            list_of_pairs.append(thm_f_appended + prm_f_appended)
+    dual = params['dual'] if 'dual' in params else False
+    if dual:
+        print("DUAL TRANSFORM")
+        thms, prms = list(zip(*pairs))
+        hasher = FeatureHasher(n_features=num_of_features, input_type='string')
+        csc_arrays = [hasher.transform(thms),
+                      hasher.transform(prms)]
+        return csc_arrays
     else:
-        print("Error: unknown merge mode.")
-    hasher = FeatureHasher(n_features=num_of_features, input_type='string')
-    csc_array = hasher.transform(list_of_pairs)
-    return csc_array
+        if merge_mode == 'comb':
+            list_of_pairs = [list(thm_f) + list(prm_f) for thm_f, prm_f in pairs]
+        elif merge_mode == 'concat':
+            num_of_features = 2 * num_of_features
+            list_of_pairs = []
+            for thm_f, prm_f in pairs:
+                thm_f_appended = ['T' + f for f in thm_f]
+                prm_f_appended = ['P' + f for f in prm_f]
+                list_of_pairs.append(thm_f_appended + prm_f_appended)
+        else:
+            print("Error: unknown merge mode.")
+        hasher = FeatureHasher(n_features=num_of_features, input_type='string')
+        csc_array = hasher.transform(list_of_pairs)
+        return csc_array
 
 
 def proofs_to_train_n_thms(thms, proofs, params):
@@ -136,10 +145,14 @@ def proofs_to_train(proofs, params, n_jobs=-1, verbose=True, logfile=''):
     labels = [i for p in labels_and_arrays for i in p[0]]
     arrays = [p[1] for p in labels_and_arrays]
     if params['sparse']:
-        array = sps.vstack(arrays)
+        if 'dual' in params and params['dual']:
+            arrays_left, arrays_right = list(zip(*arrays))
+            array = [sps.vstack(arrays_left), sps.vstack(arrays_right)]
+        else:
+            array = sps.vstack(arrays)
     else:
         array = np.vstack(arrays)
-    assert len(labels) == array.shape[0]
+    #assert len(labels) == array.shape[0]
     if verbose or logfile:
         printline("Transformation finished.", logfile, verbose)
     return labels, array

@@ -330,7 +330,8 @@ class Rankings:
             chronology = params['chronology']
             features = params['features']
             params_small = {'merge_mode': params['merge_mode'],
-                            'num_of_features': params['num_of_features']}
+                            'num_of_features': params['num_of_features'],
+                            'dual': params['dual']}
             thms = [t for t in thms if len(chronology.available_premises(t))]
             if verbose or logfile:
                 message = ("Creating rankings of premises from the trained model "
@@ -414,8 +415,13 @@ class Rankings:
 
     def score_pairs_tf(self, pairs, model_path, params):
         assert len(pairs)
-        array = pairs_to_array(pairs, params).toarray()
-        from .construct_network import NetworkPredict
+        if 'dual' in params and params['dual']:
+            from .construct_network_dual import NetworkPredict
+            array = [pairs_to_array(pairs, params)[0].toarray(),
+                     pairs_to_array(pairs, params)[1].toarray()]
+        else:
+            from .construct_network import NetworkPredict
+            array = pairs_to_array(pairs, params).toarray()
         network = NetworkPredict(threads=4)
         network.load(model_path)
         preds = network.predict(array)
