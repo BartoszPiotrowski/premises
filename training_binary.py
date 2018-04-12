@@ -58,7 +58,7 @@ def train_xgboost(labels, array, labels_valid, array_valid, params,
 
 def train_network(labels, array, labels_valid, array_valid, params,
                   pretrained_model_path, model_dir, n_jobs, verbose, logdir, logfile):
-    if params['dual']:
+    if 'dual' in params and params['dual']:
         from .construct_network_dual import Network
     else:
         from .construct_network import Network
