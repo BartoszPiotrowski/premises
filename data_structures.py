@@ -43,6 +43,12 @@ class Features:
     def all_features(self):
         return list(set().union(*self.features.values()))
 
+    def add_features(self, file):
+        new_features = read_dict(file, type_of_values=list)
+        for f in new_features:
+            if f in self:
+                self.features[f] = self[f].union(new_features[f])
+
     def dict_features_thms(self):
         dict_features_thms = {}
         for thm in self:
