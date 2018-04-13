@@ -10,7 +10,7 @@ def train(labels, array, labels_valid=None, array_valid=None, params={},
           verbose=True, logdir='', logfile=''):
     assert isinstance(labels, list)
     params['model'] = 'xgboost' if 'model' not in params else params['model']
-    if not os.path.exists(model_dir):
+    if model_dir and not os.path.exists(model_dir):
         os.mkdir(model_dir)
     if logdir:
         if not os.path.exists(logdir):
