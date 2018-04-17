@@ -47,12 +47,14 @@ def train_xgboost(labels, array, labels_valid, array_valid, params,
         printline("Training of xgboost model started...", logfile, verbose)
     model = xgb.train(params_booster, dtrain, num_boost_round=num_boost_round,
                       xgb_model=pretrained_model_path)
-    model_path = make_path(model_dir, params)
     if verbose or logfile:
         printline("Training finished.", logfile, verbose)
-        printline("Saving model to file {}".format(model_path),
-                  logfile, verbose)
-    model.save_model(model_path)
+    if model_dir:
+        model_path = make_path(model_dir, params)
+        if verbose or logfile:
+            printline("Saving model to file {}".format(model_path),
+                      logfile, verbose)
+        model.save_model(model_path)
     return model_path
 
 
