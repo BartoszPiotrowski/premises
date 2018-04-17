@@ -1,0 +1,15 @@
+[2018-04-12 20:01:30] Statements of 146700 theorems and definitions loaded.
+[2018-04-12 20:02:32] Statements of 146700 theorems and definitions loaded.
+[2018-04-12 20:02:39] Features of 146700 thms and definitions loaded.
+[2018-04-12 20:02:39] Chronological order of 146700 thms and definitions loaded.
+[2018-04-12 20:02:41] Proofs of 29382 theorems loaded.
+[2018-04-12 20:04:15] Statements of 146700 theorems and definitions loaded.
+[2018-04-12 20:04:22] Features of 146700 thms and definitions loaded.
+[2018-04-12 20:04:22] Chronological order of 146700 thms and definitions loaded.
+[2018-04-12 20:04:23] Proofs of 29382 theorems loaded.
+[2018-04-12 20:04:23] Transforming proofs of 29382 theorems to training data...
+[2018-04-12 20:04:23]     Number of features used: 45170 / 451706
+[2018-04-12 20:04:23]     Mode of combining theorems and premises to examples: merge_mode=concat
+[2018-04-12 20:04:23]     Negatives to positive ratio: 64
+[2018-04-12 20:04:23]     No negative mining.
+[2018-04-12 20:35:16] Transformation finished.

@@ -1,0 +1,358 @@
+[2018-04-12 20:04:11] Statements of 4564 theorems and definitions loaded.
+[2018-04-12 20:04:12] Features of 4564 thms and definitions loaded.
+[2018-04-12 20:04:12] Chronological order of 4564 thms and definitions loaded.
+[2018-04-12 20:04:12] Proofs of 1000 theorems loaded.
+[2018-04-12 20:04:12] Proofs of 342 theorems loaded.
+[2018-04-12 20:04:12] Transforming proofs of 1000 theorems to training data...
+[2018-04-12 20:04:12]     Number of features used: 2048 / 10241
+[2018-04-12 20:04:12]     Mode of combining theorems and premises to examples: merge_mode=concat
+[2018-04-12 20:04:12]     Negatives to positive ratio: 10
+[2018-04-12 20:04:12]     No negative mining.
+[2018-04-12 20:04:21] Transformation finished.
+[2018-04-12 20:04:21] Transforming proofs of 342 theorems to training data...
+[2018-04-12 20:04:21]     Number of features used: 2048 / 10241
+[2018-04-12 20:04:21]     Mode of combining theorems and premises to examples: merge_mode=concat
+[2018-04-12 20:04:21]     Negatives to positive ratio: 10
+[2018-04-12 20:04:21]     No negative mining.
+[2018-04-12 20:04:25] Transformation finished.
+[2018-04-12 20:08:53] Statements of 4564 theorems and definitions loaded.
+[2018-04-12 20:08:53] Features of 4564 thms and definitions loaded.
+[2018-04-12 20:08:53] Chronological order of 4564 thms and definitions loaded.
+[2018-04-12 20:08:53] Proofs of 1000 theorems loaded.
+[2018-04-12 20:08:53] Proofs of 342 theorems loaded.
+[2018-04-12 20:08:53] Transforming proofs of 1000 theorems to training data...
+[2018-04-12 20:08:53]     Number of features used: 2048 / 10241
+[2018-04-12 20:08:53]     Mode of combining theorems and premises to examples: merge_mode=concat
+[2018-04-12 20:08:53]     Negatives to positive ratio: 10
+[2018-04-12 20:08:53]     No negative mining.
+[2018-04-12 20:09:02] Transformation finished.
+[2018-04-12 20:09:02] Transforming proofs of 342 theorems to training data...
+[2018-04-12 20:09:02]     Number of features used: 2048 / 10241
+[2018-04-12 20:09:02]     Mode of combining theorems and premises to examples: merge_mode=concat
+[2018-04-12 20:09:02]     Negatives to positive ratio: 10
+[2018-04-12 20:09:02]     No negative mining.
+[2018-04-12 20:09:06] Transformation finished.
+[2018-04-12 20:09:06] Constructing neural net graph...
+[2018-04-12 20:09:07] Training of neural net started...
+[2018-04-12 20:09:07] Epoch: 0
+[2018-04-12 20:11:46] Statements of 4564 theorems and definitions loaded.
+[2018-04-12 20:11:47] Features of 4564 thms and definitions loaded.
+[2018-04-12 20:11:47] Chronological order of 4564 thms and definitions loaded.
+[2018-04-12 20:11:47] Proofs of 1000 theorems loaded.
+[2018-04-12 20:11:47] Proofs of 342 theorems loaded.
+[2018-04-12 20:11:47] Transforming proofs of 1000 theorems to training data...
+[2018-04-12 20:11:47]     Number of features used: 2048 / 10241
+[2018-04-12 20:11:47]     Mode of combining theorems and premises to examples: merge_mode=concat
+[2018-04-12 20:11:47]     Negatives to positive ratio: 10
+[2018-04-12 20:11:47]     No negative mining.
+[2018-04-12 20:11:55] Transformation finished.
+[2018-04-12 20:11:55] Transforming proofs of 342 theorems to training data...
+[2018-04-12 20:11:55]     Number of features used: 2048 / 10241
+[2018-04-12 20:11:55]     Mode of combining theorems and premises to examples: merge_mode=concat
+[2018-04-12 20:11:55]     Negatives to positive ratio: 10
+[2018-04-12 20:11:55]     No negative mining.
+[2018-04-12 20:11:59] Transformation finished.
+[2018-04-12 20:11:59] Constructing neural net graph...
+[2018-04-12 20:11:59] Training of neural net started...
+[2018-04-12 20:11:59] Epoch: 0
+[2018-04-12 20:12:04] Accuracy/Precision/Recall/F1-score on a random training batch:   0.91/1.00/0.36/0.53
+[2018-04-12 20:12:04] Accuracy/Precision/Recall/F1-score on a random validation batch: 0.94/1.00/0.45/0.62
+[2018-04-12 20:12:04] Epoch: 1
+[2018-04-12 20:12:09] Accuracy/Precision/Recall/F1-score on a random training batch:   0.92/0.67/0.22/0.33
+[2018-04-12 20:12:09] Accuracy/Precision/Recall/F1-score on a random validation batch: 0.90/0.57/0.36/0.44
+[2018-04-12 20:12:09] Epoch: 2
+[2018-04-12 20:12:13] Accuracy/Precision/Recall/F1-score on a random training batch:   0.95/1.00/0.44/0.62
+[2018-04-12 20:12:13] Accuracy/Precision/Recall/F1-score on a random validation batch: 0.95/0.00/0.00/nan
+[2018-04-12 20:12:13] Epoch: 3
+[2018-04-12 20:12:17] Accuracy/Precision/Recall/F1-score on a random training batch:   0.93/0.91/0.62/0.74
+[2018-04-12 20:12:17] Accuracy/Precision/Recall/F1-score on a random validation batch: 0.95/0.75/0.67/0.71
+[2018-04-12 20:12:17] Epoch: 4
+[2018-04-12 20:12:21] Accuracy/Precision/Recall/F1-score on a random training batch:   0.98/1.00/0.60/0.75
+[2018-04-12 20:12:21] Accuracy/Precision/Recall/F1-score on a random validation batch: 0.97/0.80/0.67/0.73
+[2018-04-12 20:12:21] Epoch: 5
+[2018-04-12 20:12:25] Accuracy/Precision/Recall/F1-score on a random training batch:   0.96/0.83/0.62/0.71
+[2018-04-12 20:12:25] Accuracy/Precision/Recall/F1-score on a random validation batch: 0.93/0.86/0.50/0.63
+[2018-04-12 20:12:25] Epoch: 6
+[2018-04-12 20:12:30] Accuracy/Precision/Recall/F1-score on a random training batch:   0.97/1.00/0.73/0.84
+[2018-04-12 20:12:30] Accuracy/Precision/Recall/F1-score on a random validation batch: 0.92/0.71/0.45/0.56
+[2018-04-12 20:12:30] Epoch: 7
+[2018-04-12 20:12:33] Accuracy/Precision/Recall/F1-score on a random training batch:   0.97/0.80/0.67/0.73
+[2018-04-12 20:12:33] Accuracy/Precision/Recall/F1-score on a random validation batch: 0.93/0.83/0.45/0.59
+[2018-04-12 20:12:33] Epoch: 8
+[2018-04-12 20:12:38] Accuracy/Precision/Recall/F1-score on a random training batch:   1.00/1.00/1.00/1.00
+[2018-04-12 20:12:38] Accuracy/Precision/Recall/F1-score on a random validation batch: 0.95/0.67/0.57/0.62
+[2018-04-12 20:12:38] Epoch: 9
+[2018-04-12 20:12:42] Accuracy/Precision/Recall/F1-score on a random training batch:   0.96/1.00/0.76/0.87
+[2018-04-12 20:12:42] Accuracy/Precision/Recall/F1-score on a random validation batch: 0.93/0.89/0.57/0.70
+[2018-04-12 20:12:42] Epoch: 10
+[2018-04-12 20:12:46] Accuracy/Precision/Recall/F1-score on a random training batch:   0.99/0.88/1.00/0.93
+[2018-04-12 20:12:46] Accuracy/Precision/Recall/F1-score on a random validation batch: 0.94/0.67/0.50/0.57
+[2018-04-12 20:12:46] Epoch: 11
+[2018-04-12 20:12:50] Accuracy/Precision/Recall/F1-score on a random training batch:   1.00/1.00/1.00/1.00
+[2018-04-12 20:12:50] Accuracy/Precision/Recall/F1-score on a random validation batch: 0.93/0.50/0.29/0.36
+[2018-04-12 20:12:50] Epoch: 12
+[2018-04-12 20:12:54] Accuracy/Precision/Recall/F1-score on a random training batch:   1.00/1.00/1.00/1.00
+[2018-04-12 20:12:54] Accuracy/Precision/Recall/F1-score on a random validation batch: 0.97/0.75/0.86/0.80
+[2018-04-12 20:12:54] Epoch: 13
+[2018-04-12 20:12:57] Accuracy/Precision/Recall/F1-score on a random training batch:   1.00/1.00/1.00/1.00
+[2018-04-12 20:12:57] Accuracy/Precision/Recall/F1-score on a random validation batch: 0.94/1.00/0.54/0.70
+[2018-04-12 20:12:57] Epoch: 14
+[2018-04-12 20:13:01] Accuracy/Precision/Recall/F1-score on a random training batch:   1.00/1.00/1.00/1.00
+[2018-04-12 20:13:01] Accuracy/Precision/Recall/F1-score on a random validation batch: 0.92/0.67/0.67/0.67
+[2018-04-12 20:13:01] Epoch: 15
+[2018-04-12 20:13:05] Accuracy/Precision/Recall/F1-score on a random training batch:   0.98/1.00/0.80/0.89
+[2018-04-12 20:13:05] Accuracy/Precision/Recall/F1-score on a random validation batch: 0.95/0.60/0.86/0.71
+[2018-04-12 20:13:05] Epoch: 16
+[2018-04-12 20:13:09] Accuracy/Precision/Recall/F1-score on a random training batch:   0.98/1.00/0.80/0.89
+[2018-04-12 20:13:09] Accuracy/Precision/Recall/F1-score on a random validation batch: 0.94/0.88/0.58/0.70
+[2018-04-12 20:13:09] Epoch: 17
+[2018-04-12 20:13:12] Accuracy/Precision/Recall/F1-score on a random training batch:   1.00/1.00/1.00/1.00
+[2018-04-12 20:13:12] Accuracy/Precision/Recall/F1-score on a random validation batch: 0.92/0.56/0.56/0.56
+[2018-04-12 20:13:12] Epoch: 18
+[2018-04-12 20:13:16] Accuracy/Precision/Recall/F1-score on a random training batch:   0.98/1.00/0.71/0.83
+[2018-04-12 20:13:16] Accuracy/Precision/Recall/F1-score on a random validation batch: 0.92/0.71/0.45/0.56
+[2018-04-12 20:13:16] Epoch: 19
+[2018-04-12 20:13:20] Accuracy/Precision/Recall/F1-score on a random training batch:   0.99/1.00/0.92/0.96
+[2018-04-12 20:13:20] Accuracy/Precision/Recall/F1-score on a random validation batch: 0.90/0.73/0.53/0.62
+[2018-04-12 20:13:20] Epoch: 20
+[2018-04-12 20:13:24] Accuracy/Precision/Recall/F1-score on a random training batch:   0.99/1.00/0.91/0.95
+[2018-04-12 20:13:24] Accuracy/Precision/Recall/F1-score on a random validation batch: 0.94/0.86/0.55/0.67
+[2018-04-12 20:13:24] Epoch: 21
+[2018-04-12 20:13:28] Accuracy/Precision/Recall/F1-score on a random training batch:   0.99/1.00/0.92/0.96
+[2018-04-12 20:13:28] Accuracy/Precision/Recall/F1-score on a random validation batch: 0.94/0.71/0.56/0.63
+[2018-04-12 20:13:28] Epoch: 22
+[2018-04-12 20:13:32] Accuracy/Precision/Recall/F1-score on a random training batch:   0.99/1.00/0.92/0.96
+[2018-04-12 20:13:32] Accuracy/Precision/Recall/F1-score on a random validation batch: 0.96/0.83/0.62/0.71
+[2018-04-12 20:13:32] Epoch: 23
+[2018-04-12 20:13:36] Accuracy/Precision/Recall/F1-score on a random training batch:   0.98/0.90/0.90/0.90
+[2018-04-12 20:13:36] Accuracy/Precision/Recall/F1-score on a random validation batch: 0.94/0.64/0.78/0.70
+[2018-04-12 20:13:36] Epoch: 24
+[2018-04-12 20:13:41] Accuracy/Precision/Recall/F1-score on a random training batch:   1.00/1.00/1.00/1.00
+[2018-04-12 20:13:41] Accuracy/Precision/Recall/F1-score on a random validation batch: 0.95/0.75/0.43/0.55
+[2018-04-12 20:13:41] Epoch: 25
+[2018-04-12 20:13:44] Accuracy/Precision/Recall/F1-score on a random training batch:   1.00/1.00/1.00/1.00
+[2018-04-12 20:13:45] Accuracy/Precision/Recall/F1-score on a random validation batch: 0.93/0.80/0.40/0.53
+[2018-04-12 20:13:45] Epoch: 26
+[2018-04-12 20:13:48] Accuracy/Precision/Recall/F1-score on a random training batch:   0.98/0.93/0.93/0.93
+[2018-04-12 20:13:48] Accuracy/Precision/Recall/F1-score on a random validation batch: 0.96/0.33/0.33/0.33
+[2018-04-12 20:13:48] Epoch: 27
+[2018-04-12 20:13:52] Accuracy/Precision/Recall/F1-score on a random training batch:   1.00/1.00/1.00/1.00
+[2018-04-12 20:13:52] Accuracy/Precision/Recall/F1-score on a random validation batch: 0.96/0.78/0.78/0.78
+[2018-04-12 20:13:52] Epoch: 28
+[2018-04-12 20:13:56] Accuracy/Precision/Recall/F1-score on a random training batch:   0.99/1.00/0.91/0.95
+[2018-04-12 20:13:56] Accuracy/Precision/Recall/F1-score on a random validation batch: 0.94/0.20/0.33/0.25
+[2018-04-12 20:13:56] Epoch: 29
+[2018-04-12 20:14:00] Accuracy/Precision/Recall/F1-score on a random training batch:   0.99/0.90/1.00/0.95
+[2018-04-12 20:14:00] Accuracy/Precision/Recall/F1-score on a random validation batch: 0.89/0.57/0.33/0.42
+[2018-04-12 20:14:00] Epoch: 30
+[2018-04-12 20:14:03] Accuracy/Precision/Recall/F1-score on a random training batch:   1.00/1.00/1.00/1.00
+[2018-04-12 20:14:03] Accuracy/Precision/Recall/F1-score on a random validation batch: 0.91/0.50/0.56/0.53
+[2018-04-12 20:14:03] Epoch: 31
+[2018-04-12 20:14:07] Accuracy/Precision/Recall/F1-score on a random training batch:   1.00/1.00/1.00/1.00
+[2018-04-12 20:14:07] Accuracy/Precision/Recall/F1-score on a random validation batch: 0.90/0.33/0.11/0.17
+[2018-04-12 20:14:07] Epoch: 32
+[2018-04-12 20:14:11] Accuracy/Precision/Recall/F1-score on a random training batch:   0.99/1.00/0.83/0.91
+[2018-04-12 20:14:11] Accuracy/Precision/Recall/F1-score on a random validation batch: 0.93/0.71/0.50/0.59
+[2018-04-12 20:14:11] Epoch: 33
+[2018-04-12 20:14:15] Accuracy/Precision/Recall/F1-score on a random training batch:   1.00/1.00/1.00/1.00
+[2018-04-12 20:14:15] Accuracy/Precision/Recall/F1-score on a random validation batch: 0.92/0.50/0.12/0.20
+[2018-04-12 20:14:15] Epoch: 34
+[2018-04-12 20:14:19] Accuracy/Precision/Recall/F1-score on a random training batch:   0.97/0.90/0.82/0.86
+[2018-04-12 20:14:19] Accuracy/Precision/Recall/F1-score on a random validation batch: 0.91/0.50/0.44/0.47
+[2018-04-12 20:14:19] Epoch: 35
+[2018-04-12 20:14:23] Accuracy/Precision/Recall/F1-score on a random training batch:   1.00/1.00/1.00/1.00
+[2018-04-12 20:14:23] Accuracy/Precision/Recall/F1-score on a random validation batch: 0.93/0.40/0.33/0.36
+[2018-04-12 20:14:23] Epoch: 36
+[2018-04-12 20:14:27] Accuracy/Precision/Recall/F1-score on a random training batch:   1.00/1.00/1.00/1.00
+[2018-04-12 20:14:27] Accuracy/Precision/Recall/F1-score on a random validation batch: 0.96/1.00/0.67/0.80
+[2018-04-12 20:14:27] Epoch: 37
+[2018-04-12 20:14:31] Accuracy/Precision/Recall/F1-score on a random training batch:   1.00/1.00/1.00/1.00
+[2018-04-12 20:14:31] Accuracy/Precision/Recall/F1-score on a random validation batch: 0.97/0.73/1.00/0.84
+[2018-04-12 20:14:31] Epoch: 38
+[2018-04-12 20:14:35] Accuracy/Precision/Recall/F1-score on a random training batch:   1.00/1.00/1.00/1.00
+[2018-04-12 20:14:35] Accuracy/Precision/Recall/F1-score on a random validation batch: 0.93/0.50/0.14/0.22
+[2018-04-12 20:14:35] Epoch: 39
+[2018-04-12 20:14:39] Accuracy/Precision/Recall/F1-score on a random training batch:   1.00/1.00/1.00/1.00
+[2018-04-12 20:14:39] Accuracy/Precision/Recall/F1-score on a random validation batch: 0.90/0.71/0.38/0.50
+[2018-04-12 20:14:39] Epoch: 40
+[2018-04-12 20:14:44] Accuracy/Precision/Recall/F1-score on a random training batch:   1.00/1.00/1.00/1.00
+[2018-04-12 20:14:44] Accuracy/Precision/Recall/F1-score on a random validation batch: 0.92/0.75/0.50/0.60
+[2018-04-12 20:14:44] Epoch: 41
+[2018-04-12 20:14:48] Accuracy/Precision/Recall/F1-score on a random training batch:   0.98/0.89/0.89/0.89
+[2018-04-12 20:14:48] Accuracy/Precision/Recall/F1-score on a random validation batch: 0.92/0.70/0.58/0.64
+[2018-04-12 20:14:48] Epoch: 42
+[2018-04-12 20:14:52] Accuracy/Precision/Recall/F1-score on a random training batch:   1.00/1.00/1.00/1.00
+[2018-04-12 20:14:52] Accuracy/Precision/Recall/F1-score on a random validation batch: 0.95/1.00/0.50/0.67
+[2018-04-12 20:14:52] Epoch: 43
+[2018-04-12 20:14:55] Accuracy/Precision/Recall/F1-score on a random training batch:   1.00/1.00/1.00/1.00
+[2018-04-12 20:14:55] Accuracy/Precision/Recall/F1-score on a random validation batch: 0.91/0.43/0.38/0.40
+[2018-04-12 20:14:55] Epoch: 44
+[2018-04-12 20:14:59] Accuracy/Precision/Recall/F1-score on a random training batch:   1.00/1.00/1.00/1.00
+[2018-04-12 20:14:59] Accuracy/Precision/Recall/F1-score on a random validation batch: 0.95/0.50/0.40/0.44
+[2018-04-12 20:14:59] Epoch: 45
+[2018-04-12 20:15:03] Accuracy/Precision/Recall/F1-score on a random training batch:   1.00/1.00/1.00/1.00
+[2018-04-12 20:15:03] Accuracy/Precision/Recall/F1-score on a random validation batch: 0.90/0.56/0.45/0.50
+[2018-04-12 20:15:03] Epoch: 46
+[2018-04-12 20:15:06] Accuracy/Precision/Recall/F1-score on a random training batch:   1.00/1.00/1.00/1.00
+[2018-04-12 20:15:06] Accuracy/Precision/Recall/F1-score on a random validation batch: 0.92/0.80/0.36/0.50
+[2018-04-12 20:15:06] Epoch: 47
+[2018-04-12 20:15:10] Accuracy/Precision/Recall/F1-score on a random training batch:   1.00/1.00/1.00/1.00
+[2018-04-12 20:15:10] Accuracy/Precision/Recall/F1-score on a random validation batch: 0.99/1.00/0.86/0.92
+[2018-04-12 20:15:10] Epoch: 48
+[2018-04-12 20:15:14] Accuracy/Precision/Recall/F1-score on a random training batch:   1.00/1.00/1.00/1.00
+[2018-04-12 20:15:14] Accuracy/Precision/Recall/F1-score on a random validation batch: 0.96/0.71/0.71/0.71
+[2018-04-12 20:15:14] Epoch: 49
+[2018-04-12 20:15:17] Accuracy/Precision/Recall/F1-score on a random training batch:   1.00/1.00/1.00/1.00
+[2018-04-12 20:15:17] Accuracy/Precision/Recall/F1-score on a random validation batch: 0.94/0.75/0.38/0.50
+[2018-04-12 20:15:17] Epoch: 50
+[2018-04-12 20:15:21] Accuracy/Precision/Recall/F1-score on a random training batch:   1.00/1.00/1.00/1.00
+[2018-04-12 20:15:21] Accuracy/Precision/Recall/F1-score on a random validation batch: 0.94/0.83/0.50/0.62
+[2018-04-12 20:15:21] Epoch: 51
+[2018-04-12 20:15:25] Accuracy/Precision/Recall/F1-score on a random training batch:   1.00/1.00/1.00/1.00
+[2018-04-12 20:15:25] Accuracy/Precision/Recall/F1-score on a random validation batch: 0.97/0.62/1.00/0.77
+[2018-04-12 20:15:25] Epoch: 52
+[2018-04-12 20:15:30] Accuracy/Precision/Recall/F1-score on a random training batch:   1.00/1.00/1.00/1.00
+[2018-04-12 20:15:30] Accuracy/Precision/Recall/F1-score on a random validation batch: 0.96/0.80/0.57/0.67
+[2018-04-12 20:15:30] Epoch: 53
+[2018-04-12 20:15:33] Accuracy/Precision/Recall/F1-score on a random training batch:   1.00/1.00/1.00/1.00
+[2018-04-12 20:15:33] Accuracy/Precision/Recall/F1-score on a random validation batch: 0.92/0.44/0.57/0.50
+[2018-04-12 20:15:33] Epoch: 54
+[2018-04-12 20:15:37] Accuracy/Precision/Recall/F1-score on a random training batch:   1.00/1.00/1.00/1.00
+[2018-04-12 20:15:37] Accuracy/Precision/Recall/F1-score on a random validation batch: 0.87/0.43/0.25/0.32
+[2018-04-12 20:15:37] Epoch: 55
+[2018-04-12 20:15:41] Accuracy/Precision/Recall/F1-score on a random training batch:   1.00/1.00/1.00/1.00
+[2018-04-12 20:15:41] Accuracy/Precision/Recall/F1-score on a random validation batch: 0.86/0.62/0.31/0.42
+[2018-04-12 20:15:41] Epoch: 56
+[2018-04-12 20:15:44] Accuracy/Precision/Recall/F1-score on a random training batch:   1.00/1.00/1.00/1.00
+[2018-04-12 20:15:44] Accuracy/Precision/Recall/F1-score on a random validation batch: 0.93/0.67/0.60/0.63
+[2018-04-12 20:15:44] Epoch: 57
+[2018-04-12 20:15:48] Accuracy/Precision/Recall/F1-score on a random training batch:   1.00/1.00/1.00/1.00
+[2018-04-12 20:15:48] Accuracy/Precision/Recall/F1-score on a random validation batch: 0.95/0.86/0.60/0.71
+[2018-04-12 20:15:48] Epoch: 58
+[2018-04-12 20:15:51] Accuracy/Precision/Recall/F1-score on a random training batch:   0.99/0.91/1.00/0.95
+[2018-04-12 20:15:51] Accuracy/Precision/Recall/F1-score on a random validation batch: 0.94/0.80/0.44/0.57
+[2018-04-12 20:15:51] Epoch: 59
+[2018-04-12 20:15:55] Accuracy/Precision/Recall/F1-score on a random training batch:   1.00/1.00/1.00/1.00
+[2018-04-12 20:15:55] Accuracy/Precision/Recall/F1-score on a random validation batch: 0.96/0.83/0.62/0.71
+[2018-04-12 20:15:55] Epoch: 60
+[2018-04-12 20:15:59] Accuracy/Precision/Recall/F1-score on a random training batch:   0.98/1.00/0.83/0.91
+[2018-04-12 20:15:59] Accuracy/Precision/Recall/F1-score on a random validation batch: 0.97/0.88/0.78/0.82
+[2018-04-12 20:15:59] Epoch: 61
+[2018-04-12 20:16:03] Accuracy/Precision/Recall/F1-score on a random training batch:   1.00/1.00/1.00/1.00
+[2018-04-12 20:16:03] Accuracy/Precision/Recall/F1-score on a random validation batch: 0.96/0.67/0.67/0.67
+[2018-04-12 20:16:03] Epoch: 62
+[2018-04-12 20:16:06] Accuracy/Precision/Recall/F1-score on a random training batch:   1.00/1.00/1.00/1.00
+[2018-04-12 20:16:06] Accuracy/Precision/Recall/F1-score on a random validation batch: 0.88/0.62/0.53/0.57
+[2018-04-12 20:16:06] Epoch: 63
+[2018-04-12 20:16:10] Accuracy/Precision/Recall/F1-score on a random training batch:   1.00/1.00/1.00/1.00
+[2018-04-12 20:16:10] Accuracy/Precision/Recall/F1-score on a random validation batch: 0.91/0.67/0.50/0.57
+[2018-04-12 20:16:10] Epoch: 64
+[2018-04-12 20:16:13] Accuracy/Precision/Recall/F1-score on a random training batch:   1.00/1.00/1.00/1.00
+[2018-04-12 20:16:13] Accuracy/Precision/Recall/F1-score on a random validation batch: 0.95/0.40/0.50/0.44
+[2018-04-12 20:16:13] Epoch: 65
+[2018-04-12 20:16:17] Accuracy/Precision/Recall/F1-score on a random training batch:   1.00/1.00/1.00/1.00
+[2018-04-12 20:16:17] Accuracy/Precision/Recall/F1-score on a random validation batch: 0.87/0.57/0.29/0.38
+[2018-04-12 20:16:17] Epoch: 66
+[2018-04-12 20:16:21] Accuracy/Precision/Recall/F1-score on a random training batch:   1.00/1.00/1.00/1.00
+[2018-04-12 20:16:21] Accuracy/Precision/Recall/F1-score on a random validation batch: 0.94/0.78/0.64/0.70
+[2018-04-12 20:16:21] Epoch: 67
+[2018-04-12 20:16:25] Accuracy/Precision/Recall/F1-score on a random training batch:   1.00/1.00/1.00/1.00
+[2018-04-12 20:16:25] Accuracy/Precision/Recall/F1-score on a random validation batch: 0.92/1.00/0.47/0.64
+[2018-04-12 20:16:25] Epoch: 68
+[2018-04-12 20:16:28] Accuracy/Precision/Recall/F1-score on a random training batch:   1.00/1.00/1.00/1.00
+[2018-04-12 20:16:28] Accuracy/Precision/Recall/F1-score on a random validation batch: 0.94/1.00/0.50/0.67
+[2018-04-12 20:16:28] Epoch: 69
+[2018-04-12 20:16:32] Accuracy/Precision/Recall/F1-score on a random training batch:   1.00/1.00/1.00/1.00
+[2018-04-12 20:16:32] Accuracy/Precision/Recall/F1-score on a random validation batch: 0.91/0.86/0.43/0.57
+[2018-04-12 20:16:32] Epoch: 70
+[2018-04-12 20:16:36] Accuracy/Precision/Recall/F1-score on a random training batch:   1.00/1.00/1.00/1.00
+[2018-04-12 20:16:36] Accuracy/Precision/Recall/F1-score on a random validation batch: 0.94/0.83/0.50/0.62
+[2018-04-12 20:16:36] Epoch: 71
+[2018-04-12 20:16:40] Accuracy/Precision/Recall/F1-score on a random training batch:   0.98/0.82/1.00/0.90
+[2018-04-12 20:16:40] Accuracy/Precision/Recall/F1-score on a random validation batch: 0.96/0.67/0.40/0.50
+[2018-04-12 20:16:40] Epoch: 72
+[2018-04-12 20:16:44] Accuracy/Precision/Recall/F1-score on a random training batch:   1.00/1.00/1.00/1.00
+[2018-04-12 20:16:44] Accuracy/Precision/Recall/F1-score on a random validation batch: 0.91/0.70/0.54/0.61
+[2018-04-12 20:16:44] Epoch: 73
+[2018-04-12 20:16:48] Accuracy/Precision/Recall/F1-score on a random training batch:   1.00/1.00/1.00/1.00
+[2018-04-12 20:16:48] Accuracy/Precision/Recall/F1-score on a random validation batch: 0.97/0.50/0.67/0.57
+[2018-04-12 20:16:48] Epoch: 74
+[2018-04-12 20:16:52] Accuracy/Precision/Recall/F1-score on a random training batch:   0.99/0.90/1.00/0.95
+[2018-04-12 20:16:52] Accuracy/Precision/Recall/F1-score on a random validation batch: 0.93/0.50/0.43/0.46
+[2018-04-12 20:16:52] Epoch: 75
+[2018-04-12 20:16:55] Accuracy/Precision/Recall/F1-score on a random training batch:   1.00/1.00/1.00/1.00
+[2018-04-12 20:16:55] Accuracy/Precision/Recall/F1-score on a random validation batch: 0.91/0.44/0.50/0.47
+[2018-04-12 20:16:55] Epoch: 76
+[2018-04-12 20:16:59] Accuracy/Precision/Recall/F1-score on a random training batch:   0.99/0.80/1.00/0.89
+[2018-04-12 20:16:59] Accuracy/Precision/Recall/F1-score on a random validation batch: 0.95/1.00/0.55/0.71
+[2018-04-12 20:16:59] Epoch: 77
+[2018-04-12 20:17:03] Accuracy/Precision/Recall/F1-score on a random training batch:   1.00/1.00/1.00/1.00
+[2018-04-12 20:17:03] Accuracy/Precision/Recall/F1-score on a random validation batch: 0.93/0.67/0.60/0.63
+[2018-04-12 20:17:03] Epoch: 78
+[2018-04-12 20:17:07] Accuracy/Precision/Recall/F1-score on a random training batch:   1.00/1.00/1.00/1.00
+[2018-04-12 20:17:07] Accuracy/Precision/Recall/F1-score on a random validation batch: 0.90/0.44/0.44/0.44
+[2018-04-12 20:17:07] Epoch: 79
+[2018-04-12 20:17:11] Accuracy/Precision/Recall/F1-score on a random training batch:   1.00/1.00/1.00/1.00
+[2018-04-12 20:17:11] Accuracy/Precision/Recall/F1-score on a random validation batch: 0.88/0.40/0.40/0.40
+[2018-04-12 20:17:11] Epoch: 80
+[2018-04-12 20:17:15] Accuracy/Precision/Recall/F1-score on a random training batch:   1.00/1.00/1.00/1.00
+[2018-04-12 20:17:15] Accuracy/Precision/Recall/F1-score on a random validation batch: 0.96/1.00/0.43/0.60
+[2018-04-12 20:17:15] Epoch: 81
+[2018-04-12 20:17:19] Accuracy/Precision/Recall/F1-score on a random training batch:   1.00/1.00/1.00/1.00
+[2018-04-12 20:17:19] Accuracy/Precision/Recall/F1-score on a random validation batch: 0.94/0.83/0.50/0.62
+[2018-04-12 20:17:19] Epoch: 82
+[2018-04-12 20:17:23] Accuracy/Precision/Recall/F1-score on a random training batch:   1.00/1.00/1.00/1.00
+[2018-04-12 20:17:23] Accuracy/Precision/Recall/F1-score on a random validation batch: 0.90/0.58/0.58/0.58
+[2018-04-12 20:17:23] Epoch: 83
+[2018-04-12 20:17:26] Accuracy/Precision/Recall/F1-score on a random training batch:   1.00/1.00/1.00/1.00
+[2018-04-12 20:17:26] Accuracy/Precision/Recall/F1-score on a random validation batch: 0.93/0.75/0.33/0.46
+[2018-04-12 20:17:26] Epoch: 84
+[2018-04-12 20:17:30] Accuracy/Precision/Recall/F1-score on a random training batch:   1.00/1.00/1.00/1.00
+[2018-04-12 20:17:30] Accuracy/Precision/Recall/F1-score on a random validation batch: 0.92/0.88/0.50/0.64
+[2018-04-12 20:17:30] Epoch: 85
+[2018-04-12 20:17:34] Accuracy/Precision/Recall/F1-score on a random training batch:   0.99/1.00/0.94/0.97
+[2018-04-12 20:17:34] Accuracy/Precision/Recall/F1-score on a random validation batch: 0.97/1.00/0.62/0.77
+[2018-04-12 20:17:34] Epoch: 86
+[2018-04-12 20:17:38] Accuracy/Precision/Recall/F1-score on a random training batch:   1.00/1.00/1.00/1.00
+[2018-04-12 20:17:38] Accuracy/Precision/Recall/F1-score on a random validation batch: 0.95/0.62/0.71/0.67
+[2018-04-12 20:17:38] Epoch: 87
+[2018-04-12 20:17:42] Accuracy/Precision/Recall/F1-score on a random training batch:   1.00/1.00/1.00/1.00
+[2018-04-12 20:17:42] Accuracy/Precision/Recall/F1-score on a random validation batch: 0.92/0.56/0.56/0.56
+[2018-04-12 20:17:42] Epoch: 88
+[2018-04-12 20:17:46] Accuracy/Precision/Recall/F1-score on a random training batch:   1.00/1.00/1.00/1.00
+[2018-04-12 20:17:46] Accuracy/Precision/Recall/F1-score on a random validation batch: 0.94/0.86/0.55/0.67
+[2018-04-12 20:17:46] Epoch: 89
+[2018-04-12 20:17:50] Accuracy/Precision/Recall/F1-score on a random training batch:   1.00/1.00/1.00/1.00
+[2018-04-12 20:17:50] Accuracy/Precision/Recall/F1-score on a random validation batch: 0.91/0.33/0.29/0.31
+[2018-04-12 20:17:50] Epoch: 90
+[2018-04-12 20:17:55] Accuracy/Precision/Recall/F1-score on a random training batch:   1.00/1.00/1.00/1.00
+[2018-04-12 20:17:55] Accuracy/Precision/Recall/F1-score on a random validation batch: 0.95/0.70/0.78/0.74
+[2018-04-12 20:17:55] Epoch: 91
+[2018-04-12 20:17:58] Accuracy/Precision/Recall/F1-score on a random training batch:   1.00/1.00/1.00/1.00
+[2018-04-12 20:17:58] Accuracy/Precision/Recall/F1-score on a random validation batch: 0.94/0.50/0.33/0.40
+[2018-04-12 20:17:58] Epoch: 92
+[2018-04-12 20:18:02] Accuracy/Precision/Recall/F1-score on a random training batch:   0.99/1.00/0.90/0.95
+[2018-04-12 20:18:02] Accuracy/Precision/Recall/F1-score on a random validation batch: 0.95/0.75/0.43/0.55
+[2018-04-12 20:18:02] Epoch: 93
+[2018-04-12 20:18:06] Accuracy/Precision/Recall/F1-score on a random training batch:   1.00/1.00/1.00/1.00
+[2018-04-12 20:18:06] Accuracy/Precision/Recall/F1-score on a random validation batch: 0.97/1.00/0.57/0.73
+[2018-04-12 20:18:06] Epoch: 94
+[2018-04-12 20:18:10] Accuracy/Precision/Recall/F1-score on a random training batch:   1.00/1.00/1.00/1.00
+[2018-04-12 20:18:10] Accuracy/Precision/Recall/F1-score on a random validation batch: 0.96/0.70/0.88/0.78
+[2018-04-12 20:18:10] Epoch: 95
+[2018-04-12 20:18:13] Accuracy/Precision/Recall/F1-score on a random training batch:   1.00/1.00/1.00/1.00
+[2018-04-12 20:18:13] Accuracy/Precision/Recall/F1-score on a random validation batch: 0.92/0.71/0.45/0.56
+[2018-04-12 20:18:13] Epoch: 96
+[2018-04-12 20:18:17] Accuracy/Precision/Recall/F1-score on a random training batch:   1.00/1.00/1.00/1.00
+[2018-04-12 20:18:17] Accuracy/Precision/Recall/F1-score on a random validation batch: 0.92/0.33/0.14/0.20
+[2018-04-12 20:18:17] Epoch: 97
+[2018-04-12 20:18:21] Accuracy/Precision/Recall/F1-score on a random training batch:   1.00/1.00/1.00/1.00
+[2018-04-12 20:18:21] Accuracy/Precision/Recall/F1-score on a random validation batch: 0.97/0.67/0.50/0.57
+[2018-04-12 20:18:21] Epoch: 98
+[2018-04-12 20:18:25] Accuracy/Precision/Recall/F1-score on a random training batch:   1.00/1.00/1.00/1.00
+[2018-04-12 20:18:25] Accuracy/Precision/Recall/F1-score on a random validation batch: 0.92/0.62/0.50/0.56
+[2018-04-12 20:18:25] Epoch: 99
+[2018-04-12 20:18:28] Accuracy/Precision/Recall/F1-score on a random training batch:   1.00/1.00/1.00/1.00
+[2018-04-12 20:18:28] Accuracy/Precision/Recall/F1-score on a random validation batch: 0.95/1.00/0.29/0.44
+[2018-04-12 20:18:28] Training finished.
+[2018-04-12 20:18:28] Saving model to file experiments/basic_network_h2_d03_l001_e100_mptp2078/model/2018-04-12_201828--m=network,lr=0.001,nof=4096,hl=100,bs=100,e=100,d=False,a=relu,d=0.3,l=2
