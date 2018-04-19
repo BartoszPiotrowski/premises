@@ -335,6 +335,8 @@ class Rankings:
             assert 'features' in params
             chronology = params['chronology']
             features = params['features']
+            if not 'dual' in params:
+                params['dual'] = False
             params_small = {'merge_mode': params['merge_mode'],
                             'num_of_features': params['num_of_features'],
                             'dual': params['dual']}
