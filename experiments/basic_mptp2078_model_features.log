@@ -25,3 +25,16 @@
 [2018-04-17 13:07:37] Transformation finished.
 [2018-04-17 13:12:12] Training of xgboost model started...
 [2018-04-17 19:55:54] Training finished.
+[2018-04-19 12:02:21] Statements of 4564 theorems and definitions loaded.
+[2018-04-19 12:02:22] Features of 4564 thms and definitions loaded.
+[2018-04-19 12:02:26] Chronological order of 4564 thms and definitions loaded.
+[2018-04-19 12:02:26] Proofs of 1000 theorems loaded.
+[2018-04-19 12:02:26] Transforming proofs of 1000 theorems to training data...
+[2018-04-19 12:02:26]     Number of features used: 10241 / 10241
+[2018-04-19 12:02:26]     Mode of combining theorems and premises to examples: merge_mode=concat
+[2018-04-19 12:02:26]     Negatives to positive ratio: 128
+[2018-04-19 12:02:26]     No negative mining.
+[2018-04-19 12:05:35] Transformation finished.
+[2018-04-19 12:08:08] Training of xgboost model started...
+[2018-04-19 18:49:59] Training finished.
+[2018-04-19 18:49:59] Saving model to file models/2018-04-19_184959--m=xgboost,nbr=10000
