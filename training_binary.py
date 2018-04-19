@@ -6,11 +6,11 @@ from .utils import printline, make_path
 
 
 def train(labels, array, labels_valid=None, array_valid=None, params={},
-          pretrained_model_path=None, n_jobs=4, model_dir='',
+          pretrained_model_path=None, n_jobs=4, model_dir='models',
           verbose=True, logdir='', logfile=''):
     assert isinstance(labels, list)
     params['model'] = 'xgboost' if 'model' not in params else params['model']
-    if model_dir and not os.path.exists(model_dir):
+    if not os.path.exists(model_dir):
         os.mkdir(model_dir)
     if logdir:
         if not os.path.exists(logdir):
@@ -49,11 +49,10 @@ def train_xgboost(labels, array, labels_valid, array_valid, params,
                       xgb_model=pretrained_model_path)
     if verbose or logfile:
         printline("Training finished.", logfile, verbose)
-    if model_dir:
-        model_path = make_path(model_dir, params)
-        if verbose or logfile:
-            printline("Saving model to file {}".format(model_path),
-                      logfile, verbose)
+    model_path = make_path(model_dir, params)
+    if verbose or logfile:
+        printline("Saving model to file {}".format(model_path),
+                  logfile, verbose)
         model.save_model(model_path)
     return model_path
 
