@@ -387,7 +387,7 @@ class Rankings:
                              for thm in rankings_with_scores}
 
     def ranking_from_model(self, thm, model, available_premises, features,
-                           params, model_type=None, save_to_dir=None):
+                           params, model_type='xgboost', save_to_dir=None):
         time0 = time()
         assert len(available_premises)
         features_thm = features[thm]
