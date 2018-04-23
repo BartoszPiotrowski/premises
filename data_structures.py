@@ -389,6 +389,8 @@ class Rankings:
     def ranking_from_model(self, thm, model, available_premises, features,
                            params, model_type='xgboost', save_to_dir=None):
         time0 = time()
+        if not model_type:
+            model_type = 'xgboost'
         assert len(available_premises)
         features_thm = features[thm]
         pairs = [(features_thm, features[prm])
