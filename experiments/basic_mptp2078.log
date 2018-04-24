@@ -75,3 +75,60 @@
 [2018-04-19 12:01:46] Transformation finished.
 [2018-04-19 12:01:56] Training of xgboost model started...
 [2018-04-19 12:31:36] Training finished.
+[2018-04-19 20:02:47] Statements of 4564 theorems and definitions loaded.
+[2018-04-19 20:02:47] Features of 4564 thms and definitions loaded.
+[2018-04-19 20:02:47] Chronological order of 4564 thms and definitions loaded.
+[2018-04-19 20:02:47] Proofs of 1000 theorems loaded.
+[2018-04-19 20:02:47] Transforming proofs of 1000 theorems to training data...
+[2018-04-19 20:02:47]     Number of features used: 10241 / 10241
+[2018-04-19 20:02:47]     Mode of combining theorems and premises to examples: merge_mode=concat
+[2018-04-19 20:02:47]     Negatives to positive ratio: 128
+[2018-04-19 20:02:47]     No negative mining.
+[2018-04-19 20:02:52] Transformation finished.
+[2018-04-19 20:03:02] Training of xgboost model started...
+[2018-04-19 20:32:27] Training finished.
+[2018-04-19 20:32:27] Saving model to file models/2018-04-19_203227--nbr=10000,m=xgboost
+[2018-04-19 20:32:28] Creating rankings of premises from the trained model for 342 theorems...
+[2018-04-20 11:34:35] Statements of 4564 theorems and definitions loaded.
+[2018-04-20 11:34:35] Features of 4564 thms and definitions loaded.
+[2018-04-20 11:34:35] Chronological order of 4564 thms and definitions loaded.
+[2018-04-20 11:34:35] Proofs of 1000 theorems loaded.
+[2018-04-20 11:34:35] Transforming proofs of 1000 theorems to training data...
+[2018-04-20 11:34:35]     Number of features used: 10241 / 10241
+[2018-04-20 11:34:35]     Mode of combining theorems and premises to examples: merge_mode=concat
+[2018-04-20 11:34:35]     Negatives to positive ratio: 128
+[2018-04-20 11:34:35]     No negative mining.
+[2018-04-20 11:34:40] Transformation finished.
+[2018-04-20 11:34:49] Training of xgboost model started...
+[2018-04-20 12:04:35] Training finished.
+[2018-04-20 12:04:35] Saving model to file models/2018-04-20_120435--m=xgboost,nbr=10000
+[2018-04-20 12:04:35] Creating rankings of premises from the trained model for 342 theorems...
+[2018-04-23 11:10:11] Statements of 4564 theorems and definitions loaded.
+[2018-04-23 11:10:11] Features of 4564 thms and definitions loaded.
+[2018-04-23 11:10:11] Chronological order of 4564 thms and definitions loaded.
+[2018-04-23 11:10:11] Proofs of 1000 theorems loaded.
+[2018-04-23 11:10:11] Transforming proofs of 1000 theorems to training data...
+[2018-04-23 11:10:11]     Number of features used: 10241 / 10241
+[2018-04-23 11:10:11]     Mode of combining theorems and premises to examples: merge_mode=concat
+[2018-04-23 11:10:11]     Negatives to positive ratio: 128
+[2018-04-23 11:10:11]     No negative mining.
+[2018-04-23 11:10:18] Transformation finished.
+[2018-04-23 11:10:27] Training of xgboost model started...
+[2018-04-23 14:18:03] Training finished.
+[2018-04-23 14:18:03] Saving model to file models/2018-04-23_141803--nbr=10000,m=xgboost
+[2018-04-23 14:18:03] Creating rankings of premises from the trained model for 342 theorems...
+[2018-04-23 14:19:25] Rankings created.
+[2018-04-23 14:19:25] ATP evaluation started...
+[2018-04-23 14:24:59]     Number of proved theorems: 279
+[2018-04-23 14:24:59]     Percentage of proved theorems: 81.58%
+[2018-04-23 14:24:59] Number of all theorems with proof(s): 279
+[2018-04-23 14:24:59] Number of all proofs: 544
+[2018-04-23 14:24:59] Number of theorems with exactly 1 proof(s): 132
+[2018-04-23 14:24:59] Number of theorems with exactly 2 proof(s): 75
+[2018-04-23 14:24:59] Number of theorems with exactly 3 proof(s): 39
+[2018-04-23 14:24:59] Number of theorems with exactly 4 proof(s): 23
+[2018-04-23 14:24:59] Number of theorems with exactly 5 proof(s): 7
+[2018-04-23 14:24:59] Number of theorems with exactly 6 proof(s): 3
+[2018-04-23 14:24:59] Average number of proofs per theorem: 1.950
+[2018-04-23 14:24:59] Average number of premises used in one proof: 5.801
+[2018-04-23 14:24:59] Theorems with maximal number of proofs found: ['t130_enumset1', 't128_relat_1', 't27_zfmisc_1']
