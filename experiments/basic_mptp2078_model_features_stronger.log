@@ -7,3 +7,23 @@
 [2018-04-24 12:42:29]     Mode of combining theorems and premises to examples: merge_mode=concat
 [2018-04-24 12:42:29]     Negatives to positive ratio: 128
 [2018-04-24 12:42:29]     No negative mining.
+[2018-04-24 12:43:13] Transformation finished.
+[2018-04-24 12:45:37] Training of xgboost model started...
+[2018-04-25 03:31:34] Training finished.
+[2018-04-25 03:31:34] Saving model to file models/2018-04-25_033134--m=xgboost,md=15,nbr=15000
+[2018-04-25 03:31:34] Creating rankings of premises from the trained model for 342 theorems...
+[2018-04-25 03:36:02] Rankings created.
+[2018-04-25 03:36:02] ATP evaluation started...
+[2018-04-25 03:41:01]     Number of proved theorems: 279
+[2018-04-25 03:41:01]     Percentage of proved theorems: 81.58%
+[2018-04-25 03:41:01] Number of all theorems with proof(s): 279
+[2018-04-25 03:41:01] Number of all proofs: 542
+[2018-04-25 03:41:01] Number of theorems with exactly 1 proof(s): 127
+[2018-04-25 03:41:01] Number of theorems with exactly 2 proof(s): 78
+[2018-04-25 03:41:01] Number of theorems with exactly 3 proof(s): 47
+[2018-04-25 03:41:01] Number of theorems with exactly 4 proof(s): 19
+[2018-04-25 03:41:01] Number of theorems with exactly 5 proof(s): 6
+[2018-04-25 03:41:01] Number of theorems with exactly 6 proof(s): 2
+[2018-04-25 03:41:01] Average number of proofs per theorem: 1.943
+[2018-04-25 03:41:01] Average number of premises used in one proof: 6.120
+[2018-04-25 03:41:01] Theorems with maximal number of proofs found: ['t60_relat_1', 't171_relat_1']
