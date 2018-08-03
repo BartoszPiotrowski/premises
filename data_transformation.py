@@ -44,7 +44,10 @@ def proofs_to_train_n_thms(thms, proofs, params):
         labels_thm, pairs_thm = thm_to_labels_and_pairs(thm, proofs, params)
         labels.extend(labels_thm)
         pairs.extend(pairs_thm)
-    array = pairs_to_array(pairs, params)
+    if 'binary' in params and not params['binary']:
+        array = np.array([t + p for (t,p) in pairs])
+    else:
+        array = pairs_to_array(pairs, params)
     return labels, array
 
 def thm_to_labels_and_pairs(thm, proofs, params):

@@ -4,21 +4,35 @@ from .data_transformation import pairs_to_array
 import os, sys
 from joblib import Parallel, delayed
 import xgboost
+import numpy as np
 from random import sample
 from time import time
 
 
 class Features:
-    def __init__(self, from_dict={}, from_file='', verbose=True, logfile=''):
-        if from_file:
-            f_dict = read_dict(from_file, type_of_values=list)
-        elif from_dict:
-            f_dict = from_dict
+    def __init__(self, from_dict={}, from_file='', binary=True, names='',
+                 verbose=True, logfile=''):
+        if not binary:
+            with open(names, 'r') as n:
+                names = n.read().splitlines()
+            with open(from_file, 'r') as f:
+                lines = f.read().splitlines()
+            numbers = [[float(n) for n in l.split(',')] for l in lines]
+            self.features = dict(zip(names, numbers))
+            self.order_of_features = ''
+            self.num_of_features = 0
+
         else:
-            print("Error: provide file or dictionary with features.")
-        self.features = {f: set(f_dict[f]) for f in f_dict}
-        self.order_of_features = self.all_features()
-        self.num_of_features = len(self.order_of_features)
+            if from_file:
+                f_dict = read_dict(from_file, type_of_values=list)
+            elif from_dict:
+                f_dict = from_dict
+            else:
+                print("Error: provide file or dictionary with features.")
+            # self.features = {f: set(f_dict[f]) for f in f_dict}
+            self.features = {f: f_dict[f] for f in f_dict}
+            self.order_of_features = self.all_features()
+            self.num_of_features = len(self.order_of_features)
 
         if verbose or logfile:
             message = "Features of {} thms and definitions loaded.".format(
@@ -339,7 +353,8 @@ class Rankings:
                 params['dual'] = False
             params_small = {'merge_mode': params['merge_mode'],
                             'num_of_features': params['num_of_features'],
-                            'dual': params['dual']}
+                            'dual': params['dual'],
+                            'binary': params['binary']}
             thms = [t for t in thms if len(chronology.available_premises(t))]
             if verbose or logfile:
                 message = ("Creating rankings of premises from the trained model "
@@ -417,7 +432,13 @@ class Rankings:
 
     def score_pairs_xgb(self, pairs, model_path, params):
         assert len(pairs)
-        array = pairs_to_array(pairs, params)
+        print(params)
+        if 'binary' in params and not params['binary']:
+            print('aaaaaaa')
+            array = np.array([t + p for (t,p) in pairs])
+        else:
+            print('bbbbbbb')
+            array = pairs_to_array(pairs, params)
         array = xgboost.DMatrix(array)
         model = xgboost.Booster()
         model.load_model(model_path)
