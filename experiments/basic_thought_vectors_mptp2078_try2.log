@@ -1,0 +1,28 @@
+[2018-08-04 19:46:33] Statements of 4564 theorems and definitions loaded.
+[2018-08-04 19:46:33] Features of 4564 thms and definitions loaded.
+[2018-08-04 19:46:33] Chronological order of 4564 thms and definitions loaded.
+[2018-08-04 19:46:33] Proofs of 1000 theorems loaded.
+[2018-08-04 19:46:33] Transforming proofs of 1000 theorems to training data...
+[2018-08-04 19:46:33]     Number of features used: 0 / 0
+[2018-08-04 19:46:33]     Mode of combining theorems and premises to examples: merge_mode=concat
+[2018-08-04 19:46:33]     Negatives to positive ratio: 128
+[2018-08-04 19:46:33]     No negative mining.
+[2018-08-04 19:46:41] Transformation finished.
+[2018-08-04 19:46:43] Training of xgboost model started...
+[2018-08-04 22:49:35] Training finished.
+[2018-08-04 22:49:35] Saving model to file models/2018-08-04_224935--md=10,nbr=5000,m=xgboost,e=0.1
+[2018-08-04 22:49:35] Creating rankings of premises from the trained model for 342 theorems...
+[2018-08-04 22:50:30] Rankings created.
+[2018-08-04 22:50:30] ATP evaluation started...
+[2018-08-04 22:56:20]     Number of proved theorems: 259
+[2018-08-04 22:56:20]     Percentage of proved theorems: 75.73%
+[2018-08-04 22:56:20] Number of all theorems with proof(s): 259
+[2018-08-04 22:56:20] Number of all proofs: 456
+[2018-08-04 22:56:20] Number of theorems with exactly 1 proof(s): 138
+[2018-08-04 22:56:20] Number of theorems with exactly 2 proof(s): 65
+[2018-08-04 22:56:20] Number of theorems with exactly 3 proof(s): 38
+[2018-08-04 22:56:20] Number of theorems with exactly 4 proof(s): 16
+[2018-08-04 22:56:20] Number of theorems with exactly 5 proof(s): 2
+[2018-08-04 22:56:20] Average number of proofs per theorem: 1.761
+[2018-08-04 22:56:20] Average number of premises used in one proof: 5.794
+[2018-08-04 22:56:20] Theorems with maximal number of proofs found: ['t137_enumset1', 't130_enumset1']

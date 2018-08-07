@@ -1,0 +1,11 @@
+[2018-08-07 15:34:54] Statements of 4564 theorems and definitions loaded.
+[2018-08-07 15:34:54] Features of 4564 thms and definitions loaded.
+[2018-08-07 15:34:54] Chronological order of 4564 thms and definitions loaded.
+[2018-08-07 15:34:54] Proofs of 1000 theorems loaded.
+[2018-08-07 15:34:54] Transforming proofs of 1000 theorems to training data...
+[2018-08-07 15:34:54]     Number of features used: 0 / 0
+[2018-08-07 15:34:54]     Mode of combining theorems and premises to examples: merge_mode=concat
+[2018-08-07 15:34:54]     Negatives to positive ratio: 128
+[2018-08-07 15:34:54]     No negative mining.
+[2018-08-07 15:35:00] Transformation finished.
+[2018-08-07 15:35:01] Training of xgboost model started...
