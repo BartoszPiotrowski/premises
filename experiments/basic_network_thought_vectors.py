@@ -1,29 +1,33 @@
 import sys, os
+from os.path import join
 from random import sample
 sys.path.append('..')
 import premises as prs
 
 
 N_JOBS = 45
-DATA_DIR = 'data/MPTP2078'
+#DATA_DIR = 'data/MPTP2078'
+DATA_DIR = 'data/debug_data'
 OUTPUT_DIR = __file__.strip('.py')
 if not os.path.exists(OUTPUT_DIR):
     os.mkdir(OUTPUT_DIR)
 LOG_FILE = __file__.replace('.py', '.log')
-ATP_DIR = os.path.join(OUTPUT_DIR, 'atp')
-LOG_DIR = os.path.join(OUTPUT_DIR, 'logs')
-MODEL_DIR = os.path.join(OUTPUT_DIR, 'model')
+ATP_DIR = join(OUTPUT_DIR, 'atp')
+LOG_DIR = join(OUTPUT_DIR, 'logs')
+MODEL_DIR = join(OUTPUT_DIR, 'model')
 
 
-statements = prs.Statements(from_file=os.path.join(DATA_DIR, 'statements'),
+statements = prs.Statements(from_file=join(DATA_DIR, 'statements'),
                             logfile=LOG_FILE)
-features = prs.Features(from_file=os.path.join(DATA_DIR, 'thought_vectors_256'),
+features = prs.Features(from_file=join(DATA_DIR, 'thought_vectors'),
+                        names=join(DATA_DIR, 'statements_names'),
+                        binary=False,
                         logfile=LOG_FILE)
-chronology = prs.Chronology(from_file=os.path.join(DATA_DIR, 'chronology'),
+chronology = prs.Chronology(from_file=join(DATA_DIR, 'chronology'),
                             logfile=LOG_FILE)
-proofs_train = prs.Proofs(from_file=os.path.join(DATA_DIR, 'atpproved.train'),
+proofs_train = prs.Proofs(from_file=join(DATA_DIR, 'atpproved.train'),
                           logfile=LOG_FILE)
-proofs_test = prs.Proofs(from_file=os.path.join(DATA_DIR, 'atpproved.test'),
+proofs_test = prs.Proofs(from_file=join(DATA_DIR, 'atpproved.test'),
                           logfile=LOG_FILE)
 train_theorems = set(proofs_train)
 test_theorems = set(proofs_test)
