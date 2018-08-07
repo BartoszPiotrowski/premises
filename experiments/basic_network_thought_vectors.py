@@ -29,10 +29,10 @@ train_theorems = set(proofs_train)
 test_theorems = set(proofs_test)
 
 params_data_trans = {'features': features,
-                     'num_of_features': 0.2,
                      'chronology': chronology,
-                     'ratio_neg_pos': 10,
-                     'merge_mode': 'concat'}
+                     'ratio_neg_pos': 64,
+                     'sparse': False,
+                     'binary': False}
 train_labels, train_array = prs.proofs_to_train(proofs_train, params_data_trans,
                                                n_jobs=N_JOBS, logfile=LOG_FILE)
 test_labels, test_array = prs.proofs_to_train(proofs_test, params_data_trans,
