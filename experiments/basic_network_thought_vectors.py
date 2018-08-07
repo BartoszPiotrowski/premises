@@ -6,8 +6,8 @@ import premises as prs
 
 
 N_JOBS = 45
-#DATA_DIR = 'data/MPTP2078'
-DATA_DIR = 'data/debug_data'
+DATA_DIR = 'data/MPTP2078'
+#DATA_DIR = 'data/debug_data'
 OUTPUT_DIR = __file__.strip('.py')
 if not os.path.exists(OUTPUT_DIR):
     os.mkdir(OUTPUT_DIR)
@@ -50,6 +50,7 @@ params_train = {'model': 'network',
                 'layers': 1,
                 'hidden_layer': 100,
                 'dropout': 0.3,
+                'dense': True,
                 'num_of_features': train_array.shape[1]}
 
 model_path = prs.train(train_labels, train_array, test_labels, test_array,

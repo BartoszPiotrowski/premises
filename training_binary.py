@@ -86,18 +86,32 @@ def train_network(labels, array, labels_valid, array_valid, params,
             batch_indices = permut_indices[j * bs : (j + 1) * bs]
             labels_batch = [labels[i] for i in batch_indices]
             if params['dual']:
-                array_batch = [array[0][batch_indices].toarray(),
-                               array[1][batch_indices].toarray()]
+                if params['dense']:
+                    array_batch = [array[0][batch_indices],
+                                   array[1][batch_indices]]
+                else:
+                    array_batch = [array[0][batch_indices].toarray(),
+                                   array[1][batch_indices].toarray()]
             else:
-                array_batch = array[batch_indices].toarray()
+                if params['dense']:
+                    array_batch = array[batch_indices]
+                else:
+                    array_batch = array[batch_indices].toarray()
             network.train(array_batch, labels_batch)
         # How is it going on training set?
         batch_indices = np.random.choice(len(labels), params['batch_size'])
         if params['dual']:
-            array_batch = [array[0][batch_indices].toarray(),
-                           array[1][batch_indices].toarray()]
+            if params['dense']:
+                array_batch = [array[0][batch_indices],
+                               array[1][batch_indices]]
+            else:
+                array_batch = [array[0][batch_indices].toarray(),
+                               array[1][batch_indices].toarray()]
         else:
-            array_batch = array[batch_indices].toarray()
+            if params['dense']:
+                array_batch = array[batch_indices]
+            else:
+                array_batch = array[batch_indices].toarray()
         labels_batch = [labels[i] for i in batch_indices]
         accuracy = network.evaluate_accuracy(array_batch, labels_batch)
         recall = network.evaluate_recall(array_batch, labels_batch)
@@ -107,15 +121,22 @@ def train_network(labels, array, labels_valid, array_valid, params,
             "Accuracy/Precision/Recall/F1-score on a random training batch: "
             "  {:.2f}/{:.2f}/{:.2f}/{:.2f}".format(
                 accuracy, precision, recall, f1_score), logfile)
-        if not labels_valid == None and not array_valid == None:
+        if not labels_valid == None:
             # How is it going on validation set?
             batch_indices = np.random.choice(
                 len(labels_valid), params['batch_size'])
             if params['dual']:
-                array_batch = [array_valid[0][batch_indices].toarray(),
-                               array_valid[1][batch_indices].toarray()]
+                if params['dense']:
+                    array_batch = [array_valid[0][batch_indices],
+                                   array_valid[1][batch_indices]]
+                else:
+                    array_batch = [array_valid[0][batch_indices].toarray(),
+                                   array_valid[1][batch_indices].toarray()]
             else:
-                array_batch = array_valid[batch_indices].toarray()
+                if params['dense']:
+                    array_batch = array_valid[batch_indices]
+                else:
+                    array_batch = array_valid[batch_indices].toarray()
             labels_batch = [labels_valid[i] for i in batch_indices]
             #network.evaluate_summaries(array_batch, labels_batch)
             accuracy = network.evaluate_accuracy(array_batch, labels_batch)
