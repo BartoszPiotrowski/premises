@@ -434,10 +434,8 @@ class Rankings:
         assert len(pairs)
         print(params)
         if 'binary' in params and not params['binary']:
-            print('aaaaaaa')
             array = np.array([t + p for (t,p) in pairs])
         else:
-            print('bbbbbbb')
             array = pairs_to_array(pairs, params)
         array = xgboost.DMatrix(array)
         model = xgboost.Booster()
@@ -452,7 +450,10 @@ class Rankings:
                      pairs_to_array(pairs, params)[1].toarray()]
         else:
             from .construct_network import NetworkPredict
-            array = pairs_to_array(pairs, params).toarray()
+            if 'binary' in params and not params['binary']:
+                array = np.array([t + p for (t,p) in pairs])
+            else:
+                array = pairs_to_array(pairs, params).toarray()
         network = NetworkPredict(threads=4)
         network.load(model_path)
         preds = network.predict(array)
